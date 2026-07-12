@@ -35,7 +35,10 @@
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: var(--white); color: var(--ink); font-family: var(--font-body); overflow-x: hidden; }
   body { direction: rtl; }
-  h1, h2, h3 { font-family: var(--font-display); font-weight: 900; text-wrap: balance; margin: 0; color: var(--ink); }
+  h1, h2, h3 {
+    font-family: var(--font-display); font-weight: 900; text-wrap: balance; margin: 0; color: var(--ink);
+    transform: scaleX(0.82); transform-origin: center; letter-spacing: -0.01em;
+  }
   p { margin: 0; }
   img { max-width: 100%; display: block; }
   .wrap { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; }
