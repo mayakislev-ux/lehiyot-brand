@@ -182,17 +182,17 @@
      the white divider curve, with z-index below the curve so the curve caps it cleanly. */
   .hero-photo-col {
     position: absolute; z-index: 2; left: 2vw; bottom: 40px;
-    width: 54vw; min-width: 460px; max-width: 1350px;
+    height: min(58vh, 600px); max-width: 90vw;
     display: flex; justify-content: flex-start; align-items: flex-end;
   }
-  .hero-photo-frame { position: relative; width: 100%; }
+  .hero-photo-frame { position: relative; height: 100%; }
   .hero-photo-frame::before {
     content: ""; position: absolute; z-index: 0; left: 50%; top: 42%; transform: translate(-50%, -50%);
     width: 115%; height: 80%; border-radius: 50%; pointer-events: none;
     background: radial-gradient(circle, rgba(255,255,255,0.35), rgba(255,255,255,0) 68%);
     filter: blur(30px);
   }
-  .hero-photo-frame img { position: relative; z-index: 1; display: block; width: 100%; height: auto; object-fit: contain; filter: drop-shadow(0 30px 45px rgba(0,0,0,0.45)); }
+  .hero-photo-frame img { position: relative; z-index: 1; display: block; height: 100%; width: auto; max-width: none; object-fit: contain; filter: drop-shadow(0 30px 45px rgba(0,0,0,0.45)); }
   .hero-seal {
     position: absolute; z-index: 4; bottom: 2%; left: -4%; width: 100px; height: 100px; border-radius: 50%;
     background: var(--white); border: 3px dashed var(--sec-b); transform: rotate(-8deg);
