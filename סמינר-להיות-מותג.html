@@ -160,8 +160,10 @@
     .circle-cut { width: 180%; height: 60px; }
   }
 
-  .hero-inner { position: relative; z-index: 2; max-width: 1220px; margin: 0 auto; padding: 0 4vw; display: flex; align-items: center; justify-content: flex-end; width: 100%; }
-  .hero-text-col { flex: 0 1 460px; max-width: 460px; text-align: right; }
+  /* pinned to the right edge with a guaranteed fixed offset — independent of the
+     photo's own width, so the two can never mathematically collide. */
+  .hero-inner { position: absolute; z-index: 2; top: 50%; right: 4vw; transform: translateY(-50%); width: auto; }
+  .hero-text-col { width: min(460px, 38vw); text-align: right; }
   .hero-title { font-size: clamp(2.3rem, 1.3rem + 3.6vw, 4rem); line-height: 1.08; margin: 0 0 1.6rem; }
   .hero-title .l1 { display: block; color: var(--white); white-space: nowrap; }
   .hero-title .l2 { display: block; color: var(--white); white-space: nowrap; }
@@ -179,8 +181,8 @@
      constrained by the text column — anchored to the very bottom of the section
      so it visually meets/overlaps the white divider curve below. */
   .hero-photo-col {
-    position: absolute; z-index: 2; left: 0; bottom: 0;
-    width: 60vw; min-width: 520px; max-width: 1500px;
+    position: absolute; z-index: 2; left: 3vw; bottom: 0;
+    width: 52vw; min-width: 480px; max-width: 1300px;
     display: flex; justify-content: flex-start; align-items: flex-end;
   }
   .hero-photo-frame { position: relative; width: 100%; }
@@ -211,7 +213,7 @@
   .ig-card-1 img { height: 108px; }
   /* the "cover" card — hides the hard-cut left edge of the photo, so it stays fully opaque */
   .ig-card-2 {
-    top: 28%; left: -7%; width: 230px; transform: rotate(9deg);
+    top: 28%; left: -2%; width: 230px; transform: rotate(9deg);
     background: var(--white); backdrop-filter: none; -webkit-backdrop-filter: none; opacity: 1;
     box-shadow: 0 22px 40px rgba(20,6,38,0.5); z-index: 5;
   }
