@@ -48,7 +48,7 @@
     --hero-text-top:   32%;    /* מיקום אנכי (% מגובה הסקשן) */
 
     /* --- הכרטיסייה הגדולה שמכסה את היד החתוכה (ig-card-2) --- */
-    --card2-left: 15%;   /* מספר גדול יותר = הכרטיסייה זזה ימינה, לתוך התמונה */
+    --card2-left: -4%;   /* מספר גדול יותר = הכרטיסייה זזה ימינה, לתוך התמונה */
     --card2-top:  43%;   /* מיקום אנכי בתוך אזור התמונה */
     --card2-size: 247px; /* גודל הכרטיסייה */
   }
@@ -246,7 +246,7 @@
      stacking context entirely, so it can sit visibly on top of the next section too. */
   .ig-card-3 {
     position: absolute; z-index: 999;
-    top: calc(clamp(660px, 68vh, 720px) - 55px); left: 55%;
+    top: calc(clamp(660px, 68vh, 720px) - 130px); left: 55%;
     width: 100px; transform: rotate(-9deg);
   }
   .ig-card-3 img { height: 84px; }
