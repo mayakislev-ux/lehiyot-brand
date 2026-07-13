@@ -32,6 +32,28 @@
     --font-body: "Heebo", "Segoe UI", sans-serif;
   }
 
+  /* =====================================================================
+     EASY CONTROLS — HERO SECTION (סקשן 1)
+     שני את המספרים כאן בלבד כדי לכוונן את הסקשן הראשון. שמרי (Ctrl+S)
+     ותראי שינוי מיד (עם Live Server). אין צורך לגעת בשום מקום אחר בקובץ.
+     ===================================================================== */
+  :root {
+    /* --- התמונה הראשית (שח-מט) --- */
+    --hero-photo-height: min(58vh, 600px);  /* גודל התמונה - מספר גדול יותר = תמונה גדולה יותר */
+    --hero-photo-left:   2vw;               /* מרחק מהקצה השמאלי - מספר גדול יותר = יותר ימינה (פנימה) */
+    --hero-photo-bottom: 40px;              /* מרחק מהתחתית - מספר גדול יותר = התמונה עולה למעלה */
+
+    /* --- בלוק הטקסט (כותרת/כפתור) --- */
+    --hero-text-right: 22vw;   /* מרחק מהקצה הימני - מספר גדול יותר = הטקסט זז שמאלה (קרוב יותר לתמונה) */
+    --hero-text-top:   53%;    /* מיקום אנכי (% מגובה הסקשן) */
+
+    /* --- הכרטיסייה הגדולה שמכסה את היד החתוכה (ig-card-2) --- */
+    --card2-left: 10%;   /* מספר גדול יותר = הכרטיסייה זזה ימינה, לתוך התמונה */
+    --card2-top:  27%;   /* מיקום אנכי בתוך אזור התמונה */
+    --card2-size: 205px; /* גודל הכרטיסייה */
+  }
+  /* ===================================================================== */
+
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: var(--white); color: var(--ink); font-family: var(--font-body); overflow-x: hidden; }
   body { direction: rtl; }
@@ -162,7 +184,7 @@
 
   /* pinned to the right edge with a guaranteed fixed offset — independent of the
      photo's own width, so the two can never mathematically collide. */
-  .hero-inner { position: absolute; z-index: 2; top: 53%; right: 22vw; transform: translateY(-50%); width: auto; }
+  .hero-inner { position: absolute; z-index: 2; top: var(--hero-text-top); right: var(--hero-text-right); transform: translateY(-50%); width: auto; }
   .hero-text-col { width: 450px; max-width: 38vw; text-align: right; }
   .hero-title { font-size: clamp(2.625rem, 3vw, 3.875rem); line-height: 0.98; margin: 0 0 1.2rem; }
   .hero-title .l1 { display: block; color: var(--white); white-space: nowrap; }
@@ -181,8 +203,8 @@
      constrained by the text column — bottom edge sits just above/slightly into
      the white divider curve, with z-index below the curve so the curve caps it cleanly. */
   .hero-photo-col {
-    position: absolute; z-index: 2; left: 2vw; bottom: 40px;
-    height: min(58vh, 600px); max-width: 90vw;
+    position: absolute; z-index: 2; left: var(--hero-photo-left); bottom: var(--hero-photo-bottom);
+    height: var(--hero-photo-height); max-width: 90vw;
     display: flex; justify-content: flex-start; align-items: flex-end;
   }
   .hero-photo-frame { position: relative; height: 100%; }
@@ -213,11 +235,11 @@
   .ig-card-1 img { height: 101px; }
   /* the "cover" card — hides the hard-cut left edge of the photo, so it stays fully opaque */
   .ig-card-2 {
-    top: 27%; left: 10%; width: 205px; transform: rotate(9deg);
+    top: var(--card2-top); left: var(--card2-left); width: var(--card2-size); transform: rotate(9deg);
     background: var(--white); backdrop-filter: none; -webkit-backdrop-filter: none; opacity: 1;
     box-shadow: 0 22px 40px rgba(20,6,38,0.5); z-index: 5;
   }
-  .ig-card-2 img { height: 177px; }
+  .ig-card-2 img { height: calc(var(--card2-size) - 28px); }
   .ig-card-3 { bottom: -6%; right: 10%; width: 100px; transform: rotate(-9deg); }
   .ig-card-3 img { height: 84px; }
   /* far side, well clear of the figure */
