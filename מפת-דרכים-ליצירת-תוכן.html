@@ -445,6 +445,25 @@
     margin: 1.25rem auto 0;
   }
 
+  .next-step-cta {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0;
+    padding: 0.9rem 2rem;
+    border-radius: 999px;
+    background: linear-gradient(150deg, var(--gold), var(--gold-soft));
+    color: var(--canvas-edge);
+    font-family: var(--font-display);
+    font-weight: bold;
+    font-size: 1.05rem;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+    transition: transform 0.18s ease;
+  }
+
+  .next-step-cta:hover { transform: translateY(-3px); }
+
   @media (prefers-reduced-motion: no-preference) {
     .pill { transition: transform 0.18s ease, box-shadow 0.18s ease; }
     .pill:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.22); }
@@ -687,6 +706,8 @@
     </details>
 
   </div>
+
+  <a class="next-step-cta" href="מפת-דרכים-לתכנית-תוכן.html">📅 תכנית תוכן ↗</a>
 
   <p class="note">לחצו על כל שלב לפרטים המלאים והקישורים למדריכים.</p>
 
