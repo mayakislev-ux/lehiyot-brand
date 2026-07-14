@@ -257,24 +257,26 @@
   @media (max-width: 860px) {
     /* mobile: hero-stage becomes the stacking flex container itself —
        text first, photo below — driven by order, not DOM position. */
-    .hero-stage { flex-direction: column; min-height: 100vh; padding: 8.5rem 1rem 3rem; }
-    .hero-inner { order: 1; position: relative; max-width: none; padding: 0 5vw; justify-content: center; }
-    .hero-text-col { max-width: none; text-align: center; }
+    .hero-stage { flex-direction: column; align-items: stretch; min-height: auto; padding: 8.5rem 1rem 4rem; }
+    .hero-inner { order: 1; position: relative; top: auto; right: auto; transform: none; max-width: none; padding: 0 5vw; justify-content: center; }
+    .hero-text-col { width: 100%; max-width: none; text-align: center; }
     .hero-copy { text-align: center; }
     .hero-cta-block { text-align: center; }
-    .hero-title { font-size: clamp(2.3rem, 1.6rem + 3.6vw, 3.2rem); margin-bottom: 0; }
+    .hero-title { font-size: clamp(1.9rem, 1.2rem + 3vw, 2.7rem); margin-bottom: 0; }
     .hero-title .l1, .hero-title .l2 { white-space: normal; }
 
     .hero-photo-col {
       order: 2; position: relative; left: auto; bottom: auto;
       width: 100%; max-width: 300px; min-width: 0; margin: 1.6rem auto 0;
+      height: auto; display: block;
     }
+    .hero-photo-frame { width: 100%; height: auto; }
+    .hero-photo-frame img { width: 100%; height: auto; max-width: 100%; }
     .hero-seal { width: 70px; height: 70px; bottom: -2%; left: -2%; }
     .ig-card { width: 92px; padding: 5px 5px 7px; }
     .ig-card img { height: 78px; }
     .ig-card-icons { font-size: 0.66rem; gap: 5px; }
-    .ig-card-1 { width: 88px; top: 8px; left: 0; }
-    .ig-card-1 img { height: 74px; }
+    .ig-card-1 { display: none; }
     .ig-card-2 { width: 130px; top: 26%; left: -3%; }
     .ig-card-2 img { height: 112px; }
     .ig-card-3 { display: none; }
