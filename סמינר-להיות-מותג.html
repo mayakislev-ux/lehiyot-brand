@@ -366,7 +366,12 @@
     will-change: transform; --pt-shift: -1792px;
     animation: pt-scroll 16s linear infinite;
   }
-  .photo-train-section:hover .photo-train-track { animation-play-state: paused; }
+  /* scoped to real-hover devices only — on touch, a tap/scroll-drag over this
+     section can "stick" :hover permanently in mobile Chrome/Safari, freezing
+     the animation forever since there's no mouse to trigger mouseleave. */
+  @media (hover: hover) {
+    .photo-train-section:hover .photo-train-track { animation-play-state: paused; }
+  }
   .pt-item {
     flex: 0 0 auto; width: 210px; height: 260px; border-radius: 18px; overflow: hidden;
     box-shadow: 0 14px 30px rgba(20,6,38,0.16);
