@@ -41,7 +41,7 @@
     --gold-soft: #f0d6a3;
     --gold-deep: #a97f36;
     --ink: #2a1a45;
-    --ink-dim: #7c6f96;
+    --ink-dim: #695e80;
     --line: rgba(107,33,201,0.14);
     --font-display: "Assistant", "Segoe UI", sans-serif;
     --font-body: "Assistant", "Segoe UI", sans-serif;
@@ -67,6 +67,11 @@
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: var(--white); color: var(--ink); font-family: var(--font-body); overflow-x: hidden; }
   @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+  .skip-link {
+    position: absolute; top: -100px; right: 1rem; z-index: 900; background: var(--ink); color: var(--white);
+    padding: 0.8rem 1.4rem; border-radius: 0 0 12px 12px; font-weight: 800; text-decoration: none; transition: top 0.2s ease;
+  }
+  .skip-link:focus { top: 0; }
   ::selection { background: var(--sec-a); color: var(--white); }
   ::-moz-selection { background: var(--sec-a); color: var(--white); }
   .drama-section ::selection, .drama-section ::-moz-selection { background: var(--gold); color: var(--ink); }
@@ -1437,6 +1442,8 @@
 </head>
 <body>
 
+<a href="#nav-hero" class="skip-link">דלגו לתוכן הראשי</a>
+
 <script>
   (function () {
     if (window.location.hash) {
@@ -1486,15 +1493,15 @@
       </div>
         <div class="ig-card ig-card-1">
           <img src="images/ig-card-1.jpg" alt="">
-          <div class="ig-card-icons"><span>❤</span><span>💬</span><span>➤</span></div>
+          <div class="ig-card-icons" aria-hidden="true"><span>❤</span><span>💬</span><span>➤</span></div>
         </div>
         <div class="ig-card ig-card-3-peek">
           <img src="images/ig-card-3-peek.jpg" alt="">
-          <div class="ig-card-icons"><span>❤</span><span>💬</span><span>➤</span></div>
+          <div class="ig-card-icons" aria-hidden="true"><span>❤</span><span>💬</span><span>➤</span></div>
         </div>
         <div class="ig-card ig-card-4">
           <img src="images/ig-card-4.jpg" alt="">
-          <div class="ig-card-icons"><span>❤</span><span>💬</span><span>➤</span></div>
+          <div class="ig-card-icons" aria-hidden="true"><span>❤</span><span>💬</span><span>➤</span></div>
         </div>
     <div class="hero-inner reveal in">
       <div class="hero-text-col">
@@ -1517,7 +1524,7 @@
 </header>
         <div class="ig-card ig-card-3">
           <img src="images/ig-card-3.jpg" alt="">
-          <div class="ig-card-icons"><span>❤</span><span>💬</span><span>➤</span></div>
+          <div class="ig-card-icons" aria-hidden="true"><span>❤</span><span>💬</span><span>➤</span></div>
         </div>
 
 <section class="section-pad reveal editorial-section in" style="padding-bottom:0.3rem;">
@@ -1570,7 +1577,7 @@
     </div>
 
     <div class="split-stack">
-      <div class="vs-badge">מול</div>
+      <div class="vs-badge" aria-hidden="true">מול</div>
       <div class="split-col no">
         <h3>עסק מצליח</h3>
         <ul>
@@ -2049,7 +2056,9 @@
     <h2>הצהרת נגישות</h2>
     <p>אנחנו רואים חשיבות באפשרות שימוש נוחה ושוויונית בעמוד הזה עבור כל המשתמשים, כולל אנשים עם מוגבלות.</p>
     <h3>מה נעשה בעמוד</h3>
-    <p>העמוד נכתב בעברית עם כיווניות RTL תקנית, כולל טקסט חלופי (alt) לתמונות משמעותיות, שדות וכפתורים מתויגים לקוראי מסך, ותמיכה בניווט מקלדת (focus) בכל הכפתורים והקישורים.</p>
+    <p>העמוד נכתב בעברית עם כיווניות RTL תקנית, כולל טקסט חלופי (alt) לתמונות משמעותיות, כפתורים וקישורים מתויגים לקוראי מסך (aria-label), אלמנטים דקורטיביים בלבד מוסתרים מקוראי מסך כדי לא ליצור רעש מיותר, ניגודיות צבעים שנבדקה ותוקנה מול תקן WCAG, ותמיכה מלאה בניווט מקלדת (כולל קישור "דילוג לתוכן הראשי" בתחילת העמוד).</p>
+    <h3>מה עדיין לא מכוסה</h3>
+    <p>לסרטוני העדות בעמוד אין כרגע כתוביות - זהו פער אמיתי שטרם נסגר.</p>
     <h3>תהליך מתמשך</h3>
     <p>הנגשה היא תהליך מתמשך ולא חד-פעמי. אנחנו פועלים לשיפור הנגישות באופן שוטף בהתאם לתקן הישראלי ת"י 5568 (המבוסס על הנחיות WCAG 2.1).</p>
     <h3>נתקלתם בבעיה?</h3>
