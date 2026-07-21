@@ -163,6 +163,13 @@
     padding-top: 0.4rem; margin-top: 0.1rem; width: 100%; text-align: center;
     border-top: 1px dashed rgba(83,30,98,0.3);
   }
+  .ghost-btn.two-line { flex-direction: column; gap: 0.3rem; padding-top: 0.9rem; padding-bottom: 0.85rem; }
+  .ghost-btn.two-line .btn-main { font-size: 1.05em; }
+  .ghost-btn.two-line .btn-sub {
+    font-size: 0.62em; font-weight: 700; color: rgba(255,255,255,0.85); opacity: 0.9;
+    padding-top: 0.4rem; margin-top: 0.1rem; width: 100%; text-align: center;
+    border-top: 1px dashed rgba(255,255,255,0.35);
+  }
   .cta-note { margin-top: 1rem; font-size: 0.85rem; color: var(--ink-dim); font-weight: 600; }
 
   .glass {
@@ -1896,8 +1903,8 @@
       <p class="closer-urgency" id="closerUrgency"></p>
       <p class="scarcity-pill">100 מקומות בלבד - סמינר פרונטלי, לא וובינר</p>
       <div class="closer-tickets">
-        <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn">לרכישת כרטיס זוגי</a>
-        <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="ghost-btn">לרכישת כרטיס יחיד</a>
+        <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line"><span class="btn-main">לרכישת כרטיס זוגי</span><span class="btn-sub">297 ₪</span></a>
+        <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="ghost-btn two-line"><span class="btn-main">לרכישת כרטיס יחיד</span><span class="btn-sub">197 ₪</span></a>
       </div>
       <div class="payment-security-badge">🔒 תשלום מאובטח</div>
       <div class="cta-note">מספר המקומות מוגבל · גישה בלעדית</div>
@@ -1991,6 +1998,7 @@
   </a>
   <button type="button" id="open-privacy-btn">מדיניות פרטיות ועוגיות</button>
   <button type="button" id="open-terms-btn">תנאי שימוש</button>
+  <button type="button" id="open-accessibility-btn">הצהרת נגישות</button>
 </div>
 
 <div class="cookie-banner" id="cookieBanner" hidden>
@@ -2031,6 +2039,22 @@
     <h3>פרטי העסק</h3>
     <p>מאיה קיסלב - אקדמיית המהלך השיווקי. עוסק מורשה מס' 2113365150.</p>
     <div class="legal-note">מסמך זה הוא טיוטה כללית ואינו תחליף לייעוץ משפטי פרטני - מומלץ להיוועץ בעורך/ת דין לפני קמפיין פרסומי בהיקף גדול.</div>
+  </div>
+</div>
+
+<div class="legal-modal" id="accessibilityModal" hidden>
+  <div class="legal-modal-backdrop"></div>
+  <div class="legal-modal-content">
+    <button type="button" class="legal-modal-close" id="accessibilityCloseBtn" aria-label="סגירה">✕</button>
+    <h2>הצהרת נגישות</h2>
+    <p>אנחנו רואים חשיבות באפשרות שימוש נוחה ושוויונית בעמוד הזה עבור כל המשתמשים, כולל אנשים עם מוגבלות.</p>
+    <h3>מה נעשה בעמוד</h3>
+    <p>העמוד נכתב בעברית עם כיווניות RTL תקנית, כולל טקסט חלופי (alt) לתמונות משמעותיות, שדות וכפתורים מתויגים לקוראי מסך, ותמיכה בניווט מקלדת (focus) בכל הכפתורים והקישורים.</p>
+    <h3>תהליך מתמשך</h3>
+    <p>הנגשה היא תהליך מתמשך ולא חד-פעמי. אנחנו פועלים לשיפור הנגישות באופן שוטף בהתאם לתקן הישראלי ת"י 5568 (המבוסס על הנחיות WCAG 2.1).</p>
+    <h3>נתקלתם בבעיה?</h3>
+    <p>אם נתקלתם בקושי או חסם נגישות בעמוד, נשמח שתפנו אלינו ישירות בוואטסאפ (הכפתור הצף בעמוד) ונטפל בכך בהקדם.</p>
+    <div class="legal-note">מסמך זה הוא הצהרה כללית ואינה מהווה אישור תקינה רשמי - מומלץ להיוועץ באיש/ת מקצוע להנגשת אתרים לבדיקת התאמה מלאה לדרישות החוק.</div>
   </div>
 </div>
 
@@ -2364,6 +2388,7 @@
     var acceptBtn = document.getElementById('cookieAcceptBtn');
     var privacyModal = document.getElementById('privacyModal');
     var termsModal = document.getElementById('termsModal');
+    var accessibilityModal = document.getElementById('accessibilityModal');
     if (!banner) return;
 
     function openModal(modal) { modal.hidden = false; }
@@ -2383,6 +2408,8 @@
     document.getElementById('open-terms-btn').addEventListener('click', function () { openModal(termsModal); });
     document.getElementById('privacyCloseBtn').addEventListener('click', function () { closeModal(privacyModal); });
     document.getElementById('termsCloseBtn').addEventListener('click', function () { closeModal(termsModal); });
+    document.getElementById('open-accessibility-btn').addEventListener('click', function () { openModal(accessibilityModal); });
+    document.getElementById('accessibilityCloseBtn').addEventListener('click', function () { closeModal(accessibilityModal); });
     document.querySelectorAll('.legal-modal-backdrop').forEach(function (bd) {
       bd.addEventListener('click', function () { closeModal(bd.parentElement); });
     });
