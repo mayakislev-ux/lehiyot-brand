@@ -3291,6 +3291,7 @@
     });
 
     function realPlay() {
+      if (previewing) { video.currentTime = 0; }
       userStarted = true;
       previewing = false;
       video.muted = false;
@@ -3383,16 +3384,23 @@
     /* shrink to a small corner player if the user scrolls away while actually watching.
        the observer watches a small fixed-size sentinel (#vslAnchor) that never itself moves or
        resizes — space for the popped-out player is reserved on the OUTER WRAPPER instead, so
-       reserving that space can never retrigger the very observer we're reacting to. */
+       reserving that space can never retrigger the very observer we're reacting to.
+       the player is also physically moved to <body> while in PiP: the section around it carries
+       .reveal's `transform` (for its own scroll-in fade), and ANY transform on an ancestor makes
+       position:fixed children fixed to THAT ancestor instead of the real viewport — so without
+       this, the "floating" player would actually be trapped inside the section's own box and
+       vanish (clipped by the section's overflow:hidden) the moment it scrolled off-screen. */
     if (anchor && wrapOuter && 'IntersectionObserver' in window) {
       function enterPip() {
         wrapOuter.style.minHeight = player.getBoundingClientRect().height + 'px';
+        document.body.appendChild(player);
         player.classList.add('is-pip');
         pipClose.hidden = false;
       }
       function exitPip() {
         player.classList.remove('is-pip');
         pipClose.hidden = true;
+        wrapOuter.appendChild(player);
         wrapOuter.style.minHeight = '';
       }
       var pipIo = new IntersectionObserver(function (entries) {
