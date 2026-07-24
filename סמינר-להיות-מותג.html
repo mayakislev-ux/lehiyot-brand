@@ -896,6 +896,14 @@
   @media (min-width: 901px) {
     .section-purple-deep { padding-bottom: 5rem; }
   }
+  @media (min-width: 901px) {
+    #nav-diagnosis .section3-stage { align-items: end; grid-template-columns: 1.1fr 0.9fr; }
+    #nav-diagnosis .diagnosis-photo-full { height: auto; max-height: none; aspect-ratio: 582 / 990; width: 100%; }
+    #nav-diagnosis .diagnosis-photo-full img { width: 100%; height: 100%; object-fit: contain; object-position: bottom center; }
+  }
+  @media (min-width: 1300px) {
+    #nav-diagnosis .diagnosis-photo-full { max-width: 640px; margin-inline-start: auto; }
+  }
   @media (max-width: 760px) {
     .split-col.yes { margin-top: 1.2rem; margin-right: 0; transform: rotate(0.6deg); }
     .split-col.no { transform: rotate(-0.6deg); }
@@ -940,8 +948,8 @@
   @keyframes bioSeqFade {
     0% { opacity: 0; }
     2% { opacity: 1; }
-    11% { opacity: 1; }
-    14% { opacity: 0; }
+    16% { opacity: 1; }
+    19% { opacity: 0; }
     100% { opacity: 0; }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -1598,63 +1606,21 @@
       <p>ואפילו חשוב לי להגיד את זה: יש בעלי עסקים שמכניסים יפה מאוד גם בלי להיות מותג - בזכות המלצות, לקוחות חוזרים, קמפיינים טובים, מיקום מעולה, או פשוט כי הם ממש טובים במה שהם עושים. <strong>אבל עסק מצליח ומותג הם לא אותו דבר.</strong></p>
     </div>
 
-    <div class="mirror-row">
-      <div class="mirror-card" tabindex="0" role="button" aria-label="הצג תשובה">
-        <div class="mirror-inner">
-          <div class="mirror-front"><span class="mirror-tag">אתם חושבים</span><p>מכניס כסף, אבל חייב להמשיך לרדוף אחרי הלקוחות</p></div>
-          <div class="mirror-back"><span class="mirror-tag">במותג</span><p>הלקוחות מחפשים אותו</p></div>
-        </div>
-      </div>
-      <div class="mirror-card" tabindex="0" role="button" aria-label="הצג תשובה">
-        <div class="mirror-inner">
-          <div class="mirror-front"><span class="mirror-tag">אתם חושבים</span><p>צריך לשכנע למה לבחור בו</p></div>
-          <div class="mirror-back"><span class="mirror-tag">במותג</span><p>השם שלו הופך לבחירה הטבעית</p></div>
-        </div>
-      </div>
-      <div class="mirror-card" tabindex="0" role="button" aria-label="הצג תשובה">
-        <div class="mirror-inner">
-          <div class="mirror-front"><span class="mirror-tag">אתם חושבים</span><p>מתחרה על המחיר</p></div>
-          <div class="mirror-back"><span class="mirror-tag">במותג</span><p>יכול לגבות פרימיום</p></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="split-stack">
-      <div class="vs-badge" aria-hidden="true">מול</div>
-      <div class="split-col no">
-        <h3>עסק מצליח</h3>
-        <ul>
-          <li><span class="mark">💸</span>מכניס כסף, אבל חייב להמשיך לרדוף אחרי הלקוחות</li>
-          <li><span class="mark">📢</span>צריך לשכנע למה לבחור בו</li>
-          <li><span class="mark">💰</span>מתחרה על המחיר</li>
-          <li><span class="mark">⚔️</span>נלחם על כל ליד</li>
-          <li><span class="mark">🔄</span>כל חודש מתחיל כמעט מאפס</li>
-          <li><span class="mark">😰</span>תלוי בממומן כדי להמשיך לצמוח</li>
-        </ul>
-      </div>
-      <div class="split-col yes">
-        <h3>מותג</h3>
-        <ul>
-          <li><span class="mark">👑</span>הלקוחות מחפשים אותו</li>
-          <li><span class="mark">⭐</span>השם שלו הופך לבחירה הטבעית</li>
-          <li><span class="mark">💎</span>יכול לגבות פרימיום</li>
-          <li><span class="mark">🔥</span>מושך לידים איכותיים יותר</li>
-          <li><span class="mark">🚀</span>גם התוכן האורגני עובד הרבה יותר טוב</li>
-        </ul>
-      </div>
-    </div>
-
-    <p class="verdict">אפשר להצליח בלי להיות מותג.<br><strong>להיות מותג פשוט הופך את כל העסק לקל יותר.</strong></p>
-
-    <div class="price-line">
-      בלי זה, <strong>אתם לא מתחרים על לקוחות - אתם מתחרים על מקום בזיכרון</strong>, ומפסידים כל פעם מחדש למי שכן זוכרים. אתם עובדים פי כמה כדי להשיג את מה שמותג מקבל בחינם: <strong>אמון.</strong><br><br>
-      זה המחיר של להישאר בלתי מזוהים - לא קריסה דרמטית, <strong>שחיקה שקטה</strong>, יום אחרי יום, עד שזה מתחיל להרגיש נורמלי.
-    </div>
   </div>
-  <div class="section3-photo-col">
+  <div class="section3-photo-col diagnosis-photo-full">
     <img src="images/section3-photo.png" alt="מאיה קיסלב" loading="lazy">
   </div>
   </div>
+  </div>
+</section>
+
+<section class="section-pad reveal in">
+  <div class="wrap" style="max-width:720px; text-align:center;">
+    <p class="verdict" style="font-size:clamp(1.4rem, 1.1rem + 1.4vw, 2rem); max-width:none;">אפשר להצליח בלי להיות מותג.<br><strong>להיות מותג פשוט הופך את כל העסק לקל יותר.</strong></p>
+    <div class="price-line" style="max-width:640px; margin:2.2rem auto 0; font-size:1.05rem;">
+      בלי זה, <strong>אתם לא מתחרים על לקוחות - אתם מתחרים על מקום בזיכרון</strong>, ומפסידים כל פעם מחדש למי שכן זוכרים. אתם עובדים פי כמה כדי להשיג את מה שמותג מקבל בחינם: <strong>אמון.</strong><br><br>
+      זה המחיר של להישאר בלתי מזוהים - לא קריסה דרמטית, <strong>שחיקה שקטה</strong>, יום אחרי יום, עד שזה מתחיל להרגיש נורמלי.
+    </div>
   </div>
 </section>
 
