@@ -136,11 +136,30 @@
   }
   .vsl-big-play:hover { background: rgba(10,4,20,0.4); }
   .vsl-big-play .ic {
-    width: 78px; height: 78px; border-radius: 50%; background: var(--gold); color: var(--purple-deep);
+    position: relative; width: 78px; height: 78px; border-radius: 50%;
+    background: rgba(255,255,255,0.22); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    border: 1.5px solid rgba(255,255,255,0.75); color: var(--white);
     display: flex; align-items: center; justify-content: center; font-size: 1.7rem;
-    box-shadow: 0 14px 32px rgba(0,0,0,0.4); transform: translateX(2px);
+    box-shadow: 0 14px 32px rgba(0,0,0,0.35); transform: translateX(2px);
   }
   .vsl-player.is-playing .vsl-big-play { display: none; }
+  .vsl-ring { position: absolute; inset: -7px; width: 92px; height: 92px; transform: rotate(-90deg); pointer-events: none; }
+  .vsl-ring-track, .vsl-ring-fill { fill: none; stroke-width: 4; }
+  .vsl-ring-track { stroke: rgba(255,255,255,0.2); }
+  .vsl-ring-fill { stroke: var(--gold); stroke-linecap: round; stroke-dasharray: 289; stroke-dashoffset: 289; transition: stroke-dashoffset 0.4s ease; }
+
+  .vsl-chapters { position: absolute; left: 0.8rem; right: 0.8rem; bottom: 0.6rem; z-index: 3; height: 4px; pointer-events: none; }
+  .vsl-player.is-playing .vsl-chapters, .vsl-player:hover .vsl-chapters { display: none; }
+  .vsl-chapter-mark {
+    position: absolute; top: -3px; width: 2px; height: 10px; background: rgba(255,255,255,0.85);
+    pointer-events: auto; cursor: pointer;
+  }
+  .vsl-chapter-mark::after {
+    content: attr(data-label); position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+    background: rgba(0,0,0,0.85); color: var(--white); font-size: 0.68rem; font-weight: 700; white-space: nowrap;
+    padding: 0.2rem 0.5rem; border-radius: 6px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none;
+  }
+  .vsl-chapter-mark:hover::after { opacity: 1; }
   .vsl-controls {
     position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; display: flex; align-items: center; gap: 0.6rem;
     padding: 0.6rem 0.8rem; background: linear-gradient(0deg, rgba(0,0,0,0.75), rgba(0,0,0,0));
@@ -170,6 +189,7 @@
     background: rgba(255,255,255,0.15); color: var(--white); font-weight: 800; font-size: 0.78rem; font-variant-numeric: tabular-nums;
   }
   .vsl-speed-btn:hover { background: rgba(255,255,255,0.28); }
+  .vsl-wrap-outer { position: relative; }
   .vsl-anchor { height: 1px; }
   .vsl-lead {
     position: absolute; top: 0; left: 0; right: 0; z-index: 3; margin: 0; padding: 0.85rem 1.2rem;
@@ -1855,22 +1875,31 @@
 
 <section class="section-pad reveal in" style="padding-top:0.2rem;">
   <div class="wrap">
-    <div class="vsl-anchor" id="vslAnchor" aria-hidden="true"></div>
-    <div class="vsl-player" id="vslPlayer">
-      <video id="vslVideo" poster="images/vsl-poster.jpg" preload="none" playsinline>
-        <source src="videos/vsl.mp4" type="video/mp4">
-      </video>
-      <p class="vsl-lead">3.5 דקות שיסבירו לכם למה זה קורה - תלחצו פליי.</p>
-      <button type="button" class="vsl-big-play" id="vslBigPlay" aria-label="הפעלת הסרטון"><span class="ic">▶</span></button>
-      <div class="vsl-pip-close" id="vslPipClose" aria-label="סגירת נגן מוקטן" hidden>✕</div>
-      <div class="vsl-controls" id="vslControls">
-        <button type="button" class="vsl-ctrl-btn" id="vslToggle" aria-label="הפעלה או השהיה">▶</button>
-        <span class="vsl-time" id="vslCur">0:00</span>
-        <input type="range" class="vsl-seek" id="vslSeek" min="0" max="100" value="0" step="0.1" aria-label="מיקום בסרטון">
-        <span class="vsl-time" id="vslDur">0:00</span>
-        <button type="button" class="vsl-ctrl-btn" id="vslMute" aria-label="השתקה">🔊</button>
-        <input type="range" class="vsl-volume" id="vslVolume" min="0" max="100" value="70" step="1" aria-label="עוצמת קול">
-        <button type="button" class="vsl-speed-btn" id="vslSpeed" aria-label="מהירות נגינה">1x</button>
+    <div class="vsl-wrap-outer" id="vslWrapOuter">
+      <div class="vsl-anchor" id="vslAnchor" aria-hidden="true"></div>
+      <div class="vsl-player" id="vslPlayer">
+        <video id="vslVideo" poster="images/vsl-poster.jpg" preload="metadata" playsinline>
+          <source src="videos/vsl.mp4" type="video/mp4">
+        </video>
+        <p class="vsl-lead">3.5 דקות שיסבירו לכם למה זה קורה - תלחצו פליי.</p>
+        <div class="vsl-chapters" id="vslChapters" aria-hidden="true"></div>
+        <button type="button" class="vsl-big-play" id="vslBigPlay" aria-label="הפעלת הסרטון">
+          <svg class="vsl-ring" viewBox="0 0 100 100" aria-hidden="true">
+            <circle class="vsl-ring-track" cx="50" cy="50" r="46"></circle>
+            <circle class="vsl-ring-fill" id="vslRingFill" cx="50" cy="50" r="46"></circle>
+          </svg>
+          <span class="ic">▶</span>
+        </button>
+        <div class="vsl-pip-close" id="vslPipClose" aria-label="סגירת נגן מוקטן" hidden>✕</div>
+        <div class="vsl-controls" id="vslControls">
+          <button type="button" class="vsl-ctrl-btn" id="vslToggle" aria-label="הפעלה או השהיה">▶</button>
+          <span class="vsl-time" id="vslCur">0:00</span>
+          <input type="range" class="vsl-seek" id="vslSeek" min="0" max="100" value="0" step="0.1" aria-label="מיקום בסרטון">
+          <span class="vsl-time" id="vslDur">0:00</span>
+          <button type="button" class="vsl-ctrl-btn" id="vslMute" aria-label="השתקה">🔊</button>
+          <input type="range" class="vsl-volume" id="vslVolume" min="0" max="100" value="70" step="1" aria-label="עוצמת קול">
+          <button type="button" class="vsl-speed-btn" id="vslSpeed" aria-label="מהירות נגינה">1x</button>
+        </div>
       </div>
     </div>
   </div>
@@ -3198,7 +3227,11 @@
     var player = document.getElementById('vslPlayer');
     var video = document.getElementById('vslVideo');
     if (!player || !video) return;
+    var wrapOuter = document.getElementById('vslWrapOuter');
+    var anchor = document.getElementById('vslAnchor');
     var bigPlay = document.getElementById('vslBigPlay');
+    var ringFill = document.getElementById('vslRingFill');
+    var chaptersBox = document.getElementById('vslChapters');
     var toggle = document.getElementById('vslToggle');
     var seek = document.getElementById('vslSeek');
     var cur = document.getElementById('vslCur');
@@ -3212,7 +3245,14 @@
     var seeking = false;
     var userStarted = false;
     var previewing = false;
-    var RESUME_KEY = 'vslResumeTime';
+    var RING_CIRC = 289;
+    var PROGRESS_KEY = 'vslWatchedTime';
+    /* approximate chapter timestamps, placed by watching the video's own burned-in captions */
+    var chapters = [
+      { t: 0, label: 'הבעיה' },
+      { t: 95, label: 'הפתרון' },
+      { t: 190, label: 'התוצאה' }
+    ];
 
     function fmt(t) {
       if (!isFinite(t)) return '0:00';
@@ -3221,15 +3261,40 @@
       return m + ':' + (s < 10 ? '0' : '') + s;
     }
     video.volume = 0.7;
+
+    function renderRing(pct) {
+      if (!ringFill) return;
+      ringFill.style.strokeDashoffset = RING_CIRC * (1 - Math.min(pct, 100) / 100);
+    }
+    function renderChapters() {
+      if (!chaptersBox || !video.duration) return;
+      chaptersBox.innerHTML = '';
+      chapters.forEach(function (c) {
+        var pct = Math.min(99, (c.t / video.duration) * 100);
+        var mark = document.createElement('div');
+        mark.className = 'vsl-chapter-mark';
+        mark.style.left = pct + '%';
+        mark.setAttribute('data-label', c.label);
+        mark.addEventListener('click', function (e) {
+          e.stopPropagation();
+          video.currentTime = c.t;
+          realPlay();
+        });
+        chaptersBox.appendChild(mark);
+      });
+    }
+    video.addEventListener('loadedmetadata', function () {
+      dur.textContent = fmt(video.duration);
+      renderChapters();
+      var saved = parseFloat(localStorage.getItem(PROGRESS_KEY) || '0');
+      if (saved > 4) renderRing((saved / video.duration) * 100);
+    });
+
     function realPlay() {
       userStarted = true;
       previewing = false;
       video.muted = false;
       player.classList.add('is-playing');
-      var saved = parseFloat(localStorage.getItem(RESUME_KEY) || '0');
-      if (saved > 4 && video.duration && saved < video.duration - 3) {
-        video.currentTime = saved;
-      }
       video.play();
     }
     function togglePlay() {
@@ -3243,7 +3308,6 @@
       if (userStarted) player.classList.remove('is-playing');
     });
     video.addEventListener('ended', function () { player.classList.remove('is-playing'); });
-    video.addEventListener('loadedmetadata', function () { dur.textContent = fmt(video.duration); });
     video.addEventListener('timeupdate', function () {
       if (seeking) return;
       cur.textContent = fmt(video.currentTime);
@@ -3252,8 +3316,9 @@
       seek.style.setProperty('--vsl-progress', pct + '%');
       if (userStarted && !previewing) {
         window.vslWatchPct = pct;
+        renderRing(pct);
         if (video.currentTime > 3 && video.duration - video.currentTime > 3) {
-          localStorage.setItem(RESUME_KEY, video.currentTime);
+          localStorage.setItem(PROGRESS_KEY, video.currentTime);
         }
       }
     });
@@ -3316,20 +3381,19 @@
     }
 
     /* shrink to a small corner player if the user scrolls away while actually watching.
-       watches a sentinel left behind at the player's normal spot, NOT the player itself —
-       once the player goes position:fixed it would always read as "intersecting" and the
-       observer would immediately undo itself if it watched the player directly. */
-    var anchor = document.getElementById('vslAnchor');
-    if (anchor && 'IntersectionObserver' in window) {
+       the observer watches a small fixed-size sentinel (#vslAnchor) that never itself moves or
+       resizes — space for the popped-out player is reserved on the OUTER WRAPPER instead, so
+       reserving that space can never retrigger the very observer we're reacting to. */
+    if (anchor && wrapOuter && 'IntersectionObserver' in window) {
       function enterPip() {
-        anchor.style.height = player.getBoundingClientRect().height + 'px';
+        wrapOuter.style.minHeight = player.getBoundingClientRect().height + 'px';
         player.classList.add('is-pip');
         pipClose.hidden = false;
       }
       function exitPip() {
         player.classList.remove('is-pip');
         pipClose.hidden = true;
-        anchor.style.height = '1px';
+        wrapOuter.style.minHeight = '';
       }
       var pipIo = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
@@ -3338,13 +3402,11 @@
         });
       }, { threshold: 0.01 });
       pipIo.observe(anchor);
+      pipClose.addEventListener('click', function () {
+        video.pause();
+        exitPip();
+      });
     }
-    pipClose.addEventListener('click', function () {
-      video.pause();
-      player.classList.remove('is-pip');
-      pipClose.hidden = true;
-      if (anchor) anchor.style.height = '1px';
-    });
   })();
 
   /* traveling queen — fixed piece whose vertical position tracks overall page scroll progress */
