@@ -123,6 +123,60 @@
   }
   .vsl-frame .lbl { color: var(--sec-a); font-weight: 700; font-size: 0.95rem; }
 
+  /* ===== VSL player (real video, custom controls) ===== */
+  .vsl-player {
+    position: relative; max-width: 680px; margin: 0 auto; aspect-ratio: 16/9; border-radius: 22px;
+    overflow: hidden; background: #000; box-shadow: 0 24px 54px rgba(20,6,38,0.28); direction: ltr;
+  }
+  .vsl-player video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .vsl-big-play {
+    position: absolute; inset: 0; width: 100%; height: 100%; border: none; padding: 0; cursor: pointer;
+    background: rgba(10,4,20,0.28); display: flex; align-items: center; justify-content: center; z-index: 2;
+    transition: background 0.2s ease;
+  }
+  .vsl-big-play:hover { background: rgba(10,4,20,0.4); }
+  .vsl-big-play .ic {
+    width: 78px; height: 78px; border-radius: 50%; background: var(--gold); color: var(--purple-deep);
+    display: flex; align-items: center; justify-content: center; font-size: 1.7rem;
+    box-shadow: 0 14px 32px rgba(0,0,0,0.4); transform: translateX(2px);
+  }
+  .vsl-player.is-playing .vsl-big-play { display: none; }
+  .vsl-controls {
+    position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; display: flex; align-items: center; gap: 0.6rem;
+    padding: 0.6rem 0.8rem; background: linear-gradient(0deg, rgba(0,0,0,0.75), rgba(0,0,0,0));
+    opacity: 0; transform: translateY(6px); transition: opacity 0.2s ease, transform 0.2s ease; pointer-events: none;
+  }
+  .vsl-player.is-playing .vsl-controls, .vsl-player:hover .vsl-controls, .vsl-controls.is-visible {
+    opacity: 1; transform: translateY(0); pointer-events: auto;
+  }
+  .vsl-ctrl-btn {
+    flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; border: none; cursor: pointer;
+    background: rgba(255,255,255,0.15); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 0.95rem;
+  }
+  .vsl-ctrl-btn:hover { background: rgba(255,255,255,0.28); }
+  .vsl-time { flex-shrink: 0; color: var(--white); font-size: 0.75rem; font-variant-numeric: tabular-nums; min-width: 34px; text-align: center; }
+  .vsl-seek {
+    flex: 1; -webkit-appearance: none; appearance: none; height: 4px; border-radius: 999px;
+    background: linear-gradient(90deg, var(--gold) var(--vsl-progress, 0%), rgba(255,255,255,0.3) var(--vsl-progress, 0%));
+    cursor: pointer;
+  }
+  .vsl-seek::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 13px; height: 13px; border-radius: 50%; background: var(--gold);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  }
+  .vsl-seek::-moz-range-thumb { width: 13px; height: 13px; border-radius: 50%; background: var(--gold); border: none; }
+  .vsl-speed-btn {
+    flex-shrink: 0; height: 34px; padding: 0 0.7rem; border-radius: 999px; border: none; cursor: pointer;
+    background: rgba(255,255,255,0.15); color: var(--white); font-weight: 800; font-size: 0.78rem; font-variant-numeric: tabular-nums;
+  }
+  .vsl-speed-btn:hover { background: rgba(255,255,255,0.28); }
+  @media (max-width: 600px) {
+    .vsl-controls { padding: 0.5rem 0.55rem; gap: 0.4rem; }
+    .vsl-ctrl-btn, .vsl-speed-btn { height: 30px; }
+    .vsl-ctrl-btn { width: 30px; }
+    .vsl-time { font-size: 0.68rem; min-width: 28px; }
+  }
+
   .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.in { opacity: 1; transform: translateY(0); }
   @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
@@ -1016,10 +1070,10 @@
     padding: 1.1rem 1.3rem; margin: 1.2rem auto; max-width: 560px; color: var(--gold-soft); font-weight: 700; font-size: 0.98rem; line-height: 1.6;
   }
   .award-box {
-    display: flex; align-items: center; gap: 1.1rem; margin: 0 0 1.4rem; max-width: none;
+    position: relative; display: flex; align-items: center; gap: 1.1rem; margin: 0 0 1.4rem; max-width: none;
     background: linear-gradient(160deg, rgba(20,6,38,0.62), rgba(20,6,38,0.38));
     border: 1px solid rgba(217,172,94,0.4); box-shadow: 0 16px 34px rgba(0,0,0,0.25);
-    padding: 1.25rem 1.5rem; border-radius: 18px;
+    padding: 1.25rem 1.5rem; border-radius: 18px; overflow: hidden;
   }
   .award-badge {
     flex-shrink: 0; width: 54px; height: 54px; border-radius: 50%; font-size: 1.6rem;
@@ -1593,6 +1647,88 @@
     .journey-path-col { display: none; }
     .journey-card { grid-column: 1 !important; grid-row: auto !important; }
   }
+
+  /* ===== traveling queen — a small chess piece whose vertical position tracks overall page scroll ===== */
+  .queen-traveler {
+    position: fixed; z-index: 45; left: 16px; top: 12%; width: 28px; height: 28px; opacity: 0;
+    transition: opacity 0.5s ease; pointer-events: none;
+  }
+  .queen-traveler svg { width: 100%; height: 100%; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4)); }
+  .queen-traveler.is-visible { opacity: 0.9; }
+  @media (max-width: 1080px) { .queen-traveler { display: none; } }
+  @media (prefers-reduced-motion: reduce) { .queen-traveler { display: none; } }
+
+  /* ===== split-col hover battle ===== */
+  .split-col.no { transition: filter 0.3s ease; }
+  .split-col.no:hover { filter: grayscale(0.7) brightness(0.88); }
+  .split-col.yes { transition: box-shadow 0.3s ease; }
+  .split-col.yes:hover { box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 22px 50px rgba(217,172,94,0.4); }
+
+  /* ===== progress bar "move" counter ===== */
+  .progress-move-label {
+    position: fixed; top: 11px; left: 50%; transform: translateX(-50%); z-index: 601;
+    background: var(--purple-deep); color: var(--gold-soft); font-family: var(--font-display); font-weight: 800;
+    font-size: 0.72rem; padding: 0.25rem 0.75rem; border-radius: 999px; opacity: 0; transition: opacity 0.35s ease;
+    pointer-events: none; letter-spacing: 0.01em; box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  }
+  .progress-move-label.is-visible { opacity: 0.95; }
+  @media (prefers-reduced-motion: reduce) { .progress-move-label { display: none; } }
+
+  /* ===== gold coin fall (award count-up finish) ===== */
+  .coin-burst { position: absolute; inset: 0; overflow: visible; pointer-events: none; z-index: 5; }
+  .coin {
+    position: absolute; top: 50%; right: 50%; width: 12px; height: 12px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, var(--gold-soft), var(--gold) 70%);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.35); animation: coinFall 1s ease-in forwards;
+  }
+  @keyframes coinFall {
+    0% { transform: translate(50%, -50%) rotate(0deg); opacity: 1; }
+    100% { transform: translate(calc(50% + var(--cx, 0px)), 55px) rotate(220deg); opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { .coin { display: none; } }
+
+  /* ===== gold spark traveling along wave dividers ===== */
+  .wave-divider { overflow: hidden; }
+  .wave-divider::after {
+    content: ""; position: absolute; top: 0; bottom: 0; right: -25%; width: 25%;
+    background: linear-gradient(270deg, transparent, rgba(217,172,94,0.85), transparent);
+    opacity: 0; mix-blend-mode: screen; pointer-events: none;
+  }
+  .wave-divider.spark::after { animation: waveSpark 1.2s ease-out forwards; }
+  @keyframes waveSpark { 0% { right: -25%; opacity: 0; } 15% { opacity: 1; } 100% { right: 100%; opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .wave-divider.spark::after { display: none; } }
+
+  /* ===== quiz mini board ===== */
+  .quiz-mini-track { display: flex; gap: 0.45rem; justify-content: center; margin: 0 0 1.1rem; }
+  .quiz-mini-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--purple-pale-2); transition: background 0.3s ease, transform 0.3s ease; }
+  .quiz-mini-dot.is-done { background: var(--gold); transform: scale(1.3); }
+
+  /* ===== checkmate moment at page bottom ===== */
+  .checkmate-stage {
+    display: flex; align-items: center; justify-content: center; gap: 1.6rem; height: 0; overflow: hidden;
+    opacity: 0; transition: opacity 0.7s ease, height 0.7s ease, margin 0.7s ease;
+  }
+  .checkmate-stage.is-visible { height: 60px; opacity: 1; margin: 0.5rem 0 1.8rem; }
+  .checkmate-piece { width: 32px; height: 32px; transition: transform 1s ease 0.35s, opacity 1s ease 0.35s; }
+  .checkmate-piece.piece-white svg { fill: var(--ink-dim); opacity: 0.55; }
+  .checkmate-piece.piece-gold svg { fill: var(--gold); }
+  .checkmate-stage.is-visible .piece-white { transform: rotate(88deg) translateY(6px); opacity: 0.4; }
+  @media (prefers-reduced-motion: reduce) { .checkmate-piece { transition: none; } }
+
+  /* ===== gold dust on section transitions ===== */
+  .gold-dust-particle {
+    position: absolute; top: -8px; width: 5px; height: 5px; border-radius: 50%; background: var(--gold);
+    opacity: 0; animation: goldDustFall 1.7s ease-in forwards; pointer-events: none; z-index: 8;
+  }
+  @keyframes goldDustFall { 0% { opacity: 0; transform: translateY(0); } 18% { opacity: 0.9; } 100% { opacity: 0; transform: translateY(64px); } }
+
+  /* ===== hero board hover-glow ===== */
+  .hero-chess-floor { position: relative; }
+  .hero-chess-floor::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity 0.35s ease; z-index: 1;
+    background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), rgba(217,172,94,0.4), transparent 70%);
+  }
+  .hero-stage:hover .hero-chess-floor::before { opacity: 1; }
 </style>
 </head>
 <body>
@@ -1694,9 +1830,18 @@
 
 <section class="section-pad reveal in" style="padding-top:0.2rem;">
   <div class="wrap">
-    <div class="vsl-frame">
-      <div class="play-ic">▶</div>
-      <div class="lbl">וידאו בקרוב</div>
+    <div class="vsl-player" id="vslPlayer">
+      <video id="vslVideo" poster="images/vsl-poster.jpg" preload="none" playsinline>
+        <source src="videos/vsl.mp4" type="video/mp4">
+      </video>
+      <button type="button" class="vsl-big-play" id="vslBigPlay" aria-label="הפעלת הסרטון"><span class="ic">▶</span></button>
+      <div class="vsl-controls" id="vslControls">
+        <button type="button" class="vsl-ctrl-btn" id="vslToggle" aria-label="הפעלה או השהיה">▶</button>
+        <span class="vsl-time" id="vslCur">0:00</span>
+        <input type="range" class="vsl-seek" id="vslSeek" min="0" max="100" value="0" step="0.1" aria-label="מיקום בסרטון">
+        <span class="vsl-time" id="vslDur">0:00</span>
+        <button type="button" class="vsl-speed-btn" id="vslSpeed" aria-label="מהירות נגינה">1x</button>
+      </div>
     </div>
   </div>
 </section>
@@ -1788,7 +1933,8 @@
         <div class="insight-box award-box">
           <span class="award-badge">🏆</span>
           <div class="award-copy">
-            <div class="award-figure">מ־0 ל־<span class="count-up" data-target="100000">0</span> ₪ בחודש</div>
+            <div class="award-figure">מ־0 ל־<span class="count-up award-count" data-target="100000">0</span> ₪ בחודש</div>
+            <div class="coin-burst" aria-hidden="true"></div>
             <div class="award-sub">תוך 9 חודשים בלבד</div>
           </div>
         </div>
@@ -2037,6 +2183,9 @@
     <div class="quiz-box" id="quizBox">
       <span class="quiz-progress-label" id="quizProgressLabel">שאלה 1 מתוך 4</span>
       <div class="quiz-progress"><span class="quiz-progress-fill" id="quizProgressFill"></span></div>
+      <div class="quiz-mini-track" id="quizMiniTrack" aria-hidden="true">
+        <span class="quiz-mini-dot"></span><span class="quiz-mini-dot"></span><span class="quiz-mini-dot"></span><span class="quiz-mini-dot"></span>
+      </div>
 
       <div class="quiz-step" data-step="0">
         <p class="quiz-question">רוב הלידים שלך מגיעים חמים (כבר מכירים וסומכים עליך)?</p>
@@ -2098,19 +2247,15 @@
       <h2>מספיק להיות עוד בעל עסק.<br>הגיע הזמן להיות מותג.</h2>
       <p style="max-width:480px;margin:0.9rem auto 0;color:rgba(255,255,255,0.85);font-size:0.98rem;line-height:1.7;text-align:center;">בעוד שנה מהיום יהיו בעלי עסקים שעדיין ירדפו אחרי הלקוח הבא... ויהיו כאלה שכבר הפכו למותג.</p>
       <p class="closer-urgency" id="closerUrgency"></p>
-      <p class="scarcity-pill">100 מקומות בלבד - סמינר פרונטלי, לא וובינר</p>
       <div class="closer-tickets">
         <div class="ticket-col">
           <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line"><span class="btn-main">לרכישת כרטיס יחיד</span><span class="btn-sub">197 ₪</span></a>
-          <p class="ticket-note">מקום אחד בסמינר</p>
         </div>
         <div class="ticket-col ticket-secondary">
           <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="ghost-btn two-line"><span class="btn-main">לרכישת כרטיס זוגי</span><span class="btn-sub">297 ₪</span></a>
-          <p class="ticket-note">2 מקומות במחיר מוזל למי שרוצה להביא איתו/ה מישהו/י</p>
         </div>
       </div>
       <div class="payment-security-badge">🔒 תשלום מאובטח</div>
-      <div class="cta-note">מספר המקומות מוגבל · גישה בלעדית</div>
     </div>
   </div>
 </section>
@@ -2198,6 +2343,11 @@
 
 <div class="ambient-piece ap-left" aria-hidden="true"><svg viewBox="0 0 100 100"><circle cx="50" cy="26" r="16"/><path d="M38 46 L62 46 L68 62 L32 62 Z"/><path d="M24 82 Q24 66 40 66 L60 66 Q76 66 76 82 Z"/></svg></div>
 <div class="ambient-piece ap-right" aria-hidden="true"><svg viewBox="0 0 100 100"><path d="M35 20 L65 20 L60 45 L75 55 L75 70 L25 70 L25 55 L40 45 Z"/><path d="M22 84 Q22 68 38 68 L62 68 Q78 68 78 84 Z"/></svg></div>
+
+<div class="checkmate-stage" id="checkmateStage" aria-hidden="true">
+  <div class="checkmate-piece piece-white"><svg viewBox="0 0 100 100"><path d="M35 20 L65 20 L60 45 L75 55 L75 70 L25 70 L25 55 L40 45 Z"/><path d="M22 84 Q22 68 38 68 L62 68 Q78 68 78 84 Z"/><path d="M50 8 L50 20 M44 14 L56 14" stroke="currentColor" stroke-width="4" fill="none"/></svg></div>
+  <div class="checkmate-piece piece-gold"><svg viewBox="0 0 100 100"><path d="M35 20 L65 20 L60 45 L75 55 L75 70 L25 70 L25 55 L40 45 Z"/><path d="M22 84 Q22 68 38 68 L62 68 Q78 68 78 84 Z"/><path d="M50 8 L50 20 M44 14 L56 14" stroke="currentColor" stroke-width="4" fill="none"/></svg></div>
+</div>
 
 <div class="footer-note">© מאיה קיסלב</div>
 <div class="footer-links">
@@ -2679,9 +2829,30 @@
         var eased = 1 - Math.pow(1 - progress, 3);
         var value = Math.round(eased * target);
         el.textContent = value.toLocaleString('en-US');
-        if (progress < 1) requestAnimationFrame(step);
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else if (el.classList.contains('award-count')) {
+          spawnCoins(el);
+        }
       }
       requestAnimationFrame(step);
+    }
+    function spawnCoins(el) {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var burst = el.closest('.award-box');
+      burst = burst && burst.querySelector('.coin-burst');
+      if (!burst) return;
+      for (var i = 0; i < 8; i++) {
+        (function (i) {
+          setTimeout(function () {
+            var coin = document.createElement('div');
+            coin.className = 'coin';
+            coin.style.setProperty('--cx', (Math.random() * 80 - 40) + 'px');
+            burst.appendChild(coin);
+            setTimeout(function () { coin.remove(); }, 1000);
+          }, i * 45);
+        })(i);
+      }
     }
     var io2 = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -2711,10 +2882,12 @@
     };
     var gaugeFill = document.getElementById('quizGaugeFill');
     var gaugeLabel = document.getElementById('quizGaugeLabel');
+    var miniDots = document.querySelectorAll('#quizMiniTrack .quiz-mini-dot');
     box.querySelectorAll('.quiz-answer-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
         score += parseInt(btn.dataset.value, 10);
         steps[current].hidden = true;
+        if (miniDots[current]) miniDots[current].classList.add('is-done');
         current++;
         progressFill.style.width = (current / steps.length * 100) + '%';
         if (current < steps.length) {
@@ -2977,6 +3150,211 @@
       touchStartX = null;
       if (Math.abs(dx) < 40) return;
       step(dx < 0 ? -1 : 1);
+    }, { passive: true });
+  })();
+
+  (function () {
+    var player = document.getElementById('vslPlayer');
+    var video = document.getElementById('vslVideo');
+    if (!player || !video) return;
+    var bigPlay = document.getElementById('vslBigPlay');
+    var toggle = document.getElementById('vslToggle');
+    var seek = document.getElementById('vslSeek');
+    var cur = document.getElementById('vslCur');
+    var dur = document.getElementById('vslDur');
+    var speedBtn = document.getElementById('vslSpeed');
+    var speeds = [1, 1.25, 1.5, 2, 0.75];
+    var speedIdx = 0;
+    var seeking = false;
+
+    function fmt(t) {
+      if (!isFinite(t)) return '0:00';
+      var m = Math.floor(t / 60);
+      var s = Math.floor(t % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+    function play() {
+      video.play();
+    }
+    function togglePlay() {
+      if (video.paused) play(); else video.pause();
+    }
+    bigPlay.addEventListener('click', play);
+    toggle.addEventListener('click', togglePlay);
+    video.addEventListener('play', function () {
+      player.classList.add('is-playing');
+      toggle.textContent = '❚❚';
+      bigPlay.querySelector('.ic').textContent = '▶';
+    });
+    video.addEventListener('pause', function () { toggle.textContent = '▶'; });
+    video.addEventListener('loadedmetadata', function () { dur.textContent = fmt(video.duration); });
+    video.addEventListener('timeupdate', function () {
+      if (seeking) return;
+      cur.textContent = fmt(video.currentTime);
+      var pct = video.duration ? (video.currentTime / video.duration) * 100 : 0;
+      seek.value = pct;
+      seek.style.setProperty('--vsl-progress', pct + '%');
+    });
+    seek.addEventListener('input', function () {
+      seeking = true;
+      var pct = parseFloat(seek.value);
+      seek.style.setProperty('--vsl-progress', pct + '%');
+      if (video.duration) cur.textContent = fmt((pct / 100) * video.duration);
+    });
+    seek.addEventListener('change', function () {
+      if (video.duration) video.currentTime = (parseFloat(seek.value) / 100) * video.duration;
+      seeking = false;
+    });
+    speedBtn.addEventListener('click', function () {
+      speedIdx = (speedIdx + 1) % speeds.length;
+      video.playbackRate = speeds[speedIdx];
+      speedBtn.textContent = speeds[speedIdx] + 'x';
+    });
+  })();
+
+  /* traveling queen — fixed piece whose vertical position tracks overall page scroll progress */
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.innerWidth <= 1080) return;
+    var el = document.createElement('div');
+    el.className = 'queen-traveler';
+    el.setAttribute('aria-hidden', 'true');
+    el.innerHTML = '<svg viewBox="0 0 100 100"><circle cx="50" cy="22" r="14" fill="#d9ac5e"/><path d="M30 40 L70 40 L76 60 L24 60 Z" fill="#d9ac5e"/><path d="M20 84 Q20 66 38 66 L62 66 Q80 66 80 84 Z" fill="#d9ac5e"/></svg>';
+    document.body.appendChild(el);
+    var heroEl = document.querySelector('.hero-stage');
+    var closerEl = document.querySelector('.closer');
+    var ticking = false;
+    function apply() {
+      var doc = document.documentElement;
+      var max = doc.scrollHeight - doc.clientHeight;
+      var progress = max > 0 ? doc.scrollTop / max : 0;
+      var vh = window.innerHeight;
+      el.style.top = (vh * 0.12 + progress * vh * 0.7) + 'px';
+      var heroRect = heroEl ? heroEl.getBoundingClientRect() : null;
+      var closerRect = closerEl ? closerEl.getBoundingClientRect() : null;
+      var visible = (!heroRect || heroRect.bottom < 0) && (!closerRect || closerRect.top > vh * 0.25);
+      el.classList.toggle('is-visible', visible);
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(apply);
+    }, { passive: true });
+    apply();
+  })();
+
+  /* bio background photo parallax */
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.innerWidth <= 900) return;
+    var img = document.querySelector('.bio-bg-photo img');
+    var section = document.getElementById('nav-bio');
+    if (!img || !section) return;
+    var ticking = false;
+    function apply() {
+      var rect = section.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var progress = Math.min(Math.max((vh - rect.top) / (vh + rect.height), 0), 1);
+      img.style.transform = 'translateY(' + ((progress - 0.5) * 36) + 'px)';
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(apply);
+    }, { passive: true });
+    apply();
+  })();
+
+  /* scroll-progress "move" counter label */
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var bar = document.getElementById('scrollProgressBar');
+    if (!bar) return;
+    var label = document.createElement('div');
+    label.className = 'progress-move-label';
+    label.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(label);
+    var totalMoves = 9;
+    var lastMove = 0;
+    var hideTimer = null;
+    window.addEventListener('scroll', function () {
+      var doc = document.documentElement;
+      var max = doc.scrollHeight - doc.clientHeight;
+      var pct = max > 0 ? doc.scrollTop / max : 0;
+      var move = Math.min(totalMoves, Math.max(1, Math.ceil(pct * totalMoves)));
+      if (move !== lastMove) {
+        lastMove = move;
+        label.textContent = 'מהלך ' + move + ' מתוך ' + totalMoves;
+        label.classList.add('is-visible');
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(function () { label.classList.remove('is-visible'); }, 1100);
+      }
+    }, { passive: true });
+  })();
+
+  /* gold spark + gold dust when a wave-divider scrolls into view */
+  (function () {
+    var dividers = document.querySelectorAll('.wave-divider');
+    if (!dividers.length || !('IntersectionObserver' in window)) return;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function spawnDust(el) {
+      if (reduceMotion) return;
+      for (var i = 0; i < 6; i++) {
+        (function (i) {
+          setTimeout(function () {
+            var d = document.createElement('div');
+            d.className = 'gold-dust-particle';
+            d.style.left = (8 + Math.random() * 84) + '%';
+            el.appendChild(d);
+            setTimeout(function () { d.remove(); }, 1800);
+          }, i * 90);
+        })(i);
+      }
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        if (!reduceMotion) {
+          el.classList.add('spark');
+          setTimeout(function () { el.classList.remove('spark'); }, 1300);
+        }
+        spawnDust(el);
+        io.unobserve(el);
+      });
+    }, { threshold: 0.4 });
+    dividers.forEach(function (el) { io.observe(el); });
+  })();
+
+  /* checkmate moment when the footer is reached */
+  (function () {
+    var stage = document.getElementById('checkmateStage');
+    if (!stage || !('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          stage.classList.add('is-visible');
+          io.unobserve(stage);
+        }
+      });
+    }, { threshold: 0.6 });
+    io.observe(stage);
+  })();
+
+  /* hero chessboard hover-glow follows the mouse */
+  (function () {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    var hero = document.querySelector('.hero-stage');
+    var floor = document.querySelector('.hero-chess-floor');
+    if (!hero || !floor) return;
+    hero.addEventListener('mousemove', function (e) {
+      var rect = floor.getBoundingClientRect();
+      var mx = ((e.clientX - rect.left) / rect.width) * 100;
+      var my = ((e.clientY - rect.top) / rect.height) * 100;
+      floor.style.setProperty('--mx', mx + '%');
+      floor.style.setProperty('--my', my + '%');
     }, { passive: true });
   })();
 </script>
