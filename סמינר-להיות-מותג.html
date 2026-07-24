@@ -175,7 +175,7 @@
   .vsl-ctrl-btn:hover { background: rgba(255,255,255,0.28); }
   .vsl-time { flex-shrink: 0; color: var(--white); font-size: 0.75rem; font-variant-numeric: tabular-nums; min-width: 34px; text-align: center; }
   .vsl-seek {
-    flex: 1; -webkit-appearance: none; appearance: none; height: 4px; border-radius: 999px;
+    flex: 1; min-width: 0; -webkit-appearance: none; appearance: none; height: 4px; border-radius: 999px;
     background: linear-gradient(90deg, var(--gold) var(--vsl-progress, 0%), rgba(255,255,255,0.3) var(--vsl-progress, 0%));
     cursor: pointer;
   }
@@ -208,12 +208,12 @@
     position: absolute; top: 8px; left: 8px; right: 8px; z-index: 4; display: none; justify-content: space-between;
   }
   .vsl-player.is-pip .vsl-pip-bar { display: flex; }
-  .vsl-pip-close, .vsl-pip-expand {
+  .vsl-pip-close, .vsl-pip-expand, .vsl-pip-pause {
     width: 26px; height: 26px; border-radius: 50%;
     background: rgba(0,0,0,0.55); color: var(--white); display: flex; align-items: center; justify-content: center;
-    font-size: 0.8rem; cursor: pointer; border: none;
+    font-size: 0.75rem; cursor: pointer; border: none;
   }
-  .vsl-pip-close:hover, .vsl-pip-expand:hover { background: rgba(0,0,0,0.75); }
+  .vsl-pip-close:hover, .vsl-pip-expand:hover, .vsl-pip-pause:hover { background: rgba(0,0,0,0.75); }
   .vsl-player.is-pip {
     position: fixed; z-index: 200; bottom: 100px; left: 20px; width: 340px; max-width: min(46vw, 380px);
     margin: 0; box-shadow: 0 20px 46px rgba(0,0,0,0.45);
@@ -231,11 +231,16 @@
     .vsl-lead { font-size: 0.78rem; padding: 0.55rem 0.7rem; border-radius: 16px 16px 0 0; }
   }
   @media (max-width: 600px) {
-    .vsl-controls { padding: 0.5rem 0.55rem; gap: 0.4rem; }
-    .vsl-ctrl-btn, .vsl-speed-btn { height: 30px; }
-    .vsl-ctrl-btn { width: 30px; }
-    .vsl-time { font-size: 0.68rem; min-width: 28px; }
-    .vsl-volume { width: 40px; }
+    .vsl-controls { padding: 0.5rem 0.4rem; gap: 0.3rem; }
+    .vsl-ctrl-btn, .vsl-speed-btn { height: 28px; }
+    .vsl-ctrl-btn { width: 28px; }
+    .vsl-time { font-size: 0.66rem; min-width: 24px; }
+    .vsl-speed-btn { padding: 0 0.45rem; font-size: 0.7rem; }
+    /* volume slider is the first thing to go on a tight mobile row — mute toggle alone stays */
+    .vsl-volume { display: none; }
+  }
+  @media (max-width: 360px) {
+    .vsl-speed-btn { display: none; }
   }
 
   .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -1593,6 +1598,7 @@
   .word-accent {
     position: relative; display: inline-block; color: var(--sec-a);
   }
+  .headline-accent { color: var(--gold); }
   .word-accent::after {
     content: ""; position: absolute; right: 0.03em; left: 0.03em; bottom: 0.02em; height: 0.06em; border-radius: 999px;
     background: var(--gold);
@@ -1908,6 +1914,7 @@
           <span class="ic">▶</span>
         </button>
         <div class="vsl-pip-bar">
+          <button type="button" class="vsl-pip-pause" id="vslPipPause" aria-label="השהיה או המשך, בלי לסגור">❚❚</button>
           <button type="button" class="vsl-pip-expand" id="vslPipExpand" aria-label="הגדלת הסרטון בחזרה">⤢</button>
           <button type="button" class="vsl-pip-close" id="vslPipClose" aria-label="סגירת נגן מוקטן">✕</button>
         </div>
@@ -1919,6 +1926,7 @@
           <button type="button" class="vsl-ctrl-btn" id="vslMute" aria-label="השתקה">🔊</button>
           <input type="range" class="vsl-volume" id="vslVolume" min="0" max="100" value="70" step="1" aria-label="עוצמת קול">
           <button type="button" class="vsl-speed-btn" id="vslSpeed" aria-label="מהירות נגינה">1x</button>
+          <button type="button" class="vsl-ctrl-btn" id="vslFullscreen" aria-label="מסך מלא">⛶</button>
         </div>
       </div>
     </div>
@@ -1931,7 +1939,7 @@
   <div class="section3-stage">
   <div class="section3-text">
     <div class="brand-head">
-      <h2>אפשר להצליח גם בלי להיות מותג<br>אבל תשלמו על זה בכל יום מחדש.</h2>
+      <h2>אפשר להצליח גם בלי להיות מותג<br><span class="headline-accent">אבל תשלמו על זה בכל יום מחדש.</span></h2>
       <p>ואפילו חשוב לי להגיד את זה: יש בעלי עסקים שמכניסים יפה מאוד גם בלי להיות מותג. בזכות המלצות, לקוחות חוזרים, קמפיינים טובים, מיקום מעולה או פשוט כי הם באמת מצוינים במה שהם עושים. <strong>אבל עסק מצליח ומותג הם לא אותו דבר.</strong></p>
     </div>
 
@@ -3269,6 +3277,8 @@
     var volume = document.getElementById('vslVolume');
     var pipClose = document.getElementById('vslPipClose');
     var pipExpand = document.getElementById('vslPipExpand');
+    var pipPause = document.getElementById('vslPipPause');
+    var fullscreenBtn = document.getElementById('vslFullscreen');
     var speeds = [1, 1.25, 1.5, 2, 0.75];
     var speedIdx = 0;
     var seeking = false;
@@ -3337,6 +3347,20 @@
       toggle.textContent = '▶';
       if (userStarted) player.classList.remove('is-playing');
     });
+    /* dedicated pause button inside the PiP bar itself — pausing must NOT exit PiP
+       (only the ✕ button does that), so this only ever calls togglePlay(). */
+    if (pipPause) {
+      pipPause.addEventListener('click', togglePlay);
+      video.addEventListener('play', function () { pipPause.textContent = '❚❚'; });
+      video.addEventListener('pause', function () { pipPause.textContent = '▶'; });
+    }
+    if (fullscreenBtn) {
+      fullscreenBtn.addEventListener('click', function () {
+        if (video.requestFullscreen) { video.requestFullscreen(); }
+        else if (video.webkitRequestFullscreen) { video.webkitRequestFullscreen(); }
+        else if (video.webkitEnterFullscreen) { video.webkitEnterFullscreen(); }
+      });
+    }
     video.addEventListener('ended', function () { player.classList.remove('is-playing'); });
     video.addEventListener('timeupdate', function () {
       if (seeking) return;
