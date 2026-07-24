@@ -1271,16 +1271,23 @@
     display: flex; align-items: center; justify-content: center; gap: 0.4rem; color: rgba(255,255,255,0.7);
     font-size: 0.82rem; font-weight: 700; margin-top: 0.7rem;
   }
-  .closer-urgency { text-align: center; font-weight: 800; font-size: 0.95rem; color: var(--gold-soft); margin: 0 0 0.9rem; font-variant-numeric: tabular-nums; }
+  .closer-urgency { text-align: center; font-weight: 800; font-size: 0.95rem; color: var(--gold-soft); margin: 1.4rem 0 0.9rem; font-variant-numeric: tabular-nums; }
   .scarcity-pill {
     display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(217,172,94,0.14);
     border: 1px solid rgba(217,172,94,0.4); color: var(--gold-soft); font-weight: 800; font-size: 0.82rem;
     padding: 0.4rem 1rem; border-radius: 999px; margin: 0.7rem auto 0; width: fit-content;
   }
+  /* in the closer specifically: too many stacked "frames" (card + pill + 2 buttons) competed for attention -
+     this one drops the pill treatment and reads as plain small text instead */
+  .closer-card .scarcity-pill {
+    display: block; background: none; border: none; padding: 0; border-radius: 0;
+    font-size: 0.8rem; font-weight: 700; color: rgba(255,255,255,0.6); margin: 0.5rem auto 0;
+  }
   .closer-urgency.is-urgent { color: #ff6b6b; animation: urgentTextPulse 1.6s ease-in-out infinite; }
   @media (prefers-reduced-motion: reduce) { .closer-urgency.is-urgent { animation: none; } }
-  .closer-tickets { display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; margin-bottom: 0.6rem; padding: 0.6rem; }
+  .closer-tickets { display: flex; align-items: flex-start; gap: 1.4rem; justify-content: center; flex-wrap: wrap; margin: 1.6rem 0 0.6rem; padding: 0.6rem; }
   .ticket-col { display: flex; flex-direction: column; align-items: center; }
+  .ticket-col.ticket-secondary { margin-top: 0.6rem; }
   .ticket-note { margin: 0.55rem 0 0; font-size: 0.8rem; color: rgba(255,255,255,0.65); font-weight: 600; max-width: 220px; text-align: center; line-height: 1.4; }
   .closer-tickets a { font-size: 1.2rem; padding: 1.35rem 2.9rem; }
   .closer-tickets .gold-btn { animation: ticketHaloPulseGold 2.4s ease-in-out infinite; }
@@ -1290,7 +1297,12 @@
     text-decoration: none; border-radius: 999px; border: 2px solid rgba(255,255,255,0.6);
     padding: 1.03rem 2.3rem; cursor: pointer;
   }
+  /* secondary ticket option in the closer: visibly smaller/quieter than the primary gold button so the eye has one obvious default */
+  .closer-tickets .ticket-secondary .ghost-btn {
+    font-size: 0.88rem; padding: 0.8rem 1.7rem; background: transparent; border-color: rgba(255,255,255,0.35); opacity: 0.85;
+  }
   .closer-tickets .ghost-btn { animation: ticketHaloPulseWhite 2.4s ease-in-out infinite; animation-delay: 0.3s; }
+  @media (prefers-reduced-motion: reduce) { .closer-tickets .ghost-btn, .closer-tickets .gold-btn { animation: none; } }
   @keyframes ticketHaloPulseGold {
     0%, 100% { box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 0 0 5px rgba(217,172,94,0.32), 0 14px 34px rgba(217,172,94,0.5); }
     50% { box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 0 0 11px rgba(217,172,94,0.16), 0 18px 44px rgba(217,172,94,0.65); }
@@ -1521,12 +1533,27 @@
     content: "😳"; position: absolute; top: 50%; right: 50%; transform: translate(50%,-50%);
     font-size: 22rem; opacity: 0.05; z-index: 0; line-height: 1; pointer-events: none; filter: grayscale(1);
   }
-  .curio-section .wrap { position: relative; z-index: 1; max-width: 620px; }
-  .curio-section h2 { color: var(--ink); font-size: clamp(1.6rem, 1.25rem + 1.6vw, 2.3rem); margin-bottom: 1.3rem; }
-  .curio-section p { color: var(--ink-dim); font-size: 1.04rem; line-height: 1.75; margin-bottom: 1rem; }
-  .curio-section p.pop { font-weight: 800; font-size: 1.2rem; color: var(--sec-a); margin-top: 1.6rem; }
-  .curio-section .eyebrow-pill { margin-bottom: 1.2rem; }
+  .curio-section .wrap { position: relative; z-index: 1; }
   @media (max-width: 600px) { .curio-section::before { font-size: 13rem; } }
+
+  /* ===== curio dark card (davidvatine-style "highlighted square with special bg inside a section") ===== */
+  .curio-card {
+    position: relative; overflow: hidden; border-radius: 28px; max-width: 780px; margin: 0 auto;
+    background: linear-gradient(160deg, var(--purple-deep), #170228);
+    padding: 3rem 1.8rem 2.4rem; box-shadow: 0 30px 70px rgba(20,6,38,0.35);
+  }
+  .curio-card-bg { position: absolute; inset: 0; z-index: 0; }
+  .curio-card-bg img { width: 100%; height: 100%; object-fit: cover; filter: blur(14px) brightness(0.55) saturate(1.1); transform: scale(1.15); }
+  .curio-card-bg::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(160deg, rgba(36,9,63,0.8), rgba(23,2,40,0.92));
+  }
+  .curio-card-inner { position: relative; z-index: 1; max-width: 620px; margin: 0 auto; text-align: center; }
+  .curio-card-inner h2 { color: var(--white); font-size: clamp(1.6rem, 1.25rem + 1.6vw, 2.3rem); margin-bottom: 1.3rem; }
+  .curio-card-inner p { color: rgba(255,255,255,0.82); font-size: 1.04rem; line-height: 1.75; margin-bottom: 1rem; }
+  .curio-card-inner p.pop { font-weight: 800; font-size: 1.2rem; color: var(--gold-soft); margin: 1.6rem 0 2.2rem; }
+  .curio-card .photo-train-section { background: transparent; padding: 0; margin: 0.6rem -1.8rem 0; }
+  @media (max-width: 600px) { .curio-card { padding: 2.2rem 1.1rem 1.8rem; } .curio-card .photo-train-section { margin: 0 -1.1rem; } }
 
   /* ===== checklist ✔ ===== */
   .checklist { max-width: 680px; margin: 2rem auto 0; display: flex; flex-direction: column; gap: 0.9rem; }
@@ -1946,30 +1973,34 @@
 
 <section class="section-pad reveal curio-section in">
   <div class="wrap">
-    <h2>אני רוצה להרוס לכם משהו 😳</h2>
-    <p>אחרי הסמינר הזה, כנראה שלא תוכלו יותר לגלול באינסטגרם כמו פעם. כי פתאום תבינו למה עצרתם דווקא על הסרטון הזה, למה בחרתם דווקא בבעל העסק הזה, למה יש עמודים שאי אפשר לשכוח - ולמה אחרים מרגישים בדיוק אותו הדבר.</p>
-    <p class="pop">וזה בדיוק מה שנעשה במשך 5.5 שעות. לא נלמד להעתיק עסקים מצליחים - נלמד להבין למה הם מצליחים, כדי שתוכלו לבנות את זה בדרך שמתאימה רק לכם.</p>
-  </div>
-</section>
-
-<section class="photo-train-section" aria-hidden="false">
-  <div class="photo-train-track">
-      <div class="pt-item"><img src="images/gallery-1.jpg" alt="" loading="lazy"></div>
-      <div class="pt-item"><img src="images/gallery-2.jpg" alt="" loading="lazy"></div>
-      <div class="pt-item"><img src="images/gallery-3.jpg" alt="" loading="lazy"></div>
-      <div class="pt-item"><img src="images/gallery-4.jpg" alt="" loading="lazy"></div>
-      <div class="pt-item"><img src="images/gallery-5.jpg" alt="" loading="lazy"></div>
-      <div class="pt-item"><img src="images/gallery-6.jpg" alt="" loading="lazy"></div>
-      <div class="pt-item"><img src="images/gallery-7.jpg" alt="" loading="lazy"></div>
-      <div class="pt-item"><img src="images/gallery-8.jpg" alt="" loading="lazy"></div>
-      <div class="pt-item"><img src="images/gallery-1.jpg" alt="" loading="lazy"></div>
-      <div class="pt-item"><img src="images/gallery-2.jpg" alt="" loading="lazy"></div>
-      <div class="pt-item"><img src="images/gallery-3.jpg" alt="" loading="lazy"></div>
-      <div class="pt-item"><img src="images/gallery-4.jpg" alt="" loading="lazy"></div>
-      <div class="pt-item"><img src="images/gallery-5.jpg" alt="" loading="lazy"></div>
-      <div class="pt-item"><img src="images/gallery-6.jpg" alt="" loading="lazy"></div>
-      <div class="pt-item"><img src="images/gallery-7.jpg" alt="" loading="lazy"></div>
-      <div class="pt-item"><img src="images/gallery-8.jpg" alt="" loading="lazy"></div>
+    <div class="curio-card">
+      <div class="curio-card-bg" aria-hidden="true"><img src="images/gallery-8.jpg" alt=""></div>
+      <div class="curio-card-inner">
+        <h2>אני רוצה להרוס לכם משהו 😳</h2>
+        <p>אחרי הסמינר הזה, כנראה שלא תוכלו יותר לגלול באינסטגרם כמו פעם. כי פתאום תבינו למה עצרתם דווקא על הסרטון הזה, למה בחרתם דווקא בבעל העסק הזה, למה יש עמודים שאי אפשר לשכוח - ולמה אחרים מרגישים בדיוק אותו הדבר.</p>
+        <p class="pop">וזה בדיוק מה שנעשה במשך 5.5 שעות. לא נלמד להעתיק עסקים מצליחים - נלמד להבין למה הם מצליחים, כדי שתוכלו לבנות את זה בדרך שמתאימה רק לכם.</p>
+      </div>
+      <div class="photo-train-section" aria-hidden="false">
+        <div class="photo-train-track">
+            <div class="pt-item"><img src="images/gallery-1.jpg" alt="" loading="lazy"></div>
+            <div class="pt-item"><img src="images/gallery-2.jpg" alt="" loading="lazy"></div>
+            <div class="pt-item"><img src="images/gallery-3.jpg" alt="" loading="lazy"></div>
+            <div class="pt-item"><img src="images/gallery-4.jpg" alt="" loading="lazy"></div>
+            <div class="pt-item"><img src="images/gallery-5.jpg" alt="" loading="lazy"></div>
+            <div class="pt-item"><img src="images/gallery-6.jpg" alt="" loading="lazy"></div>
+            <div class="pt-item"><img src="images/gallery-7.jpg" alt="" loading="lazy"></div>
+            <div class="pt-item"><img src="images/gallery-8.jpg" alt="" loading="lazy"></div>
+            <div class="pt-item"><img src="images/gallery-1.jpg" alt="" loading="lazy"></div>
+            <div class="pt-item"><img src="images/gallery-2.jpg" alt="" loading="lazy"></div>
+            <div class="pt-item"><img src="images/gallery-3.jpg" alt="" loading="lazy"></div>
+            <div class="pt-item"><img src="images/gallery-4.jpg" alt="" loading="lazy"></div>
+            <div class="pt-item"><img src="images/gallery-5.jpg" alt="" loading="lazy"></div>
+            <div class="pt-item"><img src="images/gallery-6.jpg" alt="" loading="lazy"></div>
+            <div class="pt-item"><img src="images/gallery-7.jpg" alt="" loading="lazy"></div>
+            <div class="pt-item"><img src="images/gallery-8.jpg" alt="" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -2070,12 +2101,12 @@
       <p class="scarcity-pill">100 מקומות בלבד - סמינר פרונטלי, לא וובינר</p>
       <div class="closer-tickets">
         <div class="ticket-col">
-          <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line"><span class="btn-main">לרכישת כרטיס זוגי</span><span class="btn-sub">297 ₪</span></a>
-          <p class="ticket-note">2 מקומות במחיר מוזל למי שרוצה להביא איתו/ה מישהו/י</p>
-        </div>
-        <div class="ticket-col">
-          <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="ghost-btn two-line"><span class="btn-main">לרכישת כרטיס יחיד</span><span class="btn-sub">197 ₪</span></a>
+          <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line"><span class="btn-main">לרכישת כרטיס יחיד</span><span class="btn-sub">197 ₪</span></a>
           <p class="ticket-note">מקום אחד בסמינר</p>
+        </div>
+        <div class="ticket-col ticket-secondary">
+          <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="ghost-btn two-line"><span class="btn-main">לרכישת כרטיס זוגי</span><span class="btn-sub">297 ₪</span></a>
+          <p class="ticket-note">2 מקומות במחיר מוזל למי שרוצה להביא איתו/ה מישהו/י</p>
         </div>
       </div>
       <div class="payment-security-badge">🔒 תשלום מאובטח</div>
