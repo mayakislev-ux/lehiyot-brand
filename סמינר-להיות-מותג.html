@@ -170,7 +170,14 @@
     background: rgba(255,255,255,0.15); color: var(--white); font-weight: 800; font-size: 0.78rem; font-variant-numeric: tabular-nums;
   }
   .vsl-speed-btn:hover { background: rgba(255,255,255,0.28); }
-  .vsl-lead { max-width: 680px; margin: 0 auto 1.1rem; text-align: center; font-weight: 700; color: var(--sec-a); font-size: 1.02rem; }
+  .vsl-anchor { height: 1px; }
+  .vsl-lead {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 3; margin: 0; padding: 0.85rem 1.2rem;
+    text-align: center; font-weight: 800; color: var(--white); font-size: 0.98rem;
+    background: linear-gradient(160deg, var(--sec-a), var(--purple-deep));
+    border-radius: 22px 22px 0 0; transition: opacity 0.25s ease;
+  }
+  .vsl-player.is-playing .vsl-lead { opacity: 0; pointer-events: none; }
   .vsl-volume {
     flex-shrink: 0; width: 64px; -webkit-appearance: none; appearance: none; height: 4px; border-radius: 999px;
     background: rgba(255,255,255,0.3); cursor: pointer;
@@ -1848,11 +1855,12 @@
 
 <section class="section-pad reveal in" style="padding-top:0.2rem;">
   <div class="wrap">
-    <p class="vsl-lead">3.5 דקות שיסבירו לכם למה זה קורה - תלחצו פליי.</p>
+    <div class="vsl-anchor" id="vslAnchor" aria-hidden="true"></div>
     <div class="vsl-player" id="vslPlayer">
       <video id="vslVideo" poster="images/vsl-poster.jpg" preload="none" playsinline>
         <source src="videos/vsl.mp4" type="video/mp4">
       </video>
+      <p class="vsl-lead">3.5 דקות שיסבירו לכם למה זה קורה - תלחצו פליי.</p>
       <button type="button" class="vsl-big-play" id="vslBigPlay" aria-label="הפעלת הסרטון"><span class="ic">▶</span></button>
       <div class="vsl-pip-close" id="vslPipClose" aria-label="סגירת נגן מוקטן" hidden>✕</div>
       <div class="vsl-controls" id="vslControls">
@@ -1861,7 +1869,7 @@
         <input type="range" class="vsl-seek" id="vslSeek" min="0" max="100" value="0" step="0.1" aria-label="מיקום בסרטון">
         <span class="vsl-time" id="vslDur">0:00</span>
         <button type="button" class="vsl-ctrl-btn" id="vslMute" aria-label="השתקה">🔊</button>
-        <input type="range" class="vsl-volume" id="vslVolume" min="0" max="100" value="100" step="1" aria-label="עוצמת קול">
+        <input type="range" class="vsl-volume" id="vslVolume" min="0" max="100" value="70" step="1" aria-label="עוצמת קול">
         <button type="button" class="vsl-speed-btn" id="vslSpeed" aria-label="מהירות נגינה">1x</button>
       </div>
     </div>
@@ -3212,10 +3220,12 @@
       var s = Math.floor(t % 60);
       return m + ':' + (s < 10 ? '0' : '') + s;
     }
+    video.volume = 0.7;
     function realPlay() {
       userStarted = true;
       previewing = false;
       video.muted = false;
+      player.classList.add('is-playing');
       var saved = parseFloat(localStorage.getItem(RESUME_KEY) || '0');
       if (saved > 4 && video.duration && saved < video.duration - 3) {
         video.currentTime = saved;
@@ -3223,15 +3233,16 @@
       video.play();
     }
     function togglePlay() {
-      if (video.paused) realPlay(); else video.pause();
+      if (video.paused) { realPlay(); } else { video.pause(); }
     }
     bigPlay.addEventListener('click', realPlay);
     toggle.addEventListener('click', togglePlay);
-    video.addEventListener('play', function () {
-      player.classList.add('is-playing');
-      toggle.textContent = '❚❚';
+    video.addEventListener('play', function () { toggle.textContent = '❚❚'; });
+    video.addEventListener('pause', function () {
+      toggle.textContent = '▶';
+      if (userStarted) player.classList.remove('is-playing');
     });
-    video.addEventListener('pause', function () { toggle.textContent = '▶'; });
+    video.addEventListener('ended', function () { player.classList.remove('is-playing'); });
     video.addEventListener('loadedmetadata', function () { dur.textContent = fmt(video.duration); });
     video.addEventListener('timeupdate', function () {
       if (seeking) return;
@@ -3304,26 +3315,35 @@
       previewIo.observe(player);
     }
 
-    /* shrink to a small corner player if the user scrolls away while actually watching */
-    if ('IntersectionObserver' in window) {
+    /* shrink to a small corner player if the user scrolls away while actually watching.
+       watches a sentinel left behind at the player's normal spot, NOT the player itself —
+       once the player goes position:fixed it would always read as "intersecting" and the
+       observer would immediately undo itself if it watched the player directly. */
+    var anchor = document.getElementById('vslAnchor');
+    if (anchor && 'IntersectionObserver' in window) {
+      function enterPip() {
+        anchor.style.height = player.getBoundingClientRect().height + 'px';
+        player.classList.add('is-pip');
+        pipClose.hidden = false;
+      }
+      function exitPip() {
+        player.classList.remove('is-pip');
+        pipClose.hidden = true;
+        anchor.style.height = '1px';
+      }
       var pipIo = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (!userStarted || video.paused) return;
-          if (!entry.isIntersecting) {
-            player.classList.add('is-pip');
-            pipClose.hidden = false;
-          } else {
-            player.classList.remove('is-pip');
-            pipClose.hidden = true;
-          }
+          if (!entry.isIntersecting) enterPip(); else exitPip();
         });
-      }, { threshold: 0.05 });
-      pipIo.observe(player);
+      }, { threshold: 0.01 });
+      pipIo.observe(anchor);
     }
     pipClose.addEventListener('click', function () {
       video.pause();
       player.classList.remove('is-pip');
       pipClose.hidden = true;
+      if (anchor) anchor.style.height = '1px';
     });
   })();
 
