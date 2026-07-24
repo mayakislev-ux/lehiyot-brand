@@ -438,14 +438,7 @@
     z-index: 6; pointer-events: none;
   }
   .circle-cut-white { background: var(--white); }
-  .circle-cut-dark { background: #0a0414; }
   .circle-cut-blur { z-index: 7; filter: blur(6px); }
-  .diagonal-cut {
-    position: absolute; bottom: -1px; left: -6%; right: -6%; height: 90px;
-    background: var(--sec-b); z-index: 6; pointer-events: none;
-    transform: skewY(-2.2deg); transform-origin: bottom left;
-  }
-  @media (max-width: 700px) { .diagonal-cut { height: 56px; } }
   @media (max-width: 700px) {
     .circle-cut { width: 180%; height: 60px; }
   }
@@ -1015,13 +1008,20 @@
     padding: 1.1rem 1.3rem; margin: 1.2rem auto; max-width: 560px; color: var(--gold-soft); font-weight: 700; font-size: 0.98rem; line-height: 1.6;
   }
   .award-box {
-    display: flex; align-items: center; gap: 0.9rem; margin: 0 0 1.4rem; max-width: none;
-    background: linear-gradient(160deg, rgba(20,6,38,0.55), rgba(20,6,38,0.35));
+    display: flex; align-items: center; gap: 1.1rem; margin: 0 0 1.4rem; max-width: none;
+    background: linear-gradient(160deg, rgba(20,6,38,0.62), rgba(20,6,38,0.38));
     border: 1px solid rgba(217,172,94,0.4); box-shadow: 0 16px 34px rgba(0,0,0,0.25);
-    font-size: 1.08rem; font-family: var(--font-display);
+    padding: 1.25rem 1.5rem; border-radius: 18px;
   }
-  .award-badge { flex-shrink: 0; font-size: 1.8rem; }
-  .award-box .count-up { color: var(--white); font-weight: 800; }
+  .award-badge {
+    flex-shrink: 0; width: 54px; height: 54px; border-radius: 50%; font-size: 1.6rem;
+    display: flex; align-items: center; justify-content: center;
+    background: radial-gradient(circle at 35% 30%, rgba(217,172,94,0.35), rgba(217,172,94,0.08));
+    border: 1px solid rgba(217,172,94,0.5);
+  }
+  .award-figure { font-family: var(--font-display); font-weight: 800; font-size: 1.22rem; color: var(--white); }
+  .award-box .count-up { color: var(--gold-soft); font-variant-numeric: tabular-nums; }
+  .award-sub { font-size: 0.85rem; color: rgba(240,214,163,0.85); font-weight: 700; margin-top: 0.25rem; }
   #nav-bio { overflow: hidden; }
   .bio-bg-photo {
     position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
@@ -1738,7 +1738,10 @@
         <p>רק אחרי שהצלחתי בעסק של עצמי הבנתי שהתשוקה שלי בכלל לא בביוטי אלא בשיווק. סגרתי עסק מצליח למרות שכולם עיקמו מבט - "איך סוגרים עסק מצליח?" - אבל החלטתי ללכת אחרי הלב ולא אחרי הכסף. נכנסתי לאחד התחומים הכי תחרותיים בארץ - שיווק. לא הייתי הראשונה, לא הייתי היחידה, לא היו לי מאות אלפי עוקבים, ואף אחד לא חיכה לי בתור.</p>
         <div class="insight-box award-box">
           <span class="award-badge">🏆</span>
-          מאפס ל־<span class="count-up" data-target="100000">0</span> ₪ בחודש תוך 9 חודשים בלבד
+          <div class="award-copy">
+            <div class="award-figure">מ־0 ל־<span class="count-up" data-target="100000">0</span> ₪ בחודש</div>
+            <div class="award-sub">תוך 9 חודשים בלבד</div>
+          </div>
         </div>
         <p>ובתוך 9 חודשים הגעתי מאפס ל־<span class="big-stat">100,000 ₪</span> בחודש - לא כי הייתי הכי מוכשרת, אלא כי הצלחתי לגרום לאנשים להבין מהר מאוד למה לבחור דווקא בי.</p>
         <p>היום אני כמעט לא זוכרת מה זאת שיחת מכירה קשה - כי רוב האנשים שמגיעים אליי כבר יודעים למה הם רוצים דווקא אותי, וגם על עסקה של 5 ספרות אומרים לי <b style="color:var(--gold)">"אה, זהו????"</b></p>
@@ -1760,7 +1763,6 @@
       <p class="pop">ברגע שמפסיקים לעבוד רק על התוכן, ומתחילים לעבוד על איך אנשים תופסים אתכם - הלידים מגיעים חמים יותר, והעמוד מתחיל למשוך אנשים במקום לרדוף אחריהם.</p>
     </div>
   </div>
-  <div class="circle-cut circle-cut-dark" aria-hidden="true"></div>
 </section>
 
 <section class="section-pad reveal proof-section drama-section in" id="nav-slava">
@@ -1997,7 +1999,6 @@
       </div>
     </div>
   </div>
-  <div class="diagonal-cut" aria-hidden="true"></div>
 </section>
 
 <section class="closer reveal in spotlight-target" id="form">
