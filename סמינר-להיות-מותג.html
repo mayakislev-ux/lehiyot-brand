@@ -170,11 +170,29 @@
     background: rgba(255,255,255,0.15); color: var(--white); font-weight: 800; font-size: 0.78rem; font-variant-numeric: tabular-nums;
   }
   .vsl-speed-btn:hover { background: rgba(255,255,255,0.28); }
+  .vsl-lead { max-width: 680px; margin: 0 auto 1.1rem; text-align: center; font-weight: 700; color: var(--sec-a); font-size: 1.02rem; }
+  .vsl-volume {
+    flex-shrink: 0; width: 64px; -webkit-appearance: none; appearance: none; height: 4px; border-radius: 999px;
+    background: rgba(255,255,255,0.3); cursor: pointer;
+  }
+  .vsl-volume::-webkit-slider-thumb { -webkit-appearance: none; width: 11px; height: 11px; border-radius: 50%; background: var(--white); }
+  .vsl-volume::-moz-range-thumb { width: 11px; height: 11px; border-radius: 50%; background: var(--white); border: none; }
+  .vsl-pip-close {
+    position: absolute; top: 6px; left: 6px; z-index: 4; width: 24px; height: 24px; border-radius: 50%;
+    background: rgba(0,0,0,0.55); color: var(--white); display: none; align-items: center; justify-content: center;
+    font-size: 0.75rem; cursor: pointer;
+  }
+  .vsl-player.is-pip { position: fixed; z-index: 200; bottom: 90px; left: 16px; width: 220px; max-width: 40vw; margin: 0; box-shadow: 0 18px 40px rgba(0,0,0,0.4); }
+  .vsl-player.is-pip .vsl-pip-close { display: flex; }
+  .vsl-player.is-pip .vsl-controls { padding: 0.35rem 0.4rem; gap: 0.3rem; }
+  .vsl-player.is-pip .vsl-speed-btn, .vsl-player.is-pip .vsl-volume { display: none; }
+  @media (max-width: 700px) { .vsl-player.is-pip { display: none; } }
   @media (max-width: 600px) {
     .vsl-controls { padding: 0.5rem 0.55rem; gap: 0.4rem; }
     .vsl-ctrl-btn, .vsl-speed-btn { height: 30px; }
     .vsl-ctrl-btn { width: 30px; }
     .vsl-time { font-size: 0.68rem; min-width: 28px; }
+    .vsl-volume { width: 40px; }
   }
 
   .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -1819,7 +1837,7 @@
           <div class="ig-card-icons" aria-hidden="true"><span>❤</span><span>💬</span><span>➤</span></div>
         </div>
 
-<section class="section-pad reveal editorial-section in" style="padding-bottom:0.3rem;">
+<section class="section-pad reveal editorial-section in" style="padding:1.4rem 0 0.3rem;">
   <div class="wrap">
     <div class="editorial editorial-tight" style="text-align:center;">
       <p>יש בעלי עסקים שכמעט לא מתווכחים איתם על מחיר - לא כי הם הכי זולים או הכי מוכשרים. יש להם משהו שגורם ללקוח להבין את הערך שלהם עוד לפני השיחה: הם כבר לא שואלים "למה דווקא אתם?" - הם שואלים <b style="color:var(--ink)">"איך אפשר לעבוד איתכם?"</b></p>
@@ -1830,16 +1848,20 @@
 
 <section class="section-pad reveal in" style="padding-top:0.2rem;">
   <div class="wrap">
+    <p class="vsl-lead">3.5 דקות שיסבירו לכם למה זה קורה - תלחצו פליי.</p>
     <div class="vsl-player" id="vslPlayer">
       <video id="vslVideo" poster="images/vsl-poster.jpg" preload="none" playsinline>
         <source src="videos/vsl.mp4" type="video/mp4">
       </video>
       <button type="button" class="vsl-big-play" id="vslBigPlay" aria-label="הפעלת הסרטון"><span class="ic">▶</span></button>
+      <div class="vsl-pip-close" id="vslPipClose" aria-label="סגירת נגן מוקטן" hidden>✕</div>
       <div class="vsl-controls" id="vslControls">
         <button type="button" class="vsl-ctrl-btn" id="vslToggle" aria-label="הפעלה או השהיה">▶</button>
         <span class="vsl-time" id="vslCur">0:00</span>
         <input type="range" class="vsl-seek" id="vslSeek" min="0" max="100" value="0" step="0.1" aria-label="מיקום בסרטון">
         <span class="vsl-time" id="vslDur">0:00</span>
+        <button type="button" class="vsl-ctrl-btn" id="vslMute" aria-label="השתקה">🔊</button>
+        <input type="range" class="vsl-volume" id="vslVolume" min="0" max="100" value="100" step="1" aria-label="עוצמת קול">
         <button type="button" class="vsl-speed-btn" id="vslSpeed" aria-label="מהירות נגינה">1x</button>
       </div>
     </div>
@@ -3033,6 +3055,15 @@
     });
   })();
 
+  function applyVslExitCopy() {
+    var pct = window.vslWatchPct;
+    if (!pct || pct < 12 || pct > 88) return;
+    var h3 = document.querySelector('#exitIntentBackdrop h3');
+    var p = document.querySelector('#exitIntentBackdrop p');
+    if (h3) h3.textContent = 'רגע - ראיתם רק חלק מהסיפור...';
+    if (p) p.textContent = 'אתם באמצע הסרטון. תישארו לדקה אחת נוספת - הסוף הוא בדיוק המקום שבו זה נהיה רלוונטי אליכם.';
+  }
+
   (function () {
     var backdrop = document.getElementById('exitIntentBackdrop');
     var closeBtn = document.getElementById('exitIntentClose');
@@ -3041,6 +3072,7 @@
     if (!window.matchMedia('(pointer: fine)').matches) return;
     function show() {
       if (sessionStorage.getItem('exitIntentShown')) return;
+      applyVslExitCopy();
       backdrop.hidden = false;
       sessionStorage.setItem('exitIntentShown', '1');
     }
@@ -3067,6 +3099,7 @@
     if (window.matchMedia('(pointer: fine)').matches) return;
     function maybeShow() {
       if (sessionStorage.getItem('exitIntentShown') || sessionStorage.getItem('hasClickedBuy')) return;
+      applyVslExitCopy();
       backdrop.hidden = false;
       sessionStorage.setItem('exitIntentShown', '1');
     }
@@ -3163,9 +3196,15 @@
     var cur = document.getElementById('vslCur');
     var dur = document.getElementById('vslDur');
     var speedBtn = document.getElementById('vslSpeed');
+    var muteBtn = document.getElementById('vslMute');
+    var volume = document.getElementById('vslVolume');
+    var pipClose = document.getElementById('vslPipClose');
     var speeds = [1, 1.25, 1.5, 2, 0.75];
     var speedIdx = 0;
     var seeking = false;
+    var userStarted = false;
+    var previewing = false;
+    var RESUME_KEY = 'vslResumeTime';
 
     function fmt(t) {
       if (!isFinite(t)) return '0:00';
@@ -3173,18 +3212,24 @@
       var s = Math.floor(t % 60);
       return m + ':' + (s < 10 ? '0' : '') + s;
     }
-    function play() {
+    function realPlay() {
+      userStarted = true;
+      previewing = false;
+      video.muted = false;
+      var saved = parseFloat(localStorage.getItem(RESUME_KEY) || '0');
+      if (saved > 4 && video.duration && saved < video.duration - 3) {
+        video.currentTime = saved;
+      }
       video.play();
     }
     function togglePlay() {
-      if (video.paused) play(); else video.pause();
+      if (video.paused) realPlay(); else video.pause();
     }
-    bigPlay.addEventListener('click', play);
+    bigPlay.addEventListener('click', realPlay);
     toggle.addEventListener('click', togglePlay);
     video.addEventListener('play', function () {
       player.classList.add('is-playing');
       toggle.textContent = '❚❚';
-      bigPlay.querySelector('.ic').textContent = '▶';
     });
     video.addEventListener('pause', function () { toggle.textContent = '▶'; });
     video.addEventListener('loadedmetadata', function () { dur.textContent = fmt(video.duration); });
@@ -3194,6 +3239,12 @@
       var pct = video.duration ? (video.currentTime / video.duration) * 100 : 0;
       seek.value = pct;
       seek.style.setProperty('--vsl-progress', pct + '%');
+      if (userStarted && !previewing) {
+        window.vslWatchPct = pct;
+        if (video.currentTime > 3 && video.duration - video.currentTime > 3) {
+          localStorage.setItem(RESUME_KEY, video.currentTime);
+        }
+      }
     });
     seek.addEventListener('input', function () {
       seeking = true;
@@ -3204,11 +3255,75 @@
     seek.addEventListener('change', function () {
       if (video.duration) video.currentTime = (parseFloat(seek.value) / 100) * video.duration;
       seeking = false;
+      if (!userStarted) realPlay();
     });
     speedBtn.addEventListener('click', function () {
       speedIdx = (speedIdx + 1) % speeds.length;
       video.playbackRate = speeds[speedIdx];
       speedBtn.textContent = speeds[speedIdx] + 'x';
+    });
+
+    function updateMuteIcon() {
+      muteBtn.textContent = (video.muted || video.volume === 0) ? '🔇' : '🔊';
+    }
+    muteBtn.addEventListener('click', function () {
+      video.muted = !video.muted;
+      updateMuteIcon();
+    });
+    volume.addEventListener('input', function () {
+      video.volume = parseInt(volume.value, 10) / 100;
+      video.muted = video.volume === 0;
+      updateMuteIcon();
+    });
+
+    /* silent muted preview loop (first ~4s) while the section is in view and the user hasn't pressed play yet */
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var previewTimer = null;
+      var previewIo = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (userStarted) { previewIo.disconnect(); return; }
+          if (entry.isIntersecting) {
+            previewing = true;
+            video.muted = true;
+            video.play().catch(function () {});
+            clearTimeout(previewTimer);
+            previewTimer = setTimeout(function () {
+              if (previewing && !userStarted) {
+                video.pause();
+                video.currentTime = 0;
+              }
+            }, 4000);
+          } else if (previewing && !userStarted) {
+            clearTimeout(previewTimer);
+            video.pause();
+            video.currentTime = 0;
+            previewing = false;
+          }
+        });
+      }, { threshold: 0.6 });
+      previewIo.observe(player);
+    }
+
+    /* shrink to a small corner player if the user scrolls away while actually watching */
+    if ('IntersectionObserver' in window) {
+      var pipIo = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!userStarted || video.paused) return;
+          if (!entry.isIntersecting) {
+            player.classList.add('is-pip');
+            pipClose.hidden = false;
+          } else {
+            player.classList.remove('is-pip');
+            pipClose.hidden = true;
+          }
+        });
+      }, { threshold: 0.05 });
+      pipIo.observe(player);
+    }
+    pipClose.addEventListener('click', function () {
+      video.pause();
+      player.classList.remove('is-pip');
+      pipClose.hidden = true;
     });
   })();
 
