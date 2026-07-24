@@ -859,7 +859,10 @@
   .split-col li { display: flex; gap: 0.6rem; align-items: flex-start; line-height: 1.5; font-size: 0.96rem; }
   .split-col.no li { color: var(--ink-dim); }
   .split-col.yes li { color: rgba(255,255,255,0.92); }
-  .split-col .mark { flex-shrink: 0; font-family: var(--font-display); font-weight: 800; }
+  .split-col .mark {
+    flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; margin-top: 0.05rem;
+    display: flex; align-items: center; justify-content: center; font-size: 0.92rem;
+  }
   .vs-badge {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 3;
     width: 54px; height: 54px; border-radius: 50%; background: linear-gradient(160deg, var(--gold), var(--gold-deep));
@@ -884,8 +887,8 @@
   }
   @media (prefers-reduced-motion: reduce) { .vs-badge, .vs-badge::after { animation: none; } }
   @media (max-width: 760px) { .vs-badge { top: 50%; left: 50%; } }
-  .split-col.no .mark { color: #b06a7c; }
-  .split-col.yes .mark { color: var(--white); }
+  .split-col.no .mark { background: rgba(176,106,124,0.14); color: #b06a7c; }
+  .split-col.yes .mark { background: rgba(255,255,255,0.16); color: var(--white); }
   .verdict { text-align: center; margin: 1.6rem auto 0; font-size: 1.15rem; color: var(--ink); max-width: 480px; line-height: 1.6; }
   .verdict strong { color: var(--sec-a); }
   .section-purple .verdict { color: var(--white); }
@@ -1526,23 +1529,39 @@
   .checklist .row .mark { flex-shrink: 0; color: var(--sec-a); font-weight: 800; font-size: 1.1rem; }
   .checklist .row p { margin: 0; font-size: 0.98rem; line-height: 1.55; color: var(--ink); }
 
-  /* ===== mini agenda (חלק 1-4) ===== */
-  .mini-agenda { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; max-width: 900px; margin: 2rem auto 0; }
-  .mini-agenda::before {
-    content: ""; position: absolute; top: 2.4rem; right: 8%; left: 8%; height: 2px; z-index: 0;
-    background: repeating-linear-gradient(90deg, var(--sec-a) 0 8px, transparent 8px 16px);
+  /* ===== journey timeline (מה מחכה לכם) - alternating path, not a flat grid ===== */
+  .journey-timeline { position: relative; max-width: 720px; margin: 3rem auto 0; }
+  .journey-timeline::before {
+    content: ""; position: absolute; top: 4px; bottom: 4px; right: 50%; transform: translateX(50%); width: 3px; z-index: 0;
+    background: repeating-linear-gradient(180deg, var(--sec-a) 0 9px, transparent 9px 18px);
   }
-  .mini-agenda .step {
-    position: relative; z-index: 1; text-align: center; background: linear-gradient(160deg, #ffffff, #faf7fc); border-radius: 18px;
-    padding: 1.6rem 1rem; border: 1px solid var(--line); box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 14px 30px rgba(44,15,82,0.1);
+  .journey-step { position: relative; z-index: 1; display: flex; margin-bottom: 1.8rem; }
+  .journey-step:last-child { margin-bottom: 0; }
+  .journey-step[data-side="a"] { justify-content: flex-start; }
+  .journey-step[data-side="b"] { justify-content: flex-end; }
+  .journey-num {
+    position: absolute; right: 50%; top: 0; transform: translateX(50%); z-index: 2;
+    width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--sec-a), var(--gold)); color: var(--white);
+    font-family: var(--font-display); font-weight: 800; font-size: 1rem; font-variant-numeric: tabular-nums;
+    box-shadow: 0 8px 18px rgba(123,55,153,0.35), 0 0 0 5px var(--white);
   }
-  .mini-agenda .step .n {
-    font-family: var(--font-display); font-weight: 800; font-size: 2.1rem; margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, var(--sec-a), var(--gold)); -webkit-background-clip: text; background-clip: text; color: transparent;
-    font-variant-numeric: tabular-nums; letter-spacing: 0.02em;
+  .journey-card {
+    width: calc(50% - 38px); text-align: start; background: linear-gradient(160deg, #ffffff, #faf7fc); border-radius: 16px;
+    padding: 1.1rem 1.3rem; border: 1px solid var(--line); box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 12px 26px rgba(44,15,82,0.1);
   }
-  .mini-agenda .step p { margin: 0; font-size: 0.9rem; line-height: 1.4; color: var(--ink-dim); font-weight: 700; }
-  @media (max-width: 760px) { .mini-agenda { grid-template-columns: 1fr 1fr; } .mini-agenda::before { display: none; } }
+  .journey-card p { margin: 0; font-size: 0.94rem; line-height: 1.5; color: var(--ink-dim); font-weight: 700; }
+  .journey-finale {
+    position: relative; z-index: 1; margin: 2.2rem auto 0; max-width: 380px; text-align: center;
+    background: var(--purple-pale); border-radius: 14px; padding: 1rem 1.4rem;
+    font-family: var(--font-display); font-weight: 800; color: var(--sec-a); font-size: 1.08rem;
+  }
+  @media (max-width: 640px) {
+    .journey-timeline::before { right: 21px; }
+    .journey-num { right: 21px; width: 36px; height: 36px; font-size: 0.9rem; }
+    .journey-step[data-side="a"], .journey-step[data-side="b"] { justify-content: flex-start; }
+    .journey-card { width: 100%; margin-inline-end: 56px; }
+  }
   @media (max-width: 480px) { .mini-agenda { grid-template-columns: 1fr; } }
 </style>
 </head>
@@ -1879,11 +1898,24 @@
       </div>
       <p style="max-width:640px;margin:1.6rem auto 0;color:var(--ink-dim);font-size:1rem;line-height:1.7">במשך 5.5 שעות אנחנו לא נבנה עוד אסטרטגיית תוכן. נפרק את הדרך שבה העסק שלכם נתפס היום, ונגלה למה למרות שאתם טובים - השיווק עדיין לא מצליח להעביר את זה.</p>
     </div>
-    <div class="mini-agenda">
-      <div class="step"><div class="n">01</div><p>מה גורם לעמוד שלכם להרגיש כמו עוד עמוד</p></div>
-      <div class="step"><div class="n">02</div><p>מה אצלכם כבר היום מיוחד - אבל עדיין לא עובר החוצה</p></div>
-      <div class="step"><div class="n">03</div><p>איך הופכים אישיות, דעות, ניסיון וסיפור לשיווק שאי אפשר להתבלבל בינו לבין אף אחד אחר</p></div>
-      <div class="step"><div class="n">04</div><p>איך בונים מותג שגורם לאנשים להבין למה לבחור דווקא בכם - עוד לפני שיחת המכירה</p></div>
+    <div class="journey-timeline">
+      <div class="journey-step" data-side="a">
+        <div class="journey-num">01</div>
+        <div class="journey-card"><p>מה גורם לעמוד שלכם להרגיש כמו עוד עמוד</p></div>
+      </div>
+      <div class="journey-step" data-side="b">
+        <div class="journey-num">02</div>
+        <div class="journey-card"><p>מה אצלכם כבר היום מיוחד - אבל עדיין לא עובר החוצה</p></div>
+      </div>
+      <div class="journey-step" data-side="a">
+        <div class="journey-num">03</div>
+        <div class="journey-card"><p>איך הופכים אישיות, דעות, ניסיון וסיפור לשיווק שאי אפשר להתבלבל בינו לבין אף אחד אחר</p></div>
+      </div>
+      <div class="journey-step" data-side="b">
+        <div class="journey-num">04</div>
+        <div class="journey-card"><p>איך בונים מותג שגורם לאנשים להבין למה לבחור דווקא בכם - עוד לפני שיחת המכירה</p></div>
+      </div>
+      <div class="journey-finale">כל זה - תוך יום אחד, 5.5 שעות בלבד.</div>
     </div>
   </div>
 </section>
