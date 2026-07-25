@@ -1022,14 +1022,6 @@
     color: var(--ink); line-height: 1.5;
   }
   .vsl-teaser strong { color: var(--sec-a); }
-  .vsl-watch-note {
-    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
-    max-width: 480px; margin: 1.1rem auto 1rem; padding: 0.6rem 1.1rem;
-    background: rgba(123,55,153,0.07); border: 1px solid rgba(123,55,153,0.18); border-radius: 999px;
-    font-size: 0.95rem; font-weight: 700; color: var(--ink); line-height: 1.4;
-  }
-  .vsl-watch-note .vwn-ic { flex-shrink: 0; font-size: 1.05rem; }
-  @media (max-width: 500px) { .vsl-watch-note { font-size: 0.86rem; padding: 0.55rem 0.9rem; } }
   .verdict strong { color: var(--sec-a); }
   .section-purple .verdict { color: var(--white); }
   .section-purple .verdict strong { color: var(--white); text-decoration: underline; text-decoration-color: rgba(255,255,255,0.5); }
@@ -1748,18 +1740,6 @@
   .chaos-questions .reveal:nth-child(2) { transition-delay: 0.15s; }
   .chaos-questions .reveal:nth-child(3) { transition-delay: 0.3s; }
 
-  .chaos-beat-revelation { padding: 2rem 0; }
-  .chaos-revelation {
-    background: linear-gradient(135deg, var(--gold), var(--gold-soft));
-    border-radius: 26px; padding: 2.6rem 2.2rem; box-shadow: 0 30px 64px rgba(0,0,0,0.45);
-    max-width: 580px; margin: 0 auto;
-  }
-  .chaos-revelation .mega-gold {
-    margin: 0; color: var(--purple-deep); font-family: var(--font-display); font-weight: 800;
-    font-size: clamp(1.4rem, 1.1rem + 1.5vw, 2rem); line-height: 1.45; text-wrap: balance;
-  }
-  @media (max-width: 600px) { .chaos-revelation { padding: 2rem 1.5rem; } }
-
   /* ===== עסק מצליח / מותג comparison table ===== */
   .compare-table {
     margin-top: 1.8rem; border-radius: 22px; overflow: hidden; position: relative;
@@ -2039,25 +2019,8 @@
       <div class="chaos-intro">
         <h2>גם אתם מרגישים שמשהו בשיווק השתנה?</h2>
         <p>אם אתם בעלי עסק כבר כמה שנים, כנראה שגם אתם מרגישים את זה.</p>
-        <p>פעם היה הרבה יותר קל לבלוט - תקציבי ממומן נמוכים יותר, חשיפות גבוהות יותר.</p>
+        <p>פעם היה הרבה יותר קל לבלוט ברשת - תקציבי ממומן נמוכים יותר, חשיפות גבוהות יותר.<br>בסרטונים, סגירות קלות יותר.</p>
       </div>
-    </div>
-
-    <div class="chaos-beat reveal">
-      <p class="chaos-eyebrow">היום?</p>
-      <div class="chaos-cloud">
-        <span class="chaos-word-big">כאוס</span>
-        <span class="chaos-drift chaos-drift-1">AI</span>
-        <span class="chaos-drift chaos-drift-2">תוכן</span>
-        <span class="chaos-drift chaos-drift-3">ממומן</span>
-        <span class="chaos-drift chaos-drift-4">רילס</span>
-        <span class="chaos-drift chaos-drift-5">אלגוריתם</span>
-        <span class="chaos-drift chaos-drift-6">חשיפות</span>
-        <span class="chaos-drift chaos-drift-7">תחרות</span>
-        <span class="chaos-drift chaos-drift-8">עוד סרטון</span>
-        <span class="chaos-drift chaos-drift-9">עוד תקציב</span>
-      </div>
-      <p class="chaos-cloud-caption">היום כולם מעלים תוכן. כולם מצלמים. כולם משתמשים ב-AI. כולם נלחמים על אותה תשומת הלב.<br><strong>ובאמת נהיה הרבה יותר קשה לבלוט ברשת.</strong></p>
     </div>
 
     <div class="chaos-beat reveal">
@@ -2078,10 +2041,21 @@
       </div>
     </div>
 
-    <div class="chaos-beat chaos-beat-revelation reveal">
-      <div class="chaos-revelation">
-        <p class="mega-gold">פעם היה הרבה יותר קל לבלוט ברשת - תקציבי ממומן נמוכים יותר, חשיפות גבוהות יותר.<br>בסרטונים, סגירות קלות יותר.</p>
+    <div class="chaos-beat reveal">
+      <p class="chaos-eyebrow">היום?</p>
+      <div class="chaos-cloud">
+        <span class="chaos-word-big">כאוס</span>
+        <span class="chaos-drift chaos-drift-1">AI</span>
+        <span class="chaos-drift chaos-drift-2">תוכן</span>
+        <span class="chaos-drift chaos-drift-3">ממומן</span>
+        <span class="chaos-drift chaos-drift-4">רילס</span>
+        <span class="chaos-drift chaos-drift-5">אלגוריתם</span>
+        <span class="chaos-drift chaos-drift-6">חשיפות</span>
+        <span class="chaos-drift chaos-drift-7">תחרות</span>
+        <span class="chaos-drift chaos-drift-8">עוד סרטון</span>
+        <span class="chaos-drift chaos-drift-9">עוד תקציב</span>
       </div>
+      <p class="chaos-cloud-caption">היום כולם מעלים תוכן. כולם מצלמים. כולם משתמשים ב-AI. כולם נלחמים על אותה תשומת הלב.<br><strong>ובאמת נהיה הרבה יותר קשה לבלוט ברשת.</strong></p>
     </div>
 
   </div>
@@ -2095,10 +2069,10 @@
 
 <section class="section-pad reveal in" id="nav-vsl" style="padding-top:0.6rem;">
   <div class="wrap">
-    <p class="vsl-watch-note"><span class="vwn-ic">⏱</span> 3.5 דקות שמסבירות בדיוק למה זה קורה לכם - חובה לצפות עד הסוף.</p>
     <div class="vsl-wrap-outer" id="vslWrapOuter">
       <div class="vsl-anchor" id="vslAnchor" aria-hidden="true"></div>
       <div class="vsl-player" id="vslPlayer">
+        <p class="vsl-lead">3.5 דקות שמסבירות בדיוק למה זה קורה לכם - חובה לצפות עד הסוף.</p>
         <video id="vslVideo" poster="images/vsl-poster.jpg" preload="metadata" playsinline>
           <source src="videos/vsl.mp4" type="video/mp4">
         </video>
