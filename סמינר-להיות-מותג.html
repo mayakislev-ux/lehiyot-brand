@@ -1761,13 +1761,17 @@
   .compare-carousel-wrap { display: flex; align-items: center; gap: 0.5rem; }
   .compare-carousel-viewport { overflow: hidden; flex: 1 1 auto; min-width: 0; border-radius: 20px; }
   .compare-carousel-track { display: flex; direction: ltr; will-change: transform; }
-  .compare-card {
-    flex: 0 0 100%; width: 100%; box-sizing: border-box; direction: rtl;
-    border: 1px solid rgba(217,172,94,0.4); border-radius: 20px; overflow: hidden;
-    box-shadow: 0 16px 34px rgba(20,6,38,0.22);
+  .compare-card { flex: 0 0 100%; width: 100%; box-sizing: border-box; direction: rtl; padding: 1.4rem 1.1rem 2rem; }
+  .compare-card .cc-no {
+    position: relative; z-index: 1; margin: 0; padding: 1.25rem 1.35rem; border-radius: 20px;
+    background: #1c0f2e; color: rgba(255,255,255,0.85); font-size: 1.02rem; line-height: 1.6;
+    box-shadow: 0 14px 30px rgba(20,6,38,0.35); transform: rotate(-1.6deg);
   }
-  .compare-card .cc-no { margin: 0; padding: 1.3rem 1.4rem; background: #1c0f2e; color: rgba(255,255,255,0.85); font-size: 1.03rem; line-height: 1.6; }
-  .compare-card .cc-yes { margin: 0; padding: 1.3rem 1.4rem; background: linear-gradient(160deg, #fdf8ec, #f2e2bb); color: var(--ink); font-weight: 700; font-size: 1.03rem; line-height: 1.6; }
+  .compare-card .cc-yes {
+    position: relative; z-index: 2; margin: -1.3rem 7% 0 0; padding: 1.25rem 1.35rem; border-radius: 20px;
+    background: linear-gradient(160deg, #fdf8ec, #f2e2bb); color: var(--ink); font-weight: 700;
+    font-size: 1.02rem; line-height: 1.6; box-shadow: 0 16px 34px rgba(20,6,38,0.3); transform: rotate(1.2deg);
+  }
   .compare-carousel-nav {
     flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: var(--sec-a); color: #fff;
     border: none; font-size: 1rem; display: flex; align-items: center; justify-content: center; cursor: pointer;
