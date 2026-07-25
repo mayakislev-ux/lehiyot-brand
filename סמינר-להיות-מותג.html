@@ -1753,16 +1753,33 @@
   .compare-row:nth-child(even) .ct-no-cell { background: #251639; }
   .compare-cell.ct-yes-cell { background: #fdf8ec; color: var(--ink); font-weight: 700; }
   .compare-row:nth-child(even) .ct-yes-cell { background: #f7ecd0; }
+
+  .compare-carousel { display: none; }
+  .compare-carousel-labels { display: flex; justify-content: space-between; max-width: 280px; margin: 0 auto 0.9rem; padding: 0 0.5rem; }
+  .cc-label-no { color: rgba(255,255,255,0.55); font-family: var(--font-display); font-weight: 800; font-size: 0.92rem; }
+  .cc-label-yes { color: var(--gold); font-family: var(--font-display); font-weight: 800; font-size: 0.92rem; }
+  .compare-carousel-wrap { display: flex; align-items: center; gap: 0.5rem; }
+  .compare-carousel-viewport { overflow: hidden; flex: 1 1 auto; min-width: 0; border-radius: 20px; }
+  .compare-carousel-track { display: flex; direction: ltr; will-change: transform; }
+  .compare-card {
+    flex: 0 0 100%; width: 100%; box-sizing: border-box; direction: rtl;
+    border: 1px solid rgba(217,172,94,0.4); border-radius: 20px; overflow: hidden;
+    box-shadow: 0 16px 34px rgba(20,6,38,0.22);
+  }
+  .compare-card .cc-no { margin: 0; padding: 1.3rem 1.4rem; background: #1c0f2e; color: rgba(255,255,255,0.85); font-size: 1.03rem; line-height: 1.6; }
+  .compare-card .cc-yes { margin: 0; padding: 1.3rem 1.4rem; background: linear-gradient(160deg, #fdf8ec, #f2e2bb); color: var(--ink); font-weight: 700; font-size: 1.03rem; line-height: 1.6; }
+  .compare-carousel-nav {
+    flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: var(--sec-a); color: #fff;
+    border: none; font-size: 1rem; display: flex; align-items: center; justify-content: center; cursor: pointer;
+    box-shadow: 0 6px 16px rgba(44,15,82,0.3);
+  }
+  .compare-carousel-nav:disabled { opacity: 0.35; cursor: default; }
+  .compare-carousel-dots { display: flex; justify-content: center; gap: 0.4rem; margin-top: 1rem; }
+  .compare-carousel-dots .cc-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(123,55,153,0.25); transition: background 0.2s ease, transform 0.2s ease; cursor: pointer; }
+  .compare-carousel-dots .cc-dot.is-active { background: var(--sec-a); transform: scale(1.35); }
   @media (max-width: 700px) {
-    .compare-table-head { display: none; }
-    .compare-row { grid-template-columns: 1fr; }
-    .compare-row::after { display: none; }
-    .compare-cell { padding: 1.3rem; font-size: 1.05rem; }
-    .compare-cell.ct-no-cell::before, .compare-cell.ct-yes-cell::before {
-      display: block; margin-bottom: 0.5rem; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.03em;
-    }
-    .compare-cell.ct-no-cell::before { content: "עסק מצליח"; color: var(--gold-soft); }
-    .compare-cell.ct-yes-cell::before { content: "מותג"; color: var(--sec-a); }
+    .compare-table { display: none; }
+    .compare-carousel { display: block; margin-top: 1.8rem; }
   }
 
   /* ===== curiosity hook ===== */
@@ -2132,6 +2149,46 @@
         <div class="compare-cell ct-no-cell">האינסטגרם לא באמת מצליח לשקף כמה הוא טוב.</div>
         <div class="compare-cell ct-yes-cell">האינסטגרם גורם לאנשים להבין למה לבחור דווקא בו.</div>
       </div>
+    </div>
+
+    <div class="compare-carousel" id="compareCarousel">
+      <div class="compare-carousel-labels">
+        <span class="cc-label-no">עסק מצליח</span>
+        <span class="cc-label-yes">מותג</span>
+      </div>
+      <div class="compare-carousel-wrap">
+        <button type="button" class="compare-carousel-nav prev" aria-label="הקודם">›</button>
+        <div class="compare-carousel-viewport">
+          <div class="compare-carousel-track" id="compareCarouselTrack">
+            <div class="compare-card">
+              <p class="cc-no">העסק מרגיש לא יציב. יש חודשים מעולים ויש חודשים שקטים.</p>
+              <p class="cc-yes">העסק נבנה לאורך זמן. כל חודש מחזק את החודש שאחריו.</p>
+            </div>
+            <div class="compare-card">
+              <p class="cc-no">מקבל פניות... אבל הרבה מהן קרות, לא מדויקות או לא נסגרות.</p>
+              <p class="cc-yes">מושך יותר פניות שמגיעות כבר עם אמון והבנה של הערך.</p>
+            </div>
+            <div class="compare-card">
+              <p class="cc-no">מעלה תוכן ומקווה שמשהו יתפוס.</p>
+              <p class="cc-yes">כל תוכן מחזק את מה שאנשים כבר חושבים עליו.</p>
+            </div>
+            <div class="compare-card">
+              <p class="cc-no">אם מפסיק לשווק לתקופה - מרגיש את זה כמעט מיד.</p>
+              <p class="cc-yes">גם כשלא כל יום מעלים תוכן, המותג ממשיך לעבוד.</p>
+            </div>
+            <div class="compare-card">
+              <p class="cc-no">אנשים מכירים את השירות.</p>
+              <p class="cc-yes">אנשים זוכרים את השם.</p>
+            </div>
+            <div class="compare-card">
+              <p class="cc-no">האינסטגרם לא באמת מצליח לשקף כמה הוא טוב.</p>
+              <p class="cc-yes">האינסטגרם גורם לאנשים להבין למה לבחור דווקא בו.</p>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="compare-carousel-nav next" aria-label="הבא">‹</button>
+      </div>
+      <div class="compare-carousel-dots" id="compareCarouselDots"></div>
     </div>
 
   </div>
@@ -3421,6 +3478,53 @@
       if (Math.abs(dx) < 40) return;
       step(dx < 0 ? -1 : 1);
     }, { passive: true });
+  })();
+
+  (function () {
+    var track = document.getElementById('compareCarouselTrack');
+    if (!track) return;
+    var viewport = track.parentElement;
+    var dotsWrap = document.getElementById('compareCarouselDots');
+    var prevBtn = document.querySelector('.compare-carousel-nav.prev');
+    var nextBtn = document.querySelector('.compare-carousel-nav.next');
+    var cards = Array.prototype.slice.call(track.querySelectorAll('.compare-card'));
+    var idx = 0;
+
+    cards.forEach(function (_, i) {
+      var dot = document.createElement('span');
+      dot.className = 'cc-dot' + (i === 0 ? ' is-active' : '');
+      dot.addEventListener('click', function () { goTo(i); });
+      dotsWrap.appendChild(dot);
+    });
+    var dots = Array.prototype.slice.call(dotsWrap.children);
+
+    track.style.transition = 'transform 0.35s cubic-bezier(.2,.7,.3,1)';
+
+    function apply() {
+      track.style.transform = 'translateX(' + (-idx * viewport.clientWidth) + 'px)';
+      dots.forEach(function (d, i) { d.classList.toggle('is-active', i === idx); });
+      if (prevBtn) prevBtn.disabled = idx === 0;
+      if (nextBtn) nextBtn.disabled = idx === cards.length - 1;
+    }
+    function goTo(i) {
+      idx = Math.max(0, Math.min(cards.length - 1, i));
+      apply();
+    }
+    if (prevBtn) prevBtn.addEventListener('click', function () { goTo(idx - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { goTo(idx + 1); });
+
+    var touchStartX = null;
+    track.addEventListener('touchstart', function (e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', function (e) {
+      if (touchStartX == null) return;
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      touchStartX = null;
+      if (Math.abs(dx) < 30) return;
+      goTo(dx < 0 ? idx + 1 : idx - 1);
+    }, { passive: true });
+
+    window.addEventListener('resize', apply);
+    apply();
   })();
 
   (function () {
