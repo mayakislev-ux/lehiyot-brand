@@ -593,7 +593,7 @@
     100% { transform: scaleX(0); transform-origin: left; }
   }
   @media (prefers-reduced-motion: reduce) { .hero-title .accent::after { animation: none; transform: scaleX(1); transform-origin: right; } }
-  .hero-sub { color: rgba(255,255,255,0.97); font-weight: 700; font-size: 1.18rem; margin-bottom: 0.6rem; text-shadow: 0 2px 12px rgba(0,0,0,0.35); }
+  .hero-sub { color: rgba(255,255,255,0.97); font-weight: 700; font-size: 1.1rem; line-height: 1.5; margin-bottom: 1rem; text-shadow: 0 2px 12px rgba(0,0,0,0.35); }
   .hero-format-line { color: rgba(255,255,255,0.8); font-weight: 600; font-size: 0.95rem; margin-bottom: 1.3rem; }
   .hero-reinforce { color: rgba(255,255,255,0.88); font-weight: 600; font-size: 1.02rem; line-height: 1.6; margin: 0.6rem 0 1.2rem; max-width: 46ch; }
   .hero-cta-block .gold-btn { font-size: 1.1rem; padding: 1rem 2.2rem; gap: 0.6rem; font-weight: 900; letter-spacing: 0.01em; }
@@ -1649,6 +1649,94 @@
     margin-top: 2rem; text-wrap: balance;
   }
 
+  /* ===== chaos section (marketing-changed narrative before the VSL) ===== */
+  .chaos-section .wrap { max-width: 900px; }
+  .chaos-intro { max-width: 620px; margin: 0 auto 3.8rem; }
+  .chaos-intro h2 { margin-bottom: 0.9rem; }
+  .chaos-intro p { margin-bottom: 0.3rem; }
+
+  .chaos-cloud {
+    position: relative; text-align: center; margin: 0 auto 3.6rem; max-width: 760px;
+    min-height: 260px; display: flex; align-items: center; justify-content: center;
+  }
+  .chaos-word-big {
+    position: relative; z-index: 2; font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(2.6rem, 1.8rem + 4.5vw, 5rem); color: var(--gold);
+    text-shadow: 0 0 40px rgba(217,172,94,0.35);
+  }
+  .chaos-float-tag {
+    position: absolute; z-index: 1; color: rgba(255,255,255,0.6); font-weight: 700; font-size: 0.92rem;
+    padding: 0.35rem 0.85rem; border: 1px solid rgba(255,255,255,0.16); border-radius: 999px;
+    background: rgba(255,255,255,0.035); white-space: nowrap; pointer-events: none;
+    animation: chaosFloat 6.5s ease-in-out infinite;
+  }
+  @keyframes chaosFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  @media (prefers-reduced-motion: reduce) { .chaos-float-tag { animation: none; } }
+  .chaos-tag-1 { top: 4%; right: 8%; animation-delay: 0s; }
+  .chaos-tag-2 { top: 2%; left: 4%; animation-delay: 0.7s; }
+  .chaos-tag-3 { top: 30%; right: -4%; animation-delay: 1.4s; }
+  .chaos-tag-4 { top: 34%; left: -6%; animation-delay: 2.1s; }
+  .chaos-tag-5 { bottom: 22%; right: 2%; animation-delay: 2.8s; }
+  .chaos-tag-6 { bottom: 18%; left: 0%; animation-delay: 3.5s; }
+  .chaos-tag-7 { bottom: -4%; right: 22%; animation-delay: 4.2s; }
+  .chaos-tag-8 { bottom: -6%; left: 20%; animation-delay: 4.9s; }
+  .chaos-tag-9 { top: -6%; left: 32%; animation-delay: 5.6s; }
+  @media (max-width: 640px) {
+    .chaos-cloud { min-height: 200px; transform: scale(0.72); }
+  }
+
+  .chaos-transition { text-align: center; margin: 0 auto 3.6rem; }
+  .chaos-transition h3 {
+    color: var(--white); font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(1.2rem, 1rem + 1vw, 1.5rem); margin-bottom: 1.8rem;
+  }
+  .chaos-response-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; max-width: 640px; margin: 0 auto; }
+  .chaos-response-card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px;
+    padding: 1.4rem 0.9rem; text-align: center;
+  }
+  .chaos-response-card .cr-icon { display: block; font-size: 1.6rem; margin-bottom: 0.6rem; }
+  .chaos-response-card p { margin: 0; color: rgba(255,255,255,0.82); font-weight: 700; font-size: 0.92rem; }
+  @media (max-width: 600px) { .chaos-response-cards { grid-template-columns: 1fr; max-width: 320px; } }
+
+  .chaos-breakpoint { text-align: center; padding-top: 1rem; }
+  .chaos-lead-q { color: rgba(255,255,255,0.7); font-size: 1rem; margin-bottom: 2rem; }
+  .chaos-questions { display: flex; flex-direction: column; gap: 1.1rem; align-items: center; }
+  .chaos-q {
+    margin: 0; color: var(--white); font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(1.3rem, 1.05rem + 1.2vw, 1.7rem);
+  }
+  .chaos-questions .reveal:nth-child(2) { transition-delay: 0.15s; }
+  .chaos-questions .reveal:nth-child(3) { transition-delay: 0.3s; }
+
+  /* ===== עסק מצליח / מותג comparison table ===== */
+  .compare-table {
+    margin-top: 1.8rem; border-radius: 22px; overflow: hidden; background: var(--white);
+    box-shadow: 0 24px 56px rgba(20,6,38,0.4);
+  }
+  .compare-table-head { display: grid; grid-template-columns: 1fr 1fr; }
+  .compare-table-head span {
+    padding: 1rem; text-align: center; font-family: var(--font-display); font-weight: 800; font-size: 1.02rem;
+  }
+  .compare-table-head .ct-no { background: rgba(176,106,124,0.14); color: #b06a7c; }
+  .compare-table-head .ct-yes { background: linear-gradient(135deg, var(--sec-a), var(--gold)); color: var(--white); }
+  .compare-row { display: grid; grid-template-columns: 1fr 1fr; }
+  .compare-row:nth-child(even) { background: var(--purple-pale); }
+  .compare-cell { padding: 1rem 1.3rem; font-size: 0.9rem; line-height: 1.55; }
+  .compare-cell.ct-no-cell { color: var(--ink-dim); border-left: 1px solid var(--line); }
+  .compare-cell.ct-yes-cell { color: var(--ink); font-weight: 700; }
+  @media (max-width: 700px) {
+    .compare-table-head { display: none; }
+    .compare-row { grid-template-columns: 1fr; }
+    .compare-cell { position: relative; padding-top: 1.7rem; }
+    .compare-cell.ct-no-cell { border-left: none; border-bottom: 1px dashed var(--line); padding-bottom: 1.3rem; }
+    .compare-cell.ct-no-cell::before, .compare-cell.ct-yes-cell::before {
+      position: absolute; top: 0.35rem; right: 1.3rem; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.03em;
+    }
+    .compare-cell.ct-no-cell::before { content: "עסק מצליח"; color: #b06a7c; }
+    .compare-cell.ct-yes-cell::before { content: "מותג"; color: var(--sec-a); }
+  }
+
   /* ===== curiosity hook ===== */
   .curio-section { position: relative; overflow: hidden; background: var(--white); color: var(--ink); text-align: center; }
   .curio-section::before {
@@ -1871,7 +1959,7 @@
         </h1>
       </div>
       <div class="hero-cta-block">
-        <p class="hero-sub">סמינר · להיות מותג ברשת</p>
+        <p class="hero-sub">יש בעלי עסקים שלוקחים 80% מהלקוחות.<br>בזמן שכל השאר נלחמים על מה שנשאר.</p>
         <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line"><span class="btn-main">כן, אני רוצה ←</span><span class="btn-sub">להצטרף לסמינר עכשיו</span></a>
         <p class="scarcity-pill">100 מקומות בלבד - סמינר פרונטלי</p>
         <div class="payment-security-badge">🔒 תשלום מאובטח</div>
@@ -1886,6 +1974,62 @@
           <img src="images/ig-card-3.jpg" alt="">
           <div class="ig-card-icons" aria-hidden="true"><span>❤</span><span>💬</span><span>➤</span></div>
         </div>
+
+<section class="section-pad reveal drama-section chaos-section in">
+  <div class="section-blend-top blend-dark" aria-hidden="true"></div>
+  <div class="wrap">
+
+    <div class="chaos-intro">
+      <h2>גם אתם מרגישים שמשהו בשיווק השתנה?</h2>
+      <p>אם אתם בעלי עסק כבר כמה שנים, כנראה שגם אתם מרגישים את זה.</p>
+      <p>פעם היה הרבה יותר קל לבלוט - תקציבי ממומן נמוכים יותר, חשיפות גבוהות יותר. היום? <strong>יש כאוס.</strong></p>
+    </div>
+
+    <div class="chaos-cloud">
+      <span class="chaos-word-big">כאוס</span>
+      <span class="chaos-float-tag chaos-tag-1">AI</span>
+      <span class="chaos-float-tag chaos-tag-2">תוכן</span>
+      <span class="chaos-float-tag chaos-tag-3">ממומן</span>
+      <span class="chaos-float-tag chaos-tag-4">רילס</span>
+      <span class="chaos-float-tag chaos-tag-5">אלגוריתם</span>
+      <span class="chaos-float-tag chaos-tag-6">חשיפות</span>
+      <span class="chaos-float-tag chaos-tag-7">תחרות</span>
+      <span class="chaos-float-tag chaos-tag-8">עוד סרטון</span>
+      <span class="chaos-float-tag chaos-tag-9">עוד תקציב</span>
+    </div>
+
+    <div class="chaos-intro" style="margin-bottom:3.6rem;">
+      <p>כולם מעלים תוכן. כולם מצלמים סרטונים. כולם משתמשים ב-AI. כולם נלחמים על אותה תשומת הלב.</p>
+      <p><strong>ובאמת נהיה הרבה יותר קשה לבלוט.</strong></p>
+    </div>
+
+    <div class="chaos-transition">
+      <h3>ומה רוב בעלי העסקים עושים בתגובה?</h3>
+      <div class="chaos-response-cards">
+        <div class="chaos-response-card reveal"><span class="cr-icon">📈</span><p>מעלים עוד תוכן</p></div>
+        <div class="chaos-response-card reveal"><span class="cr-icon">💸</span><p>מגדילים תקציבי פרסום</p></div>
+        <div class="chaos-response-card reveal"><span class="cr-icon">🔁</span><p>מנסים להיות יותר עקביים</p></div>
+      </div>
+    </div>
+
+    <div class="chaos-breakpoint">
+      <p class="chaos-lead-q">אבל כמעט אף אחד לא עוצר לשאול את עצמו:</p>
+      <div class="chaos-questions">
+        <p class="chaos-q reveal">איך אני עושה משהו אחר?</p>
+        <p class="chaos-q reveal">איך אני יוצר משהו ייחודי?</p>
+        <p class="chaos-q reveal">איך אני בולט בתוך כל הכאוס הזה?</p>
+      </div>
+      <p class="mega">אולי בגלל זה... הם ממשיכים לקבל את אותן התוצאות.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="section-pad reveal in">
+  <div class="wrap" style="max-width:640px; text-align:center;">
+    <p class="verdict" style="max-width:none;">אני רוצה לספר לכם על בעלת עסק שקיבלה 90 לידים... <strong>וסגרה רק 3.</strong></p>
+  </div>
+</section>
 
 <section class="section-pad reveal editorial-section in" style="padding:1.4rem 0 0.3rem;">
   <div class="wrap">
@@ -1943,30 +2087,34 @@
       <p>ואפילו חשוב לי להגיד את זה: יש בעלי עסקים שמכניסים יפה מאוד גם בלי להיות מותג. בזכות המלצות, לקוחות חוזרים, קמפיינים טובים, מיקום מעולה או פשוט כי הם באמת מצוינים במה שהם עושים. <strong>אבל עסק מצליח ומותג הם לא אותו דבר.</strong></p>
     </div>
 
-    <div class="split-stack">
-      <div class="vs-badge" aria-hidden="true">מול</div>
-      <div class="split-col no">
-        <h3>עסק מצליח</h3>
-        <ul>
-          <li><span class="mark">💸</span>מכניס כסף — אבל חייב לרדוף אחרי הכסף הבא</li>
-          <li><span class="mark">📢</span>כל שיחת מכירה מתחילה בלהוכיח למה דווקא הוא</li>
-          <li><span class="mark">💰</span>כל מחיר מרגיש ללקוח פתוח למשא ומתן</li>
-          <li><span class="mark">⚔️</span>כל ליד משווה אותו לעוד חמישה מתחרים</li>
-          <li><span class="mark">🔄</span>כל חודש מתחיל כמעט מאפס</li>
-          <li><span class="mark">📱</span>כל סרטון חדש צריך להילחם מחדש על תשומת הלב</li>
-          <li><span class="mark">😰</span>אם עוצרים את הממומן או את התוכן — הפניות נעצרות</li>
-        </ul>
+    <div class="compare-table">
+      <div class="compare-table-head">
+        <span class="ct-no">עסק מצליח</span>
+        <span class="ct-yes">מותג</span>
       </div>
-      <div class="split-col yes">
-        <h3>מותג</h3>
-        <ul>
-          <li><span class="mark">👑</span>הלקוחות מגיעים כבר עם העדפה אליו</li>
-          <li><span class="mark">⭐</span>השם שלו עולה ראשון כשהבעיה מתעוררת</li>
-          <li><span class="mark">💎</span>המחיר שלו נתפס כחלק מהערך — לא כהזמנה למיקוח</li>
-          <li><span class="mark">🔥</span>הלידים מגיעים חמים ומדויקים יותר</li>
-          <li><span class="mark">🚀</span>התוכן שלו נבנה על מה שכבר זוכרים ממנו</li>
-          <li><span class="mark">🧲</span>הוא לא מתחיל מאפס בכל חודש — הוא צובר אמון</li>
-        </ul>
+      <div class="compare-row">
+        <div class="compare-cell ct-no-cell">העסק מרגיש לא יציב. יש חודשים מעולים ויש חודשים שקטים.</div>
+        <div class="compare-cell ct-yes-cell">העסק נבנה לאורך זמן. כל חודש מחזק את החודש שאחריו.</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell ct-no-cell">מקבל פניות... אבל הרבה מהן קרות, לא מדויקות או לא נסגרות.</div>
+        <div class="compare-cell ct-yes-cell">מושך יותר פניות שמגיעות כבר עם אמון והבנה של הערך.</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell ct-no-cell">מעלה תוכן ומקווה שמשהו יתפוס.</div>
+        <div class="compare-cell ct-yes-cell">כל תוכן מחזק את מה שאנשים כבר חושבים עליו.</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell ct-no-cell">אם מפסיק לשווק לתקופה - מרגיש את זה כמעט מיד.</div>
+        <div class="compare-cell ct-yes-cell">גם כשלא כל יום מעלים תוכן, המותג ממשיך לעבוד.</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell ct-no-cell">אנשים מכירים את השירות.</div>
+        <div class="compare-cell ct-yes-cell">אנשים זוכרים את השם.</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell ct-no-cell">האינסטגרם לא באמת מצליח לשקף כמה הוא טוב.</div>
+        <div class="compare-cell ct-yes-cell">האינסטגרם גורם לאנשים להבין למה לבחור דווקא בו.</div>
       </div>
     </div>
 
