@@ -1017,6 +1017,11 @@
   .split-col.no .mark { background: rgba(176,106,124,0.14); color: #b06a7c; }
   .split-col.yes .mark { background: rgba(255,255,255,0.16); color: var(--white); }
   .verdict { text-align: center; margin: 1.6rem auto 0; font-size: 1.15rem; color: var(--ink); max-width: 480px; line-height: 1.6; }
+  .vsl-teaser {
+    font-family: var(--font-display); font-weight: 700; font-size: clamp(1.35rem, 1.1rem + 1.2vw, 1.85rem);
+    color: var(--ink); line-height: 1.5;
+  }
+  .vsl-teaser strong { color: var(--sec-a); }
   .verdict strong { color: var(--sec-a); }
   .section-purple .verdict { color: var(--white); }
   .section-purple .verdict strong { color: var(--white); text-decoration: underline; text-decoration-color: rgba(255,255,255,0.5); }
@@ -1651,14 +1656,20 @@
   }
 
   /* ===== chaos section (marketing-changed narrative before the VSL) ===== */
-  .chaos-section { padding-top: 4rem; padding-bottom: 4.5rem; }
+  .chaos-section { padding-top: 3.4rem; padding-bottom: 3.6rem; }
   .chaos-section .wrap { max-width: 900px; }
-  .chaos-intro { max-width: 620px; margin: 0 auto 2.2rem; }
+  .chaos-section::before {
+    background: radial-gradient(circle at 20% 10%, rgba(123,55,153,0.4), transparent 45%),
+                radial-gradient(circle at 85% 30%, rgba(217,172,94,0.2), transparent 42%),
+                radial-gradient(circle at 15% 75%, rgba(217,172,94,0.14), transparent 40%),
+                radial-gradient(circle at 90% 92%, rgba(123,55,153,0.32), transparent 45%);
+  }
+  .chaos-intro { max-width: 640px; margin: 0 auto 1.8rem; }
   .chaos-intro h2 { margin-bottom: 1rem; }
-  .chaos-intro p { margin-bottom: 0.5rem; font-size: 1.08rem; color: rgba(255,255,255,0.85); }
+  .chaos-intro p { margin-bottom: 0.5rem; font-size: 1.1rem; color: rgba(255,255,255,0.88); }
 
   .chaos-cloud {
-    position: relative; text-align: center; margin: 0 auto 2.4rem; max-width: 760px;
+    position: relative; text-align: center; margin: 0 auto 2rem; max-width: 760px;
     min-height: 260px; display: flex; align-items: center; justify-content: center;
   }
   .chaos-word-big {
@@ -1688,19 +1699,24 @@
     .chaos-cloud { min-height: 200px; transform: scale(0.72); margin-bottom: 1.4rem; }
   }
 
-  .chaos-transition { text-align: center; margin: 0 auto 2.6rem; }
+  .chaos-transition { text-align: center; margin: 0 auto 2rem; }
   .chaos-transition h3 {
     color: var(--white); font-family: var(--font-display); font-weight: 800;
-    font-size: clamp(1.2rem, 1rem + 1vw, 1.5rem); margin-bottom: 1.6rem;
+    font-size: clamp(1.2rem, 1rem + 1vw, 1.5rem); margin-bottom: 1.5rem;
   }
-  .chaos-response-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; max-width: 640px; margin: 0 auto; }
+  .chaos-response-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; max-width: 660px; margin: 0 auto; }
   .chaos-response-card {
-    background: linear-gradient(160deg, rgba(123,55,153,0.35), rgba(20,6,38,0.5));
-    border: 1px solid rgba(217,172,94,0.3); box-shadow: 0 14px 32px rgba(0,0,0,0.3);
-    border-radius: 16px; padding: 1.5rem 1rem; text-align: center;
+    background: linear-gradient(160deg, rgba(123,55,153,0.4), rgba(20,6,38,0.55));
+    border: 1px solid rgba(217,172,94,0.35); box-shadow: 0 16px 34px rgba(0,0,0,0.35);
+    border-radius: 18px; padding: 1.7rem 1rem 1.4rem; text-align: center;
   }
-  .chaos-response-card .cr-icon { display: block; font-size: 1.8rem; margin-bottom: 0.7rem; }
-  .chaos-response-card p { margin: 0; color: var(--white); font-weight: 700; font-size: 1rem; }
+  .chaos-response-card .cr-icon {
+    display: flex; align-items: center; justify-content: center; margin: 0 auto 0.9rem;
+    width: 52px; height: 52px; border-radius: 50%; font-size: 1.5rem;
+    background: radial-gradient(circle at 35% 30%, rgba(217,172,94,0.35), rgba(217,172,94,0.08));
+    border: 1px solid rgba(217,172,94,0.5);
+  }
+  .chaos-response-card p { margin: 0; color: var(--white); font-weight: 700; font-size: 1.02rem; }
   @media (max-width: 600px) { .chaos-response-cards { grid-template-columns: 1fr; max-width: 320px; } }
 
   .chaos-breakpoint { text-align: center; padding-top: 0.5rem; }
@@ -2029,22 +2045,13 @@
   </div>
 </section>
 
-<section class="section-pad reveal in">
-  <div class="wrap" style="max-width:640px; text-align:center;">
-    <p class="verdict" style="max-width:none;">אני רוצה לספר לכם על בעלת עסק שקיבלה 90 לידים... <strong>וסגרה רק 3.</strong></p>
+<section class="section-pad reveal in" style="padding:3rem 0 1.5rem;">
+  <div class="wrap" style="max-width:680px; text-align:center;">
+    <p class="verdict vsl-teaser" style="max-width:none;">אני רוצה לספר לכם על בעלת עסק שקיבלה 90 לידים... <strong>וסגרה רק 3.</strong></p>
   </div>
 </section>
 
-<section class="section-pad reveal editorial-section in" style="padding:1.4rem 0 0.3rem;">
-  <div class="wrap">
-    <div class="editorial editorial-tight" style="text-align:center;">
-      <p>יש בעלי עסקים שכמעט לא מתווכחים איתם על מחיר - לא כי הם הכי זולים או הכי מוכשרים. יש להם משהו שגורם ללקוח להבין את הערך שלהם עוד לפני השיחה: הם כבר לא שואלים "למה דווקא אתם?" - הם שואלים <b style="color:var(--ink)">"איך אפשר לעבוד איתכם?"</b></p>
-      <p class="pop" style="font-size:clamp(1.4rem, 1.1rem + 1.3vw, 1.75rem);margin-top:1.4rem;">לדבר הזה אני קוראת... <span class="word-accent">מותג</span>.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section-pad reveal in" id="nav-vsl" style="padding-top:0.2rem;">
+<section class="section-pad reveal in" id="nav-vsl" style="padding-top:0.6rem;">
   <div class="wrap">
     <div class="vsl-wrap-outer" id="vslWrapOuter">
       <div class="vsl-anchor" id="vslAnchor" aria-hidden="true"></div>
