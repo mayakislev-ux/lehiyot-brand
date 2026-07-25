@@ -3,8 +3,23 @@
 <html lang="he" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data:; media-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://www.facebook.com https://*.facebook.com; media-src 'self' data:; connect-src 'self' https://www.facebook.com https://*.facebook.com; object-src 'none'; base-uri 'self'; form-action 'self';">
 <meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '896185345331438');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=896185345331438&ev=PageView&noscript=1"></noscript>
+<!-- End Meta Pixel Code -->
 <title>סמינר להיות מותג</title>
 <meta property="og:title" content="סמינר להיות מותג | מאיה קיסלב">
 <meta property="og:description" content="סמינר פרונטלי עם מאיה קיסלב | 3.9.26, בני ברק">
@@ -2582,10 +2597,10 @@
       <p class="closer-urgency" id="closerUrgency"></p>
       <div class="closer-tickets">
         <div class="ticket-col">
-          <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line"><span class="btn-main">לרכישת כרטיס יחיד</span><span class="btn-sub">197 ₪</span></a>
+          <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">לרכישת כרטיס יחיד</span><span class="btn-sub">197 ₪</span></a>
         </div>
         <div class="ticket-col ticket-secondary">
-          <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="ghost-btn two-line"><span class="btn-main">לרכישת כרטיס זוגי</span><span class="btn-sub">297 ₪</span></a>
+          <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="ghost-btn two-line" data-fb-value="297"><span class="btn-main">לרכישת כרטיס זוגי</span><span class="btn-sub">297 ₪</span></a>
         </div>
       </div>
       <div class="payment-security-badge">🔒 תשלום מאובטח</div>
@@ -3092,6 +3107,15 @@
         toast.classList.add('is-visible');
         clearTimeout(hideTimer);
         hideTimer = setTimeout(function () { toast.classList.remove('is-visible'); }, 2600);
+      });
+    });
+  })();
+
+  (function () {
+    if (typeof fbq !== 'function') return;
+    document.querySelectorAll('a[data-fb-value]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        fbq('track', 'InitiateCheckout', { value: Number(btn.dataset.fbValue), currency: 'ILS' });
       });
     });
   })();
