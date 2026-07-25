@@ -193,7 +193,7 @@
   .vsl-anchor { height: 1px; }
   .vsl-lead {
     position: absolute; top: 0; left: 0; right: 0; z-index: 3; margin: 0; padding: 0.85rem 1.2rem;
-    text-align: center; font-weight: 800; color: var(--white); font-size: 0.98rem;
+    text-align: center; font-weight: 800; color: var(--white); font-size: 0.98rem; direction: rtl;
     background: linear-gradient(160deg, var(--sec-a), var(--purple-deep));
     border-radius: 22px 22px 0 0; transition: opacity 0.25s ease;
   }
@@ -1668,17 +1668,17 @@
     padding: 1.6rem 0; display: flex; flex-direction: column;
     align-items: center; justify-content: center; text-align: center;
   }
-  .chaos-intro { max-width: 640px; }
+  .chaos-beat-intro { position: relative; overflow: hidden; }
+  .chaos-intro { position: relative; z-index: 1; max-width: 640px; }
   .chaos-intro h2 { margin-bottom: 1rem; }
   .chaos-intro p { margin-bottom: 0.5rem; font-size: 1.1rem; color: rgba(255,255,255,0.88); }
 
-  .chaos-section .chaos-eyebrow {
-    font-family: var(--font-display); font-weight: 800; color: rgba(255,255,255,0.4);
-    font-size: 1.1rem; letter-spacing: 0.04em; margin-bottom: 0.5rem;
+  .chaos-beat-intro .chaos-cloud {
+    position: absolute; inset: 0; z-index: 0; opacity: 0.32; pointer-events: none;
   }
   .chaos-cloud {
     position: relative; text-align: center; margin: 0 auto; max-width: 760px; width: 100%;
-    min-height: 300px; display: flex; align-items: center; justify-content: center;
+    display: flex; align-items: center; justify-content: center;
   }
   .chaos-word-big {
     position: relative; z-index: 2; font-family: var(--font-display); font-weight: 800;
@@ -1697,20 +1697,15 @@
     100% { opacity: 0; transform: translate(var(--dx1,0), var(--dy1,0)); }
   }
   @media (prefers-reduced-motion: reduce) { .chaos-drift { animation: none; opacity: 0.4; } }
-  .chaos-drift-1 { top: 60%; right: 28%; --dx0:-8px; --dy0:14px; --dx1:16px; --dy1:-18px; animation-delay: 0s; }
-  .chaos-drift-2 { top: 64%; left: 24%; --dx0:10px; --dy0:-10px; --dx1:-14px; --dy1:16px; animation-delay: 1.4s; }
-  .chaos-drift-3 { top: 74%; right: 10%; --dx0:-6px; --dy0:-12px; --dx1:14px; --dy1:14px; animation-delay: 2.8s; }
-  .chaos-drift-4 { top: 78%; left: 8%; --dx0:8px; --dy0:10px; --dx1:-16px; --dy1:-12px; animation-delay: 4.2s; }
-  .chaos-drift-5 { top: 90%; right: 32%; --dx0:-10px; --dy0:8px; --dx1:12px; --dy1:-16px; animation-delay: 5.6s; }
-  .chaos-drift-6 { top: 94%; left: 30%; --dx0:6px; --dy0:-14px; --dx1:-10px; --dy1:12px; animation-delay: 7s; }
-  .chaos-drift-7 { top: 104%; right: 4%; --dx0:-8px; --dy0:10px; --dx1:10px; --dy1:-14px; animation-delay: 8.4s; }
-  .chaos-drift-8 { top: 108%; left: 2%; --dx0:10px; --dy0:-8px; --dx1:-12px; --dy1:16px; animation-delay: 9.8s; }
-  .chaos-drift-9 { top: 68%; left: 46%; --dx0:-6px; --dy0:12px; --dx1:14px; --dy1:-10px; animation-delay: 11.2s; }
-  .chaos-section .chaos-cloud-caption { max-width: 560px; margin: 2rem auto 0; color: rgba(255,255,255,0.75); font-size: 1rem; line-height: 1.7; }
-  .chaos-cloud-caption strong { color: var(--gold-soft); }
-  @media (max-width: 640px) {
-    .chaos-cloud { min-height: 200px; transform: scale(0.78); }
-  }
+  .chaos-drift-1 { top: 8%; right: 30%; --dx0:-8px; --dy0:14px; --dx1:16px; --dy1:-18px; animation-delay: 0s; }
+  .chaos-drift-2 { top: 16%; left: 14%; --dx0:10px; --dy0:-10px; --dx1:-14px; --dy1:16px; animation-delay: 1.4s; }
+  .chaos-drift-3 { top: 38%; right: 6%; --dx0:-6px; --dy0:-12px; --dx1:14px; --dy1:14px; animation-delay: 2.8s; }
+  .chaos-drift-4 { top: 46%; left: 4%; --dx0:8px; --dy0:10px; --dx1:-16px; --dy1:-12px; animation-delay: 4.2s; }
+  .chaos-drift-5 { top: 62%; right: 20%; --dx0:-10px; --dy0:8px; --dx1:12px; --dy1:-16px; animation-delay: 5.6s; }
+  .chaos-drift-6 { top: 68%; left: 22%; --dx0:6px; --dy0:-14px; --dx1:-10px; --dy1:12px; animation-delay: 7s; }
+  .chaos-drift-7 { top: 82%; right: 4%; --dx0:-8px; --dy0:10px; --dx1:10px; --dy1:-14px; animation-delay: 8.4s; }
+  .chaos-drift-8 { top: 86%; left: 2%; --dx0:10px; --dy0:-8px; --dx1:-12px; --dy1:16px; animation-delay: 9.8s; }
+  .chaos-drift-9 { top: 30%; left: 42%; --dx0:-6px; --dy0:12px; --dx1:14px; --dy1:-10px; animation-delay: 11.2s; }
 
   .chaos-beat-title {
     color: var(--white); font-family: var(--font-display); font-weight: 800;
@@ -2015,9 +2010,22 @@
   <div class="section-blend-top blend-dark" aria-hidden="true"></div>
   <div class="wrap">
 
-    <div class="chaos-beat reveal">
+    <div class="chaos-beat chaos-beat-intro reveal">
+      <div class="chaos-cloud" aria-hidden="true">
+        <span class="chaos-word-big">כאוס</span>
+        <span class="chaos-drift chaos-drift-1">AI</span>
+        <span class="chaos-drift chaos-drift-2">תוכן</span>
+        <span class="chaos-drift chaos-drift-3">ממומן</span>
+        <span class="chaos-drift chaos-drift-4">רילס</span>
+        <span class="chaos-drift chaos-drift-5">אלגוריתם</span>
+        <span class="chaos-drift chaos-drift-6">חשיפות</span>
+        <span class="chaos-drift chaos-drift-7">תחרות</span>
+        <span class="chaos-drift chaos-drift-8">עוד סרטון</span>
+        <span class="chaos-drift chaos-drift-9">עוד תקציב</span>
+      </div>
       <div class="chaos-intro">
         <h2>גם אתם מרגישים שמשהו בשיווק השתנה?</h2>
+        <p>היום כולם מעלים תוכן. כולם מצלמים. כולם משתמשים ב-AI. כולם נלחמים על אותה תשומת הלב.<br><strong>ובאמת נהיה הרבה יותר קשה לבלוט ברשת.</strong></p>
         <p>אם אתם בעלי עסק כבר כמה שנים, כנראה שגם אתם מרגישים את זה.</p>
         <p>פעם היה הרבה יותר קל לבלוט ברשת - תקציבי ממומן נמוכים יותר, חשיפות גבוהות יותר.<br>בסרטונים, סגירות קלות יותר.</p>
       </div>
@@ -2039,23 +2047,6 @@
         <p class="chaos-q reveal chaos-q-2">איך אני יוצר משהו ייחודי?</p>
         <p class="chaos-q reveal chaos-q-3">איך אני בולט ברשת בתוך כל הכאוס הזה?</p>
       </div>
-    </div>
-
-    <div class="chaos-beat reveal">
-      <p class="chaos-eyebrow">היום?</p>
-      <div class="chaos-cloud">
-        <span class="chaos-word-big">כאוס</span>
-        <span class="chaos-drift chaos-drift-1">AI</span>
-        <span class="chaos-drift chaos-drift-2">תוכן</span>
-        <span class="chaos-drift chaos-drift-3">ממומן</span>
-        <span class="chaos-drift chaos-drift-4">רילס</span>
-        <span class="chaos-drift chaos-drift-5">אלגוריתם</span>
-        <span class="chaos-drift chaos-drift-6">חשיפות</span>
-        <span class="chaos-drift chaos-drift-7">תחרות</span>
-        <span class="chaos-drift chaos-drift-8">עוד סרטון</span>
-        <span class="chaos-drift chaos-drift-9">עוד תקציב</span>
-      </div>
-      <p class="chaos-cloud-caption">היום כולם מעלים תוכן. כולם מצלמים. כולם משתמשים ב-AI. כולם נלחמים על אותה תשומת הלב.<br><strong>ובאמת נהיה הרבה יותר קשה לבלוט ברשת.</strong></p>
     </div>
 
   </div>
