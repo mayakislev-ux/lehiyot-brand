@@ -1588,6 +1588,48 @@ fbq('track', 'PageView');
     .wa-float svg { width: 27px; height: 27px; }
   }
 
+  /* ===== accessibility toolbar - required by law (ת"י 5568 / WCAG 2.1) ===== */
+  .a11y-float {
+    position: fixed; left: 1.3rem; bottom: 5.6rem; z-index: 511;
+    width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    background: var(--sec-a); box-shadow: 0 8px 22px rgba(44,15,82,0.35); border: none; cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  .a11y-float:hover { transform: scale(1.08); }
+  .a11y-float svg { width: 28px; height: 28px; fill: #fff; }
+  @media (max-width: 720px) { .a11y-float { bottom: 152px; width: 48px; height: 48px; } .a11y-float svg { width: 25px; height: 25px; } }
+
+  .a11y-panel {
+    position: fixed; left: 1.3rem; bottom: 10.6rem; z-index: 512; width: min(300px, 86vw);
+    background: var(--white); border-radius: 16px; box-shadow: 0 20px 50px rgba(20,6,38,0.3);
+    border: 1px solid var(--line); padding: 1.1rem; direction: rtl;
+  }
+  .a11y-panel[hidden] { display: none; }
+  @media (max-width: 720px) { .a11y-panel { bottom: 204px; } }
+  .a11y-panel h3 { margin: 0 0 0.8rem; font-size: 1rem; color: var(--ink); }
+  .a11y-row { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; padding: 0.5rem 0; border-bottom: 1px solid var(--line); }
+  .a11y-row:last-of-type { border-bottom: none; }
+  .a11y-row span { font-size: 0.88rem; color: var(--ink); font-weight: 600; }
+  .a11y-row .a11y-btns { display: flex; gap: 0.35rem; }
+  .a11y-panel button.a11y-toggle, .a11y-panel button.a11y-step {
+    border: 1.5px solid var(--sec-a); background: var(--white); color: var(--sec-a); border-radius: 8px;
+    font-weight: 800; font-size: 0.82rem; padding: 0.35rem 0.6rem; cursor: pointer;
+  }
+  .a11y-panel button.a11y-toggle.is-on { background: var(--sec-a); color: #fff; }
+  .a11y-reset { width: 100%; margin-top: 0.9rem; border: none; background: var(--mono-bg, #f4f1ea); color: var(--ink);
+    border-radius: 8px; padding: 0.55rem; font-weight: 800; font-size: 0.85rem; cursor: pointer; }
+
+  /* states applied to <html> */
+  html.a11y-text-lg body { font-size: 112%; }
+  html.a11y-text-xl body { font-size: 126%; }
+  html.a11y-contrast body { background: #000 !important; color: #fff !important; }
+  html.a11y-contrast body :not(.a11y-panel):not(.a11y-panel *) { background-color: #000 !important; color: #fff !important; border-color: #fff !important; }
+  html.a11y-contrast img, html.a11y-contrast video { filter: grayscale(40%) contrast(1.2); }
+  html.a11y-underline-links a { text-decoration: underline !important; }
+  html.a11y-no-motion *, html.a11y-no-motion *::before, html.a11y-no-motion *::after {
+    animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important;
+  }
+
   /* ===== legal modals ===== */
   .legal-modal { position: fixed; inset: 0; z-index: 400; display: flex; align-items: center; justify-content: center; padding: 1.2rem; }
   .legal-modal[hidden] { display: none; }
@@ -2770,6 +2812,33 @@ fbq('track', 'PageView');
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/><path d="M12.02 2C6.5 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.08L2 22l5.08-1.33A9.95 9.95 0 0 0 12.02 22C17.53 22 22 17.52 22 12S17.53 2 12.02 2zm0 18.15c-1.65 0-3.19-.46-4.5-1.26l-.32-.19-3.02.79.81-2.94-.21-.31A8.15 8.15 0 0 1 3.85 12c0-4.5 3.67-8.15 8.17-8.15 4.5 0 8.15 3.65 8.15 8.15 0 4.5-3.65 8.15-8.15 8.15z"/></svg>
 </a>
 
+<button type="button" class="a11y-float" id="a11yToggleBtn" aria-label="תפריט נגישות" aria-expanded="false">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="4" r="2"/><path d="M12 7c-1 0-1.9.6-2.3 1.5L7.1 13l1.8.9 2-4 1.6.8V17l-3 4.4 1.6 1.1 2.9-4.2 2.9 4.2 1.6-1.1L15.5 17v-5.3l1.6-.8 2 4 1.8-.9-2.6-4.5C17.9 7.6 17 7 16 7z"/></svg>
+</button>
+<div class="a11y-panel" id="a11yPanel" hidden role="dialog" aria-label="הגדרות נגישות">
+  <h3>הגדרות נגישות</h3>
+  <div class="a11y-row">
+    <span>גודל טקסט</span>
+    <div class="a11y-btns">
+      <button type="button" class="a11y-step" id="a11yTextUp">א+</button>
+      <button type="button" class="a11y-step" id="a11yTextDown">א-</button>
+    </div>
+  </div>
+  <div class="a11y-row">
+    <span>ניגודיות גבוהה</span>
+    <button type="button" class="a11y-toggle" id="a11yContrast">הפעלה</button>
+  </div>
+  <div class="a11y-row">
+    <span>הדגשת קישורים</span>
+    <button type="button" class="a11y-toggle" id="a11yLinks">הפעלה</button>
+  </div>
+  <div class="a11y-row">
+    <span>עצירת אנימציות</span>
+    <button type="button" class="a11y-toggle" id="a11yMotion">הפעלה</button>
+  </div>
+  <button type="button" class="a11y-reset" id="a11yReset">איפוס הגדרות</button>
+</div>
+
 <div class="buy-toast" id="buyToast">מעבירים אתכם לתשלום המאובטח 🔒</div>
 
 <button type="button" class="back-to-top" id="backToTop" aria-label="חזרה לראש הדף">↑</button>
@@ -3250,6 +3319,85 @@ fbq('track', 'PageView');
     document.querySelectorAll('.legal-modal-backdrop').forEach(function (bd) {
       bd.addEventListener('click', function () { closeModal(bd.parentElement); });
     });
+  })();
+
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById('a11yToggleBtn');
+    var panel = document.getElementById('a11yPanel');
+    if (!btn || !panel) return;
+
+    var TEXT_STEPS = ['', 'a11y-text-lg', 'a11y-text-xl'];
+    var textIdx = 0;
+    var STORE_KEY = 'a11ySettings';
+
+    function applyTextStep() {
+      TEXT_STEPS.forEach(function (c) { if (c) root.classList.remove(c); });
+      if (TEXT_STEPS[textIdx]) root.classList.add(TEXT_STEPS[textIdx]);
+    }
+    function toggleClass(cls, btnEl) {
+      var on = root.classList.toggle(cls);
+      btnEl.classList.toggle('is-on', on);
+      btnEl.textContent = on ? 'כיבוי' : 'הפעלה';
+      return on;
+    }
+    function save() {
+      try {
+        localStorage.setItem(STORE_KEY, JSON.stringify({
+          textIdx: textIdx,
+          contrast: root.classList.contains('a11y-contrast'),
+          links: root.classList.contains('a11y-underline-links'),
+          motion: root.classList.contains('a11y-no-motion')
+        }));
+      } catch (e) {}
+    }
+    function restore() {
+      var raw;
+      try { raw = localStorage.getItem(STORE_KEY); } catch (e) { raw = null; }
+      if (!raw) return;
+      try {
+        var s = JSON.parse(raw);
+        textIdx = s.textIdx || 0;
+        applyTextStep();
+        if (s.contrast) { root.classList.add('a11y-contrast'); document.getElementById('a11yContrast').classList.add('is-on'); document.getElementById('a11yContrast').textContent = 'כיבוי'; }
+        if (s.links) { root.classList.add('a11y-underline-links'); document.getElementById('a11yLinks').classList.add('is-on'); document.getElementById('a11yLinks').textContent = 'כיבוי'; }
+        if (s.motion) { root.classList.add('a11y-no-motion'); document.getElementById('a11yMotion').classList.add('is-on'); document.getElementById('a11yMotion').textContent = 'כיבוי'; }
+      } catch (e) {}
+    }
+
+    btn.addEventListener('click', function () {
+      var willOpen = panel.hidden;
+      panel.hidden = !willOpen;
+      btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    });
+    document.addEventListener('click', function (e) {
+      if (!panel.hidden && !panel.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
+        panel.hidden = true;
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.getElementById('a11yTextUp').addEventListener('click', function () {
+      textIdx = Math.min(textIdx + 1, TEXT_STEPS.length - 1);
+      applyTextStep(); save();
+    });
+    document.getElementById('a11yTextDown').addEventListener('click', function () {
+      textIdx = Math.max(textIdx - 1, 0);
+      applyTextStep(); save();
+    });
+    document.getElementById('a11yContrast').addEventListener('click', function () { toggleClass('a11y-contrast', this); save(); });
+    document.getElementById('a11yLinks').addEventListener('click', function () { toggleClass('a11y-underline-links', this); save(); });
+    document.getElementById('a11yMotion').addEventListener('click', function () { toggleClass('a11y-no-motion', this); save(); });
+    document.getElementById('a11yReset').addEventListener('click', function () {
+      textIdx = 0; applyTextStep();
+      ['a11yContrast', 'a11yLinks', 'a11yMotion'].forEach(function (id) {
+        var el = document.getElementById(id);
+        root.classList.remove(id === 'a11yContrast' ? 'a11y-contrast' : id === 'a11yLinks' ? 'a11y-underline-links' : 'a11y-no-motion');
+        el.classList.remove('is-on'); el.textContent = 'הפעלה';
+      });
+      try { localStorage.removeItem(STORE_KEY); } catch (e) {}
+    });
+
+    restore();
   })();
 
   (function () {
