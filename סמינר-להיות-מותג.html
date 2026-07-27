@@ -100,6 +100,8 @@ fbq('track', 'PageView');
     --ink: #2a1a45;
     --ink-dim: #695e80;
     --line: rgba(107,33,201,0.14);
+    --ivory: #faf7f1;
+    --gold-refined: #ad8433;
     --font-display: "Assistant", "Segoe UI", sans-serif;
     --font-body: "Assistant", "Segoe UI", sans-serif;
   }
@@ -2081,6 +2083,9 @@ fbq('track', 'PageView');
   }
   @keyframes goldDustFall { 0% { opacity: 0; transform: translateY(0); } 18% { opacity: 0.9; } 100% { opacity: 0; transform: translateY(64px); } }
 
+  /* ===== redesign: less floating decoration in hero, per new design system (keep 1 ig-card, not 4) ===== */
+  .ig-card-3-peek, .ig-card-3, .ig-card-4 { display: none !important; }
+
   /* ===== hero board hover-glow ===== */
   .hero-chess-floor { position: relative; }
   .hero-chess-floor::before {
@@ -2181,13 +2186,13 @@ fbq('track', 'PageView');
           <div class="ig-card-icons" aria-hidden="true"><span>❤</span><span>💬</span><span>➤</span></div>
         </div>
 
-<section class="section-pad reveal in" style="padding:3rem 0 1.5rem;">
+<section class="section-pad reveal in" style="padding:3.5rem 0 1.5rem;background:var(--ivory);">
   <div class="wrap" style="max-width:680px; text-align:center;">
     <p class="verdict vsl-teaser" style="max-width:none;">הבעיה שלה לא הייתה שאין לה לידים. הבעיה הייתה שהלקוחות לא הבינו למה לבחור דווקא בה.</p>
   </div>
 </section>
 
-<section class="section-pad reveal in" id="nav-vsl" style="padding-top:0.6rem;">
+<section class="section-pad reveal in" id="nav-vsl" style="padding-top:0.6rem;padding-bottom:3.5rem;background:var(--ivory);">
   <div class="wrap">
     <div class="vsl-wrap-outer" id="vslWrapOuter">
       <div class="vsl-anchor" id="vslAnchor" aria-hidden="true"></div>
