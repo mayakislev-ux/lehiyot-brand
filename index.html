@@ -2138,6 +2138,35 @@ fbq('track', 'PageView');
   </div>
 </section>
 
+<section class="section-pad reveal in early-proof-strip" style="padding:2.2rem 0;">
+  <div class="wrap">
+    <p class="early-proof-lead">אחרי שליוויתי עשרות בעלי עסקים לבנות בידול אמיתי - זיהיתי מה מפריד בין עסק טוב לעסק שהשוק זוכר.</p>
+    <div class="early-proof-cards">
+      <div class="early-proof-card">
+        <strong>רון, מעצבת פנים</strong>
+        <span>מחזור חודשי עלה מ-15,000₪ ל-45,000₪ (בתהליך)</span>
+      </div>
+      <div class="early-proof-card">
+        <strong>סלבה, צלמת תדמית</strong>
+        <span>2,830 → 4,593 עוקבים, פניות חמות שכבר מבינות את הערך לפני שיחה</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad reveal in who-for-strip" style="padding:1.6rem 0 2.4rem;">
+  <div class="wrap">
+    <div class="who-for-card">
+      <h3>הסמינר הזה בשבילכם אם:</h3>
+      <ul class="who-for-list">
+        <li>אתם כבר טובים במה שאתם עושים, ויש לכם לקוחות מרוצים</li>
+        <li>כבר העליתם תוכן וניסיתם לשווק</li>
+        <li>אבל אתם עדיין מרגישים שהעסק שלכם לא מקבל את המקום שמגיע לו</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <section class="section-pad reveal drama-section chaos-section in">
   <div class="section-blend-top blend-dark" aria-hidden="true"></div>
   <div class="wrap">
@@ -2224,35 +2253,6 @@ fbq('track', 'PageView');
           <button type="button" class="vsl-ctrl-btn" id="vslFullscreen" aria-label="מסך מלא">⛶</button>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="section-pad reveal in early-proof-strip" style="padding:2.2rem 0;">
-  <div class="wrap">
-    <p class="early-proof-lead">אחרי שליוויתי עשרות בעלי עסקים לבנות בידול אמיתי - זיהיתי מה מפריד בין עסק טוב לעסק שהשוק זוכר.</p>
-    <div class="early-proof-cards">
-      <div class="early-proof-card">
-        <strong>רון, מעצבת פנים</strong>
-        <span>מחזור חודשי עלה מ-15,000₪ ל-45,000₪ (בתהליך)</span>
-      </div>
-      <div class="early-proof-card">
-        <strong>סלבה, צלמת תדמית</strong>
-        <span>2,830 → 4,593 עוקבים, פניות חמות שכבר מבינות את הערך לפני שיחה</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section-pad reveal in who-for-strip" style="padding:1.6rem 0 2.4rem;">
-  <div class="wrap">
-    <div class="who-for-card">
-      <h3>הסמינר הזה בשבילכם אם:</h3>
-      <ul class="who-for-list">
-        <li>אתם כבר טובים במה שאתם עושים, ויש לכם לקוחות מרוצים</li>
-        <li>כבר העליתם תוכן וניסיתם לשווק</li>
-        <li>אבל אתם עדיין מרגישים שהעסק שלכם לא מקבל את המקום שמגיע לו</li>
-      </ul>
     </div>
   </div>
 </section>
@@ -3970,32 +3970,9 @@ fbq('track', 'PageView');
     apply();
   })();
 
-  /* scroll-progress "move" counter label */
-  (function () {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    var bar = document.getElementById('scrollProgressBar');
-    if (!bar) return;
-    var label = document.createElement('div');
-    label.className = 'progress-move-label';
-    label.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(label);
-    var totalMoves = 9;
-    var lastMove = 0;
-    var hideTimer = null;
-    window.addEventListener('scroll', function () {
-      var doc = document.documentElement;
-      var max = doc.scrollHeight - doc.clientHeight;
-      var pct = max > 0 ? doc.scrollTop / max : 0;
-      var move = Math.min(totalMoves, Math.max(1, Math.ceil(pct * totalMoves)));
-      if (move !== lastMove) {
-        lastMove = move;
-        label.textContent = 'מהלך ' + move + ' מתוך ' + totalMoves;
-        label.classList.add('is-visible');
-        clearTimeout(hideTimer);
-        hideTimer = setTimeout(function () { label.classList.remove('is-visible'); }, 1100);
-      }
-    }, { passive: true });
-  })();
+  /* scroll-progress "move X of 9" toast removed - real feedback from a cold visitor:
+     it telegraphs page length ("still 7 to go") right when they're deciding whether to
+     keep reading, working against the page instead of for it. */
 
   /* gold spark + gold dust when a wave-divider scrolls into view */
   (function () {
