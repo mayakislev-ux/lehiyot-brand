@@ -656,6 +656,11 @@ fbq('track', 'PageView');
     background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); backdrop-filter: blur(6px);
     color: var(--white); font-weight: 700; font-size: 0.85rem; padding: 0.35rem 0.85rem; border-radius: 999px;
   }
+  .hero-video-invite {
+    display: inline-block; color: var(--gold-soft); font-weight: 700; font-size: 0.92rem;
+    margin-bottom: 1rem; text-decoration: underline; text-underline-offset: 3px;
+  }
+  .hero-video-invite:hover { color: var(--white); }
 
   /* ===== what-you-get grid - concrete outcomes, first thing after the hero hook ===== */
   .what-you-get-title { text-align: center; font-size: clamp(1.4rem, 1.15rem + 1.1vw, 1.9rem); margin-bottom: 1.6rem; }
@@ -2089,7 +2094,7 @@ fbq('track', 'PageView');
   <div class="depth-piece dp-3" aria-hidden="true"><svg viewBox="0 0 100 100"><circle cx="50" cy="26" r="16"/><path d="M38 46 L62 46 L68 62 L32 62 Z"/><path d="M24 82 Q24 66 40 66 L60 66 Q76 66 76 82 Z"/></svg></div>
   <div class="depth-piece dp-4" aria-hidden="true"><svg viewBox="0 0 100 100"><circle cx="50" cy="26" r="16"/><path d="M38 46 L62 46 L68 62 L32 62 Z"/><path d="M24 82 Q24 66 40 66 L60 66 Q76 66 76 82 Z"/></svg></div>
       <div class="hero-photo-col">
-        <a href="#form" class="gold-btn two-line hero-cta-overlay"><span class="btn-main">כן, אני רוצה ←</span><span class="btn-sub">להצטרף לסמינר עכשיו</span></a>
+        <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" class="gold-btn two-line hero-cta-overlay" data-fb-value="197"><span class="btn-main">אני רוצה כרטיס לסמינר</span><span class="btn-sub">197 ₪</span></a>
         <div class="hero-photo-frame">
           <img src="images/hero-photo.png" alt="מאיה קיסלב עם לוח שחמט">
         </div>
@@ -2115,12 +2120,12 @@ fbq('track', 'PageView');
         </h1>
       </div>
       <div class="hero-cta-block">
-        <p class="hero-sub">יש בעלי עסקים שלוקחים 80% מהלקוחות - בזמן שכל השאר נלחמים על השאריות.</p>
-        <p class="hero-promise">בסמינר של 5.5 שעות תלמדו איך להפוך לבחירה הברורה שלהם.</p>
+        <p class="hero-sub">ב-5.5 שעות נבנה בידול ומסר ברורים, שיגרמו ללקוחות להבין למה לבחור דווקא בכם - עוד לפני שיחת המכירה.</p>
         <div class="hero-quick-facts">
           <span>3.9 · יום חמישי</span><span>בני ברק</span><span>5.5 שעות</span><span>197₪</span>
         </div>
-        <a href="#form" class="gold-btn two-line"><span class="btn-main">כן, אני רוצה ←</span><span class="btn-sub">להצטרף לסמינר עכשיו</span></a>
+        <a href="#nav-vsl" class="hero-video-invite">איך בעלת עסק קיבלה 90 לידים - וסגרה רק 3? צפו בסרטון של 3.5 דקות</a>
+        <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">אני רוצה כרטיס לסמינר</span><span class="btn-sub">197 ₪</span></a>
         <p class="scarcity-pill">סמינר פרונטלי - מקומות מוגבלים</p>
       </div>
       </div>
@@ -2133,6 +2138,49 @@ fbq('track', 'PageView');
           <img src="images/ig-card-3.jpg" alt="">
           <div class="ig-card-icons" aria-hidden="true"><span>❤</span><span>💬</span><span>➤</span></div>
         </div>
+
+<section class="section-pad reveal in" style="padding:3rem 0 1.5rem;">
+  <div class="wrap" style="max-width:680px; text-align:center;">
+    <p class="verdict vsl-teaser" style="max-width:none;">הבעיה שלה לא הייתה שאין לה לידים. הבעיה הייתה שהלקוחות לא הבינו למה לבחור דווקא בה.</p>
+  </div>
+</section>
+
+<section class="section-pad reveal in" id="nav-vsl" style="padding-top:0.6rem;">
+  <div class="wrap">
+    <div class="vsl-wrap-outer" id="vslWrapOuter">
+      <div class="vsl-anchor" id="vslAnchor" aria-hidden="true"></div>
+      <div class="vsl-player" id="vslPlayer">
+        <p class="vsl-lead">3.5 דקות שמסבירות למה יותר לידים לא תמיד מייצרים יותר לקוחות.</p>
+        <video id="vslVideo" poster="images/vsl-poster.jpg" preload="metadata" playsinline>
+          <source src="videos/vsl.mp4" type="video/mp4">
+        </video>
+        <div class="vsl-chapters" id="vslChapters" aria-hidden="true"></div>
+        <button type="button" class="vsl-big-play" id="vslBigPlay" aria-label="הפעלת הסרטון">
+          <svg class="vsl-ring" viewBox="0 0 100 100" aria-hidden="true">
+            <circle class="vsl-ring-track" cx="50" cy="50" r="46"></circle>
+            <circle class="vsl-ring-fill" id="vslRingFill" cx="50" cy="50" r="46"></circle>
+          </svg>
+          <span class="ic">▶</span>
+        </button>
+        <div class="vsl-pip-bar">
+          <button type="button" class="vsl-pip-pause" id="vslPipPause" aria-label="השהיה או המשך, בלי לסגור">❚❚</button>
+          <button type="button" class="vsl-pip-expand" id="vslPipExpand" aria-label="הגדלת הסרטון בחזרה">⤢</button>
+          <button type="button" class="vsl-pip-close" id="vslPipClose" aria-label="סגירת נגן מוקטן">✕</button>
+        </div>
+        <div class="vsl-controls" id="vslControls">
+          <button type="button" class="vsl-ctrl-btn" id="vslToggle" aria-label="הפעלה או השהיה">▶</button>
+          <span class="vsl-time" id="vslCur">0:00</span>
+          <input type="range" class="vsl-seek" id="vslSeek" min="0" max="100" value="0" step="0.1" aria-label="מיקום בסרטון">
+          <span class="vsl-time" id="vslDur">0:00</span>
+          <button type="button" class="vsl-ctrl-btn" id="vslMute" aria-label="השתקה">🔊</button>
+          <input type="range" class="vsl-volume" id="vslVolume" min="0" max="100" value="70" step="1" aria-label="עוצמת קול">
+          <button type="button" class="vsl-speed-btn" id="vslSpeed" aria-label="מהירות נגינה">1x</button>
+          <button type="button" class="vsl-ctrl-btn" id="vslFullscreen" aria-label="מסך מלא">⛶</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section-pad reveal in what-you-get-strip" style="padding:2.4rem 0;">
   <div class="wrap">
@@ -2200,7 +2248,7 @@ fbq('track', 'PageView');
 <section class="section-pad reveal in" style="padding:2.4rem 0;">
   <div class="wrap">
     <div class="brand-head">
-      <h2>מה אומרים עליי</h2>
+      <h2>מה קורה כשבעלי עסקים מפסיקים להיראות כמו כולם</h2>
     </div>
     <div class="review-videos-wrap">
       <button type="button" class="review-videos-nav prev" aria-label="הקודם">›</button>
@@ -2229,7 +2277,7 @@ fbq('track', 'PageView');
   <div class="wrap">
     <div class="early-proof-cards" style="max-width:520px;">
       <div class="early-proof-card" style="flex:1 1 100%;">
-        <strong>מ-0 ל-100,000 ₪ בחודש תוך 9 חודשים · 17 מחזורי ליווי</strong>
+        <strong>אחרי 17 מחזורי ליווי ועשרות בעלי עסקים שליוויתי, זיהיתי את אותה נקודת כשל שוב ושוב: העסק מקצועי, התוכן קיים - אבל ללקוח עדיין אין סיבה ברורה לבחור דווקא בו.</strong>
         <span>מאות בעלי עסקים, 100+ ימי צילום - <a href="#nav-bio" style="color:var(--sec-a);font-weight:800;">כל הסיפור למטה ↓</a></span>
       </div>
     </div>
@@ -2293,49 +2341,6 @@ fbq('track', 'PageView');
       </div>
     </div>
 
-  </div>
-</section>
-
-<section class="section-pad reveal in" style="padding:3rem 0 1.5rem;">
-  <div class="wrap" style="max-width:680px; text-align:center;">
-    <p class="verdict vsl-teaser" style="max-width:none;">אני רוצה לספר לכם על בעלת עסק שקיבלה 90 לידים... <strong>וסגרה רק 3.</strong></p>
-  </div>
-</section>
-
-<section class="section-pad reveal in" id="nav-vsl" style="padding-top:0.6rem;">
-  <div class="wrap">
-    <div class="vsl-wrap-outer" id="vslWrapOuter">
-      <div class="vsl-anchor" id="vslAnchor" aria-hidden="true"></div>
-      <div class="vsl-player" id="vslPlayer">
-        <p class="vsl-lead">3.5 דקות שמסבירות בדיוק למה זה קורה לכם.</p>
-        <video id="vslVideo" poster="images/vsl-poster.jpg" preload="metadata" playsinline>
-          <source src="videos/vsl.mp4" type="video/mp4">
-        </video>
-        <div class="vsl-chapters" id="vslChapters" aria-hidden="true"></div>
-        <button type="button" class="vsl-big-play" id="vslBigPlay" aria-label="הפעלת הסרטון">
-          <svg class="vsl-ring" viewBox="0 0 100 100" aria-hidden="true">
-            <circle class="vsl-ring-track" cx="50" cy="50" r="46"></circle>
-            <circle class="vsl-ring-fill" id="vslRingFill" cx="50" cy="50" r="46"></circle>
-          </svg>
-          <span class="ic">▶</span>
-        </button>
-        <div class="vsl-pip-bar">
-          <button type="button" class="vsl-pip-pause" id="vslPipPause" aria-label="השהיה או המשך, בלי לסגור">❚❚</button>
-          <button type="button" class="vsl-pip-expand" id="vslPipExpand" aria-label="הגדלת הסרטון בחזרה">⤢</button>
-          <button type="button" class="vsl-pip-close" id="vslPipClose" aria-label="סגירת נגן מוקטן">✕</button>
-        </div>
-        <div class="vsl-controls" id="vslControls">
-          <button type="button" class="vsl-ctrl-btn" id="vslToggle" aria-label="הפעלה או השהיה">▶</button>
-          <span class="vsl-time" id="vslCur">0:00</span>
-          <input type="range" class="vsl-seek" id="vslSeek" min="0" max="100" value="0" step="0.1" aria-label="מיקום בסרטון">
-          <span class="vsl-time" id="vslDur">0:00</span>
-          <button type="button" class="vsl-ctrl-btn" id="vslMute" aria-label="השתקה">🔊</button>
-          <input type="range" class="vsl-volume" id="vslVolume" min="0" max="100" value="70" step="1" aria-label="עוצמת קול">
-          <button type="button" class="vsl-speed-btn" id="vslSpeed" aria-label="מהירות נגינה">1x</button>
-          <button type="button" class="vsl-ctrl-btn" id="vslFullscreen" aria-label="מסך מלא">⛶</button>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
