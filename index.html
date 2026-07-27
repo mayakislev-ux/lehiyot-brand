@@ -1875,6 +1875,19 @@ fbq('track', 'PageView');
   .chaos-questions .reveal:nth-child(2) { transition-delay: 0.15s; }
   .chaos-questions .reveal:nth-child(3) { transition-delay: 0.3s; }
 
+  /* ===== "not another conference" 2-column contrast ===== */
+  .contrast-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; max-width: 820px; margin: 1.8rem auto 0; }
+  .contrast-col { border-radius: 20px; padding: 1.8rem 1.6rem; }
+  .contrast-col p { font-size: 1.02rem; line-height: 1.65; }
+  .contrast-no { background: var(--purple-deep); }
+  .contrast-no p { color: rgba(255,255,255,0.82); }
+  .contrast-yes { background: linear-gradient(135deg, var(--gold), var(--gold-soft)); }
+  .contrast-yes p { color: var(--purple-deep); font-weight: 700; }
+  .contrast-label { display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.7rem; }
+  .contrast-no .contrast-label { color: var(--gold-soft); }
+  .contrast-yes .contrast-label { color: var(--purple-deep); opacity: 0.7; }
+  @media (max-width: 720px) { .contrast-cols { grid-template-columns: 1fr; } }
+
   /* ===== עסק מצליח / מותג comparison table ===== */
   .compare-table { margin-top: 1.8rem; }
   .compare-table-head { display: grid; grid-template-columns: 1fr 1fr; max-width: 760px; margin: 0 auto 1.8rem; border-radius: 14px; overflow: hidden; }
@@ -2251,6 +2264,39 @@ fbq('track', 'PageView');
   </div>
 </section>
 
+<section class="section-pad reveal drama-section in">
+  <div class="section-blend-top blend-dark" aria-hidden="true"></div>
+  <div class="wrap" style="max-width:680px;">
+    <p class="mega" style="margin-bottom:1.3rem;">אתם לא צריכים עוד לידים. אתם צריכים לידים שכבר מבינים למה לבחור בכם.</p>
+    <p style="color:rgba(255,255,255,0.85);font-size:1.05rem;line-height:1.7;">כי יש בעלי עסקים שמקבלים פניות.<br>אבל כל פנייה מתחילה מאפס.</p>
+    <p style="color:rgba(255,255,255,0.85);font-size:1.05rem;line-height:1.7;margin-top:1rem;">מי אתם? מה מיוחד בכם? למה אתם עולים יותר? למה לא ללכת למישהו אחר?</p>
+    <p style="color:rgba(255,255,255,0.85);font-size:1.05rem;line-height:1.7;margin-top:1.2rem;">ואז גם כשיש לידים - הם קרים.<br>הם משווים. מתמקחים. נעלמים. אומרים "יקר לי".<br>ואת כל שיחת המכירה אתם מבלים בניסיון להוכיח את הערך שלכם.</p>
+    <p style="color:var(--white);font-weight:800;font-size:1.1rem;line-height:1.6;margin-top:1.3rem;">זו לא רק בעיית מכירה.<br>זו בעיה במה שהלקוח הבין עליכם עוד לפני השיחה.</p>
+  </div>
+</section>
+
+<section class="section-pad reveal in" style="background:var(--ivory);">
+  <div class="wrap">
+    <div class="brand-head">
+      <h2>זה לא עוד אירוע שבאים אליו להקשיב</h2>
+    </div>
+    <div class="contrast-cols">
+      <div class="contrast-col contrast-no">
+        <span class="contrast-label">מה זה לא</span>
+        <p>לשבת 5.5 שעות, לרשום שלושה משפטים במחברת, ולחזור לעסק בדיוק כמו שנכנסתם.</p>
+      </div>
+      <div class="contrast-col contrast-yes">
+        <span class="contrast-label">סמינר עבודה</span>
+        <p>ננתח. נפצח. נתרגל. נפרק עסקים ותוכן בלייב. נזהה את הדברים שכבר קיימים אצלכם - ועדיין לא עוברים החוצה.</p>
+      </div>
+    </div>
+    <div style="max-width:640px;margin:2rem auto 0;text-align:center;">
+      <p style="color:var(--ink-dim);font-size:1rem;line-height:1.7;">המטרה היא לא שתצאו עם עוד מוטיבציה. המטרה היא שתצאו עם דרך חדשה להסתכל על העסק שלכם: מה באמת הופך אתכם לשונים, מה הקול שרק אתם יכולים להביא לרשת, למה התוכן שלכם נראה היום כמו של כולם - ואיך גורמים ללקוח להרגיש שהוא כבר יודע למה לבחור בכם, עוד לפני שהוא שולח הודעה.</p>
+      <p class="mega" style="margin-top:1.2rem;color:var(--sec-a);">לא עוד השראה. עבודה אמיתית על העסק שלכם.</p>
+    </div>
+  </div>
+</section>
+
 <section class="section-pad reveal in" id="nav-agenda">
   <div class="wrap">
     <div class="brand-head">
@@ -2371,34 +2417,34 @@ fbq('track', 'PageView');
 
 <section class="section-pad reveal drama-section chaos-section in">
   <div class="section-blend-top blend-dark" aria-hidden="true"></div>
-  <div class="wrap">
-
-    <div class="chaos-cloud" aria-hidden="true">
-      <span class="chaos-word-big">כאוס</span>
-      <span class="chaos-drift chaos-drift-1">AI</span>
-      <span class="chaos-drift chaos-drift-2">תוכן</span>
-      <span class="chaos-drift chaos-drift-3">ממומן</span>
-      <span class="chaos-drift chaos-drift-4">רילס</span>
-      <span class="chaos-drift chaos-drift-5">אלגוריתם</span>
-      <span class="chaos-drift chaos-drift-6">חשיפות</span>
-      <span class="chaos-drift chaos-drift-7">תחרות</span>
-      <span class="chaos-drift chaos-drift-8">עוד סרטון</span>
-      <span class="chaos-drift chaos-drift-9">עוד תקציב</span>
-    </div>
+  <div class="wrap" style="max-width:700px;">
 
     <div class="chaos-beat chaos-beat-intro reveal">
       <div class="chaos-intro">
-        <h2>גם אתם מרגישים שמשהו בשיווק השתנה?</h2>
-        <p>היום כולם מעלים תוכן, מצלמים, משתמשים ב-AI - ונלחמים על אותה תשומת הלב.<br><strong>ורוב בעלי העסקים מגיבים לזה באותה דרך: עוד תוכן, עוד תקציב, יותר עקביות.</strong></p>
+        <h2>השיווק לא הולך להפוך לקל יותר</h2>
+        <p>כל יום עולים לרשת עוד עסקים. כולם מצלמים. כולם כותבים. כולם משתמשים ב-AI. כולם יכולים להיראות "מקצועיים" בתוך שעה.</p>
       </div>
     </div>
 
     <div class="chaos-beat reveal">
-      <p class="chaos-lead-q">אבל כמעט אף אחד לא עוצר לשאול את עצמו:</p>
+      <p style="color:rgba(255,255,255,0.85);font-size:1.05rem;line-height:1.7;">וזה בדיוק מה שהופך מקצועיות לבד לפחות מספיקה.<br>כשהכול נראה טוב - שום דבר לא בולט.<br>כשהכול נשמע נכון - אף אחד לא נזכר.</p>
+    </div>
+
+    <div class="chaos-beat reveal">
+      <p class="chaos-lead-q">וככל שתחכו יותר, כך תצטרכו להשקיע יותר:</p>
       <div class="chaos-questions">
-        <p class="chaos-q reveal chaos-q-2">איך אני יוצר משהו ייחודי?</p>
-        <p class="chaos-q reveal chaos-q-3">איך אני בולט ברשת בתוך כל הכאוס הזה?</p>
+        <p class="chaos-q reveal chaos-q-1">יותר תוכן. יותר תקציב.</p>
+        <p class="chaos-q reveal chaos-q-2">יותר קמפיינים. יותר שיחות מכירה.</p>
+        <p class="chaos-q reveal chaos-q-3">רק כדי לקבל את אותה תשומת לב שפעם הייתה קלה הרבה יותר להשגה.</p>
       </div>
+    </div>
+
+    <div class="chaos-beat reveal">
+      <p style="color:rgba(255,255,255,0.85);font-size:1.05rem;line-height:1.7;">המחיר של לא לבנות מותג הוא לא רק להישאר במקום.<br>המחיר הוא לשלם בכל חודש מחדש כדי לשכנע אנשים שאתם שווים בחירה.</p>
+    </div>
+
+    <div class="chaos-beat reveal">
+      <p class="mega" style="color:var(--gold);">מי שלא יבנה היום סיבה ברורה לבחור בו - יילחם מחר על תשומת הלב שנשארה.</p>
     </div>
 
   </div>
