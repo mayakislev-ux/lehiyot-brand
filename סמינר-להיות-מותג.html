@@ -664,6 +664,16 @@ fbq('track', 'PageView');
   }
   .hero-video-invite:hover { color: var(--white); }
 
+  /* ===== quick proof-strip: 6 stat chips ===== */
+  .proof-chips-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; max-width: 860px; margin: 0 auto; }
+  .proof-chip {
+    background: var(--white); border: 1.5px solid var(--line); border-radius: 14px; padding: 0.9rem 1.3rem;
+    text-align: center; box-shadow: 0 6px 18px rgba(20,6,38,0.06); min-width: 128px;
+  }
+  .proof-chip .num { display: block; font-size: 1.3rem; font-weight: 900; color: var(--sec-a); font-variant-numeric: tabular-nums; }
+  .proof-chip .lbl { display: block; font-size: 0.78rem; color: var(--ink-dim); font-weight: 700; margin-top: 0.2rem; }
+  .proof-strip-link { text-align: center; margin-top: 1.2rem; font-size: 0.92rem; }
+
   /* ===== what-you-get grid - concrete outcomes, first thing after the hero hook ===== */
   .what-you-get-title { text-align: center; font-size: clamp(1.4rem, 1.15rem + 1.1vw, 1.9rem); margin-bottom: 1.6rem; }
   .what-you-get-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; max-width: 900px; margin: 0 auto; }
@@ -2231,12 +2241,12 @@ fbq('track', 'PageView');
 
 <section class="section-pad reveal in what-you-get-strip" style="padding:2.4rem 0;">
   <div class="wrap">
-    <h2 class="what-you-get-title">מה תצאו איתו מהסמינר</h2>
+    <h2 class="what-you-get-title">מה מקבלים בסמינר</h2>
     <div class="what-you-get-grid">
-      <div class="what-you-get-card"><span class="wyg-num">1</span><p>בידול ברור שמסביר תוך שניות למה לבחור דווקא בכם</p></div>
-      <div class="what-you-get-card"><span class="wyg-num">2</span><p>מסרים שיוצרים אמון עוד לפני שיחת מכירה ראשונה</p></div>
-      <div class="what-you-get-card"><span class="wyg-num">3</span><p>כיוון תוכן ונראות שמייצרים זכירות, לא רק לייקים</p></div>
-      <div class="what-you-get-card"><span class="wyg-num">4</span><p>שיטה סדורה שאפשר ליישם לבד אחרי הסמינר, לא רק השראה</p></div>
+      <div class="what-you-get-card"><span class="wyg-num">1</span><p><strong>איך להפוך לבחירה הברורה</strong><br>מה גורם לעסק אחד להפוך לשם שעולה ראשון בראש - בזמן שעשרה עסקים טובים אחרים נשכחים.</p></div>
+      <div class="what-you-get-card"><span class="wyg-num">2</span><p><strong>איך למצוא את מה שאי אפשר להעתיק מכם</strong><br>הדעות, האישיות, הניסיון, הסיפור והגישה שלכם - ולהפוך אותם לשיווק שאי אפשר לבלבל עם אף אחד אחר.</p></div>
+      <div class="what-you-get-card"><span class="wyg-num">3</span><p><strong>איך ליצור תוכן שלא נראה כמו עוד תוכן</strong><br>להפסיק לחקות את מה שעובד לכולם, ולפתח קול, זוויות ורעיונות שמייצרים עניין וזכירות.</p></div>
+      <div class="what-you-get-card"><span class="wyg-num">4</span><p><strong>איך להפוך קהל ללידים רותחים</strong><br>לבנות עמוד שגורם לאנשים להגיע עם יותר אמון, יותר רצון, ופחות "יקר לי" / "אני אחשוב על זה".</p></div>
     </div>
   </div>
 </section>
@@ -2320,14 +2330,17 @@ fbq('track', 'PageView');
   </div>
 </section>
 
-<section class="section-pad reveal in early-proof-strip" style="padding:1.6rem 0 2.2rem;">
+<section class="section-pad reveal in early-proof-strip" style="padding:2.6rem 0;background:var(--ivory);">
   <div class="wrap">
-    <div class="early-proof-cards" style="max-width:520px;">
-      <div class="early-proof-card" style="flex:1 1 100%;">
-        <strong>אחרי 17 מחזורי ליווי ועשרות בעלי עסקים שליוויתי, זיהיתי את אותה נקודת כשל שוב ושוב: העסק מקצועי, התוכן קיים - אבל ללקוח עדיין אין סיבה ברורה לבחור דווקא בו.</strong>
-        <span>מאות בעלי עסקים, 100+ ימי צילום - <a href="#nav-bio" style="color:var(--sec-a);font-weight:800;">כל הסיפור למטה ↓</a></span>
-      </div>
+    <div class="proof-chips-row">
+      <div class="proof-chip"><span class="num">17</span><span class="lbl">מחזורי ליווי</span></div>
+      <div class="proof-chip"><span class="num">100K ₪</span><span class="lbl">בחודש, תוך 9 חודשים</span></div>
+      <div class="proof-chip"><span class="num">פי 5</span><span class="lbl">בהכנסות</span></div>
+      <div class="proof-chip"><span class="num">15K→45K</span><span class="lbl">בחודש, תוך חודשיים</span></div>
+      <div class="proof-chip"><span class="num">2</span><span class="lbl">סניפים</span></div>
+      <div class="proof-chip"><span class="num">עשרות</span><span class="lbl">בעלי עסקים</span></div>
     </div>
+    <p class="proof-strip-link">אחרי 17 מחזורי ליווי, זיהיתי את אותה נקודת כשל שוב ושוב: העסק מקצועי, התוכן קיים - אבל ללקוח עדיין אין סיבה ברורה לבחור דווקא בו. <a href="#nav-bio" style="color:var(--sec-a);font-weight:800;">כל הסיפור למטה ↓</a></p>
   </div>
 </section>
 
@@ -2398,72 +2411,80 @@ fbq('track', 'PageView');
   <div class="section3-text">
     <div class="brand-head">
       <h2>אפשר להצליח גם בלי להיות מותג<br><span class="headline-accent">אבל תשלמו על זה בכל יום מחדש.</span></h2>
-      <p>ואפילו חשוב לי להגיד את זה: יש בעלי עסקים שמכניסים יפה מאוד גם בלי להיות מותג. בזכות המלצות, לקוחות חוזרים, קמפיינים טובים, מיקום מעולה או פשוט כי הם באמת מצוינים במה שהם עושים. <strong>אבל עסק מצליח ומותג הם לא אותו דבר.</strong></p>
+      <p><strong>שני עסקים יכולים להיות מקצועיים באותה מידה. רק אחד מהם יהיה הבחירה הברורה.</strong></p>
     </div>
 
     <div class="compare-table">
       <div class="compare-table-head">
-        <span class="ct-no">עסק מצליח</span>
-        <span class="ct-yes">מותג</span>
+        <span class="ct-no">עסק שנראה כמו כולם</span>
+        <span class="ct-yes">הבחירה הברורה</span>
       </div>
       <div class="compare-row">
-        <div class="compare-cell ct-no-cell">העסק מרגיש לא יציב. יש חודשים מעולים ויש חודשים שקטים.</div>
-        <div class="compare-cell ct-yes-cell">העסק נבנה לאורך זמן. כל חודש מחזק את החודש שאחריו.</div>
+        <div class="compare-cell ct-no-cell">כל חודש מתחיל מחדש.</div>
+        <div class="compare-cell ct-yes-cell">אנשים כבר מכירים ומחכים.</div>
       </div>
       <div class="compare-row">
-        <div class="compare-cell ct-no-cell">מקבל פניות... אבל הרבה מהן קרות, לא מדויקות או לא נסגרות.</div>
-        <div class="compare-cell ct-yes-cell">מושך יותר פניות שמגיעות כבר עם אמון והבנה של הערך.</div>
+        <div class="compare-cell ct-no-cell">תלוי בהמלצות ובפה לאוזן.</div>
+        <div class="compare-cell ct-yes-cell">מייצר ביקוש דרך הרשת.</div>
       </div>
       <div class="compare-row">
-        <div class="compare-cell ct-no-cell">מעלה תוכן ומקווה שמשהו יתפוס.</div>
-        <div class="compare-cell ct-yes-cell">כל תוכן מחזק את מה שאנשים כבר חושבים עליו.</div>
+        <div class="compare-cell ct-no-cell">מקבל לידים ששואלים רק מחיר.</div>
+        <div class="compare-cell ct-yes-cell">מקבל לידים שכבר רוצים דווקא אותו.</div>
       </div>
       <div class="compare-row">
-        <div class="compare-cell ct-no-cell">אם מפסיק לשווק לתקופה - מרגיש את זה כמעט מיד.</div>
-        <div class="compare-cell ct-yes-cell">גם כשלא כל יום מעלים תוכן, המותג ממשיך לעבוד.</div>
+        <div class="compare-cell ct-no-cell">התוכן שלו נראה מוכר.</div>
+        <div class="compare-cell ct-yes-cell">אי אפשר לבלבל את התוכן שלו עם אף אחד.</div>
       </div>
       <div class="compare-row">
-        <div class="compare-cell ct-no-cell">אנשים מכירים את השירות.</div>
-        <div class="compare-cell ct-yes-cell">אנשים זוכרים את השם.</div>
+        <div class="compare-cell ct-no-cell">צריך להסביר למה הוא טוב.</div>
+        <div class="compare-cell ct-yes-cell">הלקוח כבר מבין את הערך לפני השיחה.</div>
       </div>
       <div class="compare-row">
-        <div class="compare-cell ct-no-cell">האינסטגרם לא באמת מצליח לשקף כמה הוא טוב.</div>
-        <div class="compare-cell ct-yes-cell">האינסטגרם גורם לאנשים להבין למה לבחור דווקא בו.</div>
+        <div class="compare-cell ct-no-cell">תקופה עמוסה ואז שקט.</div>
+        <div class="compare-cell ct-yes-cell">בונה יציבות לאורך זמן.</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell ct-no-cell">עוד איש מקצוע בתחום.</div>
+        <div class="compare-cell ct-yes-cell">השם שעולה ראשון בראש.</div>
       </div>
     </div>
 
     <div class="compare-carousel" id="compareCarousel">
       <div class="compare-carousel-labels">
-        <span class="cc-label-no">עסק מצליח</span>
-        <span class="cc-label-yes">מותג</span>
+        <span class="cc-label-no">עסק שנראה כמו כולם</span>
+        <span class="cc-label-yes">הבחירה הברורה</span>
       </div>
       <div class="compare-carousel-wrap">
         <button type="button" class="compare-carousel-nav prev" aria-label="הקודם">›</button>
         <div class="compare-carousel-viewport">
           <div class="compare-carousel-track" id="compareCarouselTrack">
             <div class="compare-card">
-              <p class="cc-no">העסק מרגיש לא יציב. יש חודשים מעולים ויש חודשים שקטים.</p>
-              <p class="cc-yes">העסק נבנה לאורך זמן. כל חודש מחזק את החודש שאחריו.</p>
+              <p class="cc-no">כל חודש מתחיל מחדש.</p>
+              <p class="cc-yes">אנשים כבר מכירים ומחכים.</p>
             </div>
             <div class="compare-card">
-              <p class="cc-no">מקבל פניות... אבל הרבה מהן קרות, לא מדויקות או לא נסגרות.</p>
-              <p class="cc-yes">מושך יותר פניות שמגיעות כבר עם אמון והבנה של הערך.</p>
+              <p class="cc-no">תלוי בהמלצות ובפה לאוזן.</p>
+              <p class="cc-yes">מייצר ביקוש דרך הרשת.</p>
             </div>
             <div class="compare-card">
-              <p class="cc-no">מעלה תוכן ומקווה שמשהו יתפוס.</p>
-              <p class="cc-yes">כל תוכן מחזק את מה שאנשים כבר חושבים עליו.</p>
+              <p class="cc-no">מקבל לידים ששואלים רק מחיר.</p>
+              <p class="cc-yes">מקבל לידים שכבר רוצים דווקא אותו.</p>
             </div>
             <div class="compare-card">
-              <p class="cc-no">אם מפסיק לשווק לתקופה - מרגיש את זה כמעט מיד.</p>
-              <p class="cc-yes">גם כשלא כל יום מעלים תוכן, המותג ממשיך לעבוד.</p>
+              <p class="cc-no">התוכן שלו נראה מוכר.</p>
+              <p class="cc-yes">אי אפשר לבלבל את התוכן שלו עם אף אחד.</p>
             </div>
             <div class="compare-card">
-              <p class="cc-no">אנשים מכירים את השירות.</p>
-              <p class="cc-yes">אנשים זוכרים את השם.</p>
+              <p class="cc-no">צריך להסביר למה הוא טוב.</p>
+              <p class="cc-yes">הלקוח כבר מבין את הערך לפני השיחה.</p>
             </div>
             <div class="compare-card">
-              <p class="cc-no">האינסטגרם לא באמת מצליח לשקף כמה הוא טוב.</p>
-              <p class="cc-yes">האינסטגרם גורם לאנשים להבין למה לבחור דווקא בו.</p>
+              <p class="cc-no">תקופה עמוסה ואז שקט.</p>
+              <p class="cc-yes">בונה יציבות לאורך זמן.</p>
+            </div>
+            <div class="compare-card">
+              <p class="cc-no">עוד איש מקצוע בתחום.</p>
+              <p class="cc-yes">השם שעולה ראשון בראש.</p>
             </div>
           </div>
         </div>
