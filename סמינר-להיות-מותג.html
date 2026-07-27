@@ -1730,6 +1730,14 @@ fbq('track', 'PageView');
     font-weight: 800; font-size: clamp(1.35rem, 1.05rem + 1.2vw, 1.8rem); color: var(--gold-soft); line-height: 1.5;
     margin-top: 2rem; text-wrap: balance;
   }
+  /* white-background variant, used for the single "אי אפשר להישמע כמו כולם" section on request -
+     declared after the base .drama-section rules so it actually wins (equal specificity, cascade order). */
+  .drama-section.drama-section-light { background: var(--white); }
+  .drama-section-light::before, .drama-section-light::after { display: none; }
+  .drama-section-light h2 { color: var(--ink); }
+  .drama-section-light p { color: var(--ink-dim); }
+  .drama-section-light p strong { color: var(--sec-a); }
+  .drama-section-light p.mega { color: var(--sec-a); }
 
   /* ===== chaos section (marketing-changed narrative before the VSL) — one idea per screen ===== */
   .chaos-section { padding-top: 2.5rem; padding-bottom: 2.5rem; }
@@ -2420,14 +2428,7 @@ fbq('track', 'PageView');
   </div>
 </section>
 
-<section class="section-pad reveal in">
-  <div class="wrap" style="max-width:720px; text-align:center;">
-    <p class="verdict" style="font-size:clamp(1.4rem, 1.1rem + 1.4vw, 2rem); max-width:none;">אפשר להצליח בלי להיות מותג.<br><strong>פשוט תצטרכו לעבוד הרבה יותר קשה על כל לקוח - לשלם יותר כדי להגיע אליו, לשכנע יותר כדי שיבחר בכם, ולהתפשר יותר כדי שיסגור.</strong></p>
-  </div>
-</section>
-
-<section class="section-pad reveal drama-section in">
-  <div class="section-blend-top blend-dark" aria-hidden="true"></div>
+<section class="section-pad reveal drama-section drama-section-light in">
   <div class="wrap">
     <h2>היום יותר מתמיד, אי אפשר להרשות לעצמכם להישמע כמו כולם.</h2>
     <p>לפני כמה שנים עוד היה אפשר להעלות תוכן בינוני ולבלוט. היום הרשת מוצפת - AI יודע לכתוב, לערוך, לייצר רעיונות. כולם יכולים לייצר תוכן. <strong>ולכן תוכן כבר לא מספיק.</strong></p>
