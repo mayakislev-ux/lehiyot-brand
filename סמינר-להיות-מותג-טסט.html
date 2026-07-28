@@ -646,6 +646,9 @@ fbq('track', 'PageView');
   .hero-inner.v2, .hero-text-col.v2 { max-width: 100%; box-sizing: border-box; overflow-wrap: break-word; }
   .hero-stage.v2 { overflow: hidden; }
   .hero-quick-facts { max-width: 100%; }
+  .cd-wrap { text-align: center; margin: 0 auto 1.3rem; }
+  .cd-wrap .cd-label { color: rgba(255,255,255,0.7); font-size: 0.75rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .cd-wrap .top-badge-countdown { border-top: none; padding-top: 0; width: auto; display: inline-block; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.3); border-radius: 999px; padding: 0.4rem 1.1rem; }
   .hero-audience-strip { background: var(--gold-soft); color: var(--sec-b); text-align: center; font-weight: 800; font-size: 0.85rem; padding: 0.6rem 1rem; position: relative; z-index: 6; }
   .hero-objections-v2 { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; margin: 1.2rem 0 1.6rem; }
   .hero-objections-v2 span { color: rgba(255,255,255,0.88); font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; }
@@ -2227,10 +2230,9 @@ fbq('track', 'PageView');
       <div class="hero-text-col v2">
       <div class="top-badge" style="position:static;transform:none;margin:0 auto 1.4rem;">
         <div class="top-badge-text"><svg viewBox="0 0 100 100" width="16" height="16" style="vertical-align:-3px;margin-left:3px"><circle cx="50" cy="26" r="16" fill="#ffffff"/><path d="M38 46 L62 46 L68 62 L32 62 Z" fill="#ffffff"/><path d="M24 82 Q24 66 40 66 L60 66 Q76 66 76 82 Z" fill="#ffffff"/></svg> 3.9.26 · סמינר פרונטלי</div>
-        <div class="top-badge-countdown">עוד <strong id="heroCdDays">--</strong> ימים לסמינר</div>
       </div>
       <div class="hero-copy">
-        <h1 class="hero-title v2">הסמינר שיהפוך אתכם ל<span class="accent">בחירה הברורה</span> בתחום שלכם - ולא לעוד עסק שנלחם על שאריות.</h1>
+        <h1 class="hero-title v2">הסמינר שיהפוך אתכם ל<span class="accent">בחירה הברורה</span><br>בתחום שלכם - ולא לעוד עסק<br>שנלחם על שאריות.</h1>
       </div>
       <div class="hero-objections-v2">
         <span><i class="x-ic">✕</i>בלי לחשוף את כל החיים</span>
@@ -2271,6 +2273,10 @@ fbq('track', 'PageView');
             </div>
           </div>
         </div>
+      </div>
+      <div class="cd-wrap">
+        <div class="cd-label">עד שהמקומות נגמרים:</div>
+        <div class="top-badge-countdown">עוד <strong id="heroCdDays">--</strong> ימים לסמינר</div>
       </div>
       <div class="hero-cta-block">
         <div class="hero-quick-facts" style="justify-content:center;">
