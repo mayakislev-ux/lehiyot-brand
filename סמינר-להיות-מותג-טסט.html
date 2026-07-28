@@ -666,12 +666,28 @@ fbq('track', 'PageView');
   .pill { background: var(--purple-pale); color: var(--sec-a); font-weight: 800; font-size: 0.82rem; padding: 0.5rem 1rem; border-radius: 999px; }
   .crowd { display: flex; justify-content: center; margin-bottom: 1.2rem; }
   .crowd .ph {
-    width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(160deg, var(--sec-a), var(--purple-deep));
-    display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.7rem;
-    border: 2.5px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.15); margin-inline-start: -14px;
+    width: 46px; height: 46px; border-radius: 50%; overflow: hidden; background: var(--purple-pale);
+    border: 2.5px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.15); margin-inline-start: -14px; flex-shrink: 0;
   }
+  .crowd .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .crowd .ph:first-child { margin-inline-start: 0; }
   .crowd .ph:nth-child(odd) { border-color: var(--gold-soft); }
+
+  /* ===== NEW section 2: pain - solid pill-bar formula ===== */
+  .pain { background: linear-gradient(180deg, var(--sec-a), var(--sec-b)); padding: 2.6rem 1.6rem; text-align: center; }
+  .pain-bullets { display: grid; gap: 0.7rem; max-width: 520px; margin: 0 auto 1.6rem; }
+  .pain-bullet {
+    background: #fff; border-radius: 999px; padding: 0.85rem 1.5rem; display: flex; align-items: center;
+    justify-content: space-between; gap: 1rem; box-shadow: 0 6px 16px rgba(20,6,38,0.2);
+  }
+  .pain-bullet b { color: var(--sec-b); font-size: 0.86rem; font-weight: 800; text-align: right; }
+  .pain-bullet .badge {
+    flex-shrink: 0; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--sec-a); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-size: 0.85rem;
+  }
+  .pain p { max-width: 560px; margin-inline: auto; color: rgba(255,255,255,0.92); font-size: 1rem; overflow-wrap: break-word; }
+  .pain .close { font-weight: 800; font-size: 1.05rem; margin-top: 1.2rem; color: #fff; }
+  .pain .gold-btn { margin-top: 1.6rem; }
 
   /* ===== hero quick facts row - date/place/duration/price surfaced fast, before scrolling ===== */
   .hero-quick-facts { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.1rem; }
@@ -2288,7 +2304,7 @@ fbq('track', 'PageView');
 <section class="strip reveal in" style="position:relative;">
   <div class="section-blend-top blend-deep" aria-hidden="true"></div>
   <div class="crowd">
-    <div class="ph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="ph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="ph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="ph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="ph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="ph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="ph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+    <div class="ph"><img src="images/client-ron-bublil.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-lior-ezer.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-elisheva.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-vered-adess.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-li-tzemach.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-liel.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-sarah-yitzhak.jpg" alt="" loading="lazy"></div>
   </div>
   <h2 class="sh">השיטה של מאיה קיסלב שכבר הפכה מאות בעלי עסקים לבחירה הברורה בתחום שלהם</h2>
   <div class="row"><span class="pill">17 מחזורי ליווי</span><span class="pill">מאות בעלי עסקים</span><span class="pill">150,000+ ₪ בלימודי שיווק</span><span class="pill">0→100K ₪ תוך 9 חודשים</span></div>
@@ -2306,18 +2322,21 @@ fbq('track', 'PageView');
   </div>
 </section>
 
-<section class="section-pad reveal drama-section in">
-  <div class="section-blend-top blend-dark" aria-hidden="true"></div>
-  <div class="wrap" style="max-width:680px;">
-    <p class="mega" style="margin-bottom:1.3rem;">אתם לא צריכים עוד לידים. אתם צריכים לידים שכבר מבינים למה לבחור בכם.</p>
-    <p style="color:rgba(255,255,255,0.85);font-size:1.05rem;line-height:1.7;">כי יש בעלי עסקים שמקבלים פניות.<br>אבל כל פנייה מתחילה מאפס.</p>
-    <p style="color:rgba(255,255,255,0.85);font-size:1.05rem;line-height:1.7;margin-top:1rem;">מי אתם? מה מיוחד בכם? למה אתם עולים יותר? למה לא ללכת למישהו אחר?</p>
-    <p style="color:rgba(255,255,255,0.85);font-size:1.05rem;line-height:1.7;margin-top:1.2rem;">ואז גם כשיש לידים - הם קרים.<br>הם משווים. מתמקחים. נעלמים. אומרים "יקר לי".<br>ואת כל שיחת המכירה אתם מבלים בניסיון להוכיח את הערך שלכם.</p>
-    <p style="color:var(--white);font-weight:800;font-size:1.1rem;line-height:1.6;margin-top:1.3rem;">זו לא רק בעיית מכירה.<br>זו בעיה במה שהלקוח הבין עליכם עוד לפני השיחה.</p>
+<section class="pain reveal in" style="position:relative;">
+  <div class="section-blend-top blend-purple" aria-hidden="true"></div>
+  <p style="font-weight:800;font-size:1.05rem;margin-bottom:1.3rem;">בואו נגיד את האמת: אם בכל שיחת מכירה אתם צריכים להסביר מחדש למה אתם טובים - השיווק שלכם לא עשה את העבודה שלו.</p>
+  <div class="pain-bullets">
+    <div class="pain-bullet"><b>יש חודשים שאתם עמוסים, ואז פתאום מגיעה ירידה</b><span class="badge">✕</span></div>
+    <div class="pain-bullet"><b>מי שכן פונה שואל "יקר לי" - ונעלם</b><span class="badge">✕</span></div>
+    <div class="pain-bullet"><b>גם עם מנהלת סושיאל, התוכן עדיין לא באמת מדבר בשמכם</b><span class="badge">✕</span></div>
   </div>
+  <p>אם הלקוחות מגיעים קרים, מתמקחים, משווים אתכם לעוד חמישה בעלי מקצוע ונעלמים - הבעיה היא לא רק כמות הלידים. הבעיה היא שהם לא מבינים למה לבחור דווקא בכם.</p>
+  <p class="close">יש עסקים שהפכו לבחירה הברורה בתחום שלהם - אנשים כבר מכירים אותם, כבר מחכים להם.<br>ויש עסקים שעדיין נלחמים על שאריות - עוד ליד קר, עוד לקוח שמתמקח, עוד שיחה שמתחילה מאפס.<br>ההבדל ביניהם הוא לא כמה הם טובים. אלא איך שהם משווקים.</p>
+  <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">אני רוצה להיות הבחירה הברורה</span><span class="btn-sub">197 ₪ · 100 מקומות בלבד</span></a>
 </section>
 
-<section class="section-pad reveal in" style="background:var(--ivory);">
+<section class="section-pad reveal in" style="background:var(--ivory);position:relative;">
+  <div class="section-blend-top blend-purple" aria-hidden="true"></div>
   <div class="wrap">
     <div class="brand-head">
       <h2>זה לא עוד אירוע שבאים אליו להקשיב</h2>
