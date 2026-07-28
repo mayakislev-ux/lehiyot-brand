@@ -659,25 +659,19 @@ fbq('track', 'PageView');
   .hero-vsl-wrap .vsl-player { border-radius: 0 !important; }
   .hero-vsl-wrap .vsl-lead { display: none !important; }
 
-  /* ===== early proof strip - authority right after the VSL, before the long diagnosis section ===== */
-  .early-proof-lead { text-align: center; max-width: 640px; margin: 0 auto 1.4rem; font-weight: 700; font-size: 1.05rem; color: var(--ink); line-height: 1.6; }
-  .early-proof-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; max-width: 760px; margin: 0 auto; }
-  .early-proof-card {
-    flex: 1 1 280px; background: var(--white); border: 1px solid var(--line); border-radius: 14px;
-    padding: 1rem 1.3rem; box-shadow: 0 10px 24px rgba(20,6,38,0.08); display: flex; flex-direction: column; gap: 0.3rem;
+  /* ===== NEW section 1.5: quick proof strip (overlapping face circles + headline + pills) ===== */
+  .strip { background: var(--white); padding: 1.8rem 1.4rem; text-align: center; }
+  .strip h2.sh { font-size: 1.05rem; max-width: 480px; margin: 0 auto 1.3rem; font-weight: 800; color: var(--ink); line-height: 1.5; overflow-wrap: break-word; word-break: break-word; }
+  .strip .row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
+  .pill { background: var(--purple-pale); color: var(--sec-a); font-weight: 800; font-size: 0.82rem; padding: 0.5rem 1rem; border-radius: 999px; }
+  .crowd { display: flex; justify-content: center; margin-bottom: 1.2rem; }
+  .crowd .ph {
+    width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(160deg, var(--sec-a), var(--purple-deep));
+    display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.7rem;
+    border: 2.5px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.15); margin-inline-start: -14px;
   }
-  .early-proof-card strong { color: var(--sec-a); font-family: var(--font-display); font-size: 1rem; }
-  .early-proof-card span { color: var(--ink-dim); font-size: 0.92rem; line-height: 1.5; }
-
-  /* ===== who-for qualifying section ===== */
-  .who-for-card {
-    max-width: 620px; margin: 0 auto; background: linear-gradient(160deg, var(--purple-deep), #170228);
-    border-radius: 20px; padding: 1.8rem 1.8rem; box-shadow: 0 20px 44px rgba(20,6,38,0.28);
-  }
-  .who-for-card h3 { color: var(--gold-soft); font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 1rem; text-align: center; }
-  .who-for-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
-  .who-for-list li { color: rgba(255,255,255,0.92); font-size: 0.98rem; line-height: 1.55; padding-right: 1.6rem; position: relative; }
-  .who-for-list li::before { content: "✓"; position: absolute; right: 0; top: 0.05rem; color: var(--gold); font-weight: 800; }
+  .crowd .ph:first-child { margin-inline-start: 0; }
+  .crowd .ph:nth-child(odd) { border-color: var(--gold-soft); }
 
   /* ===== hero quick facts row - date/place/duration/price surfaced fast, before scrolling ===== */
   .hero-quick-facts { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.1rem; }
@@ -2291,8 +2285,16 @@ fbq('track', 'PageView');
   <div class="circle-cut circle-cut-dark circle-cut-blur" aria-hidden="true"></div>
 </header>
 
-<section class="section-pad reveal in what-you-get-strip" style="padding:2.4rem 0;position:relative;">
+<section class="strip reveal in" style="position:relative;">
   <div class="section-blend-top blend-deep" aria-hidden="true"></div>
+  <div class="crowd">
+    <div class="ph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="ph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="ph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="ph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="ph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="ph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="ph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+  </div>
+  <h2 class="sh">השיטה של מאיה קיסלב שכבר הפכה מאות בעלי עסקים לבחירה הברורה בתחום שלהם</h2>
+  <div class="row"><span class="pill">17 מחזורי ליווי</span><span class="pill">מאות בעלי עסקים</span><span class="pill">150,000+ ₪ בלימודי שיווק</span><span class="pill">0→100K ₪ תוך 9 חודשים</span></div>
+</section>
+
+<section class="section-pad reveal in what-you-get-strip" style="padding:2.4rem 0;position:relative;">
   <div class="wrap">
     <h2 class="what-you-get-title">מה מקבלים בסמינר</h2>
     <div class="what-you-get-grid">
