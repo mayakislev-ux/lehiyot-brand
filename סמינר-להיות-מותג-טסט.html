@@ -641,6 +641,8 @@ fbq('track', 'PageView');
   .hero-inner.v2 { position: static; transform: none; width: 100%; padding: 0 1.2rem; }
   .hero-text-col.v2 { width: 100%; max-width: 640px; margin: 0 auto; text-align: center; }
   .hero-title.v2 .l1, .hero-title.v2 .l2 { white-space: normal; text-wrap: balance; }
+  .hero-title.v2 { color: #fff; font-size: clamp(1.8rem, 1.2rem + 2.6vw, 2.7rem); line-height: 1.15; text-wrap: balance; }
+  .hero-title.v2 .accent { color: #fff; }
   .hero-audience-strip { background: var(--gold-soft); color: var(--sec-b); text-align: center; font-weight: 800; font-size: 0.85rem; padding: 0.6rem 1rem; position: relative; z-index: 6; }
   .hero-objections-v2 { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; margin: 1.2rem 0 1.6rem; }
   .hero-objections-v2 span { color: rgba(255,255,255,0.88); font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; }
@@ -2279,7 +2281,8 @@ fbq('track', 'PageView');
   <div class="circle-cut circle-cut-dark circle-cut-blur" aria-hidden="true"></div>
 </header>
 
-<section class="section-pad reveal in what-you-get-strip" style="padding:2.4rem 0;">
+<section class="section-pad reveal in what-you-get-strip" style="padding:2.4rem 0;position:relative;">
+  <div class="section-blend-top blend-deep" aria-hidden="true"></div>
   <div class="wrap">
     <h2 class="what-you-get-title">מה מקבלים בסמינר</h2>
     <div class="what-you-get-grid">
