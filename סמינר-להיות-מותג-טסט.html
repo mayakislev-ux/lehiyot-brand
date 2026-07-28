@@ -689,6 +689,106 @@ fbq('track', 'PageView');
   .pain .close { font-weight: 800; font-size: 1.05rem; margin-top: 1.2rem; color: #fff; }
   .pain .gold-btn { margin-top: 1.6rem; }
 
+  /* ===== NEW section 2.5: why now ===== */
+  .urgency { position: relative; background: linear-gradient(120deg, var(--grad3-a), var(--grad3-b) 55%, var(--grad3-c)); padding: 2.8rem 1.6rem; text-align: center; overflow: hidden; }
+  .urgency::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 85% 15%, rgba(240,214,163,0.12), transparent 45%); pointer-events: none; }
+  .urgency h2, .urgency p { max-width: 560px; margin-inline: auto; color: rgba(255,255,255,0.88); font-size: 0.97rem; position: relative; overflow-wrap: break-word; }
+  .urgency .close { font-weight: 800; color: var(--gold-soft); font-size: 1.02rem; margin-top: 1rem; position: relative; }
+  .xflow { display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap; margin: 1.3rem 0; position: relative; }
+  .xflow .x { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; font-size: 0.72rem; color: rgba(255,255,255,0.75); font-weight: 700; }
+  .xflow .x .ic { width: 38px; height: 38px; border-radius: 50%; background: #fff; border: 2px solid #d9a0a0; color: #c65b5b; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+  .xflow .arrow { color: var(--gold-soft); font-size: 1.1rem; }
+  .xflow .win { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; font-size: 0.78rem; color: var(--gold-soft); font-weight: 800; }
+  .xflow .win .ic { width: 44px; height: 44px; border-radius: 50%; background: var(--sec-a); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+
+  /* ===== NEW section 4: 4 stages ===== */
+  .method { background: var(--white); padding: 2.6rem 0 2.4rem; }
+  .method h2.sh { padding: 0 1.4rem; margin-bottom: 1.6rem; text-align: center; font-weight: 800; color: var(--ink); overflow-wrap: break-word; }
+  .method .grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .mcard { padding: 1.8rem 1.4rem; }
+  .mcard:nth-child(1) { background: var(--white); border-inline-end: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .mcard:nth-child(2) { background: linear-gradient(160deg, var(--sec-a), var(--purple-deep)); }
+  .mcard:nth-child(3) { background: linear-gradient(160deg, var(--purple-deep), #170228); }
+  .mcard:nth-child(4) { background: var(--white); border-inline-start: 1px solid var(--line); border-top: 1px solid var(--line); }
+  .mcard .n { font-weight: 800; font-size: 1.7rem; display: block; margin-bottom: 0.5rem; }
+  .mcard:nth-child(1) .n, .mcard:nth-child(4) .n { color: var(--gold-refined); }
+  .mcard:nth-child(2) .n, .mcard:nth-child(3) .n { color: var(--gold-soft); }
+  .mcard b { display: block; font-size: 0.95rem; margin-bottom: 0.5rem; }
+  .mcard:nth-child(1) b, .mcard:nth-child(4) b { color: var(--ink); }
+  .mcard:nth-child(2) b, .mcard:nth-child(3) b { color: #fff; }
+  .mcard span { display: block; font-size: 0.8rem; line-height: 1.5; }
+  .mcard:nth-child(1) span, .mcard:nth-child(4) span { color: var(--ink-dim); }
+  .mcard:nth-child(2) span, .mcard:nth-child(3) span { color: rgba(255,255,255,0.8); }
+  .method .center { text-align: center; margin-top: 1.8rem; padding: 0 1.4rem; }
+
+  /* ===== NEW section 5: workday - full-bleed photo ===== */
+  .workday { position: relative; background: linear-gradient(160deg, #5a3a78, #2a1240); min-height: 380px; display: flex; align-items: flex-end; }
+  .workday-bg { position: absolute; inset: 0; z-index: 0; }
+  .workday-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .workday::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(20,8,35,0.95) 25%, rgba(20,8,35,0.2) 70%); z-index: 1; }
+  .workday-copy { position: relative; z-index: 2; padding: 2.2rem 1.6rem; text-align: center; width: 100%; }
+  .workday-copy h2 { font-size: 1.25rem; margin-bottom: 0.8rem; color: #fff; }
+  .workday-copy p { max-width: 520px; margin-inline: auto; color: rgba(255,255,255,0.88); overflow-wrap: break-word; }
+
+  /* ===== NEW section 6: bio photo-duo (real photos, mockup-short copy) ===== */
+  .bio-v2 { background: var(--white); padding: 2.2rem 1.6rem; text-align: center; }
+  .bio-v2 .photo-duo { display: flex; justify-content: center; gap: 0.8rem; margin-bottom: 1.3rem; }
+  .bio-v2 .photo-duo img {
+    width: 110px; height: 140px; object-fit: cover; border-radius: 16px; box-shadow: 0 10px 22px rgba(123,55,153,0.25);
+    border: 3px solid #fff;
+  }
+  .bio-v2 .photo-duo img:first-child { transform: rotate(-2deg); }
+  .bio-v2 .photo-duo img:last-child { transform: rotate(2deg); margin-top: 0.6rem; }
+  .bio-v2 p { max-width: 520px; margin-inline: auto; color: var(--ink); text-align: right; font-size: 0.95rem; overflow-wrap: break-word; }
+  .bio-v2 p.crisis { font-weight: 700; color: var(--sec-a); }
+  .bio-v2-pullquote { max-width: 520px; margin: 1.6rem auto; border-inline-end: 4px solid var(--gold-refined); padding-inline-end: 1.2rem; text-align: right; }
+  .bio-v2-pullquote p { font-size: 1.05rem; font-weight: 700; color: var(--sec-a); margin: 0; }
+
+  /* ===== NEW section 7: who-for disqualify table ===== */
+  .dq { position: relative; padding: 2.4rem 1.4rem 3.4rem; background: linear-gradient(100deg, #e8e2da, #cfc6ba); overflow: hidden; }
+  .dq > * { position: relative; z-index: 1; }
+  .dq .eyebrow { display: block; text-align: center; font-size: 0.78rem; font-weight: 700; color: var(--sec-b); margin-bottom: 0.4rem; }
+  .dq h2 { margin-bottom: 2rem; font-size: 1.35rem; color: var(--ink); text-align: center; overflow-wrap: break-word; }
+  .dq-table { display: flex; max-width: 680px; margin: 0 auto; box-shadow: 0 24px 50px rgba(40,20,10,0.25); flex-wrap: wrap; }
+  .dq-col { flex: 1 1 260px; padding: 1.8rem 1.4rem 2.6rem; position: relative; }
+  .dq-col.win { background: linear-gradient(160deg, var(--sec-a), var(--sec-b)); color: #fff; border-radius: 20px 0 0 20px; }
+  .dq-col.lose { background: rgba(255,255,255,0.92); border-radius: 0 20px 20px 0; }
+  .dq-col h4 { margin: 0 0 1.3rem; font-size: 1.05rem; text-align: center; }
+  .dq-col.win h4 { color: #fff; }
+  .dq-col.lose h4 { color: var(--sec-a); }
+  .dq-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1.1rem; }
+  .dq-col li { font-size: 0.8rem; padding-right: 1.7rem; position: relative; line-height: 1.45; }
+  .dq-col.win li { color: rgba(255,255,255,0.95); }
+  .dq-col.win li::before { content: "✓"; position: absolute; right: 0; top: 0.05rem; width: 1.15rem; height: 1.15rem; border-radius: 4px; background: #fff; color: var(--sec-b); font-weight: 800; font-size: 0.65rem; display: flex; align-items: center; justify-content: center; }
+  .dq-col.lose li { color: var(--ink); }
+  .dq-col.lose li::before { content: "✕"; position: absolute; right: 0; top: 0.05rem; width: 1.15rem; height: 1.15rem; border-radius: 4px; background: var(--sec-b); color: #fff; font-weight: 800; font-size: 0.65rem; display: flex; align-items: center; justify-content: center; }
+  .dq-tag { position: absolute; bottom: -0.9rem; left: 0.7rem; right: 0.7rem; text-align: center; border-radius: 999px; padding: 0.5rem 0.8rem; font-size: 0.68rem; font-weight: 800; box-shadow: 0 6px 14px rgba(0,0,0,0.2); }
+  .dq-col.win .dq-tag { background: #fff; color: var(--sec-b); }
+  .dq-col.lose .dq-tag { background: var(--sec-b); color: #fff; }
+  .dq .ctawrap { text-align: center; margin-top: 1.4rem; }
+  @media (max-width: 600px) { .dq-col.win, .dq-col.lose { border-radius: 20px; } .dq-col.win { margin-bottom: 1.4rem; } }
+
+  /* ===== NEW section 8: guarantee with seals ===== */
+  .grt { background: linear-gradient(180deg, #fff, var(--ivory)); padding: 3rem 1.6rem 2.8rem; text-align: center; }
+  .grt .wordmark { display: inline-flex; flex-direction: column; align-items: center; gap: 0.15rem; margin-bottom: 1.6rem; }
+  .grt .wordmark b { font-size: 1.05rem; letter-spacing: 0.08em; color: var(--sec-a); font-weight: 700; }
+  .grt .wordmark span { font-size: 0.62rem; letter-spacing: 0.15em; color: var(--ink-dim); text-transform: uppercase; }
+  .grt .seals-row { display: flex; align-items: center; justify-content: center; gap: 1.2rem; margin: 1.4rem 0; flex-wrap: wrap; }
+  .grt-copy { max-width: 460px; margin: 0 auto; }
+  .grt-copy h2 { font-size: 1.2rem; margin-bottom: 0.9rem; color: var(--ink); overflow-wrap: break-word; }
+  .grt-copy p { color: var(--ink); font-size: 0.95rem; }
+  .grt-copy b { color: var(--sec-a); }
+
+  /* ===== NEW section 10: closer with countdown boxes + ticket pair ===== */
+  .closer-v2 { background: linear-gradient(180deg, rgba(83,30,98,0.94), rgba(123,55,153,0.88) 50%, rgba(36,9,63,0.96)); padding: 3rem 1.6rem; text-align: center; }
+  .closer-v2 h2 { color: #fff; font-size: clamp(1.5rem, 1.2rem + 1.6vw, 2.1rem); max-width: 20ch; margin: 0 auto 1rem; overflow-wrap: break-word; }
+  .closer-v2 .scarcity { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(217,172,94,0.14); border: 1px solid rgba(217,172,94,0.4); color: var(--gold-soft); font-weight: 800; font-size: 0.8rem; padding: 0.4rem 1rem; border-radius: 999px; margin-bottom: 1.4rem; }
+  .closer-v2 .cd-boxes { display: flex; justify-content: center; gap: 0.5rem; margin: 0 0 1.4rem; }
+  .closer-v2 .cd-boxes div { background: #fff; border-radius: 10px; padding: 0.5rem 0.7rem; text-align: center; min-width: 52px; }
+  .closer-v2 .cd-boxes b { display: block; color: var(--sec-a); font-size: 1.3rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .closer-v2 .cd-boxes span { display: block; color: var(--sec-a); font-size: 0.65rem; font-weight: 700; }
+  .closer-v2 .price { color: rgba(255,255,255,0.7); font-size: 0.85rem; font-weight: 700; margin-top: 0.8rem; }
+
   /* ===== hero quick facts row - date/place/duration/price surfaced fast, before scrolling ===== */
   .hero-quick-facts { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.1rem; }
   .hero-quick-facts span {
@@ -1950,6 +2050,19 @@ fbq('track', 'PageView');
     .proof-big-case { flex-direction: column; text-align: center; }
     .proof-grid-3 { grid-template-columns: 1fr; max-width: 340px; }
   }
+  .proof-close-line { text-align: center; font-weight: 700; font-size: 0.92rem; margin: 1.6rem auto 1.3rem; color: var(--ink); }
+  .collage-label { text-align: center; font-size: 0.8rem; font-weight: 800; color: var(--sec-a); margin-bottom: 1rem; }
+  .collage { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.9rem; margin: 0 auto 1.8rem; max-width: 600px; }
+  .collage .cph {
+    width: 76px; height: 96px; border-radius: 8px; background: linear-gradient(160deg, #d9c8ef, #b79bda);
+    display: flex; align-items: center; justify-content: center; color: var(--sec-a); font-size: 0.6rem; font-weight: 800;
+    text-align: center; padding: 4px; box-shadow: 0 6px 14px rgba(20,6,38,0.18); border: 4px solid #fff;
+  }
+  .collage .cph:nth-child(1) { transform: rotate(-6deg); }
+  .collage .cph:nth-child(2) { transform: rotate(4deg) translateY(6px); }
+  .collage .cph:nth-child(3) { transform: rotate(-2deg) translateY(-4px); }
+  .collage .cph:nth-child(4) { transform: rotate(7deg); }
+  .collage .cph:nth-child(5) { transform: rotate(-5deg) translateY(3px); }
 
   /* ===== "not another conference" 2-column contrast ===== */
   .contrast-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; max-width: 820px; margin: 1.8rem auto 0; }
@@ -2310,18 +2423,6 @@ fbq('track', 'PageView');
   <div class="row"><span class="pill">17 מחזורי ליווי</span><span class="pill">מאות בעלי עסקים</span><span class="pill">150,000+ ₪ בלימודי שיווק</span><span class="pill">0→100K ₪ תוך 9 חודשים</span></div>
 </section>
 
-<section class="section-pad reveal in what-you-get-strip" style="padding:2.4rem 0;position:relative;">
-  <div class="wrap">
-    <h2 class="what-you-get-title">מה מקבלים בסמינר</h2>
-    <div class="what-you-get-grid">
-      <div class="what-you-get-card"><span class="wyg-num">1</span><p><strong>איך להפוך לבחירה הברורה</strong><br>מה גורם לעסק אחד להפוך לשם שעולה ראשון בראש - בזמן שעשרה עסקים טובים אחרים נשכחים.</p></div>
-      <div class="what-you-get-card"><span class="wyg-num">2</span><p><strong>איך למצוא את מה שאי אפשר להעתיק מכם</strong><br>הדעות, האישיות, הניסיון, הסיפור והגישה שלכם - ולהפוך אותם לשיווק שאי אפשר לבלבל עם אף אחד אחר.</p></div>
-      <div class="what-you-get-card"><span class="wyg-num">3</span><p><strong>איך ליצור תוכן שלא נראה כמו עוד תוכן</strong><br>להפסיק לחקות את מה שעובד לכולם, ולפתח קול, זוויות ורעיונות שמייצרים עניין וזכירות.</p></div>
-      <div class="what-you-get-card"><span class="wyg-num">4</span><p><strong>איך להפוך קהל ללידים רותחים</strong><br>לבנות עמוד שגורם לאנשים להגיע עם יותר אמון, יותר רצון, ופחות "יקר לי" / "אני אחשוב על זה".</p></div>
-    </div>
-  </div>
-</section>
-
 <section class="pain reveal in" style="position:relative;">
   <div class="section-blend-top blend-purple" aria-hidden="true"></div>
   <p style="font-weight:800;font-size:1.05rem;margin-bottom:1.3rem;">בואו נגיד את האמת: אם בכל שיחת מכירה אתם צריכים להסביר מחדש למה אתם טובים - השיווק שלכם לא עשה את העבודה שלו.</p>
@@ -2335,186 +2436,27 @@ fbq('track', 'PageView');
   <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">אני רוצה להיות הבחירה הברורה</span><span class="btn-sub">197 ₪ · 100 מקומות בלבד</span></a>
 </section>
 
-<section class="section-pad reveal in" style="background:var(--ivory);position:relative;">
+<section class="urgency reveal in">
   <div class="section-blend-top blend-purple" aria-hidden="true"></div>
+  <p style="font-weight:800;">השיווק נהיה קשה יותר. נקודה.</p>
+  <p>יש יותר תוכן. יותר מתחרים. יותר מודעות. יותר בעלי עסקים שמעלים בדיוק את אותם סרטונים, אומרים בדיוק את אותם משפטים, ומבטיחים בדיוק את אותן הבטחות.</p>
+  <p>וזו לא הרגשה - זו המציאות שכל בעל עסק כבר מרגיש על הבשר שלו.</p>
+  <p>אז לא - הפתרון הוא לא להעלות עוד שלושה רילסים בשבוע. הפתרון הוא לגרום לאנשים להבין למה אתם לא דומים לאף אחד אחר.</p>
+  <div class="xflow">
+    <div class="x"><div class="ic">✕</div>עוד תוכן</div>
+    <div class="x"><div class="ic">✕</div>עוד ממומן</div>
+    <div class="x"><div class="ic">✕</div>עוד עריכה</div>
+    <span class="arrow">←</span>
+    <div class="win"><div class="ic">✓</div>בידול אמיתי</div>
+  </div>
+  <p class="close">וככל שמחכים - ההצפה רק גדלה. מי שמחכה, נשאר עוד עסק בתחום. מי שזז עכשיו - ב-3.9, לפני שה-100 מקומות נגמרים - הופך לבחירה הברורה.</p>
+</section>
+
+<section class="section-pad reveal in" style="background:var(--ivory);position:relative;">
+  <div class="section-blend-top blend-deep" aria-hidden="true"></div>
   <div class="wrap">
     <div class="brand-head">
-      <h2>זה לא עוד אירוע שבאים אליו להקשיב</h2>
-    </div>
-    <div class="contrast-cols">
-      <div class="contrast-col contrast-no">
-        <span class="contrast-label">מה זה לא</span>
-        <p>לשבת 5.5 שעות, לרשום שלושה משפטים במחברת, ולחזור לעסק בדיוק כמו שנכנסתם.</p>
-      </div>
-      <div class="contrast-col contrast-yes">
-        <span class="contrast-label">סמינר עבודה</span>
-        <p>ננתח. נפצח. נתרגל. נפרק עסקים ותוכן בלייב. נזהה את הדברים שכבר קיימים אצלכם - ועדיין לא עוברים החוצה.</p>
-      </div>
-    </div>
-    <div style="max-width:640px;margin:2rem auto 0;text-align:center;">
-      <p style="color:var(--ink-dim);font-size:1rem;line-height:1.7;">המטרה היא לא שתצאו עם עוד מוטיבציה. המטרה היא שתצאו עם דרך חדשה להסתכל על העסק שלכם: מה באמת הופך אתכם לשונים, מה הקול שרק אתם יכולים להביא לרשת, למה התוכן שלכם נראה היום כמו של כולם - ואיך גורמים ללקוח להרגיש שהוא כבר יודע למה לבחור בכם, עוד לפני שהוא שולח הודעה.</p>
-      <p class="mega" style="margin-top:1.2rem;color:var(--sec-a);">לא עוד השראה. עבודה אמיתית על העסק שלכם.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section-pad reveal in" id="nav-agenda">
-  <div class="wrap">
-    <div class="brand-head">
-      <h2>מה מחכה לכם בסמינר</h2>
-      <div class="agenda-meta" style="justify-content:center;">
-        <span><strong>תאריך:</strong> יום חמישי, 3.9.2026</span>
-        <span><strong>שעה:</strong> 15:30–21:00</span>
-        <span><strong>מיקום:</strong> בני ברק</span>
-      </div>
-      <p style="max-width:640px;margin:1.6rem auto 0;color:var(--ink-dim);font-size:1rem;line-height:1.7">במשך 5.5 שעות אנחנו לא נבנה עוד אסטרטגיית תוכן. נפרק את הדרך שבה העסק שלכם נתפס היום, ונגלה למה למרות שאתם טובים - השיווק עדיין לא מצליח להעביר את זה.</p>
-    </div>
-    <div class="journey-grid">
-      <div class="journey-card" data-step="1">
-        <div class="journey-num">01</div>
-        <p>מה גורם לעמוד שלכם להרגיש כמו עוד עמוד</p>
-      </div>
-      <div class="journey-card" data-step="2">
-        <div class="journey-num">02</div>
-        <p>מה אצלכם כבר היום מיוחד - אבל עדיין לא עובר החוצה</p>
-      </div>
-      <div class="journey-card" data-step="3">
-        <div class="journey-num">03</div>
-        <p>איך הופכים אישיות, דעות, ניסיון וסיפור לשיווק שאי אפשר להתבלבל בינו לבין אף אחד אחר</p>
-      </div>
-      <div class="journey-card" data-step="4">
-        <div class="journey-num">04</div>
-        <p>איך בונים מותג שגורם לאנשים להבין למה לבחור דווקא בכם - עוד לפני שיחת המכירה</p>
-      </div>
-      <div class="journey-path-col" aria-hidden="true">
-        <svg viewBox="0 0 100 400" preserveAspectRatio="none">
-          <path d="M50,50 C20,90 20,110 50,150 C80,190 80,210 50,250 C20,290 20,310 50,350"
-                fill="none" stroke="var(--sec-a)" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 14"/>
-          <circle cx="50" cy="50" r="13" fill="var(--white)"/>
-          <circle cx="50" cy="50" r="13" fill="none" stroke="var(--sec-a)" stroke-width="2"/>
-          <circle cx="50" cy="50" r="8" fill="var(--gold)"/>
-          <circle cx="50" cy="150" r="13" fill="var(--white)"/>
-          <circle cx="50" cy="150" r="13" fill="none" stroke="var(--sec-a)" stroke-width="2"/>
-          <circle cx="50" cy="150" r="8" fill="var(--gold)"/>
-          <circle cx="50" cy="250" r="13" fill="var(--white)"/>
-          <circle cx="50" cy="250" r="13" fill="none" stroke="var(--sec-a)" stroke-width="2"/>
-          <circle cx="50" cy="250" r="8" fill="var(--gold)"/>
-          <circle cx="50" cy="350" r="13" fill="var(--white)"/>
-          <circle cx="50" cy="350" r="13" fill="none" stroke="var(--sec-a)" stroke-width="2"/>
-          <circle cx="50" cy="350" r="8" fill="var(--gold)"/>
-        </svg>
-      </div>
-    </div>
-    <div class="journey-finale">כל זה - תוך יום אחד, 5.5 שעות בלבד.</div>
-  </div>
-</section>
-
-<section class="section-pad reveal in" style="padding:2.4rem 0;">
-  <div class="wrap">
-    <div class="brand-head">
-      <h2>מה קורה כשבעלי עסקים מפסיקים להיראות כמו כולם</h2>
-    </div>
-    <div class="review-videos-wrap">
-      <button type="button" class="review-videos-nav prev" aria-label="הקודם">›</button>
-      <div class="review-videos-viewport">
-      <div class="review-videos" id="reviewVideosTrack">
-      <div class="review-video-frame phone-mock">
-        <video src="videos/testimonial-1.mp4" preload="metadata" autoplay muted loop playsinline></video>
-        <button class="phone-play-btn" aria-label="נגן עם קול">▶</button>
-      </div>
-      <div class="review-video-frame phone-mock">
-        <video src="videos/testimonial-2.mp4" preload="metadata" autoplay muted loop playsinline></video>
-        <button class="phone-play-btn" aria-label="נגן עם קול">▶</button>
-      </div>
-      <div class="review-video-frame phone-mock">
-        <video src="videos/testimonial-3.mp4" preload="metadata" autoplay muted loop playsinline></video>
-        <button class="phone-play-btn" aria-label="נגן עם קול">▶</button>
-      </div>
-    </div>
-      </div>
-      <button type="button" class="review-videos-nav next" aria-label="הבא">‹</button>
-    </div>
-  </div>
-</section>
-
-<section class="section-pad reveal in early-proof-strip" style="padding:2.6rem 0;background:var(--ivory);">
-  <div class="wrap">
-    <div class="proof-chips-row">
-      <div class="proof-chip"><span class="num">17</span><span class="lbl">מחזורי ליווי</span></div>
-      <div class="proof-chip"><span class="num">100K ₪</span><span class="lbl">בחודש, תוך 9 חודשים</span></div>
-      <div class="proof-chip"><span class="num">פי 5</span><span class="lbl">בהכנסות</span></div>
-      <div class="proof-chip"><span class="num">15K→45K</span><span class="lbl">בחודש, תוך חודשיים</span></div>
-      <div class="proof-chip"><span class="num">2</span><span class="lbl">סניפים</span></div>
-      <div class="proof-chip"><span class="num">עשרות</span><span class="lbl">בעלי עסקים</span></div>
-    </div>
-    <p class="proof-strip-link">אחרי 17 מחזורי ליווי, זיהיתי את אותה נקודת כשל שוב ושוב: העסק מקצועי, התוכן קיים - אבל ללקוח עדיין אין סיבה ברורה לבחור דווקא בו. <a href="#nav-bio" style="color:var(--sec-a);font-weight:800;">כל הסיפור למטה ↓</a></p>
-  </div>
-</section>
-
-<section class="section-pad reveal section-purple section-purple-photo in" id="nav-fit-early">
-  <div class="section-blend-top blend-photo" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="fit-head">
-      <h2>למי זה מתאים</h2>
-      <p style="margin-top:0.7rem;">הסמינר הזה לא לכולם.</p>
-    </div>
-    <div class="fit-grid">
-      <div class="fit-card"><span class="mark">✓</span><p>כבר מכניסים כסף מהעסק שלכם</p></div>
-      <div class="fit-card"><span class="mark">✓</span><p>כבר מעלים תוכן ומדברים למצלמה</p></div>
-      <div class="fit-card"><span class="mark">✓</span><p>טובים במה שאתם עושים - אבל לא פורצים</p></div>
-      <div class="fit-card"><span class="mark">✓</span><p>מרגישים שאתם "עוד אחד בשוק"</p></div>
-      <div class="fit-card"><span class="mark">✓</span><p>מוכנים להביא משהו אחר, ולהפסיק לשחק על בטוח</p></div>
-    </div>
-    <div class="fit-no-label">ולמי זה בכלל לא מתאים</div>
-    <div class="fit-grid" style="max-width:640px;">
-      <div class="fit-card fit-no-card"><span class="mark" style="color:#e0a2af">✕</span><p>העסק רק נפתח ועדיין אין לו לקוחות</p></div>
-      <div class="fit-card fit-no-card"><span class="mark" style="color:#e0a2af">✕</span><p>לא מוכנים להופיע מול מצלמה בשום שלב</p></div>
-    </div>
-    <div style="text-align:center;margin-top:2rem;">
-      <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">אני רוצה כרטיס לסמינר</span><span class="btn-sub">197 ₪</span></a>
-    </div>
-  </div>
-</section>
-
-<section class="section-pad reveal drama-section chaos-section in">
-  <div class="section-blend-top blend-dark" aria-hidden="true"></div>
-  <div class="wrap" style="max-width:700px;">
-
-    <div class="chaos-beat chaos-beat-intro reveal">
-      <div class="chaos-intro">
-        <h2>השיווק לא הולך להפוך לקל יותר</h2>
-        <p>כל יום עולים לרשת עוד עסקים. כולם מצלמים. כולם כותבים. כולם משתמשים ב-AI. כולם יכולים להיראות "מקצועיים" בתוך שעה.</p>
-      </div>
-    </div>
-
-    <div class="chaos-beat reveal">
-      <p style="color:rgba(255,255,255,0.85);font-size:1.05rem;line-height:1.7;">וזה בדיוק מה שהופך מקצועיות לבד לפחות מספיקה.<br>כשהכול נראה טוב - שום דבר לא בולט.<br>כשהכול נשמע נכון - אף אחד לא נזכר.</p>
-    </div>
-
-    <div class="chaos-beat reveal">
-      <p class="chaos-lead-q">וככל שתחכו יותר, כך תצטרכו להשקיע יותר:</p>
-      <div class="chaos-questions">
-        <p class="chaos-q reveal chaos-q-1">יותר תוכן. יותר תקציב.</p>
-        <p class="chaos-q reveal chaos-q-2">יותר קמפיינים. יותר שיחות מכירה.</p>
-        <p class="chaos-q reveal chaos-q-3">רק כדי לקבל את אותה תשומת לב שפעם הייתה קלה הרבה יותר להשגה.</p>
-      </div>
-    </div>
-
-    <div class="chaos-beat reveal">
-      <p style="color:rgba(255,255,255,0.85);font-size:1.05rem;line-height:1.7;">המחיר של לא לבנות מותג הוא לא רק להישאר במקום.<br>המחיר הוא לשלם בכל חודש מחדש כדי לשכנע אנשים שאתם שווים בחירה.</p>
-    </div>
-
-    <div class="chaos-beat reveal">
-      <p class="mega" style="color:var(--gold);">מי שלא יבנה היום סיבה ברורה לבחור בו - יילחם מחר על תשומת הלב שנשארה.</p>
-    </div>
-
-  </div>
-</section>
-
-<section class="section-pad reveal in" style="background:var(--ivory);">
-  <div class="wrap">
-    <div class="brand-head">
-      <h2>זה לא נשמע טוב רק על הנייר</h2>
+      <h2 style="font-size:1.25rem;">אני יכולה להגיד לכם שהשיטה עובדת. אבל תוצאות מדברות הרבה יותר חזק ממני.</h2>
     </div>
 
     <div class="proof-big-case">
@@ -2560,268 +2502,104 @@ fbq('track', 'PageView');
       <span class="receipt-pill">מאות אלפי צפיות</span>
       <span class="receipt-pill">לידים חמים</span>
     </div>
+    <p class="proof-close-line">ארבע נשים. ארבעה תחומים שונים לגמרי. דבר אחד משותף - כולן עברו את אותו תהליך.</p>
+    <div class="collage-label">ועוד עשרות מהמחזורים הקודמים</div>
+    <div class="collage">
+      <div class="cph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="cph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="cph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="cph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="cph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+    </div>
+    <div style="text-align:center;">
+      <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">אני רוצה להיות הבחירה הברורה</span><span class="btn-sub">197 ₪ · 100 מקומות בלבד</span></a>
+    </div>
   </div>
 </section>
 
-<section class="section-pad reveal section-purple section-purple-deep in" id="nav-diagnosis">
+<section class="method reveal in" style="position:relative;" id="nav-diagnosis">
   <div class="section-blend-top blend-deep" aria-hidden="true"></div>
-  <div class="wrap">
-  <div class="section3-stage">
-  <div class="section3-text">
-    <div class="brand-head">
-      <h2>אפשר להצליח גם בלי להיות מותג<br><span class="headline-accent">אבל תשלמו על זה בכל יום מחדש.</span></h2>
-      <p><strong>שני עסקים יכולים להיות מקצועיים באותה מידה. רק אחד מהם יהיה הבחירה הברורה.</strong></p>
-    </div>
-
-    <div class="compare-table">
-      <div class="compare-table-head">
-        <span class="ct-no">עסק שנראה כמו כולם</span>
-        <span class="ct-yes">הבחירה הברורה</span>
-      </div>
-      <div class="compare-row">
-        <div class="compare-cell ct-no-cell">כל חודש מתחיל מחדש.</div>
-        <div class="compare-cell ct-yes-cell">אנשים כבר מכירים ומחכים.</div>
-      </div>
-      <div class="compare-row">
-        <div class="compare-cell ct-no-cell">תלוי בהמלצות ובפה לאוזן.</div>
-        <div class="compare-cell ct-yes-cell">מייצר ביקוש דרך הרשת.</div>
-      </div>
-      <div class="compare-row">
-        <div class="compare-cell ct-no-cell">מקבל לידים ששואלים רק מחיר.</div>
-        <div class="compare-cell ct-yes-cell">מקבל לידים שכבר רוצים דווקא אותו.</div>
-      </div>
-      <div class="compare-row">
-        <div class="compare-cell ct-no-cell">התוכן שלו נראה מוכר.</div>
-        <div class="compare-cell ct-yes-cell">אי אפשר לבלבל את התוכן שלו עם אף אחד.</div>
-      </div>
-      <div class="compare-row">
-        <div class="compare-cell ct-no-cell">צריך להסביר למה הוא טוב.</div>
-        <div class="compare-cell ct-yes-cell">הלקוח כבר מבין את הערך לפני השיחה.</div>
-      </div>
-      <div class="compare-row">
-        <div class="compare-cell ct-no-cell">תקופה עמוסה ואז שקט.</div>
-        <div class="compare-cell ct-yes-cell">בונה יציבות לאורך זמן.</div>
-      </div>
-      <div class="compare-row">
-        <div class="compare-cell ct-no-cell">עוד איש מקצוע בתחום.</div>
-        <div class="compare-cell ct-yes-cell">השם שעולה ראשון בראש.</div>
-      </div>
-    </div>
-
-    <div class="compare-carousel" id="compareCarousel">
-      <div class="compare-carousel-labels">
-        <span class="cc-label-no">עסק שנראה כמו כולם</span>
-        <span class="cc-label-yes">הבחירה הברורה</span>
-      </div>
-      <div class="compare-carousel-wrap">
-        <button type="button" class="compare-carousel-nav prev" aria-label="הקודם">›</button>
-        <div class="compare-carousel-viewport">
-          <div class="compare-carousel-track" id="compareCarouselTrack">
-            <div class="compare-card">
-              <p class="cc-no">כל חודש מתחיל מחדש.</p>
-              <p class="cc-yes">אנשים כבר מכירים ומחכים.</p>
-            </div>
-            <div class="compare-card">
-              <p class="cc-no">תלוי בהמלצות ובפה לאוזן.</p>
-              <p class="cc-yes">מייצר ביקוש דרך הרשת.</p>
-            </div>
-            <div class="compare-card">
-              <p class="cc-no">מקבל לידים ששואלים רק מחיר.</p>
-              <p class="cc-yes">מקבל לידים שכבר רוצים דווקא אותו.</p>
-            </div>
-            <div class="compare-card">
-              <p class="cc-no">התוכן שלו נראה מוכר.</p>
-              <p class="cc-yes">אי אפשר לבלבל את התוכן שלו עם אף אחד.</p>
-            </div>
-            <div class="compare-card">
-              <p class="cc-no">צריך להסביר למה הוא טוב.</p>
-              <p class="cc-yes">הלקוח כבר מבין את הערך לפני השיחה.</p>
-            </div>
-            <div class="compare-card">
-              <p class="cc-no">תקופה עמוסה ואז שקט.</p>
-              <p class="cc-yes">בונה יציבות לאורך זמן.</p>
-            </div>
-            <div class="compare-card">
-              <p class="cc-no">עוד איש מקצוע בתחום.</p>
-              <p class="cc-yes">השם שעולה ראשון בראש.</p>
-            </div>
-          </div>
-        </div>
-        <button type="button" class="compare-carousel-nav next" aria-label="הבא">‹</button>
-      </div>
-      <div class="compare-carousel-dots" id="compareCarouselDots"></div>
-    </div>
-
+  <h2 class="sh">5.5 השעות מתחלקות ל-4 תחנות - כל אחת נגמרת עם דבר אחד אמיתי ביד</h2>
+  <div class="grid">
+    <div class="mcard"><span class="n">01</span><b>מפצחים למה דווקא אתם</b><span>אתם יוצאים עם משפט ברור שמסביר למה לבחור דווקא בכם - בלי "שירות אישי", "מקצועיות" ו"יחס חם".</span></div>
+    <div class="mcard"><span class="n">02</span><b>מוציאים את מה שאי אפשר להעתיק</b><span>מזהים אילו דעות, סיפורים, תכונות וניסיון צריכים להיכנס לתוכן שלכם - כדי שאנשים יכירו אתכם, ולא רק את השירות שלכם.</span></div>
+    <div class="mcard"><span class="n">03</span><b>מתרגמים את זה לשיווק</b><span>בונים כיוון ברור לתוכן: על מה לדבר, איך לדבר, ואיך להפסיק להעלות תוכן שאפשר להחליף בו את השם שלכם בשם של כל מתחרה.</span></div>
+    <div class="mcard"><span class="n">04</span><b>הופכים את העמוד לעמוד שמביא לידים רותחים</b><span>מבינים מה צריך להשתנות בעמוד, כדי שמי שנכנס אליו יבין מהר שאתם מקצועיים, שונים, ושווים את המחיר.</span></div>
   </div>
-  <div class="section3-photo-col diagnosis-photo-full">
-    <img src="images/section3-photo.png" alt="מאיה קיסלב" loading="lazy">
-  </div>
-  </div>
+  <div class="center"><a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">אני רוצה להיות הבחירה הברורה</span><span class="btn-sub">197 ₪ · 100 מקומות בלבד</span></a></div>
+</section>
+
+<section class="workday reveal in">
+  <div class="workday-bg" aria-hidden="true"><img src="images/section3-photo.png" alt="" loading="lazy"></div>
+  <div class="workday-copy">
+    <h2>זה לא כנס - זה יום עבודה</h2>
+    <p>זה לא כנס שבאים, יושבים, מקשיבים, וחוזרים הביתה עם עוד רשימת "טיפים" ששוכחים תוך שבוע.<br>5.5 שעות. תרגולים אמיתיים. פיצוחים בלייב על העסק שלכם - לא על עסק דוגמה.</p>
   </div>
 </section>
 
-<section class="section-pad reveal drama-section drama-section-light in">
-  <div class="wrap">
-    <h2>היום יותר מתמיד, אי אפשר להרשות לעצמכם להישמע כמו כולם.</h2>
-    <p>לפני כמה שנים עוד היה אפשר להעלות תוכן בינוני ולבלוט. היום הרשת מוצפת - AI יודע לכתוב, לערוך, לייצר רעיונות. כולם יכולים לייצר תוכן. <strong>ולכן תוכן כבר לא מספיק.</strong></p>
-    <p>מה שמבדיל בין עסק שנבלע לבין עסק שאנשים מחכים לתוכן שלו? <strong>זו לא כמות הסרטונים. זו האישיות.</strong> הדרך שבה הוא חושב. הדעות שלו. הגישה שלו. הזהות שלו.</p>
-    <p class="mega">בניית מותג היא כבר לא בונוס. היא אחת משיטות השיווק הכי חזקות שיש היום.</p>
-  </div>
-</section>
-
-<section class="section-pad reveal section-purple in" id="nav-bio">
-  <div class="section-blend-top blend-purple" aria-hidden="true"></div>
-  <div class="bio-bg-photo" aria-hidden="true"><img src="images/bio-3.jpg" alt=""></div>
-  <div class="wrap">
-    <div class="bio-stage bio">
-      <div class="bio-photo-wrap">
-        <div class="bio-photo-frame">
-          <img src="images/bio-1.jpg" alt="מאיה מלמדת מול קהל">
-          <img src="images/bio-2.jpg" alt="מאיה עם הבאנר של האקדמיה">
-          <img src="images/bio-3.jpg" alt="מאיה מרצה עם מיקרופון">
-          <img src="images/bio-4.jpg" alt="מאיה בראיון מול קהל">
-          <img src="images/bio-5.jpg" alt="מאיה מציגה בסמינר">
-          <img src="images/bio-6.jpg" alt="בוגרות המחזור עם התעודות">
-        </div>
-        <div class="bio-note-card"><div class="num">17</div><div class="lbl">מחזורי ליווי</div></div>
-      </div>
-      <div>
-        <h2 class="bio-kicker">למה מאיה</h2>
-        <p><b style="color:var(--gold)">לא למדתי להיות מותג מתוך ספר. בניתי אחד.</b></p>
-        <p>בניתי עסק מאפס למחזורים של 100K בחודש בתוך תשעה חודשים.</p>
-        <div class="insight-box award-box">
-          <span class="award-badge">🏆</span>
-          <div class="award-copy">
-            <div class="award-figure">מ־0 ל־<span class="count-up award-count" data-target="100000">0</span> ₪ בחודש</div>
-            <div class="coin-burst" aria-hidden="true"></div>
-            <div class="award-sub">תוך 9 חודשים בלבד</div>
-          </div>
-        </div>
-        <p>אבל יותר מזה - במשך 17 מחזורי ליווי ראיתי שוב ושוב את אותו הדבר: עסקים מקצועיים, עם לקוחות מרוצים ועם עבודה מצוינת, שלא מצליחים להעביר ברשת אפילו חצי מהערך שלהם.</p>
-        <p>והעבודה שלי לא הייתה ללמד אותם להעלות עוד סרטון. היא הייתה למצוא את הדבר שאי אפשר להעתיק מהם - ולהפוך אותו למסר, לתוכן ולמותג שהשוק זוכר.</p>
-        <p><b style="color:var(--gold)">זו הסיבה שהתוצאות של הלקוחות שלי נראות קיצוניות.</b><br>לא כי גילינו טריק חדש לאינסטגרם. אלא כי ברגע שהעסק מפסיק להיראות כמו כולם - כל השיווק מתחיל לעבוד אחרת.</p>
-        <div class="stats">
-          <div class="stat">17 מחזורי ליווי</div>
-          <div class="stat">0→100K בחודש</div>
-          <div class="stat">עשרות בעלי עסקים</div>
-          <div class="stat">תוצאות לקוחות</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section-pad reveal editorial-section on-pale in">
-  <div class="wrap">
-    <div class="editorial editorial-tight" style="text-align:center;">
-      <p>וזאת כבר לא רק החוויה שלי - ליוויתי מאות בעלי עסקים וראיתי את זה שוב ושוב.</p>
-      <p class="pop">ברגע שמפסיקים לעבוד רק על התוכן, ומתחילים לעבוד על איך אנשים תופסים אתכם - הלידים מגיעים חמים יותר, והעמוד מתחיל למשוך אנשים במקום לרדוף אחריהם.</p>
-    </div>
-  </div>
-  <div class="wave-divider" aria-hidden="true">
-    <svg viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,45 C150,95 350,5 500,45 C650,85 850,15 1000,45 L1000,100 L0,100 Z" fill="#0a0414"/></svg>
-  </div>
-</section>
-
-<section class="section-pad reveal proof-section drama-section in" id="nav-slava">
+<section class="bio-v2 reveal in" style="position:relative;" id="nav-bio">
   <div class="section-blend-top blend-dark" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="proof-hook">
-      <h2>עמוד יפה עדיין לא הופך אתכם למותג.</h2>
-      <p>כשהכרתי את סלבה, היה לה עמוד יפה - תמונות מקצועיות, עבודות טובות, יצירתיות. אבל כמעט כל מה שראינו היה מה שהיא מצלמת. לא סלבה. היא אפילו הייתה בטוחה שהיא לא מספיק מעניינת כדי להיות בפרונט.</p>
-    </div>
-
-    <div class="proof-profile">
-      <div class="proof-avatar"><img src="images/slava-avatar.jpg" alt="סלבה סטפנוב"></div>
-      <div class="proof-name">סלבה סטפנוב<span>צלמת תדמית</span></div>
-    </div>
-
-    <div class="proof-block">
-      <h3>ככה סלבה שיווקה את עצמה - לפני שהגיעה אליי</h3>
-      <div class="proof-inner">
-        <div class="proof-phones">
-          <div class="phone-mock"><video src="videos/slava-before-1.mp4" preload="metadata" autoplay muted loop playsinline></video><button class="phone-play-btn" aria-label="נגן עם קול">▶</button></div>
-          <div class="phone-mock"><video src="videos/slava-before-2.mp4" preload="metadata" autoplay muted loop playsinline></video><button class="phone-play-btn" aria-label="נגן עם קול">▶</button></div>
-        </div>
-        <ul class="proof-list">
-          <li>עוד תיק עבודות יפה</li>
-          <li>הרבה מוצר, מעט סלבה</li>
-          <li>לא הדעות שלה, לא האישיות שלה, לא הדרך שבה היא רואה צילום</li>
-          <li><strong><span class="count-up" data-target="2830">0</span></strong> עוקבים</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="proof-arrow" aria-hidden="true">
-      <svg width="40" height="70" viewBox="0 0 40 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 2 L20 54" stroke="url(#proofArrowGrad)" stroke-width="4" stroke-linecap="round"/>
-        <path d="M6 42 L20 62 L34 42" stroke="url(#proofArrowGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        <defs>
-          <linearGradient id="proofArrowGrad" x1="20" y1="2" x2="20" y2="62" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#7b3799"/>
-            <stop offset="1" stop-color="#d9ac5e"/>
-          </linearGradient>
-        </defs>
-      </svg>
-      <div class="proof-growth-badge">62%+ עוקבים</div>
-    </div>
-
-    <div class="proof-block is-after spotlight-target">
-      <h3>וככה היא משווקת את עצמה - היום</h3>
-      <div class="proof-inner">
-        <div class="proof-phones">
-          <div class="phone-mock"><video src="videos/slava-after-1.mp4" preload="metadata" autoplay muted loop playsinline></video><button class="phone-play-btn" aria-label="נגן עם קול">▶</button></div>
-          <div class="phone-mock"><video src="videos/slava-after-2.mp4" preload="metadata" autoplay muted loop playsinline></video><button class="phone-play-btn" aria-label="נגן עם קול">▶</button></div>
-        </div>
-        <ul class="proof-list">
-          <li>אי אפשר להיכנס לעמוד ולא להבין מי עומדת מאחוריו</li>
-          <li>מדברת למצלמה, מביעה דעות, מביאה אישיות וקול משלה</li>
-          <li>מסר ברור כבר <strong>מהשורה הראשונה בביו</strong></li>
-          <li><strong><span class="count-up" data-target="4592">0</span></strong> עוקבים (<strong>+1,762</strong> מאז)</li>
-          <li>הלידים מגיעים חמים יותר, וההכנסות עלו</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="proof-screens">
-      <p class="proof-screens-hint">👉 גררו כדי להשוות - לפני מול היום</p>
-      <div class="compare-wrap" id="compareSlider">
-        <img class="compare-img compare-after" draggable="false" src="images/compare-after.jpg" alt="העמוד של סלבה - היום">
-        <img class="compare-img compare-before" id="compareBeforeImg" draggable="false" src="images/compare-before.jpg" alt="העמוד של סלבה - לפני">
-        <div class="compare-label compare-label-before">לפני</div>
-        <div class="compare-label compare-label-after">היום</div>
-        <div class="compare-handle" id="compareHandle">
-          <div class="compare-handle-knob">↔</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="proof-punch">
-      <p><strong>סלבה לא הפסיקה לשווק את הצילום שלה.</strong> היא פשוט הפסיקה להסתיר את הסיבה לבחור דווקא בה.<br>
-      זה ההבדל בין עמוד שמציג שירות - לעמוד שבונה מותג.</p>
-    </div>
-    <div style="text-align:center; margin-top:2.2rem;">
-      <a href="#form" class="gold-btn">גם אני רוצה לבנות מותג ברשת ←</a>
-    </div>
+  <div class="photo-duo">
+    <img src="images/bio-1.jpg" alt="מאיה מלמדת מול קהל">
+    <img src="images/bio-6.jpg" alt="בוגרות המחזור עם התעודות">
   </div>
+  <p style="text-align:center;font-weight:800;">אם עוד לא הכרנו - נעים מאוד, מאיה קיסלב.</p>
+  <p>השקעתי עד היום מעל 150,000 ₪ בלימודי שיווק, למדתי אצל מהמשווקים הגדולים בעולם ברוסיה ובארצות הברית, והוסמכתי כמשווקת מקצועית. אבל הידע לבד לא בנה לי עסק.</p>
+  <p><b>מה שבנה לי עסק היה היכולת לקחת שיווק, להבין אותו לעומק, ליישם אותו מהר - ולהפוך אותו לתוצאות.<br>בתוך 9 חודשים - מ-0 ל-100,000 ₪ בחודש.</b> לא אחרי עשר שנים, לא עם תקציבי פרסום מטורפים.</p>
+  <p style="padding-top:1.2rem;">עבדתי עם מאות בעלי עסקים, וראיתי שוב ושוב איך עסק טוב יכול להישאר תקוע רק כי ברשת הוא לא מצליח להעביר למה לבחור דווקא בו.</p>
+  <p class="crisis">אבל את הדרך שלי התחלתי מעסק ביוטי שהיה תקוע שנה שלמה על 2,000 ₪ בחודש, ופחדתי ממצלמה. עד שעברתי משבר אישי שגרם לי להבין שביוטי זה לא אני - וסגרתי עסק מצליח כדי ללכת אחרי הלב שלי לשיווק.</p>
+  <div class="bio-v2-pullquote"><p>וזו בדיוק הסיבה שהשיטה שלי לא נשארת בתיאוריה - היא נבנתה מתוך אלפי שעות של למידה, יישום, ותוצאות חריגות בשטח.</p></div>
+  <p>לא עוד הרצאה על בידול. לא עוד משפטים יפים על מותג. אלא הדרך שבה הופכים עסק טוב לבחירה הברורה בתחום שלו.</p>
+  <div class="row" style="display:flex;justify-content:center;gap:0.5rem;flex-wrap:wrap;margin-top:1rem;"><span class="pill">150,000+ ₪ בלימודי שיווק</span><span class="pill">17 מחזורי ליווי</span><span class="pill">מאות בעלי עסקים</span></div>
 </section>
 
-<section class="section-pad countdown-block-section reveal in spotlight-target">
-  <div class="wrap">
-    <div class="countdown-block">
-      <h2>האירוע <span class="accent-word">יתקיים</span> בעוד:</h2>
-      <div class="countdown-grid">
-        <div class="countdown-box"><div class="countdown-box-num" id="cd2-days">00</div><div class="countdown-box-label">ימים</div></div>
-        <div class="countdown-box"><div class="countdown-box-num" id="cd2-hours">00</div><div class="countdown-box-label">שעות</div></div>
-        <div class="countdown-box"><div class="countdown-box-num" id="cd2-mins">00</div><div class="countdown-box-label">דקות</div></div>
-        <div class="countdown-box"><div class="countdown-box-num" id="cd2-secs">00</div><div class="countdown-box-label">שניות</div></div>
-      </div>
-      <div class="countdown-info-row">
-        <div class="countdown-info-pill">בני ברק</div>
-        <div class="countdown-info-pill">15:30 - 21:00</div>
-        <div class="countdown-info-pill">יום חמישי, 3 בספטמבר</div>
-      </div>
+<section class="dq reveal in">
+  <div class="section-blend-top blend-purple" aria-hidden="true"></div>
+  <span class="eyebrow">ועדיין, חשוב לי שתדעו</span>
+  <h2>שהסמינר לא מתאים לכולם.</h2>
+  <div class="dq-table">
+    <div class="dq-col win">
+      <h4>אבל אם אתם:</h4>
+      <ul>
+        <li>כבר הוכחתם שאתם טובים - אבל השיווק שלכם עדיין לא מוכיח את זה</li>
+        <li>מוכנים לעבוד על העסק שלכם ביום עצמו, לא רק להקשיב</li>
+        <li>יש לכם עסק שכבר עובד, עם תוצאות אמיתיות</li>
+      </ul>
+      <div class="dq-tag">זה בדיוק בשבילכם.</div>
     </div>
+    <div class="dq-col lose">
+      <h4>אם אתם:</h4>
+      <ul>
+        <li>העסק עדיין בחיתולים - בלי ניסיון, בלי לקוחות מרוצים, ומחפשים רעיון ראשון לעסק</li>
+        <li>עסקי איקומרס או תוכנה - זה בנוי סביב עסקים שבהם אתם המותג</li>
+        <li>לא מוכנים להיות הפנים של העסק שלכם בשום צורה</li>
+      </ul>
+      <div class="dq-tag">זה בסדר - פשוט לא הפורום הנכון עכשיו.</div>
+    </div>
+  </div>
+  <div class="ctawrap" style="margin-top:2.2rem;"><a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">אני רוצה להיות הבחירה הברורה</span><span class="btn-sub">197 ₪ · 100 מקומות בלבד</span></a></div>
+</section>
+
+<section class="grt reveal in" style="position:relative;">
+  <div class="section-blend-top blend-purple" aria-hidden="true"></div>
+  <div class="wordmark"><b>מאיה קיסלב</b><span>Brand Seminar · 3.9.26</span></div>
+  <div class="seals-row">
+    <svg width="92" height="108" viewBox="0 0 100 116" style="flex-shrink:0;">
+      <polygon points="50,2 58,16 74,10 76,27 93,29 88,45 100,57 86,66 90,83 73,82 68,98 53,90 39,99 32,83 15,86 17,69 2,60 12,46 5,30 22,26 22,9 39,17" fill="var(--gold-refined)"/>
+      <circle cx="50" cy="54" r="34" fill="var(--sec-a)" stroke="var(--gold-soft)" stroke-width="2"/>
+      <text x="50" y="49" text-anchor="middle" fill="#fff" font-size="13" font-weight="800">100%</text>
+      <text x="50" y="63" text-anchor="middle" fill="var(--gold-soft)" font-size="6.5" font-weight="700">החזר כספי</text>
+      <polygon points="34,84 50,94 66,84 66,116 50,104 34,116" fill="var(--sec-b)"/>
+    </svg>
+    <div class="grt-copy">
+      <h2>אבל אני לא רוצה שתחליטו בלי ביטחון מלא.</h2>
+      <p>אם עד 48 שעות מסיום הסמינר תרגישו שזה לא נתן לכם ערך - תקבלו החזר מלא.</p>
+      <p><b>בלי שאלות. בלי אותיות קטנות. בלי להוכיח כלום.</b></p>
+      <p style="border-top:1px solid var(--line);padding-top:1rem;margin-top:0.3rem;"><b>אני לא צריכה אתכם שם אם זה לא עובד לכם. אני צריכה שזה יעבוד.</b></p>
+    </div>
+    <svg width="92" height="108" viewBox="0 0 100 116" style="flex-shrink:0;">
+      <polygon points="50,2 58,16 74,10 76,27 93,29 88,45 100,57 86,66 90,83 73,82 68,98 53,90 39,99 32,83 15,86 17,69 2,60 12,46 5,30 22,26 22,9 39,17" fill="var(--gold-refined)"/>
+      <circle cx="50" cy="54" r="34" fill="var(--sec-a)" stroke="var(--gold-soft)" stroke-width="2"/>
+      <text x="50" y="49" text-anchor="middle" fill="#fff" font-size="12" font-weight="800">48H</text>
+      <text x="50" y="63" text-anchor="middle" fill="var(--gold-soft)" font-size="6.5" font-weight="700">מובטח</text>
+      <polygon points="34,84 50,94 66,84 66,116 50,104 34,116" fill="var(--sec-b)"/>
+    </svg>
   </div>
 </section>
 
@@ -2926,48 +2704,22 @@ fbq('track', 'PageView');
   </div>
 </section>
 
-<section class="section-pad reveal in" style="background:var(--ivory);">
-  <div class="wrap">
-    <div class="seats-limit-box">
-      <h2>רק 100 בעלי עסקים יוכלו להיות בחדר</h2>
-      <p>לא כי אני רוצה לכתוב "מקומות מוגבלים" על הכפתור. אלא כי זה לא כנס של 500 איש.</p>
-      <p>יהיו תרגולים. פיצוחים בלייב. שאלות. עבודה אמיתית מול עסקים שנמצאים בחדר.</p>
-      <p><strong>כדי שהסמינר יישאר פרקטי ואישי, אני מגבילה אותו ל-100 מקומות בלבד. כשהם יתמלאו - לא ייפתחו מקומות נוספים.</strong></p>
-    </div>
+<section class="closer-v2 reveal in spotlight-target" id="form" style="position:relative;">
+  <div class="section-blend-top blend-purple" aria-hidden="true"></div>
+  <div class="scarcity">100 מקומות בלבד</div>
+  <h2>בעוד שנה מהיום - יהיו עסקים שהפכו לבחירה הברורה. ויהיו עסקים שעדיין נלחמים על שאריות.</h2>
+  <div class="cd-boxes">
+    <div><b id="cd2-days">00</b><span>ימים</span></div>
+    <div><b id="cd2-hours">00</b><span>שעות</span></div>
+    <div><b id="cd2-mins">00</b><span>דק'</span></div>
+    <div><b id="cd2-secs">00</b><span>שנ'</span></div>
   </div>
-</section>
-
-<section class="closer reveal in spotlight-target" id="form">
-  <div class="closer-photo">
-    <img class="duo" src="images/closer-photo.jpg" alt="">
-    <div class="closer-card glass">
-      <h2>מספיק להיות עוד בעל עסק.<br>הגיע הזמן להיות מותג.</h2>
-      <p style="max-width:480px;margin:0.9rem auto 0;color:rgba(255,255,255,0.85);font-size:0.98rem;line-height:1.7;text-align:center;">בעוד שנה מהיום יהיו בעלי עסקים שעדיין ירדפו אחרי הלקוח הבא... ויהיו כאלה שכבר הפכו למותג.</p>
-      <p class="closer-urgency" id="closerUrgency"></p>
-      <div class="closer-tickets">
-        <div class="ticket-col">
-          <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">אני רוצה כרטיס לסמינר</span><span class="btn-sub">197 ₪</span></a>
-        </div>
-        <div class="ticket-col ticket-secondary">
-          <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="ghost-btn two-line" data-fb-value="297"><span class="btn-main">אני רוצה כרטיס זוגי</span><span class="btn-sub">297 ₪</span></a>
-        </div>
-      </div>
-      <div class="payment-security-badge">🔒 תשלום מאובטח | אישור נשלח מיד למייל</div>
-    </div>
+  <div class="ticket-pair" style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem;margin-bottom:0.8rem;">
+    <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">כרטיס יחיד</span><span class="btn-sub" style="color:var(--sec-a);">197 ₪</span></a>
+    <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="ghost-btn two-line"><span class="btn-main">כרטיס זוגי</span><span class="btn-sub">297 ₪</span></a>
   </div>
-</section>
-
-<section class="section-pad reveal in" style="background:var(--ivory);">
-  <div class="wrap">
-    <div class="guarantee-box">
-      <span class="guarantee-icon">🛡️</span>
-      <h2>אני מוכנה לקחת אחריות מלאה על הערך</h2>
-      <p>תגיעו לסמינר. תשתתפו. תעשו את העבודה.</p>
-      <p>ואם בסוף 5.5 השעות תרגישו שלא קיבלתם דרך חדשה להסתכל על השיווק שלכם, שלא יצאתם עם תובנות פרקטיות לעסק ושזה היה עוד אירוע של דיבורים יפים - תגידו לי במקום ותקבלו את הכסף בחזרה.</p>
-      <p class="guarantee-fine"><strong>בלי טפסים. בלי אותיות קטנות. בלי לשכנע אותי.</strong> תוך 48 שעות מסיום האירוע.</p>
-      <p class="guarantee-close">אני לא יכולה להבטיח לכם כמה כסף תכניסו אחרי הסמינר. אני כן מוכנה להבטיח שזה לא יהיה עוד ערב שתצאו ממנו עם תמונה לסטורי ושלושה משפטים במחברת.</p>
-    </div>
-  </div>
+  <div class="price">3.9.26 · לח"י 21, בני ברק · 100 מקומות בלבד</div>
+  <div class="price" style="margin-top:0.4rem;">🔒 תשלום מאובטח | אישור נשלח מיד למייל</div>
 </section>
 
 <section class="section-pad reveal faq-section in">
@@ -2977,39 +2729,36 @@ fbq('track', 'PageView');
     </div>
 
     <details class="faq-item">
-      <summary>איפה הסמינר מתקיים?</summary>
-      <div class="faq-item-body">בני ברק, כ-5 שעות. כ-3 דקות הליכה מהתחנת רכבת.</div>
+      <summary>למי זה מתאים בדיוק?</summary>
+      <div class="faq-item-body">אם יש לכם עסק שכבר עובד, עם תוצאות אמיתיות - והבעיה היחידה היא שברשת אף אחד לא יודע למה לבחור דווקא בכם. זה בדיוק בשבילכם.</div>
     </details>
     <details class="faq-item">
-      <summary>האם יש הנחה לזוג?</summary>
-      <div class="faq-item-body">כן, יש הנחה לכרטיס זוגי.</div>
+      <summary>איפה זה בדיוק?</summary>
+      <div class="faq-item-body">לח"י 21, בני ברק. 3.9.26, יום חמישי, 5.5 שעות.</div>
     </details>
     <details class="faq-item">
-      <summary>מה קורה אם אני צריכ/ה לבטל?</summary>
-      <div class="faq-item-body">ניתן לבטל ולקבל החזר כספי מלא עד 24 שעות לפני מועד הסמינר. אם לא מגיעים ביום האירוע עצמו - לא יינתן החזר.</div>
+      <summary>אין לי חיים מעניינים, ואני לא בן אדם פרובוקטיבי - זה מתאים לי?</summary>
+      <div class="faq-item-body">בדיוק בשביל זה זה נבנה. בלי לחשוף את כל החיים שלכם ובלי להיות פרובוקטיביים - הבידול נבנה מהעבודה והניסיון שלכם, לא מדרמה אישית.</div>
     </details>
     <details class="faq-item">
-      <summary>מה אם אני אשתתף ולא ארגיש שקיבלתי ערך?</summary>
-      <div class="faq-item-body">תפנו אלינו עד 48 שעות אחרי סיום הסמינר ותקבלו החזר מלא - בלי שאלות. פרטים מלאים בסעיף האחריות למעלה בעמוד.</div>
+      <summary>עם מה אני יוצא/ת בסוף הסמינר?</summary>
+      <div class="faq-item-body">משפט בחירה ברור, מפת קול של המותג, ותוכן שכבר יודע לדבר בדיוק אל הלקוח שלכם - כתוב, לא רק מוסבר.</div>
     </details>
     <details class="faq-item">
-      <summary>האם צריך להביא מחברות וכלי כתיבה?</summary>
-      <div class="faq-item-body">לא צריך - מקבלים הכל בסמינר.</div>
+      <summary>האם זה מתאים גם אם יש לי מעט עוקבים?</summary>
+      <div class="faq-item-body">כן. זה לא עניין של כמות עוקבים - זה מה שהם רואים ברגע שהם כן מגיעים לעמוד שלכם.</div>
     </details>
     <details class="faq-item">
-      <summary>האם יהיה אוכל ושתייה?</summary>
-      <div class="faq-item-body">כן, יהיה במקום עמדת קפה, מים, ואוכל טעים!</div>
+      <summary>האם אני חייב/ת לדבר למצלמה?</summary>
+      <div class="faq-item-body">זה בדיוק הדבר שעובדים עליו בסמינר - אבל צריך נכונות בסיסית להתחיל. בלי זה, אין על מה לבנות.</div>
     </details>
-
-    <p class="faq-divider-label">ולפני שנרשמים - למי זה בכלל לא מתאים</p>
-
-    <details class="faq-item faq-no">
-      <summary>אם אני עסק שרק נפתח, מתאים לי?</summary>
-      <div class="faq-item-body">לצערנו לא. הסמינר מתאים לבעלי עסקים שכבר טובים בתחומם ומשווקים ברשתות.</div>
+    <details class="faq-item faq-no" open>
+      <summary>יש לי כבר מנהלת סושיאל/קמפיינרית שמטפלת בזה - למה אני צריך/ה את זה?</summary>
+      <div class="faq-item-body">כי אף מנהלת סושיאל לא יכולה לדעת מה באמת מבדל אתכם טוב יותר מכם. היא יכולה לנהל את הפרסום - אבל את הקול, הסיפור, ולמה לבחור דווקא בכם, זה חייב לבוא מכם. בלי זה, גם המנהלת הכי טובה מפרסמת עוד תוכן שנראה כמו כולם.</div>
     </details>
-    <details class="faq-item faq-no">
-      <summary>אם אני לא מדבר/ת למצלמה וגם לא מוכן/ה, מתאים לי?</summary>
-      <div class="faq-item-body">לא! היום, ב-2026, בעסק של שירות - אתם הדבר הכי חשוב בעסק שלכם!</div>
+    <details class="faq-item">
+      <summary>מה קורה אם אני מגיע/ה ולא מקבל/ת ערך?</summary>
+      <div class="faq-item-body">יש 48 שעות אחרי הסמינר להחליט. אם זה לא נתן לכם ערך - מקבלים החזר מלא, בלי שאלות.</div>
     </details>
   </div>
   <p style="text-align:center; margin-top:2rem; font-size:0.98rem; color:var(--ink-dim);">עדיין יש לך שאלה? <a href="https://wa.me/972554353889?text=%D7%94%D7%99%D7%99%2C%20%D7%99%D7%A9%20%D7%9C%D7%99%20%D7%A9%D7%90%D7%9C%D7%94%20%D7%9C%D7%92%D7%91%D7%99%20%D7%94%D7%A1%D7%9E%D7%99%D7%A0%D7%A8%20%22%D7%9C%D7%94%D7%99%D7%95%D7%AA%20%D7%9E%D7%95%D7%AA%D7%92%22" target="_blank" rel="noopener noreferrer" style="color:var(--sec-a); font-weight:800; text-decoration:underline;">דברו איתנו בוואטסאפ ←</a></p>
