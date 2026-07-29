@@ -732,23 +732,23 @@ fbq('track', 'PageView');
   .bio-v2-pullquote p { font-size: 1.05rem; font-weight: 700; color: var(--sec-a); margin: 0; }
 
   /* ===== NEW section 7: who-for disqualify table ===== */
-  .dq { position: relative; padding: 6.5rem 1.4rem 7rem; background: #1a0f2e; overflow: hidden; min-height: 640px; display: flex; flex-direction: column; justify-content: center; }
+  .dq { position: relative; padding: 4rem 1.4rem 4.5rem; background: #1a0f2e; overflow: hidden; }
   .dq-bg { position: absolute; inset: 0; z-index: 0; }
   .dq-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
   .dq-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,15,46,0.75), rgba(26,15,46,0.88) 55%, rgba(26,15,46,0.96)); }
   .dq > *:not(.dq-bg) { position: relative; z-index: 1; }
   .dq > * { position: relative; z-index: 1; }
   .dq .eyebrow { display: block; text-align: center; font-size: 0.85rem; font-weight: 700; color: var(--gold-soft); margin-bottom: 0.5rem; }
-  .dq h2 { margin-bottom: 3rem; font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem); color: #fff; text-align: center; overflow-wrap: break-word; }
-  .dq-table { display: flex; max-width: 680px; margin: 0 auto; box-shadow: 0 24px 50px rgba(40,20,10,0.25); flex-wrap: wrap; }
-  .dq-col { flex: 1 1 260px; padding: 1.8rem 1.4rem 2.6rem; position: relative; }
+  .dq h2 { margin-bottom: 2.4rem; font-size: clamp(2rem, 1.6rem + 1.8vw, 2.9rem); color: #fff; text-align: center; overflow-wrap: break-word; max-width: 20ch; margin-inline: auto; }
+  .dq-table { display: flex; max-width: 1100px; margin: 0 auto; box-shadow: 0 24px 50px rgba(40,20,10,0.25); flex-wrap: wrap; }
+  .dq-col { flex: 1 1 320px; padding: 3rem 2.6rem 3.4rem; position: relative; }
   .dq-col.win { background: linear-gradient(160deg, var(--sec-a), var(--sec-b)); color: #fff; border-radius: 20px 0 0 20px; }
   .dq-col.lose { background: rgba(255,255,255,0.92); border-radius: 0 20px 20px 0; }
-  .dq-col h4 { margin: 0 0 1.3rem; font-size: 1.05rem; text-align: center; }
+  .dq-col h4 { margin: 0 0 1.6rem; font-size: 1.3rem; text-align: center; }
   .dq-col.win h4 { color: #fff; }
   .dq-col.lose h4 { color: var(--sec-a); }
-  .dq-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1.1rem; }
-  .dq-col li { font-size: 0.8rem; padding-right: 1.7rem; position: relative; line-height: 1.45; }
+  .dq-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1.5rem; }
+  .dq-col li { font-size: 1rem; padding-right: 1.9rem; position: relative; line-height: 1.5; }
   .dq-col.win li { color: rgba(255,255,255,0.95); }
   .dq-col.win li::before { content: "✓"; position: absolute; right: 0; top: 0.05rem; width: 1.15rem; height: 1.15rem; border-radius: 4px; background: #fff; color: var(--sec-b); font-weight: 800; font-size: 0.65rem; display: flex; align-items: center; justify-content: center; }
   .dq-col.lose li { color: var(--ink); }
@@ -756,7 +756,7 @@ fbq('track', 'PageView');
   .dq-tag { position: absolute; bottom: -0.9rem; left: 0.7rem; right: 0.7rem; text-align: center; border-radius: 999px; padding: 0.5rem 0.8rem; font-size: 0.68rem; font-weight: 800; box-shadow: 0 6px 14px rgba(0,0,0,0.2); }
   .dq-col.win .dq-tag { background: #fff; color: var(--sec-b); }
   .dq-col.lose .dq-tag { background: var(--sec-b); color: #fff; }
-  .dq .ctawrap { text-align: center; margin-top: 1.4rem; }
+  .dq .ctawrap { text-align: center; margin-top: 2.6rem; }
   @media (max-width: 600px) { .dq-col.win, .dq-col.lose { border-radius: 20px; } .dq-col.win { margin-bottom: 1.4rem; } }
 
   /* ===== NEW section 8: guarantee with seals ===== */
