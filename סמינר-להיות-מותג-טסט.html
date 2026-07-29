@@ -568,6 +568,19 @@ fbq('track', 'PageView');
   }
   @media (max-width: 720px) { .hero-straddle-cta-wrap { display: none; } }
 
+  /* ===== second straddle CTA: same technique, between urgency and the proof section ===== */
+  .section-straddle-cta {
+    display: inline-flex; align-items: center; gap: 0.6rem; justify-content: center; position: relative; top: -1.6rem;
+    background: linear-gradient(160deg, #ffffff, #f3edf8); color: var(--sec-b); font-weight: 800; font-size: 1.05rem;
+    padding: 1.05rem 2.4rem; border-radius: 999px; text-decoration: none; white-space: nowrap;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 -2px 0 rgba(83,30,98,0.08) inset, 0 14px 30px rgba(83,30,98,0.4);
+  }
+  .section-straddle-cta .cta-arrow { font-size: 1.2rem; line-height: 1; color: var(--sec-a); }
+  @media (prefers-reduced-motion: no-preference) {
+    .section-straddle-cta { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .section-straddle-cta:hover { transform: translateY(-3px); box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 -2px 0 rgba(83,30,98,0.08) inset, 0 18px 36px rgba(83,30,98,0.5); }
+  }
+
   /* ===== NEW section 1.5: quick proof strip (overlapping face circles + headline + pills) ===== */
   .strip { background: var(--white); padding: 9rem 1.4rem 4rem; text-align: center; }
   .strip h2.sh { font-size: clamp(1.5rem, 1.25rem + 1vw, 2rem); max-width: 26ch; margin: 0 auto 1.5rem; font-weight: 800; color: var(--ink); line-height: 1.4; overflow-wrap: break-word; word-break: break-word; }
@@ -2154,7 +2167,7 @@ fbq('track', 'PageView');
 
 <section class="strip reveal in" style="position:relative;">
   <div class="crowd">
-    <div class="ph"><img src="images/client-slava-stepanov.jpg" alt="" loading="lazy" style="object-position:center 30%;"></div><div class="ph"><img src="images/client-lior-ezer.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-uri-amsalem.jpg" alt="" loading="lazy" style="object-position:center 30%;"></div><div class="ph"><img src="images/client-ron-bublil.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-elisheva.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-li-tzemach.jpg" alt="" loading="lazy"></div>
+    <div class="ph"><img src="images/client-slava-stepanov.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-lior-ezer.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-uri-amsalem.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-ron-bublil.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-elisheva.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-li-tzemach.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-romi.jpg" alt="" loading="lazy"></div>
   </div>
   <h2 class="sh">השיטה של מאיה קיסלב שכבר הפכה מאות בעלי עסקים ל<span class="marker-gold">בחירה הברורה</span> בתחום שלהם</h2>
   <div class="row"><span class="pill">17 מחזורי ליווי</span><span class="pill">מאות בעלי עסקים</span><span class="pill">150,000+ ₪ בלימודי שיווק</span><span class="pill">0→100K ₪ תוך 9 חודשים</span></div>
@@ -2218,6 +2231,10 @@ fbq('track', 'PageView');
   </div>
 </section>
 
+<div class="hero-straddle-cta-wrap">
+  <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="section-straddle-cta" data-fb-value="197"><span>אני רוצה להיות הבחירה הברורה</span><span class="cta-arrow">‹</span></a>
+</div>
+
 <section class="section-pad reveal in" style="background:var(--ivory);position:relative;">
   <div class="wrap">
     <div class="brand-head">
@@ -2270,7 +2287,7 @@ fbq('track', 'PageView');
     <p class="proof-close-line">ארבעה תחומים שונים לגמרי. דבר אחד משותף - כולן עברו את אותו תהליך.</p>
     <div class="collage-label">ועוד עשרות מהמחזורים הקודמים</div>
     <div class="collage">
-      <div class="cph"><img src="images/client-liel.jpg" alt="" loading="lazy"></div><div class="cph"><img src="images/client-sarah-yitzhak.jpg" alt="" loading="lazy"></div><div class="cph"><img src="images/client-yarin.jpg" alt="" loading="lazy" style="object-position:center 20%;"></div><div class="cph"><img src="images/client-vered-adess.jpg" alt="" loading="lazy"></div>
+      <div class="cph"><img src="images/client-liel.jpg" alt="" loading="lazy"></div><div class="cph"><img src="images/client-sarah-yitzhak.jpg" alt="" loading="lazy"></div><div class="cph"><img src="images/client-talia.jpg" alt="" loading="lazy"></div><div class="cph"><img src="images/client-vered-adess.jpg" alt="" loading="lazy"></div><div class="cph"><img src="images/client-yarin.jpg" alt="" loading="lazy"></div>
     </div>
     <div style="text-align:center;">
       <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">אני רוצה להיות הבחירה הברורה</span><span class="btn-sub">197 ₪ · 100 מקומות בלבד</span></a>
