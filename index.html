@@ -82,6 +82,7 @@ fbq('track', 'PageView');
 <style>
 
   :root {
+    --base-font-size: 17px;
     --white: #ffffff;
     --purple-deep: #24093f;
     --purple: #6b21c9;
@@ -127,7 +128,7 @@ fbq('track', 'PageView');
 
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: var(--white); color: var(--ink); font-family: var(--font-body); overflow-x: hidden; }
-  html { font-size: 17px; scrollbar-color: var(--sec-a) var(--purple-pale); scrollbar-width: thin; }
+  html { font-size: var(--base-font-size); scrollbar-color: var(--sec-a) var(--purple-pale); scrollbar-width: thin; }
   ::-webkit-scrollbar { width: 10px; }
   ::-webkit-scrollbar-track { background: var(--purple-pale); }
   ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--sec-a), var(--gold)); border-radius: 999px; }
@@ -592,11 +593,11 @@ fbq('track', 'PageView');
   .strip h2.sh { font-size: clamp(1.5rem, 1.25rem + 1vw, 2rem); max-width: 26ch; margin: 0 auto 1.5rem; font-weight: 800; color: var(--ink); line-height: 1.4; overflow-wrap: break-word; word-break: break-word; }
   .strip .row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
   .pill { background: var(--purple-pale); color: var(--sec-a); font-weight: 800; font-size: 0.82rem; padding: 0.5rem 1rem; border-radius: 999px; }
-  .strip-stats-section { background: var(--purple-deep); padding: 3rem 1.4rem; }
+  .strip-stats-section { background: #f5f5f5; padding: 3rem 1.4rem; }
   .strip-stats { display: flex; justify-content: center; gap: 2.6rem; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; }
   .strip-stat { text-align: center; }
-  .strip-stat b { display: block; font-size: clamp(1.9rem, 1.5rem + 1.3vw, 2.7rem); font-weight: 900; color: var(--gold-soft); line-height: 1; margin-bottom: 0.4rem; }
-  .strip-stat span { display: block; font-size: clamp(0.82rem, 0.78rem + 0.2vw, 0.92rem); font-weight: 700; color: rgba(255,255,255,0.75); }
+  .strip-stat b { display: block; font-size: clamp(1.9rem, 1.5rem + 1.3vw, 2.7rem); font-weight: 900; color: var(--sec-a); line-height: 1; margin-bottom: 0.4rem; }
+  .strip-stat span { display: block; font-size: clamp(0.82rem, 0.78rem + 0.2vw, 0.92rem); font-weight: 700; color: var(--ink-dim); }
 
   /* real "highlighter marker" technique pulled from Tamar's live CSS, adapted to gold */
   .marker-gold { background-image: linear-gradient(0deg, #e8a2ac, #e8a2ac 30%, transparent 30%, transparent); display: inline; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
@@ -893,7 +894,7 @@ fbq('track', 'PageView');
   }
 
   @media (max-width: 860px) {
-    html { font-size: 18.5px; }
+    :root { --base-font-size: 18.5px; }
     /* mobile: hero-stage becomes the stacking flex container itself —
        text first, photo below — driven by order, not DOM position. */
     .hero-stage { flex-direction: column; align-items: stretch; min-height: auto; padding: 6.4rem 1rem 1.7rem; }
@@ -1607,8 +1608,8 @@ fbq('track', 'PageView');
     border-radius: 8px; padding: 0.55rem; font-weight: 800; font-size: 0.85rem; cursor: pointer; }
 
   /* states applied to <html> */
-  html.a11y-text-lg body { font-size: 112%; }
-  html.a11y-text-xl body { font-size: 126%; }
+  html.a11y-text-lg { font-size: calc(var(--base-font-size) * 1.12) !important; }
+  html.a11y-text-xl { font-size: calc(var(--base-font-size) * 1.26) !important; }
   html.a11y-contrast body { background: #000 !important; color: #fff !important; }
   html.a11y-contrast body :not(.a11y-panel):not(.a11y-panel *):not(#confettiCanvas):not(.grain-overlay) { background-color: #000 !important; color: #fff !important; border-color: #fff !important; }
   html.a11y-contrast #confettiCanvas, html.a11y-contrast .grain-overlay { display: none !important; }
@@ -2200,7 +2201,7 @@ fbq('track', 'PageView');
     <div class="strip-stat"><b>17</b><span>מחזורי ליווי</span></div>
     <div class="strip-stat"><b>מאות</b><span>בעלי עסקים</span></div>
     <div class="strip-stat"><b>150,000+</b><span>₪ בלימודי שיווק</span></div>
-    <div class="strip-stat"><b>0→100K</b><span>₪ תוך 9 חודשים</span></div>
+    <div class="strip-stat"><b>100K←0</b><span>₪ תוך 9 חודשים</span></div>
   </div>
 </section>
 
