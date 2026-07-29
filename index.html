@@ -83,6 +83,10 @@ fbq('track', 'PageView');
 
   :root {
     --base-font-size: 17px;
+    --red-strong: #ea3e4e;
+    --red-bright: #ff5c6c;
+    --red-deep: #c62838;
+    --red-wash: #e8a2ac;
     --white: #ffffff;
     --purple-deep: #24093f;
     --purple: #6b21c9;
@@ -537,7 +541,13 @@ fbq('track', 'PageView');
   @media (max-width: 480px) { .hero-audience-strip { max-width: 90%; font-size: 0.86rem; padding: 0.85rem 1.2rem; margin-top: -5.5rem; } }
   .hero-objections-v2 { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; margin: 1.2rem 0 1.6rem; }
   .hero-objections-v2 span { color: rgba(255,255,255,0.88); font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; }
-  .hero-objections-v2 .x-ic { flex-shrink: 0; width: 1.1rem; height: 1.1rem; border-radius: 50%; background: #fff; color: #e5484d; font-size: 0.65rem; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; }
+  .hero-objections-v2 .x-ic { flex-shrink: 0; width: 1.1rem; height: 1.1rem; border-radius: 50%; background: #fff; color: var(--red-strong); font-size: 0.65rem; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; }
+  .hero-guarantee-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.3); color: #fff; font-weight: 700; font-size: 0.85rem;
+    padding: 0.5rem 1.1rem; border-radius: 999px; margin: 0 auto 1.4rem; max-width: 90%;
+  }
+  .hero-guarantee-badge .ic { font-size: 1rem; }
   .hero-vsl-wrap { max-width: 520px; margin: 0 auto 0.5rem; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 44px rgba(0,0,0,0.35); }
   .hero-vsl-banner { background: #fff; color: var(--sec-b); font-weight: 800; font-size: 0.95rem; text-align: center; padding: 0.65rem; }
   .hero-vsl-wrap .vsl-wrap-outer { margin: 0; }
@@ -600,8 +610,8 @@ fbq('track', 'PageView');
   .strip-stat span { display: block; font-size: clamp(0.82rem, 0.78rem + 0.2vw, 0.92rem); font-weight: 700; color: var(--ink-dim); }
 
   /* real "highlighter marker" technique pulled from Tamar's live CSS, adapted to gold */
-  .marker-gold { background-image: linear-gradient(0deg, #e8a2ac, #e8a2ac 30%, transparent 30%, transparent); display: inline; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
-  .underline-gold { text-decoration: none; border-bottom: 3px solid #c0392b; padding-bottom: 0.05em; }
+  .marker-gold { background-image: linear-gradient(0deg, var(--red-wash), var(--red-wash) 30%, transparent 30%, transparent); display: inline; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+  .underline-gold { text-decoration: none; border-bottom: 3px solid var(--red-strong); padding-bottom: 0.05em; }
   .crowd { display: flex; justify-content: center; margin-bottom: 1.2rem; }
   .crowd .ph {
     width: 46px; height: 46px; border-radius: 50%; overflow: hidden; background: var(--purple-pale);
@@ -614,9 +624,9 @@ fbq('track', 'PageView');
   /* ===== NEW section 2: pain - gap-meter design, open composition not card-stack ===== */
   .pain { background: linear-gradient(180deg, var(--sec-a), var(--sec-b)); padding: 4.5rem 1.6rem 3.5rem; }
   .pain-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: center; max-width: 980px; margin: 0 auto; text-align: right; }
-  .pain-big-headline { display: inline-block; font-size: clamp(2rem, 1.5rem + 2.2vw, 2.8rem); font-weight: 800; color: #fff; margin-bottom: 1.1rem; border-bottom: 4px solid #ea3e4e; padding-bottom: 0.15em; }
+  .pain-big-headline { display: inline-block; font-size: clamp(2rem, 1.5rem + 2.2vw, 2.8rem); font-weight: 800; color: #fff; margin-bottom: 1.1rem; border-bottom: 4px solid var(--red-strong); padding-bottom: 0.15em; }
   .pain-headline { font-weight: 700; font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.25rem); line-height: 1.6; margin-bottom: 1.1rem; color: #fff; }
-  .coral-underline { border-bottom: 3px solid #ea3e4e; padding-bottom: 0.04em; }
+  .coral-underline { border-bottom: 3px solid var(--red-strong); padding-bottom: 0.04em; }
   .pain-open-text { color: rgba(255,255,255,0.85); font-size: clamp(1rem, 0.94rem + 0.3vw, 1.1rem); line-height: 1.75; margin-bottom: 0.9rem; }
   .pain-summary { max-width: 720px; margin: 2.6rem auto 0; text-align: center; font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.5rem); font-weight: 700; color: rgba(255,255,255,0.85); line-height: 1.5; }
   .pain-summary-accent { font-weight: 800; color: #fff; }
@@ -627,8 +637,8 @@ fbq('track', 'PageView');
   .gm-bar-track { height: 14px; background: rgba(255,255,255,0.14); border-radius: 999px; overflow: hidden; }
   .gm-bar { height: 100%; border-radius: 999px; }
   .gm-bar-high { width: 100%; background: linear-gradient(90deg, #fff, #e8dcf7); }
-  .gm-bar-low { width: 35%; background: linear-gradient(90deg, #ea3e4e, #c62838); }
-  .gm-gap-note { font-size: clamp(0.85rem, 0.8rem + 0.25vw, 0.95rem); color: #ff5c6c; font-weight: 700; text-align: center; margin-top: 0.4rem; }
+  .gm-bar-low { width: 35%; background: linear-gradient(90deg, var(--red-strong), var(--red-deep)); }
+  .gm-gap-note { font-size: clamp(0.85rem, 0.8rem + 0.25vw, 0.95rem); color: var(--red-bright); font-weight: 700; text-align: center; margin-top: 0.4rem; }
   @media (max-width: 860px) { .pain-grid { grid-template-columns: 1fr; text-align: center; gap: 2.2rem; } .gm-row-top { flex-direction: row; } }
 
   /* ===== NEW section 2.5: why now - broken-loop diagram, distinct language from section 2 ===== */
@@ -639,7 +649,7 @@ fbq('track', 'PageView');
   .urgency-text p { color: rgba(255,255,255,0.88); font-size: clamp(1.02rem, 0.96rem + 0.3vw, 1.15rem); line-height: 1.7; margin-bottom: 0.9rem; }
   .urgency-big-headline { font-weight: 800; font-size: clamp(1.6rem, 1.2rem + 2vw, 2.4rem); color: #fff; margin-bottom: 0.9rem; }
   .yellow-highlight { background-image: linear-gradient(0deg, rgba(240,214,163,0.55), rgba(240,214,163,0.55) 32%, transparent 32%); }
-  .urgency-text .close { font-weight: 800; color: #ff5c6c; font-size: clamp(1.02rem, 0.96rem + 0.3vw, 1.15rem); margin-top: 1rem; }
+  .urgency-text .close { font-weight: 800; color: var(--red-bright); font-size: clamp(1.02rem, 0.96rem + 0.3vw, 1.15rem); margin-top: 1rem; }
   .loop-graphic { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
   .loop-row { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
   .loop-node { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; padding: 0.6rem 0.9rem; font-size: clamp(0.82rem, 0.78rem + 0.2vw, 0.92rem); font-weight: 700; color: rgba(255,255,255,0.85); }
@@ -647,7 +657,7 @@ fbq('track', 'PageView');
   .loop-back { display: flex; flex-direction: column; align-items: center; margin: 0.1rem 0; }
   .loop-back-arrow { width: 150px; height: 40px; }
   .loop-back-label { font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.85rem); color: rgba(255,255,255,0.55); font-weight: 700; margin-top: -0.4rem; }
-  .loop-wall { background: rgba(234,62,78,0.15); border: 1px solid rgba(234,62,78,0.45); color: #ff5c6c; font-weight: 800; font-size: clamp(0.9rem, 0.85rem + 0.2vw, 1rem); padding: 0.6rem 1.2rem; border-radius: 8px; margin-top: 0.3rem; }
+  .loop-wall { background: rgba(234,62,78,0.15); border: 1px solid rgba(234,62,78,0.45); color: var(--red-bright); font-weight: 800; font-size: clamp(0.9rem, 0.85rem + 0.2vw, 1rem); padding: 0.6rem 1.2rem; border-radius: 8px; margin-top: 0.3rem; }
   .loop-break-arrow { color: var(--gold-soft); font-size: 1.5rem; margin: 0.4rem 0; line-height: 1; }
   .loop-win { background: #fff; color: var(--sec-b); font-weight: 800; font-size: 1.05rem; padding: 0.9rem 1.7rem; border-radius: 999px; box-shadow: 0 10px 24px rgba(20,6,38,0.3); }
   @media (max-width: 860px) { .urgency-grid { grid-template-columns: 1fr; text-align: center; gap: 2.2rem; } }
@@ -1317,7 +1327,7 @@ fbq('track', 'PageView');
   }
   .countdown-box-label { color: rgba(255,255,255,0.65); font-size: 0.85rem; margin-top: 0.5rem; font-weight: 700; }
   .countdown-box.is-urgent { border-color: rgba(233,78,78,0.6); animation: urgentPulse 1.8s ease-in-out infinite; }
-  .countdown-box.is-urgent .countdown-box-num { color: #ff6b6b; }
+  .countdown-box.is-urgent .countdown-box-num { color: var(--red-bright); }
   @keyframes urgentPulse {
     0%, 100% { box-shadow: 0 0 0 0 rgba(233,78,78,0.45), 0 0 18px 4px rgba(233,78,78,0.22); }
     50% { box-shadow: 0 0 0 10px rgba(233,78,78,0), 0 0 34px 12px rgba(233,78,78,0.5); }
@@ -2134,6 +2144,7 @@ fbq('track', 'PageView');
         <span><i class="x-ic">✕</i>בלי פרובוקציות.</span>
         <span><i class="x-ic">✕</i>גם אם אתם בטוחים שאין בכם משהו מיוחד.</span>
       </div>
+      <div class="hero-guarantee-badge"><span class="ic">🛡</span>100% החזר כספי אם לא תרגישו שקיבלתם ערך</div>
       <div class="hero-vsl-wrap">
         <div class="hero-vsl-banner">🔊 צפו בסרטון עכשיו! 🔊</div>
         <div class="vsl-wrap-outer" id="vslWrapOuter">
@@ -2272,7 +2283,7 @@ fbq('track', 'PageView');
 
     <div class="proof-big-case">
       <div class="phone-mock" style="width:160px;">
-        <video src="videos/proof-ron.mp4" preload="metadata" autoplay muted loop playsinline></video>
+        <video src="videos/proof-ron.mp4" preload="metadata" poster="images/poster-ron.jpg" muted loop playsinline></video>
         <button class="phone-play-btn" aria-label="נגן עם קול">▶</button>
       </div>
       <p><span class="proof-client-name">רון בובליל</span><span class="proof-stat">מ-15K ל-45K בחודש</span><br>הגיעה אחרי שהשקיעה כ-90,000 ₪ בקורסים, ליוויים וייעוצים שלא פתרו את הבעיה. בתוך חודשיים עלתה מ-15K ל-45K בחודש - אחרי שבנינו בידול ברור והפכנו את מה שהיה מיוחד בה למשהו שהקהל סוף-סוף יכול לראות.</p>
@@ -2281,7 +2292,7 @@ fbq('track', 'PageView');
     <div class="proof-grid-3">
       <div class="proof-mini-card">
         <div class="phone-mock">
-          <video src="videos/proof-uri.mp4" preload="metadata" autoplay muted loop playsinline></video>
+          <video src="videos/proof-uri.mp4" preload="metadata" poster="images/poster-uri.jpg" muted loop playsinline></video>
           <button class="phone-play-btn" aria-label="נגן עם קול">▶</button>
         </div>
         <span class="proof-client-name">אורי אמסלם</span>
@@ -2290,7 +2301,7 @@ fbq('track', 'PageView');
       </div>
       <div class="proof-mini-card">
         <div class="phone-mock">
-          <video src="videos/proof-slava.mp4" preload="metadata" autoplay muted loop playsinline></video>
+          <video src="videos/proof-slava.mp4" preload="metadata" poster="images/poster-slava.jpg" muted loop playsinline></video>
           <button class="phone-play-btn" aria-label="נגן עם קול">▶</button>
         </div>
         <span class="proof-client-name">סלבה סטפנוב</span>
@@ -2299,7 +2310,7 @@ fbq('track', 'PageView');
       </div>
       <div class="proof-mini-card">
         <div class="phone-mock">
-          <video src="videos/proof-lior.mp4" preload="metadata" autoplay muted loop playsinline></video>
+          <video src="videos/proof-lior.mp4" preload="metadata" poster="images/poster-lior.jpg" muted loop playsinline></video>
           <button class="phone-play-btn" aria-label="נגן עם קול">▶</button>
         </div>
         <span class="proof-client-name">ליאור עזר</span>
@@ -2355,7 +2366,7 @@ fbq('track', 'PageView');
   <div class="dq-bg" aria-hidden="true"><img src="images/gallery-1.jpg" alt="" loading="lazy"></div>
   <p class="dq-kicker">זה לא כנס שיושבים בו ומקשיבים - זה יום עבודה. 5.5 שעות, תרגולים אמיתיים, פיצוחים בלייב על העסק שלכם.</p>
   <span class="eyebrow">ועדיין, חשוב לי שתדעו</span>
-  <h2>שהסמינר <span class="underline-gold" style="color:#fff;border-bottom-color:#ea3e4e;">לא מתאים לכולם</span>.</h2>
+  <h2>שהסמינר <span class="underline-gold" style="color:#fff;border-bottom-color:var(--red-strong);">לא מתאים לכולם</span>.</h2>
   <div class="dq-table">
     <div class="dq-col lose">
       <h4>אם אתם:</h4>
@@ -2506,7 +2517,7 @@ fbq('track', 'PageView');
 
 <section class="closer-v2 reveal in spotlight-target" id="form" style="position:relative;">
   <div class="scarcity">100 מקומות בלבד</div>
-  <h2>בעוד שנה מהיום - יהיו עסקים שהפכו ל<span class="underline-gold" style="color:#fff;border-bottom-color:#ea3e4e;">בחירה הברורה</span>. ויהיו עסקים שעדיין נלחמים על שאריות.</h2>
+  <h2>בעוד שנה מהיום - יהיו עסקים שהפכו ל<span class="underline-gold" style="color:#fff;border-bottom-color:var(--red-strong);">בחירה הברורה</span>. ויהיו עסקים שעדיין נלחמים על שאריות.</h2>
   <div class="cd-boxes">
     <div class="countdown-box"><b id="cd2-days">00</b><span>ימים</span></div>
     <div class="countdown-box"><b id="cd2-hours">00</b><span>שעות</span></div>
