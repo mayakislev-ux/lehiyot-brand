@@ -586,50 +586,47 @@ fbq('track', 'PageView');
   .crowd .ph:first-child { margin-inline-start: 0; }
   .crowd .ph:nth-child(odd) { border-color: var(--gold-soft); }
 
-  /* ===== NEW section 2: pain - real 2-column grid (text + designed graphic), matching Badichi's pains-grid pattern ===== */
-  .pain { background: linear-gradient(180deg, var(--sec-a), var(--sec-b)); padding: 4rem 1.6rem; }
-  .pain-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3rem; align-items: center; max-width: 980px; margin: 0 auto; text-align: right; }
-  .pain-text p { color: rgba(255,255,255,0.92); font-size: 1rem; margin-bottom: 0.9rem; overflow-wrap: break-word; }
-  .pain-text .close p { font-weight: 600; font-size: 1.02rem; color: rgba(255,255,255,0.95); margin-bottom: 0.8rem; }
-  .pain-text .close p:last-child { font-weight: 800; font-size: 1.08rem; margin-bottom: 0; color: #fff; }
-  .pain-text .gold-btn { margin-top: 1.4rem; }
-  .pain-graphic { display: flex; flex-direction: column; gap: 0.7rem; }
-  .pain-graphic-card {
-    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.16); border-radius: 14px;
-    padding: 0.9rem 1.1rem; display: flex; align-items: center; gap: 0.8rem;
-  }
-  .pain-graphic-card .ic {
-    flex-shrink: 0; width: 2rem; height: 2rem; border-radius: 50%; background: #fff; color: #c65b5b;
-    display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 800;
-  }
-  .pain-graphic-card span.txt { font-weight: 700; font-size: 0.92rem; color: #fff; }
-  .pain-graphic-win {
-    background: #fff; border-radius: 14px; padding: 1.1rem 1.2rem; display: flex; align-items: center;
-    gap: 0.8rem; box-shadow: 0 10px 24px rgba(20,6,38,0.25); margin-top: 0.3rem;
-  }
-  .pain-graphic-win .ic {
-    flex-shrink: 0; width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--sec-a); color: #fff;
-    display: flex; align-items: center; justify-content: center; font-weight: 800;
-  }
-  .pain-graphic-win span.txt { font-weight: 800; font-size: 0.98rem; color: var(--sec-b); }
-  @media (max-width: 860px) { .pain-grid { grid-template-columns: 1fr; text-align: center; gap: 1.8rem; } }
+  /* ===== NEW section 2: pain - gap-meter design, open composition not card-stack ===== */
+  .pain { background: linear-gradient(180deg, var(--sec-a), var(--sec-b)); padding: 4.5rem 1.6rem 3.5rem; }
+  .pain-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: center; max-width: 980px; margin: 0 auto; text-align: right; }
+  .pain-eyebrow { display: inline-block; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.02em; color: var(--gold-soft); margin-bottom: 0.7rem; }
+  .pain-headline { font-weight: 800; font-size: 1.2rem; line-height: 1.55; margin-bottom: 1.1rem; color: #fff; }
+  .coral-underline { border-bottom: 3px solid #ff6f7d; padding-bottom: 0.04em; }
+  .pain-open-text { color: rgba(255,255,255,0.85); font-size: 0.98rem; line-height: 1.75; margin-bottom: 0.9rem; }
+  .pain-summary { max-width: 720px; margin: 2.6rem auto 0; text-align: center; font-size: 1.3rem; font-weight: 700; color: rgba(255,255,255,0.85); line-height: 1.5; }
+  .pain-summary-accent { font-weight: 800; color: #fff; }
+  .pain-cta-wrap { text-align: center; margin-top: 1.6rem; }
+  .pain-gapmeter { display: flex; flex-direction: column; gap: 1.5rem; }
+  .gm-row-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.45rem; }
+  .gm-label { font-weight: 700; font-size: 0.88rem; color: rgba(255,255,255,0.85); }
+  .gm-pct { font-weight: 800; font-size: 1.05rem; color: #fff; }
+  .gm-bar-track { height: 14px; background: rgba(255,255,255,0.14); border-radius: 999px; overflow: hidden; }
+  .gm-bar { height: 100%; border-radius: 999px; }
+  .gm-bar-high { width: 90%; background: linear-gradient(90deg, #fff, #e8dcf7); }
+  .gm-bar-low { width: 35%; background: linear-gradient(90deg, #ff6f7d, #ff9aa6); }
+  .gm-gap-note { font-size: 0.82rem; color: #ffb3ba; font-weight: 700; text-align: center; margin-top: 0.4rem; }
+  @media (max-width: 860px) { .pain-grid { grid-template-columns: 1fr; text-align: center; gap: 2.2rem; } .gm-row-top { flex-direction: row; } }
 
-  /* ===== NEW section 2.5: why now - real 2-column grid, expanded comparison graphic ===== */
-  .urgency { position: relative; background: linear-gradient(120deg, var(--grad3-a), var(--grad3-b) 55%, var(--grad3-c)); padding: 4rem 1.6rem; overflow: hidden; }
+  /* ===== NEW section 2.5: why now - broken-loop diagram, distinct language from section 2 ===== */
+  .urgency { position: relative; background: linear-gradient(120deg, var(--grad3-a), var(--grad3-b) 55%, var(--grad3-c)); padding: 4.5rem 1.6rem; overflow: hidden; }
   .urgency::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 85% 15%, rgba(240,214,163,0.12), transparent 45%); pointer-events: none; }
-  .urgency-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; max-width: 980px; margin: 0 auto; text-align: right; position: relative; }
-  .urgency-text h2, .urgency-text p { color: rgba(255,255,255,0.88); font-size: 1.05rem; overflow-wrap: break-word; }
-  .urgency-text p { margin-bottom: 0.9rem; }
-  .urgency-text .close { font-weight: 800; color: #f0a8ae; font-size: 1rem; margin-top: 0.8rem; }
-  .xflow { display: flex; flex-direction: column; gap: 0.6rem; }
-  .xflow .x { display: flex; align-items: center; gap: 0.8rem; font-size: 0.92rem; color: rgba(255,255,255,0.85); font-weight: 700;
-    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); border-radius: 12px; padding: 0.7rem 1rem; }
-  .xflow .x .ic { flex-shrink: 0; width: 2rem; height: 2rem; border-radius: 50%; background: #fff; border: 2px solid #d9a0a0; color: #c65b5b; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; }
-  .xflow .arrow-row { display: flex; justify-content: center; padding: 0.1rem 0; }
-  .xflow .arrow { color: var(--gold-soft); font-size: 1.3rem; transform: rotate(-90deg); }
-  .xflow .win { display: flex; align-items: center; gap: 0.8rem; font-size: 1rem; color: var(--sec-b); font-weight: 800;
-    background: #fff; border-radius: 12px; padding: 0.9rem 1.1rem; box-shadow: 0 10px 24px rgba(20,6,38,0.25); }
-  .xflow .win .ic { flex-shrink: 0; width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--sec-a); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.05rem; }
+  .urgency-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3.5rem; align-items: center; max-width: 980px; margin: 0 auto; text-align: right; position: relative; }
+  .urgency-eyebrow { display: inline-block; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.02em; color: rgba(255,255,255,0.6); margin-bottom: 0.7rem; }
+  .urgency-text p { color: rgba(255,255,255,0.88); font-size: 1.02rem; line-height: 1.7; margin-bottom: 0.9rem; }
+  .urgency-text p:first-of-type { font-weight: 800; font-size: 1.1rem; }
+  .yellow-highlight { background-image: linear-gradient(0deg, rgba(240,214,163,0.55), rgba(240,214,163,0.55) 32%, transparent 32%); }
+  .urgency-text .close { font-weight: 800; color: #f0a8ae; font-size: 1.02rem; margin-top: 1rem; }
+  .loop-graphic { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+  .loop-row { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+  .loop-node { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; padding: 0.6rem 0.9rem; font-size: 0.82rem; font-weight: 700; color: rgba(255,255,255,0.85); }
+  .loop-arrow-sm { color: rgba(255,255,255,0.4); font-size: 0.9rem; }
+  .loop-back { display: flex; flex-direction: column; align-items: center; margin: 0.1rem 0; }
+  .loop-back-arrow { width: 150px; height: 40px; }
+  .loop-back-label { font-size: 0.75rem; color: rgba(255,255,255,0.55); font-weight: 700; margin-top: -0.4rem; }
+  .loop-wall { background: rgba(255,111,125,0.15); border: 1px solid rgba(255,111,125,0.4); color: #ffb3ba; font-weight: 800; font-size: 0.9rem; padding: 0.6rem 1.2rem; border-radius: 8px; margin-top: 0.3rem; }
+  .loop-break-arrow { color: var(--gold-soft); font-size: 1.5rem; margin: 0.4rem 0; line-height: 1; }
+  .loop-win { background: #fff; color: var(--sec-b); font-weight: 800; font-size: 1.05rem; padding: 0.9rem 1.7rem; border-radius: 999px; box-shadow: 0 10px 24px rgba(20,6,38,0.3); }
+  @media (max-width: 860px) { .urgency-grid { grid-template-columns: 1fr; text-align: center; gap: 2.2rem; } }
   @media (max-width: 860px) { .urgency-grid { grid-template-columns: 1fr; text-align: center; gap: 1.8rem; } .xflow .arrow { transform: none; } }
 
   /* ===== NEW section 4: 4 stages ===== */
@@ -2166,39 +2163,57 @@ fbq('track', 'PageView');
 <section class="pain reveal in" style="position:relative;">
   <div class="pain-grid">
     <div class="pain-text">
-      <p style="font-weight:800;font-size:1.1rem;">בואו נגיד את האמת: אם בכל שיחת מכירה אתם צריכים להסביר מחדש למה אתם טובים - <span class="underline-gold">השיווק שלכם לא עשה את העבודה שלו</span>.</p>
-      <p>אם הלקוחות מגיעים קרים, מתמקחים, משווים אתכם לעוד חמישה בעלי מקצוע ונעלמים - הבעיה היא לא רק כמות הלידים. הבעיה היא שהם לא מבינים למה לבחור דווקא בכם.</p>
-      <div class="close">
-        <p>יש עסקים שהפכו ל<span class="underline-gold" style="color:#fff;border-bottom-color:#f0a8ae;">בחירה הברורה</span> בתחום שלהם - אנשים כבר מכירים אותם, כבר מחכים להם.</p>
-        <p>ויש עסקים שעדיין <span class="underline-gold" style="color:#fff;border-bottom-color:#f0a8ae;">נלחמים על שאריות</span> - עוד ליד קר, עוד לקוח שמתמקח, עוד שיחה שמתחילה מאפס.</p>
-        <p>ההבדל ביניהם הוא לא כמה הם טובים. אלא איך שהם משווקים.</p>
+      <p class="pain-eyebrow">הפער שלא רואים בדוחות</p>
+      <p class="pain-headline">בואו נגיד את האמת: אם בכל שיחת מכירה אתם צריכים להסביר מחדש למה אתם טובים - <span class="coral-underline">השיווק שלכם לא עשה את העבודה שלו</span>.</p>
+      <p class="pain-open-text">יש חודשים שאתם עמוסים, ואז פתאום מגיעה ירידה. מי שכן פונה שואל "יקר לי" - ונעלם. גם עם מנהלת סושיאל, התוכן עדיין לא באמת מדבר בשמכם.</p>
+      <p class="pain-open-text">אם הלקוחות מגיעים קרים, מתמקחים, משווים אתכם לעוד חמישה בעלי מקצוע ונעלמים - הבעיה היא לא רק כמות הלידים. הבעיה היא שהם לא מבינים למה לבחור דווקא בכם.</p>
+    </div>
+    <div class="pain-gapmeter">
+      <div class="gm-row">
+        <div class="gm-row-top"><span class="gm-label">איכות העסק שלכם</span><span class="gm-pct">90%</span></div>
+        <div class="gm-bar-track"><div class="gm-bar gm-bar-high"></div></div>
       </div>
-      <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">אני רוצה להיות הבחירה הברורה</span><span class="btn-sub">197 ₪ · 100 מקומות בלבד</span></a>
+      <div class="gm-row">
+        <div class="gm-row-top"><span class="gm-label">איך השיווק מציג אתכם</span><span class="gm-pct">35%</span></div>
+        <div class="gm-bar-track"><div class="gm-bar gm-bar-low"></div></div>
+      </div>
+      <div class="gm-gap-note">הפער הזה = לקוחות שמתמקחים ונעלמים</div>
     </div>
-    <div class="pain-graphic">
-      <div class="pain-graphic-card"><span class="ic">✕</span><span class="txt">יש חודשים שאתם עמוסים, ואז פתאום מגיעה ירידה</span></div>
-      <div class="pain-graphic-card"><span class="ic">✕</span><span class="txt">מי שכן פונה שואל "יקר לי" - ונעלם</span></div>
-      <div class="pain-graphic-card"><span class="ic">✕</span><span class="txt">גם עם מנהלת סושיאל, התוכן עדיין לא באמת מדבר בשמכם</span></div>
-      <div class="pain-graphic-win"><span class="ic">✓</span><span class="txt">בידול ברור = לקוחות שכבר יודעים למה אתם</span></div>
-    </div>
+  </div>
+  <p class="pain-summary">ההבדל ביניהם הוא לא כמה הם טובים. <span class="pain-summary-accent">אלא איך שהם משווקים.</span></p>
+  <div class="pain-cta-wrap">
+    <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">אני רוצה להיות הבחירה הברורה</span><span class="btn-sub">197 ₪ · 100 מקומות בלבד</span></a>
   </div>
 </section>
 
 <section class="urgency reveal in">
   <div class="urgency-grid">
     <div class="urgency-text">
+      <p class="urgency-eyebrow">המרוץ שלא נגמר</p>
       <p style="font-weight:800;">השיווק נהיה קשה יותר. נקודה.</p>
       <p>יש יותר תוכן. יותר מתחרים. יותר מודעות. יותר בעלי עסקים שמעלים בדיוק את אותם סרטונים, אומרים בדיוק את אותם משפטים, ומבטיחים בדיוק את אותן הבטחות.</p>
       <p>וזו לא הרגשה - זו המציאות שכל בעל עסק כבר מרגיש על הבשר שלו.</p>
-      <p>אז לא - הפתרון הוא לא להעלות עוד שלושה רילסים בשבוע. <span class="underline-gold">הפתרון הוא לגרום לאנשים להבין למה אתם לא דומים לאף אחד אחר</span>.</p>
+      <p>אז לא - הפתרון הוא לא <span class="coral-underline">להעלות עוד שלושה רילסים בשבוע</span>. הפתרון הוא לגרום לאנשים להבין <span class="yellow-highlight">למה אתם לא דומים לאף אחד אחר</span>.</p>
       <p class="close">וככל שמחכים - ההצפה רק גדלה. מי שמחכה, נשאר עוד עסק בתחום. מי שזז עכשיו - ב-3.9, לפני שה-100 מקומות נגמרים - הופך לבחירה הברורה.</p>
     </div>
-    <div class="xflow">
-      <div class="x"><div class="ic">✕</div>עוד תוכן</div>
-      <div class="x"><div class="ic">✕</div>עוד ממומן</div>
-      <div class="x"><div class="ic">✕</div>עוד עריכה</div>
-      <div class="arrow-row"><span class="arrow">←</span></div>
-      <div class="win"><div class="ic">✓</div>בידול אמיתי</div>
+    <div class="loop-graphic">
+      <div class="loop-row">
+        <div class="loop-node">עוד תוכן</div>
+        <span class="loop-arrow-sm">←</span>
+        <div class="loop-node">עוד ממומן</div>
+        <span class="loop-arrow-sm">←</span>
+        <div class="loop-node">עוד עריכה</div>
+      </div>
+      <div class="loop-back">
+        <svg class="loop-back-arrow" viewBox="0 0 200 60" fill="none" aria-hidden="true">
+          <path d="M180 8 C 140 54, 60 54, 20 8" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-dasharray="5 5"/>
+          <path d="M20 8 L 29 3 M20 8 L 25 17" stroke="rgba(255,255,255,0.4)" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+        <span class="loop-back-label">עדיין אין בידול</span>
+      </div>
+      <div class="loop-wall">הבעיה לא כאן</div>
+      <div class="loop-break-arrow">↓</div>
+      <div class="loop-win">בידול אמיתי</div>
     </div>
   </div>
 </section>
