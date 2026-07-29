@@ -727,23 +727,26 @@ fbq('track', 'PageView');
   .dq { position: relative; padding: 2.2rem 1.4rem 3rem; background: #1a0f2e; overflow: hidden; }
   .dq-bg { position: absolute; inset: 0; z-index: 0; }
   .dq-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
-  .dq-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,15,46,0.35), rgba(26,15,46,0.7) 60%, rgba(20,10,35,0.9)); }
+  .dq-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,15,46,0.62), rgba(26,15,46,0.72) 60%, rgba(20,10,35,0.88)); }
   .dq > * { position: relative; z-index: 1; }
   .dq-kicker { text-align: center; max-width: 46ch; margin: 0 auto 1.8rem; color: rgba(255,255,255,0.92); font-size: 1.05rem; font-weight: 700; line-height: 1.6; }
   .dq .eyebrow { display: block; text-align: center; font-size: 1.15rem; font-weight: 600; color: rgba(255,255,255,0.85); margin-bottom: 0.5rem; }
   .dq h2 { margin-bottom: 2.6rem; font-size: clamp(1.6rem, 1.4rem + 0.8vw, 2rem); font-weight: 800; color: #fff; text-align: center; overflow-wrap: break-word; }
   .dq-table { display: flex; align-items: stretch; max-width: 1180px; margin: 0 auto 2.8rem; overflow: visible; }
   .dq-col { flex: 1 1 0; padding: 2.6rem 2.4rem 3.2rem; position: relative; display: flex; flex-direction: column; min-width: 280px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.1); }
-  .dq-col.lose { background: rgba(255,255,255,0.1); border-radius: 0 18px 18px 0; border-left-width: 0; }
+  .dq-col.lose { background: rgba(255,255,255,0.94); border-radius: 0 18px 18px 0; border-left-width: 0; border-color: var(--line); }
   .dq-col.win { background: linear-gradient(131deg, var(--sec-a), var(--purple-deep) 68%); border-radius: 18px 0 0 18px; }
-  .dq-col h4 { margin: 0 0 1.6rem; font-size: 1.4rem; font-weight: 800; text-align: center; padding-bottom: 1.2rem; border-bottom: 2px solid rgba(255,255,255,0.2); }
+  .dq-col h4 { margin: 0 0 1.6rem; font-size: 1.4rem; font-weight: 800; text-align: center; padding-bottom: 1.2rem; }
+  .dq-col.win h4 { border-bottom: 2px solid rgba(255,255,255,0.2); }
+  .dq-col.lose h4 { border-bottom: 2px solid var(--line); }
   .dq-col.win h4, .dq-col.win li { color: #fff; }
-  .dq-col.lose h4, .dq-col.lose li { color: #fff; }
+  .dq-col.lose h4, .dq-col.lose li { color: var(--sec-a); }
   .dq-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; flex: 1; }
   .dq-col li { font-size: 1.15rem; font-weight: 500; padding: 1.1rem 0; padding-right: 2.8rem; position: relative; line-height: 1.5; }
-  .dq-col li:not(:last-child) { border-bottom: 1px solid rgba(255,255,255,0.16); }
+  .dq-col.win li:not(:last-child) { border-bottom: 1px solid rgba(255,255,255,0.16); }
+  .dq-col.lose li:not(:last-child) { border-bottom: 1px solid var(--line); }
   .dq-col.win li::before { content: "✓"; position: absolute; right: 0; top: 1.05rem; width: 1.9rem; height: 1.9rem; border-radius: 6px; background: #fff; color: var(--sec-b); font-weight: 800; font-size: 1rem; display: flex; align-items: center; justify-content: center; }
-  .dq-col.lose li::before { content: "✕"; position: absolute; right: 0; top: 1.05rem; width: 1.9rem; height: 1.9rem; border-radius: 6px; background: rgba(255,255,255,0.18); color: #fff; font-weight: 800; font-size: 1rem; display: flex; align-items: center; justify-content: center; }
+  .dq-col.lose li::before { content: "✕"; position: absolute; right: 0; top: 1.05rem; width: 1.9rem; height: 1.9rem; border-radius: 6px; background: var(--sec-a); color: #fff; font-weight: 800; font-size: 1rem; display: flex; align-items: center; justify-content: center; }
   .dq-col-bar {
     position: absolute; bottom: -1.2rem; left: 50%; white-space: nowrap; display: inline-block;
     border-radius: 8px; padding: 0.7rem 1.8rem; font-weight: 800; font-size: 0.92rem; box-shadow: 0 10px 24px rgba(0,0,0,0.4);
