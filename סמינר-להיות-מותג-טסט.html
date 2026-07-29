@@ -732,32 +732,33 @@ fbq('track', 'PageView');
   .bio-v2-pullquote p { font-size: 1.05rem; font-weight: 700; color: var(--sec-a); margin: 0; }
 
   /* ===== NEW section 7: who-for disqualify table ===== */
-  .dq { position: relative; padding: 4rem 1.4rem 4.5rem; background: #1a0f2e; overflow: hidden; }
+  .dq { position: relative; padding: 3.5rem 1.4rem; background: #1a0f2e; overflow: hidden; }
   .dq-bg { position: absolute; inset: 0; z-index: 0; }
-  .dq-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
-  .dq-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,15,46,0.75), rgba(26,15,46,0.88) 55%, rgba(26,15,46,0.96)); }
-  .dq > *:not(.dq-bg) { position: relative; z-index: 1; }
+  .dq-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+  .dq-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,15,46,0.5), rgba(26,15,46,0.82) 55%, rgba(20,10,35,0.95)); }
   .dq > * { position: relative; z-index: 1; }
-  .dq .eyebrow { display: block; text-align: center; font-size: 0.85rem; font-weight: 700; color: var(--gold-soft); margin-bottom: 0.5rem; }
-  .dq h2 { margin-bottom: 2.4rem; font-size: clamp(2rem, 1.6rem + 1.8vw, 2.9rem); color: #fff; text-align: center; overflow-wrap: break-word; max-width: 20ch; margin-inline: auto; }
-  .dq-table { display: flex; max-width: 1100px; margin: 0 auto; box-shadow: 0 24px 50px rgba(40,20,10,0.25); flex-wrap: wrap; }
-  .dq-col { flex: 1 1 320px; padding: 3rem 2.6rem 3.4rem; position: relative; }
-  .dq-col.win { background: linear-gradient(160deg, var(--sec-a), var(--sec-b)); color: #fff; border-radius: 20px 0 0 20px; }
-  .dq-col.lose { background: rgba(255,255,255,0.92); border-radius: 0 20px 20px 0; }
-  .dq-col h4 { margin: 0 0 1.6rem; font-size: 1.3rem; text-align: center; }
+  .dq .eyebrow { display: block; text-align: center; font-size: 0.85rem; font-weight: 700; color: var(--gold-soft); margin-bottom: 0.6rem; letter-spacing: 0.02em; }
+  .dq h2 { margin-bottom: 2rem; font-size: clamp(2rem, 1.6rem + 1.8vw, 2.9rem); color: #fff; text-align: center; overflow-wrap: break-word; max-width: 22ch; margin-inline: auto; }
+  .dq-table { display: flex; align-items: stretch; max-width: 1180px; margin: 0 auto; border-radius: 24px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.5); }
+  .dq-col { flex: 1 1 0; padding: 3rem 2.6rem 0; position: relative; display: flex; flex-direction: column; min-width: 280px; }
+  .dq-col.win { background: linear-gradient(160deg, var(--sec-a), var(--sec-b)); color: #fff; }
+  .dq-col.lose { background: #fff; }
+  .dq-col h4 { margin: 0 0 1.8rem; font-size: 1.35rem; text-align: center; padding-bottom: 1rem; border-bottom: 2px solid rgba(255,255,255,0.22); }
   .dq-col.win h4 { color: #fff; }
-  .dq-col.lose h4 { color: var(--sec-a); }
-  .dq-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1.5rem; }
-  .dq-col li { font-size: 1rem; padding-right: 1.9rem; position: relative; line-height: 1.5; }
+  .dq-col.lose h4 { color: var(--sec-a); border-bottom-color: var(--line); }
+  .dq-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; flex: 1; }
+  .dq-col li { font-size: 1.05rem; padding: 1.2rem 0 1.2rem 0; padding-right: 2.4rem; position: relative; line-height: 1.5; }
+  .dq-col li:not(:last-child) { border-bottom: 1px solid rgba(255,255,255,0.16); }
+  .dq-col.lose li:not(:last-child) { border-bottom-color: var(--line); }
   .dq-col.win li { color: rgba(255,255,255,0.95); }
-  .dq-col.win li::before { content: "✓"; position: absolute; right: 0; top: 0.05rem; width: 1.15rem; height: 1.15rem; border-radius: 4px; background: #fff; color: var(--sec-b); font-weight: 800; font-size: 0.65rem; display: flex; align-items: center; justify-content: center; }
+  .dq-col.win li::before { content: "✓"; position: absolute; right: 0; top: 1.15rem; width: 1.6rem; height: 1.6rem; border-radius: 6px; background: #fff; color: var(--sec-b); font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; }
   .dq-col.lose li { color: var(--ink); }
-  .dq-col.lose li::before { content: "✕"; position: absolute; right: 0; top: 0.05rem; width: 1.15rem; height: 1.15rem; border-radius: 4px; background: var(--sec-b); color: #fff; font-weight: 800; font-size: 0.65rem; display: flex; align-items: center; justify-content: center; }
-  .dq-tag { position: absolute; bottom: -0.9rem; left: 0.7rem; right: 0.7rem; text-align: center; border-radius: 999px; padding: 0.5rem 0.8rem; font-size: 0.68rem; font-weight: 800; box-shadow: 0 6px 14px rgba(0,0,0,0.2); }
-  .dq-col.win .dq-tag { background: #fff; color: var(--sec-b); }
-  .dq-col.lose .dq-tag { background: var(--sec-b); color: #fff; }
-  .dq .ctawrap { text-align: center; margin-top: 2.6rem; }
-  @media (max-width: 600px) { .dq-col.win, .dq-col.lose { border-radius: 20px; } .dq-col.win { margin-bottom: 1.4rem; } }
+  .dq-col.lose li::before { content: "✕"; position: absolute; right: 0; top: 1.15rem; width: 1.6rem; height: 1.6rem; border-radius: 6px; background: var(--sec-b); color: #fff; font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; }
+  .dq-col-bar { display: block; text-align: center; font-weight: 800; font-size: 1rem; padding: 1.3rem 1rem; margin-top: 1.8rem; text-decoration: none; }
+  .dq-col.win .dq-col-bar { background: #fff; color: var(--sec-b); }
+  .dq-col.win .dq-col-bar .bar-sub { display: block; font-size: 0.76rem; font-weight: 700; color: var(--sec-a); margin-top: 0.25rem; }
+  .dq-col.lose .dq-col-bar { background: var(--sec-b); color: #fff; }
+  @media (max-width: 700px) { .dq-table { flex-direction: column; } .dq-col { padding: 2.4rem 1.8rem 0; min-width: 0; } }
 
   /* ===== NEW section 8: guarantee with seals ===== */
   .grt { background: linear-gradient(180deg, #fff, var(--ivory)); padding: 5.5rem 1.6rem; text-align: center; }
@@ -2346,7 +2347,7 @@ fbq('track', 'PageView');
 </section>
 
 <section class="dq reveal in">
-  <div class="dq-bg" aria-hidden="true"><img src="images/bio-3.jpg" alt="" loading="lazy"></div>
+  <div class="dq-bg" aria-hidden="true"><img src="images/gallery-1.jpg" alt="" loading="lazy"></div>
   <span class="eyebrow">ועדיין, חשוב לי שתדעו</span>
   <h2>שהסמינר לא מתאים לכולם.</h2>
   <div class="dq-table">
@@ -2357,7 +2358,7 @@ fbq('track', 'PageView');
         <li>מוכנים לעבוד על העסק שלכם ביום עצמו, לא רק להקשיב</li>
         <li>יש לכם עסק שכבר עובד, עם תוצאות אמיתיות</li>
       </ul>
-      <div class="dq-tag">זה בדיוק בשבילכם.</div>
+      <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="dq-col-bar" data-fb-value="197">זה בדיוק בשבילכם - אני רוצה כרטיס<span class="bar-sub">197 ₪ · 100 מקומות בלבד</span></a>
     </div>
     <div class="dq-col lose">
       <h4>אם אתם:</h4>
@@ -2366,10 +2367,9 @@ fbq('track', 'PageView');
         <li>עסקי איקומרס או תוכנה - זה בנוי סביב עסקים שבהם אתם המותג</li>
         <li>לא מוכנים להיות הפנים של העסק שלכם בשום צורה</li>
       </ul>
-      <div class="dq-tag">זה בסדר - פשוט לא הפורום הנכון עכשיו.</div>
+      <span class="dq-col-bar">זה בסדר - פשוט לא הפורום הנכון עכשיו</span>
     </div>
   </div>
-  <div class="ctawrap" style="margin-top:2.2rem;"><a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">אני רוצה להיות הבחירה הברורה</span><span class="btn-sub">197 ₪ · 100 מקומות בלבד</span></a></div>
 </section>
 
 <section class="grt reveal in" style="position:relative;">
