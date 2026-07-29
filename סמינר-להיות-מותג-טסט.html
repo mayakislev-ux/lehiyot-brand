@@ -684,7 +684,7 @@ fbq('track', 'PageView');
   .urgency::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 85% 15%, rgba(240,214,163,0.12), transparent 45%); pointer-events: none; }
   .urgency h2, .urgency p { max-width: 560px; margin-inline: auto; color: rgba(255,255,255,0.88); font-size: 1.08rem; position: relative; overflow-wrap: break-word; }
   .urgency p { margin-bottom: 1.1rem; }
-  .urgency .close { font-weight: 800; color: var(--gold-soft); font-size: 1.02rem; margin-top: 1rem; position: relative; }
+  .urgency .close { font-weight: 800; color: #f0a8ae; font-size: 1.02rem; margin-top: 1rem; position: relative; }
   .xflow { display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap; margin: 1.3rem 0; position: relative; }
   .xflow .x { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; font-size: 0.72rem; color: rgba(255,255,255,0.75); font-weight: 700; }
   .xflow .x .ic { width: 38px; height: 38px; border-radius: 50%; background: #fff; border: 2px solid #d9a0a0; color: #c65b5b; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
@@ -693,7 +693,7 @@ fbq('track', 'PageView');
   .xflow .win .ic { width: 44px; height: 44px; border-radius: 50%; background: var(--sec-a); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
 
   /* ===== NEW section 4: 4 stages ===== */
-  .method { background: var(--white); padding: 4.5rem 0; }
+  .method { background: linear-gradient(180deg, var(--white), var(--purple-pale) 140%); padding: 4.5rem 0; }
   .method h2.sh { padding: 0 1.4rem; margin-bottom: 3.2rem; text-align: center; font-weight: 800; color: var(--ink); overflow-wrap: break-word; font-size: clamp(2rem, 1.6rem + 1.8vw, 2.9rem); max-width: 22ch; margin-inline: auto; }
   .method .grid { display: grid; grid-template-columns: 1fr 1fr; max-width: 1100px; margin: 0 auto; border-radius: 22px; overflow: hidden; box-shadow: 0 20px 50px rgba(20,6,38,0.12); }
   .mcard { padding: 3rem 2.4rem; }
@@ -717,12 +717,12 @@ fbq('track', 'PageView');
   @media (max-width: 640px) { .mcard { padding: 2rem 1.5rem; } }
 
   /* ===== NEW section 6: bio photo-duo (real photos, mockup-short copy) ===== */
-  .bio-v2 { background: var(--white); padding: 4.5rem 1.6rem; text-align: center; }
+  .bio-v2 { background: linear-gradient(180deg, var(--purple-pale) -40%, var(--white) 15%); padding: 4.5rem 1.6rem; text-align: center; }
   .bio-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2rem; align-items: center; max-width: 900px; margin: 0 auto 1.6rem; text-align: right; }
   .bio-grid-text p { max-width: none; margin-inline: 0; }
-  .bio-main-photo { display: block; width: 100%; max-width: 280px; height: auto; margin: 0 auto; justify-self: center; }
+  .bio-main-photo { display: block; width: 100%; max-width: 280px; aspect-ratio: 4/5; object-fit: cover; border-radius: 20px; box-shadow: 0 16px 34px rgba(123,55,153,0.25); margin: 0 auto; justify-self: center; }
   .bio-gallery { display: flex; justify-content: center; gap: 1rem; max-width: 620px; margin: 2rem auto 0; flex-wrap: wrap; }
-  .bio-gallery img { width: 150px; height: 190px; object-fit: cover; border-radius: 14px; box-shadow: 0 10px 22px rgba(123,55,153,0.2); }
+  .bio-gallery img { width: 150px; height: 190px; object-fit: cover; object-position: center 15%; border-radius: 14px; box-shadow: 0 10px 22px rgba(123,55,153,0.2); }
   @media (max-width: 720px) { .bio-grid { grid-template-columns: 1fr; text-align: center; } .bio-grid-text p { margin-inline: auto; max-width: 480px; } }
   .bio-v2 p { max-width: 520px; margin-inline: auto; color: var(--ink); text-align: right; font-size: 0.95rem; overflow-wrap: break-word; }
   .bio-v2 p.crisis { font-weight: 700; color: var(--sec-a); }
@@ -782,9 +782,9 @@ fbq('track', 'PageView');
 
   /* ===== NEW section 10: closer with countdown boxes + ticket pair ===== */
   .closer-v2 { background: linear-gradient(180deg, rgba(83,30,98,0.94), rgba(123,55,153,0.88) 50%, rgba(36,9,63,0.96)); padding: 4.5rem 1.6rem; text-align: center; }
-  .closer-v2 h2 { color: #fff; font-size: clamp(1.5rem, 1.2rem + 1.6vw, 2.1rem); max-width: 20ch; margin: 0 auto 1rem; overflow-wrap: break-word; }
-  .closer-v2 .scarcity { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(217,172,94,0.14); border: 1px solid rgba(217,172,94,0.4); color: var(--gold-soft); font-weight: 800; font-size: 0.8rem; padding: 0.4rem 1rem; border-radius: 999px; margin-bottom: 1.4rem; }
-  .closer-v2 .cd-boxes { display: flex; justify-content: center; gap: 0.5rem; margin: 0 0 1.4rem; }
+  .closer-v2 h2 { color: #fff; font-size: clamp(1.5rem, 1.2rem + 1.6vw, 2.1rem); max-width: 20ch; margin: 0 auto 2.2rem; overflow-wrap: break-word; line-height: 1.4; }
+  .closer-v2 .scarcity { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(217,172,94,0.14); border: 1px solid rgba(217,172,94,0.4); color: var(--gold-soft); font-weight: 800; font-size: 0.8rem; padding: 0.4rem 1rem; border-radius: 999px; margin-bottom: 2rem; }
+  .closer-v2 .cd-boxes { display: flex; justify-content: center; gap: 0.6rem; margin: 0 0 2.2rem; }
   .closer-v2 .cd-boxes div { background: #fff; border-radius: 10px; padding: 0.5rem 0.7rem; text-align: center; min-width: 52px; }
   .closer-v2 .cd-boxes b { display: block; color: var(--sec-a); font-size: 1.3rem; font-weight: 800; font-variant-numeric: tabular-nums; }
   .closer-v2 .cd-boxes span { display: block; color: var(--sec-a); font-size: 0.65rem; font-weight: 700; }
@@ -2161,7 +2161,6 @@ fbq('track', 'PageView');
 <div class="hero-audience-strip">לבעלי עסקים עם תוצאות אמיתיות</div>
 <header class="hero-stage v2" id="nav-hero">
   <div class="hero-bg"></div>
-  <svg class="knight-bg" viewBox="0 0 100 100" aria-hidden="true" style="position:absolute;left:-30px;bottom:-20px;width:220px;height:220px;opacity:0.08;pointer-events:none;z-index:0;"><circle cx="50" cy="26" r="16" fill="#ffffff"/><path d="M38 46 L62 46 L68 62 L32 62 Z" fill="#ffffff"/><path d="M24 82 Q24 66 40 66 L60 66 Q76 66 76 82 Z" fill="#ffffff"/></svg>
     <div class="hero-inner v2 reveal in">
       <div class="hero-text-col v2">
       <div class="top-badge" style="position:static;transform:none;margin:0 auto 1.4rem;">
@@ -2342,7 +2341,7 @@ fbq('track', 'PageView');
       <p>השקעתי עד היום מעל 150,000 ₪ בלימודי שיווק, למדתי אצל מהמשווקים הגדולים בעולם ברוסיה ובארצות הברית, והוסמכתי כמשווקת מקצועית.<br>אבל הידע לבד לא בנה לי עסק.</p>
       <p><b>מה שבנה לי עסק היה היכולת לקחת שיווק, להבין אותו לעומק, ליישם אותו מהר - ולהפוך אותו לתוצאות.<br>בתוך 9 חודשים - מ-0 ל-100,000 ₪ בחודש.</b><br>לא אחרי עשר שנים, לא עם תקציבי פרסום מטורפים.</p>
     </div>
-    <img class="bio-main-photo" src="images/maya-chess-main.png" alt="מאיה קיסלב" loading="lazy">
+    <img class="bio-main-photo" src="images/maya-portrait-main.jpg" alt="מאיה קיסלב" loading="lazy">
   </div>
   <p style="padding-top:1.6rem;">עבדתי עם מאות בעלי עסקים, וראיתי שוב ושוב איך עסק טוב יכול להישאר תקוע -<br>רק כי ברשת הוא לא מצליח להעביר למה לבחור דווקא בו.</p>
   <p class="crisis">אבל את הדרך שלי התחלתי מעסק ביוטי שהיה תקוע שנה שלמה על 2,000 ₪ בחודש, ופחדתי ממצלמה.<br>עד שעברתי משבר אישי שגרם לי להבין שביוטי זה לא אני - וסגרתי עסק מצליח כדי ללכת אחרי הלב שלי לשיווק.</p>
@@ -2360,7 +2359,7 @@ fbq('track', 'PageView');
   <div class="dq-bg" aria-hidden="true"><img src="images/gallery-1.jpg" alt="" loading="lazy"></div>
   <p class="dq-kicker">זה לא כנס שיושבים בו ומקשיבים - זה יום עבודה. 5.5 שעות, תרגולים אמיתיים, פיצוחים בלייב על העסק שלכם.</p>
   <span class="eyebrow">ועדיין, חשוב לי שתדעו</span>
-  <h2>שהסמינר <span class="marker-gold" style="color:var(--sec-b);">לא מתאים לכולם</span>.</h2>
+  <h2>שהסמינר <span class="underline-gold" style="color:#fff;border-bottom-color:#f0a8ae;">לא מתאים לכולם</span>.</h2>
   <div class="dq-table">
     <div class="dq-col lose">
       <h4>אם אתם:</h4>
@@ -2511,7 +2510,7 @@ fbq('track', 'PageView');
 
 <section class="closer-v2 reveal in spotlight-target" id="form" style="position:relative;">
   <div class="scarcity">100 מקומות בלבד</div>
-  <h2>בעוד שנה מהיום - יהיו עסקים שהפכו ל<span class="marker-gold" style="color:var(--sec-b);">בחירה הברורה</span>. ויהיו עסקים שעדיין נלחמים על שאריות.</h2>
+  <h2>בעוד שנה מהיום - יהיו עסקים שהפכו ל<span class="underline-gold" style="color:#fff;border-bottom-color:#f0a8ae;">בחירה הברורה</span>. ויהיו עסקים שעדיין נלחמים על שאריות.</h2>
   <div class="cd-boxes">
     <div class="countdown-box"><b id="cd2-days">00</b><span>ימים</span></div>
     <div class="countdown-box"><b id="cd2-hours">00</b><span>שעות</span></div>
@@ -2522,8 +2521,8 @@ fbq('track', 'PageView');
     <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">כרטיס יחיד</span><span class="btn-sub" style="color:var(--sec-a);">197 ₪</span></a>
     <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="ghost-btn two-line"><span class="btn-main">כרטיס זוגי</span><span class="btn-sub">297 ₪</span></a>
   </div>
-  <div class="price">3.9.26 · לח"י 21, בני ברק · 100 מקומות בלבד</div>
-  <div class="price" style="margin-top:0.4rem;">🔒 תשלום מאובטח | אישור נשלח מיד למייל</div>
+  <div class="price">3.9.26 · לח"י 21, בני ברק</div>
+  <div class="price" style="margin-top:0.5rem;opacity:0.85;">🔒 תשלום מאובטח | אישור נשלח מיד למייל</div>
 </section>
 
 <section class="section-pad reveal faq-section in">
