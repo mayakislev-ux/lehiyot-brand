@@ -708,15 +708,6 @@ fbq('track', 'PageView');
   .method .center { text-align: center; margin-top: 3rem; padding: 0 1.4rem; }
   @media (max-width: 640px) { .mcard { padding: 2rem 1.5rem; } }
 
-  /* ===== NEW section 5: workday - full-bleed photo ===== */
-  .workday { position: relative; background: linear-gradient(160deg, #5a3a78, #2a1240); aspect-ratio: 21 / 9; min-height: 320px; max-height: 480px; display: flex; align-items: flex-end; }
-  .workday-bg { position: absolute; inset: 0; z-index: 0; }
-  .workday-bg img { width: 100%; height: 100%; object-fit: cover; }
-  .workday::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(20,8,35,0.95) 25%, rgba(20,8,35,0.2) 70%); z-index: 1; }
-  .workday-copy { position: relative; z-index: 2; padding: 2.2rem 1.6rem; text-align: center; width: 100%; }
-  .workday-copy h2 { font-size: 1.25rem; margin-bottom: 0.8rem; color: #fff; }
-  .workday-copy p { max-width: 520px; margin-inline: auto; color: rgba(255,255,255,0.88); overflow-wrap: break-word; }
-
   /* ===== NEW section 6: bio photo-duo (real photos, mockup-short copy) ===== */
   .bio-v2 { background: var(--white); padding: 5.5rem 1.6rem; text-align: center; }
   .bio-v2 .photo-duo { display: flex; justify-content: center; gap: 0.8rem; margin-bottom: 1.3rem; }
@@ -732,33 +723,40 @@ fbq('track', 'PageView');
   .bio-v2-pullquote p { font-size: 1.05rem; font-weight: 700; color: var(--sec-a); margin: 0; }
 
   /* ===== NEW section 7: who-for disqualify table ===== */
-  .dq { position: relative; padding: 3.5rem 1.4rem; background: #1a0f2e; overflow: hidden; }
+  /* rebuilt from Tamar's real live CSS (fetched directly, not estimated from screenshot) */
+  .dq { position: relative; padding: 2.2rem 1.4rem 3rem; background: #1a0f2e; overflow: hidden; }
   .dq-bg { position: absolute; inset: 0; z-index: 0; }
-  .dq-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
-  .dq-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,15,46,0.5), rgba(26,15,46,0.82) 55%, rgba(20,10,35,0.95)); }
+  .dq-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+  .dq-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,15,46,0.35), rgba(26,15,46,0.7) 60%, rgba(20,10,35,0.9)); }
   .dq > * { position: relative; z-index: 1; }
-  .dq .eyebrow { display: block; text-align: center; font-size: 1.05rem; font-weight: 700; color: rgba(255,255,255,0.75); margin-bottom: 0.7rem; letter-spacing: 0.01em; }
-  .dq h2 { margin-bottom: 2rem; font-size: clamp(1.7rem, 1.4rem + 1.2vw, 2.3rem); color: #fff; text-align: center; overflow-wrap: break-word; max-width: 22ch; margin-inline: auto; }
-  .dq-table { display: flex; align-items: stretch; max-width: 1180px; margin: 0 auto; border-radius: 24px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.5); }
-  .dq-col { flex: 1 1 0; padding: 3rem 2.6rem 0; position: relative; display: flex; flex-direction: column; min-width: 280px; }
-  .dq-col.win { background: linear-gradient(160deg, var(--sec-a), var(--sec-b)); color: #fff; }
-  .dq-col.lose { background: #fff; }
-  .dq-col h4 { margin: 0 0 1.8rem; font-size: 1.35rem; text-align: center; padding-bottom: 1rem; border-bottom: 2px solid rgba(255,255,255,0.22); }
-  .dq-col.win h4 { color: #fff; }
-  .dq-col.lose h4 { color: var(--sec-a); border-bottom-color: var(--line); }
+  .dq-kicker { text-align: center; max-width: 46ch; margin: 0 auto 1.8rem; color: rgba(255,255,255,0.92); font-size: 1.05rem; font-weight: 700; line-height: 1.6; }
+  .dq .eyebrow { display: block; text-align: center; font-size: 1.15rem; font-weight: 600; color: rgba(255,255,255,0.85); margin-bottom: 0.5rem; }
+  .dq h2 { margin-bottom: 2.6rem; font-size: clamp(1.6rem, 1.4rem + 0.8vw, 2rem); font-weight: 800; color: #fff; text-align: center; overflow-wrap: break-word; }
+  .dq-table { display: flex; align-items: stretch; max-width: 1180px; margin: 0 auto 2.8rem; overflow: visible; }
+  .dq-col { flex: 1 1 0; padding: 2.6rem 2.4rem 3.2rem; position: relative; display: flex; flex-direction: column; min-width: 280px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.1); }
+  .dq-col.lose { background: rgba(255,255,255,0.1); border-radius: 0 18px 18px 0; border-left-width: 0; }
+  .dq-col.win { background: linear-gradient(131deg, var(--sec-a), var(--purple-deep) 68%); border-radius: 18px 0 0 18px; }
+  .dq-col h4 { margin: 0 0 1.6rem; font-size: 1.4rem; font-weight: 800; text-align: center; padding-bottom: 1.2rem; border-bottom: 2px solid rgba(255,255,255,0.2); }
+  .dq-col.win h4, .dq-col.win li { color: #fff; }
+  .dq-col.lose h4, .dq-col.lose li { color: #fff; }
   .dq-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; flex: 1; }
-  .dq-col li { font-size: 1.2rem; font-weight: 600; padding: 1.3rem 0 1.3rem 0; padding-right: 2.6rem; position: relative; line-height: 1.5; }
+  .dq-col li { font-size: 1.15rem; font-weight: 500; padding: 1.1rem 0; padding-right: 2.8rem; position: relative; line-height: 1.5; }
   .dq-col li:not(:last-child) { border-bottom: 1px solid rgba(255,255,255,0.16); }
-  .dq-col.lose li:not(:last-child) { border-bottom-color: var(--line); }
-  .dq-col.win li { color: rgba(255,255,255,0.95); }
-  .dq-col.win li::before { content: "✓"; position: absolute; right: 0; top: 1.15rem; width: 1.6rem; height: 1.6rem; border-radius: 6px; background: #fff; color: var(--sec-b); font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; }
-  .dq-col.lose li { color: var(--ink); }
-  .dq-col.lose li::before { content: "✕"; position: absolute; right: 0; top: 1.15rem; width: 1.6rem; height: 1.6rem; border-radius: 6px; background: var(--sec-b); color: #fff; font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; }
-  .dq-col-bar { display: block; text-align: center; font-weight: 800; font-size: 1.05rem; padding: 1.2rem 1rem; margin: 1.8rem 0 2rem; text-decoration: none; border-radius: 14px; }
-  .dq-col.win .dq-col-bar { background: #fff; color: var(--sec-b); }
-  .dq-col.win .dq-col-bar .bar-sub { display: block; font-size: 0.78rem; font-weight: 700; color: var(--sec-a); margin-top: 0.25rem; }
-  .dq-col.lose .dq-col-bar { background: var(--sec-b); color: #fff; }
-  @media (max-width: 700px) { .dq-table { flex-direction: column; } .dq-col { padding: 2.4rem 1.8rem 0; min-width: 0; } }
+  .dq-col.win li::before { content: "✓"; position: absolute; right: 0; top: 1.05rem; width: 1.9rem; height: 1.9rem; border-radius: 6px; background: #fff; color: var(--sec-b); font-weight: 800; font-size: 1rem; display: flex; align-items: center; justify-content: center; }
+  .dq-col.lose li::before { content: "✕"; position: absolute; right: 0; top: 1.05rem; width: 1.9rem; height: 1.9rem; border-radius: 6px; background: rgba(255,255,255,0.18); color: #fff; font-weight: 800; font-size: 1rem; display: flex; align-items: center; justify-content: center; }
+  .dq-col-bar {
+    position: absolute; bottom: -1.2rem; left: 50%; white-space: nowrap; display: inline-block;
+    border-radius: 8px; padding: 0.7rem 1.8rem; font-weight: 800; font-size: 0.92rem; box-shadow: 0 10px 24px rgba(0,0,0,0.4);
+  }
+  .dq-col.win .dq-col-bar { background: #fff; color: var(--sec-b); transform: translateX(-50%) rotate(-0.75deg); }
+  .dq-col.lose .dq-col-bar { background: var(--sec-b); color: #fff; transform: translateX(-50%) rotate(0.75deg); }
+  .dq .ctawrap { text-align: center; }
+  @media (max-width: 700px) {
+    .dq-table { flex-direction: column; }
+    .dq-col.lose { border-radius: 18px 18px 0 0; border-left-width: 2px; border-bottom-width: 0; }
+    .dq-col.win { border-radius: 0 0 18px 18px; margin-top: 1.6rem; }
+    .dq-col { padding: 2.2rem 1.8rem 2.8rem; min-width: 0; }
+  }
 
   /* ===== NEW section 8: guarantee with seals ===== */
   .grt { background: linear-gradient(180deg, #fff, var(--ivory)); padding: 5.5rem 1.6rem; text-align: center; }
@@ -2323,14 +2321,6 @@ fbq('track', 'PageView');
   <div class="center"><a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">אני רוצה להיות הבחירה הברורה</span><span class="btn-sub">197 ₪ · 100 מקומות בלבד</span></a></div>
 </section>
 
-<section class="workday reveal in">
-  <div class="workday-bg" aria-hidden="true"><img src="images/bio-1.jpg" alt="" loading="lazy" style="object-position:center 20%;"></div>
-  <div class="workday-copy">
-    <h2>זה לא כנס - זה יום עבודה</h2>
-    <p>זה לא כנס שבאים, יושבים, מקשיבים, וחוזרים הביתה עם עוד רשימת "טיפים" ששוכחים תוך שבוע.<br>5.5 שעות. תרגולים אמיתיים. פיצוחים בלייב על העסק שלכם - לא על עסק דוגמה.</p>
-  </div>
-</section>
-
 <section class="bio-v2 reveal in" style="position:relative;" id="nav-bio">
   <div class="photo-duo">
     <img src="images/bio-1.jpg" alt="מאיה מלמדת מול קהל">
@@ -2348,6 +2338,7 @@ fbq('track', 'PageView');
 
 <section class="dq reveal in">
   <div class="dq-bg" aria-hidden="true"><img src="images/gallery-1.jpg" alt="" loading="lazy"></div>
+  <p class="dq-kicker">זה לא כנס שיושבים בו ומקשיבים - זה יום עבודה. 5.5 שעות, תרגולים אמיתיים, פיצוחים בלייב על העסק שלכם.</p>
   <span class="eyebrow">ועדיין, חשוב לי שתדעו</span>
   <h2>שהסמינר לא מתאים לכולם.</h2>
   <div class="dq-table">
@@ -2358,7 +2349,7 @@ fbq('track', 'PageView');
         <li>עסקי איקומרס או תוכנה - זה בנוי סביב עסקים שבהם אתם המותג</li>
         <li>לא מוכנים להיות הפנים של העסק שלכם בשום צורה</li>
       </ul>
-      <span class="dq-col-bar">זה בסדר - פשוט לא הפורום הנכון עכשיו</span>
+      <span class="dq-col-bar">פשוט לא הפורום הנכון עכשיו</span>
     </div>
     <div class="dq-col win">
       <h4>אבל אם אתם:</h4>
@@ -2367,9 +2358,10 @@ fbq('track', 'PageView');
         <li>מוכנים לעבוד על העסק שלכם ביום עצמו, לא רק להקשיב</li>
         <li>יש לכם עסק שכבר עובד, עם תוצאות אמיתיות</li>
       </ul>
-      <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="dq-col-bar" data-fb-value="197">זה בדיוק בשבילכם - אני רוצה כרטיס<span class="bar-sub">197 ₪ · 100 מקומות בלבד</span></a>
+      <span class="dq-col-bar">זה בדיוק בשבילכם</span>
     </div>
   </div>
+  <div class="ctawrap"><a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">אני רוצה להיות הבחירה הברורה</span><span class="btn-sub">197 ₪ · 100 מקומות בלבד</span></a></div>
 </section>
 
 <section class="grt reveal in" style="position:relative;">
