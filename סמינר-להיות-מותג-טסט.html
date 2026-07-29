@@ -629,12 +629,6 @@ fbq('track', 'PageView');
   .hero-inner.v2, .hero-text-col.v2 { max-width: 100%; box-sizing: border-box; overflow-wrap: break-word; }
   .hero-stage.v2 { overflow: hidden; }
   .hero-quick-facts { max-width: 100%; }
-  .cd-wrap { text-align: center; margin: 0 auto 1.3rem; }
-  .cd-wrap .cd-label { color: rgba(255,255,255,0.7); font-size: 0.75rem; font-weight: 700; margin-bottom: 0.4rem; }
-  .cd-wrap .cd-boxes { display: flex; justify-content: center; gap: 0.5rem; }
-  .cd-wrap .cd-boxes div { background: #fff; border-radius: 10px; padding: 0.4rem 0.8rem; text-align: center; min-width: 50px; }
-  .cd-wrap .cd-boxes b { display: block; color: var(--sec-a); font-size: 1.15rem; font-weight: 800; font-variant-numeric: tabular-nums; }
-  .cd-wrap .cd-boxes span { display: block; color: var(--sec-a); font-size: 0.62rem; font-weight: 700; }
   .hero-audience-strip { background: var(--white); color: var(--ink); max-width: 36rem; margin: -5.5rem auto 1.6rem; text-align: center; font-weight: 600; font-size: 0.95rem; line-height: 1.6; padding: 1rem 1.8rem; border-bottom-right-radius: 1.6rem; border-bottom-left-radius: 1.6rem; position: relative; z-index: 6; box-shadow: 0 8px 20px rgba(20,6,38,0.28); }
   .hero-audience-strip strong { display: inline-block; font-weight: 800; color: var(--sec-a); border-bottom: 2px solid #c0392b; padding-bottom: 0.12em; }
   @media (max-width: 480px) { .hero-audience-strip { max-width: 90%; font-size: 0.86rem; padding: 0.85rem 1.2rem; margin-top: -5.5rem; } }
@@ -646,6 +640,20 @@ fbq('track', 'PageView');
   .hero-vsl-wrap .vsl-wrap-outer { margin: 0; }
   .hero-vsl-wrap .vsl-player { border-radius: 0 !important; }
   .hero-vsl-wrap .vsl-lead { display: none !important; }
+
+  /* ===== straddle CTA: sits centered on the seam between hero and next section, like Badichi's ===== */
+  .hero-straddle-cta-wrap { position: relative; height: 0; z-index: 20; text-align: center; }
+  .hero-straddle-cta {
+    display: inline-flex; align-items: center; justify-content: center; position: relative; top: -1.9rem;
+    background: linear-gradient(135deg, #c0392b, #9b1c2a); color: #fff; font-weight: 800; font-size: 1.05rem;
+    padding: 1.05rem 2.4rem; border-radius: 999px; text-decoration: none; white-space: nowrap;
+    box-shadow: 0 14px 30px rgba(155,28,42,0.45);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-straddle-cta { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .hero-straddle-cta:hover { transform: translateY(-3px); box-shadow: 0 18px 36px rgba(155,28,42,0.55); }
+  }
+  @media (max-width: 720px) { .hero-straddle-cta-wrap { display: none; } }
 
   /* ===== NEW section 1.5: quick proof strip (overlapping face circles + headline + pills) ===== */
   .strip { background: var(--white); padding: 4rem 1.4rem; text-align: center; }
@@ -821,8 +829,6 @@ fbq('track', 'PageView');
 
   .hero-format-line { color: rgba(255,255,255,0.8); font-weight: 600; font-size: 0.95rem; margin-bottom: 1.3rem; }
   .hero-reinforce { color: rgba(255,255,255,0.88); font-weight: 600; font-size: 1.02rem; line-height: 1.6; margin: 0.6rem 0 1.2rem; max-width: 46ch; }
-  .hero-cta-block .gold-btn { font-size: 1.1rem; padding: 1rem 2.2rem; gap: 0.6rem; font-weight: 900; letter-spacing: 0.01em; }
-  .hero-cta-block .cta-note { font-size: 1rem; margin-top: 1.15rem; }
   .hero-price-note { margin-top: 0.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.65); font-weight: 600; }
   .hero-countdown { display: inline-block; margin-top: 0.9rem; font-size: 0.9rem; font-weight: 700; color: var(--white); background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.25); border-radius: 999px; padding: 0.4rem 1rem; }
   .hero-countdown strong { font-variant-numeric: tabular-nums; }
@@ -925,8 +931,6 @@ fbq('track', 'PageView');
     .hero-title { font-size: clamp(4rem, 4.4vw, 5.8rem); margin: 0 0 1.6rem; }
     .hero-sub { font-size: 1.4rem; margin-bottom: 1.5rem; }
     .hero-promise { font-size: 1.05rem; margin-bottom: 1.7rem; }
-    .hero-cta-block .gold-btn { font-size: 1.25rem; padding: 1.2rem 2.6rem; gap: 0.7rem; }
-    .hero-cta-block .cta-note { font-size: 1.15rem; margin-top: 1.3rem; }
     .hero-seal { width: 150px; height: 150px; }
     .hero-seal span { font-size: 0.8rem; }
     .hero-seal strong { font-size: 1.7rem; }
@@ -957,7 +961,6 @@ fbq('track', 'PageView');
     .hero-text-col { width: 100%; max-width: none; text-align: center; }
     .hero-copy { text-align: center; }
     .hero-cta-block { text-align: center; }
-    .hero-cta-block .gold-btn { display: none; }
     .hero-title { font-size: clamp(2.2rem, 1.3rem + 6vw, 3.4rem); margin-bottom: 0; }
     .hero-title .l1, .hero-title .l2 { white-space: nowrap; }
 
@@ -2216,24 +2219,19 @@ fbq('track', 'PageView');
           </div>
         </div>
       </div>
-      <div class="cd-wrap">
-        <div class="cd-label">עד שהמקומות נגמרים:</div>
-        <div class="cd-boxes">
-          <div><b id="hero-cd-days">--</b><span>ימים</span></div>
-          <div><b id="hero-cd-hours">--</b><span>שעות</span></div>
-          <div><b id="hero-cd-mins">--</b><span>דק'</span></div>
-        </div>
-      </div>
       <div class="hero-cta-block">
         <div class="hero-quick-facts" style="justify-content:center;">
           <span>3.9 · יום חמישי</span><span>בני ברק</span><span>5.5 שעות</span><span>197₪</span>
         </div>
-        <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">אני רוצה להיות הבחירה הברורה</span><span class="btn-sub">197 ₪ · 100 מקומות בלבד</span></a>
       </div>
       </div>
     </div>
   <a href="#" class="scroll-hint" id="scrollHint" aria-label="גללו למטה"></a>
 </header>
+
+<div class="hero-straddle-cta-wrap">
+  <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" class="hero-straddle-cta" data-fb-value="197">אני רוצה להיות הבחירה הברורה</a>
+</div>
 
 <section class="strip reveal in" style="position:relative;">
   <div class="crowd">
