@@ -635,9 +635,9 @@ fbq('track', 'PageView');
   .cd-wrap .cd-boxes div { background: #fff; border-radius: 10px; padding: 0.4rem 0.8rem; text-align: center; min-width: 50px; }
   .cd-wrap .cd-boxes b { display: block; color: var(--sec-a); font-size: 1.15rem; font-weight: 800; font-variant-numeric: tabular-nums; }
   .cd-wrap .cd-boxes span { display: block; color: var(--sec-a); font-size: 0.62rem; font-weight: 700; }
-  .hero-audience-strip { background: var(--white); color: var(--ink); max-width: 34rem; margin: 0 auto 1.6rem; text-align: center; font-weight: 600; font-size: 0.95rem; line-height: 1.6; padding: 1rem 1.8rem; border-bottom-right-radius: 1.6rem; border-bottom-left-radius: 1.6rem; position: relative; z-index: 6; box-shadow: 0 8px 20px rgba(20,6,38,0.28); }
-  .hero-audience-strip strong { font-weight: 800; color: var(--sec-a); border-bottom: 2px solid #c0392b; padding-bottom: 0.12em; }
-  @media (max-width: 480px) { .hero-audience-strip { max-width: 90%; font-size: 0.86rem; padding: 0.85rem 1.2rem; } }
+  .hero-audience-strip { background: var(--white); color: var(--ink); max-width: 36rem; margin: -5.5rem auto 1.6rem; text-align: center; font-weight: 600; font-size: 0.95rem; line-height: 1.6; padding: 1rem 1.8rem; border-bottom-right-radius: 1.6rem; border-bottom-left-radius: 1.6rem; position: relative; z-index: 6; box-shadow: 0 8px 20px rgba(20,6,38,0.28); }
+  .hero-audience-strip strong { display: inline-block; font-weight: 800; color: var(--sec-a); border-bottom: 2px solid #c0392b; padding-bottom: 0.12em; }
+  @media (max-width: 480px) { .hero-audience-strip { max-width: 90%; font-size: 0.86rem; padding: 0.85rem 1.2rem; margin-top: -5.5rem; } }
   .hero-objections-v2 { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; margin: 1.2rem 0 1.6rem; }
   .hero-objections-v2 span { color: rgba(255,255,255,0.88); font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; }
   .hero-objections-v2 .x-ic { flex-shrink: 0; width: 1.1rem; height: 1.1rem; border-radius: 50%; background: #fff; color: #e5484d; font-size: 0.65rem; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; }
@@ -1446,27 +1446,29 @@ fbq('track', 'PageView');
   /* ===== FAQ ===== */
   .faq-section .wrap { max-width: 760px; }
   .faq-item {
-    background: var(--purple-pale); border: 1px solid var(--purple-pale-2); border-radius: 18px;
-    margin-bottom: 0.8rem; overflow: hidden;
+    background: linear-gradient(135deg, var(--sec-a), var(--sec-b)); border: 1px solid rgba(255,255,255,0.15); border-radius: 18px;
+    margin-bottom: 0.8rem; overflow: hidden; box-shadow: 0 6px 16px rgba(83,30,98,0.25);
   }
   .faq-item summary {
-    cursor: pointer; padding: 1.1rem 1.4rem; font-weight: 800; color: var(--sec-b);
+    cursor: pointer; padding: 1.1rem 1.4rem; font-weight: 800; color: #fff;
     list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
   }
   .faq-item summary::-webkit-details-marker { display: none; }
   .faq-item summary::after {
-    content: "+"; font-size: 1.1rem; color: #fff; background: linear-gradient(135deg, var(--sec-a), var(--sec-b)); width: 1.6rem; height: 1.6rem;
+    content: "+"; font-size: 1.1rem; color: var(--sec-a); background: #fff; width: 1.6rem; height: 1.6rem;
     border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease;
-    box-shadow: 0 3px 8px rgba(83,30,98,0.35);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   }
   .faq-item[open] summary::after { transform: rotate(45deg); }
-  .faq-item-body { padding: 0 1.4rem 1.2rem; color: var(--ink); line-height: 1.6; }
+  .faq-item-body { padding: 0 1.4rem 1.2rem; color: rgba(255,255,255,0.92); line-height: 1.6; }
   .faq-divider-label {
     text-align: center; font-weight: 800; color: var(--sec-a); margin: 2.2rem 0 1rem; font-size: 0.95rem;
   }
-  .faq-item.faq-no { background: rgba(176,106,124,0.14); border-color: rgba(176,106,124,0.35); }
-  .faq-item.faq-no summary::after { content: "❌"; background: none; font-size: 1rem; }
+  .faq-item.faq-no { background: rgba(176,106,124,0.14); border: 1px solid rgba(176,106,124,0.35); box-shadow: none; }
+  .faq-item.faq-no summary { color: var(--sec-b); }
+  .faq-item.faq-no summary::after { content: "❌"; background: none; font-size: 1rem; color: initial; box-shadow: none; }
   .faq-item.faq-no[open] summary::after { transform: none; }
+  .faq-item.faq-no .faq-item-body { color: var(--ink); }
 
   /* ===== SECTION 7: followers — badge grid ===== */
 
@@ -2167,7 +2169,7 @@ fbq('track', 'PageView');
   <div class="hero-bg"></div>
     <div class="hero-inner v2 reveal in">
       <div class="hero-text-col v2">
-      <div class="hero-audience-strip">לבעלי עסקים שכבר טובים במה שהם עושים - <strong>אבל יודעים שהשיווק שלהם עדיין לא משקף את זה</strong></div>
+      <div class="hero-audience-strip">לבעלי עסקים שכבר טובים במה שהם עושים -<br><strong>אבל יודעים שהשיווק שלהם עדיין לא משקף את זה</strong></div>
       <div class="top-badge" style="position:static;transform:none;margin:0 auto 1.4rem;">
         <div class="top-badge-text"><svg viewBox="0 0 100 100" width="16" height="16" style="vertical-align:-3px;margin-left:3px"><circle cx="50" cy="26" r="16" fill="#ffffff"/><path d="M38 46 L62 46 L68 62 L32 62 Z" fill="#ffffff"/><path d="M24 82 Q24 66 40 66 L60 66 Q76 66 76 82 Z" fill="#ffffff"/></svg> 3.9.26 · סמינר פרונטלי</div>
       </div>
