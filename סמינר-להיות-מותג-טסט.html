@@ -732,10 +732,14 @@ fbq('track', 'PageView');
   .bio-v2-pullquote p { font-size: 1.05rem; font-weight: 700; color: var(--sec-a); margin: 0; }
 
   /* ===== NEW section 7: who-for disqualify table ===== */
-  .dq { position: relative; padding: 5.5rem 1.4rem 6rem; background: linear-gradient(100deg, #e8e2da, #cfc6ba); overflow: hidden; }
+  .dq { position: relative; padding: 6.5rem 1.4rem 7rem; background: #1a0f2e; overflow: hidden; min-height: 640px; display: flex; flex-direction: column; justify-content: center; }
+  .dq-bg { position: absolute; inset: 0; z-index: 0; }
+  .dq-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
+  .dq-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,15,46,0.75), rgba(26,15,46,0.88) 55%, rgba(26,15,46,0.96)); }
+  .dq > *:not(.dq-bg) { position: relative; z-index: 1; }
   .dq > * { position: relative; z-index: 1; }
-  .dq .eyebrow { display: block; text-align: center; font-size: 0.78rem; font-weight: 700; color: var(--sec-b); margin-bottom: 0.4rem; }
-  .dq h2 { margin-bottom: 2rem; font-size: 1.35rem; color: var(--ink); text-align: center; overflow-wrap: break-word; }
+  .dq .eyebrow { display: block; text-align: center; font-size: 0.85rem; font-weight: 700; color: var(--gold-soft); margin-bottom: 0.5rem; }
+  .dq h2 { margin-bottom: 3rem; font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem); color: #fff; text-align: center; overflow-wrap: break-word; }
   .dq-table { display: flex; max-width: 680px; margin: 0 auto; box-shadow: 0 24px 50px rgba(40,20,10,0.25); flex-wrap: wrap; }
   .dq-col { flex: 1 1 260px; padding: 1.8rem 1.4rem 2.6rem; position: relative; }
   .dq-col.win { background: linear-gradient(160deg, var(--sec-a), var(--sec-b)); color: #fff; border-radius: 20px 0 0 20px; }
@@ -2210,8 +2214,6 @@ fbq('track', 'PageView');
       </div>
     </div>
   <a href="#" class="scroll-hint" id="scrollHint" aria-label="גללו למטה"></a>
-  <div class="circle-cut circle-cut-dark" aria-hidden="true"></div>
-  <div class="circle-cut circle-cut-dark circle-cut-blur" aria-hidden="true"></div>
 </header>
 
 <section class="strip reveal in" style="position:relative;">
@@ -2344,6 +2346,7 @@ fbq('track', 'PageView');
 </section>
 
 <section class="dq reveal in">
+  <div class="dq-bg" aria-hidden="true"><img src="images/bio-3.jpg" alt="" loading="lazy"></div>
   <span class="eyebrow">ועדיין, חשוב לי שתדעו</span>
   <h2>שהסמינר לא מתאים לכולם.</h2>
   <div class="dq-table">
@@ -2491,9 +2494,7 @@ fbq('track', 'PageView');
       </div>
     </div>
   </div>
-  <div class="wave-divider" aria-hidden="true">
-    <svg viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,50 C150,10 350,90 500,50 C650,10 850,90 1000,50 L1000,100 L0,100 Z" fill="#531e62"/></svg>
-  </div>
+
 </section>
 
 <section class="closer-v2 reveal in spotlight-target" id="form" style="position:relative;">
