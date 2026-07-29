@@ -592,10 +592,11 @@ fbq('track', 'PageView');
   .strip h2.sh { font-size: clamp(1.5rem, 1.25rem + 1vw, 2rem); max-width: 26ch; margin: 0 auto 1.5rem; font-weight: 800; color: var(--ink); line-height: 1.4; overflow-wrap: break-word; word-break: break-word; }
   .strip .row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
   .pill { background: var(--purple-pale); color: var(--sec-a); font-weight: 800; font-size: 0.82rem; padding: 0.5rem 1rem; border-radius: 999px; }
-  .strip-stats { display: flex; justify-content: center; gap: 2.2rem; flex-wrap: wrap; margin-top: 0.4rem; }
+  .strip-stats-section { background: var(--purple-deep); padding: 3rem 1.4rem; }
+  .strip-stats { display: flex; justify-content: center; gap: 2.6rem; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; }
   .strip-stat { text-align: center; }
-  .strip-stat b { display: block; font-size: clamp(1.9rem, 1.5rem + 1.3vw, 2.7rem); font-weight: 900; color: var(--sec-a); line-height: 1; margin-bottom: 0.35rem; }
-  .strip-stat span { display: block; font-size: clamp(0.82rem, 0.78rem + 0.2vw, 0.92rem); font-weight: 700; color: var(--ink-dim); }
+  .strip-stat b { display: block; font-size: clamp(1.9rem, 1.5rem + 1.3vw, 2.7rem); font-weight: 900; color: var(--gold-soft); line-height: 1; margin-bottom: 0.4rem; }
+  .strip-stat span { display: block; font-size: clamp(0.82rem, 0.78rem + 0.2vw, 0.92rem); font-weight: 700; color: rgba(255,255,255,0.75); }
 
   /* real "highlighter marker" technique pulled from Tamar's live CSS, adapted to gold */
   .marker-gold { background-image: linear-gradient(0deg, #e8a2ac, #e8a2ac 30%, transparent 30%, transparent); display: inline; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
@@ -1609,7 +1610,8 @@ fbq('track', 'PageView');
   html.a11y-text-lg body { font-size: 112%; }
   html.a11y-text-xl body { font-size: 126%; }
   html.a11y-contrast body { background: #000 !important; color: #fff !important; }
-  html.a11y-contrast body :not(.a11y-panel):not(.a11y-panel *) { background-color: #000 !important; color: #fff !important; border-color: #fff !important; }
+  html.a11y-contrast body :not(.a11y-panel):not(.a11y-panel *):not(#confettiCanvas):not(.grain-overlay) { background-color: #000 !important; color: #fff !important; border-color: #fff !important; }
+  html.a11y-contrast #confettiCanvas, html.a11y-contrast .grain-overlay { display: none !important; }
   html.a11y-contrast img, html.a11y-contrast video { filter: grayscale(40%) contrast(1.2); }
   html.a11y-underline-links a { text-decoration: underline !important; }
   html.a11y-no-motion *, html.a11y-no-motion *::before, html.a11y-no-motion *::after {
@@ -2075,7 +2077,7 @@ fbq('track', 'PageView');
   /* ===== mobile: sections had the same padding as desktop, making the page scroll much longer than needed ===== */
   @media (max-width: 860px) {
     :root { --section-gap: 2.8rem; }
-    .strip { padding-top: 6.5rem; padding-bottom: 2.8rem; }
+    .strip { padding-top: 8.8rem; padding-bottom: 2.8rem; }
     .pain { padding-top: 3rem; padding-bottom: 2.4rem; }
     .urgency { padding-top: 3rem; padding-bottom: 3rem; }
     .method { padding-top: 3rem; padding-bottom: 3rem; }
@@ -2191,6 +2193,9 @@ fbq('track', 'PageView');
     <div class="ph"><img src="images/client-slava-stepanov.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-lior-ezer.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-uri-amsalem.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-ron-bublil.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-elisheva.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-li-tzemach.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-romi.jpg" alt="" loading="lazy"></div>
   </div>
   <h2 class="sh">השיטה של מאיה קיסלב שכבר הפכה מאות בעלי עסקים ל<span class="marker-gold">בחירה הברורה</span> בתחום שלהם</h2>
+</section>
+
+<section class="strip-stats-section">
   <div class="strip-stats">
     <div class="strip-stat"><b>17</b><span>מחזורי ליווי</span></div>
     <div class="strip-stat"><b>מאות</b><span>בעלי עסקים</span></div>
