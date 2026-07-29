@@ -652,8 +652,8 @@ fbq('track', 'PageView');
   .pill { background: var(--purple-pale); color: var(--sec-a); font-weight: 800; font-size: 0.82rem; padding: 0.5rem 1rem; border-radius: 999px; }
 
   /* real "highlighter marker" technique pulled from Tamar's live CSS, adapted to gold */
-  .marker-gold { background-image: linear-gradient(0deg, var(--gold-soft), var(--gold-soft) 30%, transparent 30%, transparent); display: inline; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
-  .underline-gold { text-decoration: none; border-bottom: 3px solid var(--gold-refined); padding-bottom: 0.05em; }
+  .marker-gold { background-image: linear-gradient(0deg, #e8a2ac, #e8a2ac 30%, transparent 30%, transparent); display: inline; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+  .underline-gold { text-decoration: none; border-bottom: 3px solid #c0392b; padding-bottom: 0.05em; }
   .crowd { display: flex; justify-content: center; margin-bottom: 1.2rem; }
   .crowd .ph {
     width: 46px; height: 46px; border-radius: 50%; overflow: hidden; background: var(--purple-pale);
@@ -718,9 +718,12 @@ fbq('track', 'PageView');
 
   /* ===== NEW section 6: bio photo-duo (real photos, mockup-short copy) ===== */
   .bio-v2 { background: var(--white); padding: 4.5rem 1.6rem; text-align: center; }
-  .bio-main-photo { display: block; max-width: 300px; width: 100%; height: auto; margin: 0 auto 1.6rem; }
-  .bio-inline-photo { max-width: 420px; margin: 1.8rem auto; }
-  .bio-inline-photo img { width: 100%; height: 220px; object-fit: cover; border-radius: 16px; box-shadow: 0 12px 28px rgba(123,55,153,0.2); }
+  .bio-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2rem; align-items: center; max-width: 900px; margin: 0 auto 1.6rem; text-align: right; }
+  .bio-grid-text p { max-width: none; margin-inline: 0; }
+  .bio-main-photo { display: block; width: 100%; max-width: 280px; height: auto; margin: 0 auto; justify-self: center; }
+  .bio-gallery { display: flex; justify-content: center; gap: 1rem; max-width: 620px; margin: 2rem auto 0; flex-wrap: wrap; }
+  .bio-gallery img { width: 150px; height: 190px; object-fit: cover; border-radius: 14px; box-shadow: 0 10px 22px rgba(123,55,153,0.2); }
+  @media (max-width: 720px) { .bio-grid { grid-template-columns: 1fr; text-align: center; } .bio-grid-text p { margin-inline: auto; max-width: 480px; } }
   .bio-v2 p { max-width: 520px; margin-inline: auto; color: var(--ink); text-align: right; font-size: 0.95rem; overflow-wrap: break-word; }
   .bio-v2 p.crisis { font-weight: 700; color: var(--sec-a); }
   .bio-v2-pullquote { max-width: 520px; margin: 1.6rem auto; border-inline-end: 4px solid var(--gold-refined); padding-inline-end: 1.2rem; text-align: right; }
@@ -2333,17 +2336,23 @@ fbq('track', 'PageView');
 </section>
 
 <section class="bio-v2 reveal in" style="position:relative;" id="nav-bio">
-  <img class="bio-main-photo" src="images/maya-chess-main.png" alt="מאיה קיסלב" loading="lazy">
-  <p style="text-align:center;font-weight:800;">אם עוד לא הכרנו - נעים מאוד, מאיה קיסלב.</p>
-  <p>השקעתי עד היום מעל 150,000 ₪ בלימודי שיווק, למדתי אצל מהמשווקים הגדולים בעולם ברוסיה ובארצות הברית, והוסמכתי כמשווקת מקצועית.<br>אבל הידע לבד לא בנה לי עסק.</p>
-  <div class="bio-inline-photo"><img src="images/bio-2.jpg" alt="מאיה עם הבאנר של האקדמיה" loading="lazy"></div>
-  <p><b>מה שבנה לי עסק היה היכולת לקחת שיווק, להבין אותו לעומק, ליישם אותו מהר - ולהפוך אותו לתוצאות.<br>בתוך 9 חודשים - מ-0 ל-100,000 ₪ בחודש.</b><br>לא אחרי עשר שנים, לא עם תקציבי פרסום מטורפים.</p>
-  <p style="padding-top:1.2rem;">עבדתי עם מאות בעלי עסקים, וראיתי שוב ושוב איך עסק טוב יכול להישאר תקוע -<br>רק כי ברשת הוא לא מצליח להעביר למה לבחור דווקא בו.</p>
-  <div class="bio-inline-photo"><img src="images/bio-4.jpg" alt="מאיה בראיון מול קהל" loading="lazy"></div>
+  <div class="bio-grid">
+    <div class="bio-grid-text">
+      <p style="font-weight:800;">אם עוד לא הכרנו - נעים מאוד, מאיה קיסלב.</p>
+      <p>השקעתי עד היום מעל 150,000 ₪ בלימודי שיווק, למדתי אצל מהמשווקים הגדולים בעולם ברוסיה ובארצות הברית, והוסמכתי כמשווקת מקצועית.<br>אבל הידע לבד לא בנה לי עסק.</p>
+      <p><b>מה שבנה לי עסק היה היכולת לקחת שיווק, להבין אותו לעומק, ליישם אותו מהר - ולהפוך אותו לתוצאות.<br>בתוך 9 חודשים - מ-0 ל-100,000 ₪ בחודש.</b><br>לא אחרי עשר שנים, לא עם תקציבי פרסום מטורפים.</p>
+    </div>
+    <img class="bio-main-photo" src="images/maya-chess-main.png" alt="מאיה קיסלב" loading="lazy">
+  </div>
+  <p style="padding-top:1.6rem;">עבדתי עם מאות בעלי עסקים, וראיתי שוב ושוב איך עסק טוב יכול להישאר תקוע -<br>רק כי ברשת הוא לא מצליח להעביר למה לבחור דווקא בו.</p>
   <p class="crisis">אבל את הדרך שלי התחלתי מעסק ביוטי שהיה תקוע שנה שלמה על 2,000 ₪ בחודש, ופחדתי ממצלמה.<br>עד שעברתי משבר אישי שגרם לי להבין שביוטי זה לא אני - וסגרתי עסק מצליח כדי ללכת אחרי הלב שלי לשיווק.</p>
   <div class="bio-v2-pullquote"><p>וזו בדיוק הסיבה שהשיטה שלי לא נשארת בתיאוריה - היא נבנתה מתוך אלפי שעות של למידה, יישום, ותוצאות חריגות בשטח.</p></div>
-  <div class="bio-inline-photo"><img src="images/bio-5.jpg" alt="מאיה מציגה בסמינר" loading="lazy"></div>
   <p>לא עוד הרצאה על בידול. לא עוד משפטים יפים על מותג.<br>אלא הדרך שבה הופכים עסק טוב לבחירה הברורה בתחום שלו.</p>
+  <div class="bio-gallery">
+    <img src="images/bio-2.jpg" alt="מאיה עם הבאנר של האקדמיה" loading="lazy">
+    <img src="images/bio-4.jpg" alt="מאיה בראיון מול קהל" loading="lazy">
+    <img src="images/bio-5.jpg" alt="מאיה מציגה בסמינר" loading="lazy">
+  </div>
   <div class="row" style="display:flex;justify-content:center;gap:0.5rem;flex-wrap:wrap;margin-top:1rem;"><span class="pill">150,000+ ₪ בלימודי שיווק</span><span class="pill">17 מחזורי ליווי</span><span class="pill">מאות בעלי עסקים</span></div>
 </section>
 
