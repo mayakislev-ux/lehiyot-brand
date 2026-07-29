@@ -635,7 +635,9 @@ fbq('track', 'PageView');
   .cd-wrap .cd-boxes div { background: #fff; border-radius: 10px; padding: 0.4rem 0.8rem; text-align: center; min-width: 50px; }
   .cd-wrap .cd-boxes b { display: block; color: var(--sec-a); font-size: 1.15rem; font-weight: 800; font-variant-numeric: tabular-nums; }
   .cd-wrap .cd-boxes span { display: block; color: var(--sec-a); font-size: 0.62rem; font-weight: 700; }
-  .hero-audience-strip { background: var(--gold-soft); color: var(--sec-b); text-align: center; font-weight: 800; font-size: 0.85rem; padding: 0.6rem 1rem; position: relative; z-index: 6; }
+  .hero-audience-strip { background: var(--white); color: var(--ink); max-width: 34rem; margin: 0 auto; text-align: center; font-weight: 600; font-size: 0.95rem; line-height: 1.55; padding: 1rem 1.8rem; border-bottom-right-radius: 1.6rem; border-bottom-left-radius: 1.6rem; position: relative; z-index: 6; box-shadow: 0 8px 20px rgba(20,6,38,0.18); }
+  .hero-audience-strip strong { font-weight: 800; color: var(--sec-a); }
+  @media (max-width: 480px) { .hero-audience-strip { max-width: 90%; font-size: 0.86rem; padding: 0.85rem 1.2rem; } }
   .hero-objections-v2 { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; margin: 1.2rem 0 1.6rem; }
   .hero-objections-v2 span { color: rgba(255,255,255,0.88); font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; }
   .hero-objections-v2 .x-ic { flex-shrink: 0; width: 1.1rem; height: 1.1rem; border-radius: 50%; background: #fff; color: #e5484d; font-size: 0.65rem; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; }
@@ -2158,7 +2160,7 @@ fbq('track', 'PageView');
 <div class="grain-overlay" aria-hidden="true"></div>
 
 
-<div class="hero-audience-strip">לבעלי עסקים עם תוצאות אמיתיות</div>
+<div class="hero-audience-strip">לבעלי עסקים שכבר טובים במה שהם עושים - <strong>אבל יודעים שהשיווק שלהם עדיין לא משקף את זה</strong></div>
 <header class="hero-stage v2" id="nav-hero">
   <div class="hero-bg"></div>
     <div class="hero-inner v2 reveal in">
