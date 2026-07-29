@@ -587,36 +587,51 @@ fbq('track', 'PageView');
   .crowd .ph:first-child { margin-inline-start: 0; }
   .crowd .ph:nth-child(odd) { border-color: var(--gold-soft); }
 
-  /* ===== NEW section 2: pain - solid pill-bar formula ===== */
-  .pain { background: linear-gradient(180deg, var(--sec-a), var(--sec-b)); padding: 4.5rem 1.6rem; text-align: center; }
-  .pain-bullets { display: flex; flex-direction: column; align-items: center; gap: 0.9rem; margin: 0 auto 1.8rem; }
-  .pain-bullet {
-    background: #fff; border-radius: 999px; padding: 0.85rem 1.5rem; display: flex; align-items: center;
-    justify-content: flex-start; gap: 0.7rem; box-shadow: 0 6px 16px rgba(20,6,38,0.2); max-width: 100%;
+  /* ===== NEW section 2: pain - real 2-column grid (text + designed graphic), matching Badichi's pains-grid pattern ===== */
+  .pain { background: linear-gradient(180deg, var(--sec-a), var(--sec-b)); padding: 4rem 1.6rem; }
+  .pain-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3rem; align-items: center; max-width: 980px; margin: 0 auto; text-align: right; }
+  .pain-text p { color: rgba(255,255,255,0.92); font-size: 1rem; margin-bottom: 0.9rem; overflow-wrap: break-word; }
+  .pain-text .close p { font-weight: 600; font-size: 1.02rem; color: rgba(255,255,255,0.95); margin-bottom: 0.8rem; }
+  .pain-text .close p:last-child { font-weight: 800; font-size: 1.08rem; margin-bottom: 0; color: #fff; }
+  .pain-text .gold-btn { margin-top: 1.4rem; }
+  .pain-graphic { display: flex; flex-direction: column; gap: 0.7rem; }
+  .pain-graphic-card {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.16); border-radius: 14px;
+    padding: 0.9rem 1.1rem; display: flex; align-items: center; gap: 0.8rem;
   }
-  .pain-bullet b { color: var(--sec-b); font-size: 0.98rem; font-weight: 800; text-align: right; }
-  .pain-bullet .badge {
-    flex-shrink: 0; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--sec-a); color: #fff;
-    display: flex; align-items: center; justify-content: center; font-size: 0.8rem;
+  .pain-graphic-card .ic {
+    flex-shrink: 0; width: 2rem; height: 2rem; border-radius: 50%; background: #fff; color: #c65b5b;
+    display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 800;
   }
-  .pain p { max-width: 560px; margin-inline: auto; color: rgba(255,255,255,0.92); font-size: 1rem; overflow-wrap: break-word; }
-  .pain .close { max-width: 560px; margin: 1.4rem auto 0; }
-  .pain .close p { font-weight: 600; font-size: 1.03rem; color: rgba(255,255,255,0.95); margin: 0 0 0.9rem; }
-  .pain .close p:last-child { font-weight: 800; font-size: 1.1rem; margin-bottom: 0; color: #fff; }
-  .pain .gold-btn { margin-top: 1.6rem; }
+  .pain-graphic-card span.txt { font-weight: 700; font-size: 0.92rem; color: #fff; }
+  .pain-graphic-win {
+    background: #fff; border-radius: 14px; padding: 1.1rem 1.2rem; display: flex; align-items: center;
+    gap: 0.8rem; box-shadow: 0 10px 24px rgba(20,6,38,0.25); margin-top: 0.3rem;
+  }
+  .pain-graphic-win .ic {
+    flex-shrink: 0; width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--sec-a); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-weight: 800;
+  }
+  .pain-graphic-win span.txt { font-weight: 800; font-size: 0.98rem; color: var(--sec-b); }
+  @media (max-width: 860px) { .pain-grid { grid-template-columns: 1fr; text-align: center; gap: 1.8rem; } }
 
-  /* ===== NEW section 2.5: why now ===== */
-  .urgency { position: relative; background: linear-gradient(120deg, var(--grad3-a), var(--grad3-b) 55%, var(--grad3-c)); padding: 4.5rem 1.6rem; text-align: center; overflow: hidden; }
+  /* ===== NEW section 2.5: why now - real 2-column grid, expanded comparison graphic ===== */
+  .urgency { position: relative; background: linear-gradient(120deg, var(--grad3-a), var(--grad3-b) 55%, var(--grad3-c)); padding: 4rem 1.6rem; overflow: hidden; }
   .urgency::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 85% 15%, rgba(240,214,163,0.12), transparent 45%); pointer-events: none; }
-  .urgency h2, .urgency p { max-width: 560px; margin-inline: auto; color: rgba(255,255,255,0.88); font-size: 1.08rem; position: relative; overflow-wrap: break-word; }
-  .urgency p { margin-bottom: 1.1rem; }
-  .urgency .close { font-weight: 800; color: #f0a8ae; font-size: 1.02rem; margin-top: 1rem; position: relative; }
-  .xflow { display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap; margin: 1.3rem 0; position: relative; }
-  .xflow .x { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; font-size: 0.72rem; color: rgba(255,255,255,0.75); font-weight: 700; }
-  .xflow .x .ic { width: 38px; height: 38px; border-radius: 50%; background: #fff; border: 2px solid #d9a0a0; color: #c65b5b; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
-  .xflow .arrow { color: var(--gold-soft); font-size: 1.1rem; }
-  .xflow .win { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; font-size: 0.78rem; color: var(--gold-soft); font-weight: 800; }
-  .xflow .win .ic { width: 44px; height: 44px; border-radius: 50%; background: var(--sec-a); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+  .urgency-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; max-width: 980px; margin: 0 auto; text-align: right; position: relative; }
+  .urgency-text h2, .urgency-text p { color: rgba(255,255,255,0.88); font-size: 1.05rem; overflow-wrap: break-word; }
+  .urgency-text p { margin-bottom: 0.9rem; }
+  .urgency-text .close { font-weight: 800; color: #f0a8ae; font-size: 1rem; margin-top: 0.8rem; }
+  .xflow { display: flex; flex-direction: column; gap: 0.6rem; }
+  .xflow .x { display: flex; align-items: center; gap: 0.8rem; font-size: 0.92rem; color: rgba(255,255,255,0.85); font-weight: 700;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); border-radius: 12px; padding: 0.7rem 1rem; }
+  .xflow .x .ic { flex-shrink: 0; width: 2rem; height: 2rem; border-radius: 50%; background: #fff; border: 2px solid #d9a0a0; color: #c65b5b; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; }
+  .xflow .arrow-row { display: flex; justify-content: center; padding: 0.1rem 0; }
+  .xflow .arrow { color: var(--gold-soft); font-size: 1.3rem; transform: rotate(-90deg); }
+  .xflow .win { display: flex; align-items: center; gap: 0.8rem; font-size: 1rem; color: var(--sec-b); font-weight: 800;
+    background: #fff; border-radius: 12px; padding: 0.9rem 1.1rem; box-shadow: 0 10px 24px rgba(20,6,38,0.25); }
+  .xflow .win .ic { flex-shrink: 0; width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--sec-a); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.05rem; }
+  @media (max-width: 860px) { .urgency-grid { grid-template-columns: 1fr; text-align: center; gap: 1.8rem; } .xflow .arrow { transform: none; } }
 
   /* ===== NEW section 4: 4 stages ===== */
   .method { background: linear-gradient(180deg, var(--white), var(--purple-pale) 140%); padding: 4.5rem 0; }
@@ -1835,10 +1850,10 @@ fbq('track', 'PageView');
   .collage-label { text-align: center; font-size: 0.8rem; font-weight: 800; color: var(--sec-a); margin-bottom: 1rem; }
   .collage { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.9rem; margin: 0 auto 1.8rem; max-width: 600px; }
   .collage .cph {
-    width: 76px; height: 96px; border-radius: 8px; background: linear-gradient(160deg, #d9c8ef, #b79bda);
-    display: flex; align-items: center; justify-content: center; color: var(--sec-a); font-size: 0.6rem; font-weight: 800;
-    text-align: center; padding: 4px; box-shadow: 0 6px 14px rgba(20,6,38,0.18); border: 4px solid #fff;
+    width: 76px; height: 96px; border-radius: 8px; overflow: hidden;
+    box-shadow: 0 6px 14px rgba(20,6,38,0.18); border: 4px solid #fff;
   }
+  .collage .cph img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .collage .cph:nth-child(1) { transform: rotate(-6deg); }
   .collage .cph:nth-child(2) { transform: rotate(4deg) translateY(6px); }
   .collage .cph:nth-child(3) { transform: rotate(-2deg) translateY(-4px); }
@@ -1903,7 +1918,7 @@ fbq('track', 'PageView');
   }
 
   /* ===== curiosity hook ===== */
-  .curio-section { position: relative; overflow: hidden; background: var(--white); color: var(--ink); text-align: center; }
+  .curio-section { position: relative; overflow: hidden; background: linear-gradient(180deg, var(--ivory), var(--purple-pale-2) 130%); color: var(--ink); text-align: center; }
   .curio-section::before {
     content: "😳"; position: absolute; top: 50%; right: 50%; transform: translate(50%,-50%);
     font-size: 22rem; opacity: 0.05; z-index: 0; line-height: 1; pointer-events: none; filter: grayscale(1);
@@ -2143,41 +2158,50 @@ fbq('track', 'PageView');
 
 <section class="strip reveal in" style="position:relative;">
   <div class="crowd">
-    <div class="ph"><img src="images/client-ron-bublil.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-lior-ezer.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-elisheva.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-vered-adess.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-li-tzemach.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-liel.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-sarah-yitzhak.jpg" alt="" loading="lazy"></div>
+    <div class="ph"><img src="images/client-lior-ezer.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-ron-bublil.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-elisheva.jpg" alt="" loading="lazy"></div><div class="ph"><img src="images/client-li-tzemach.jpg" alt="" loading="lazy"></div>
   </div>
   <h2 class="sh">השיטה של מאיה קיסלב שכבר הפכה מאות בעלי עסקים ל<span class="marker-gold">בחירה הברורה</span> בתחום שלהם</h2>
   <div class="row"><span class="pill">17 מחזורי ליווי</span><span class="pill">מאות בעלי עסקים</span><span class="pill">150,000+ ₪ בלימודי שיווק</span><span class="pill">0→100K ₪ תוך 9 חודשים</span></div>
 </section>
 
 <section class="pain reveal in" style="position:relative;">
-  <p style="font-weight:800;font-size:1.05rem;margin-bottom:1.3rem;">בואו נגיד את האמת: אם בכל שיחת מכירה אתם צריכים להסביר מחדש למה אתם טובים - <span class="underline-gold">השיווק שלכם לא עשה את העבודה שלו</span>.</p>
-  <div class="pain-bullets">
-    <div class="pain-bullet"><b>יש חודשים שאתם עמוסים, ואז פתאום מגיעה ירידה</b><span class="badge">✕</span></div>
-    <div class="pain-bullet"><b>מי שכן פונה שואל "יקר לי" - ונעלם</b><span class="badge">✕</span></div>
-    <div class="pain-bullet"><b>גם עם מנהלת סושיאל, התוכן עדיין לא באמת מדבר בשמכם</b><span class="badge">✕</span></div>
+  <div class="pain-grid">
+    <div class="pain-text">
+      <p style="font-weight:800;font-size:1.1rem;">בואו נגיד את האמת: אם בכל שיחת מכירה אתם צריכים להסביר מחדש למה אתם טובים - <span class="underline-gold">השיווק שלכם לא עשה את העבודה שלו</span>.</p>
+      <p>אם הלקוחות מגיעים קרים, מתמקחים, משווים אתכם לעוד חמישה בעלי מקצוע ונעלמים - הבעיה היא לא רק כמות הלידים. הבעיה היא שהם לא מבינים למה לבחור דווקא בכם.</p>
+      <div class="close">
+        <p>יש עסקים שהפכו ל<span class="underline-gold" style="color:#fff;border-bottom-color:#f0a8ae;">בחירה הברורה</span> בתחום שלהם - אנשים כבר מכירים אותם, כבר מחכים להם.</p>
+        <p>ויש עסקים שעדיין <span class="underline-gold" style="color:#fff;border-bottom-color:#f0a8ae;">נלחמים על שאריות</span> - עוד ליד קר, עוד לקוח שמתמקח, עוד שיחה שמתחילה מאפס.</p>
+        <p>ההבדל ביניהם הוא לא כמה הם טובים. אלא איך שהם משווקים.</p>
+      </div>
+      <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">אני רוצה להיות הבחירה הברורה</span><span class="btn-sub">197 ₪ · 100 מקומות בלבד</span></a>
+    </div>
+    <div class="pain-graphic">
+      <div class="pain-graphic-card"><span class="ic">✕</span><span class="txt">יש חודשים שאתם עמוסים, ואז פתאום מגיעה ירידה</span></div>
+      <div class="pain-graphic-card"><span class="ic">✕</span><span class="txt">מי שכן פונה שואל "יקר לי" - ונעלם</span></div>
+      <div class="pain-graphic-card"><span class="ic">✕</span><span class="txt">גם עם מנהלת סושיאל, התוכן עדיין לא באמת מדבר בשמכם</span></div>
+      <div class="pain-graphic-win"><span class="ic">✓</span><span class="txt">בידול ברור = לקוחות שכבר יודעים למה אתם</span></div>
+    </div>
   </div>
-  <p>אם הלקוחות מגיעים קרים, מתמקחים, משווים אתכם לעוד חמישה בעלי מקצוע ונעלמים -<br>הבעיה היא לא רק כמות הלידים.<br>הבעיה היא שהם לא מבינים למה לבחור דווקא בכם.</p>
-  <div class="close">
-    <p>יש עסקים שהפכו ל<span class="underline-gold" style="color:#fff;border-bottom-color:#f0a8ae;">בחירה הברורה</span> בתחום שלהם - אנשים כבר מכירים אותם, כבר מחכים להם.</p>
-    <p>ויש עסקים שעדיין <span class="underline-gold" style="color:#fff;border-bottom-color:#f0a8ae;">נלחמים על שאריות</span> - עוד ליד קר, עוד לקוח שמתמקח, עוד שיחה שמתחילה מאפס.</p>
-    <p>ההבדל ביניהם הוא לא כמה הם טובים. אלא איך שהם משווקים.</p>
-  </div>
-  <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">אני רוצה להיות הבחירה הברורה</span><span class="btn-sub">197 ₪ · 100 מקומות בלבד</span></a>
 </section>
 
 <section class="urgency reveal in">
-  <p style="font-weight:800;">השיווק נהיה קשה יותר. נקודה.</p>
-  <p>יש יותר תוכן. יותר מתחרים. יותר מודעות. יותר בעלי עסקים שמעלים בדיוק את אותם סרטונים, אומרים בדיוק את אותם משפטים, ומבטיחים בדיוק את אותן הבטחות.</p>
-  <p>וזו לא הרגשה - זו המציאות שכל בעל עסק כבר מרגיש על הבשר שלו.</p>
-  <p>אז לא - הפתרון הוא לא להעלות עוד שלושה רילסים בשבוע. <span class="underline-gold">הפתרון הוא לגרום לאנשים להבין למה אתם לא דומים לאף אחד אחר</span>.</p>
-  <div class="xflow">
-    <div class="x"><div class="ic">✕</div>עוד תוכן</div>
-    <div class="x"><div class="ic">✕</div>עוד ממומן</div>
-    <div class="x"><div class="ic">✕</div>עוד עריכה</div>
-    <span class="arrow">←</span>
-    <div class="win"><div class="ic">✓</div>בידול אמיתי</div>
+  <div class="urgency-grid">
+    <div class="urgency-text">
+      <p style="font-weight:800;">השיווק נהיה קשה יותר. נקודה.</p>
+      <p>יש יותר תוכן. יותר מתחרים. יותר מודעות. יותר בעלי עסקים שמעלים בדיוק את אותם סרטונים, אומרים בדיוק את אותם משפטים, ומבטיחים בדיוק את אותן הבטחות.</p>
+      <p>וזו לא הרגשה - זו המציאות שכל בעל עסק כבר מרגיש על הבשר שלו.</p>
+      <p>אז לא - הפתרון הוא לא להעלות עוד שלושה רילסים בשבוע. <span class="underline-gold">הפתרון הוא לגרום לאנשים להבין למה אתם לא דומים לאף אחד אחר</span>.</p>
+      <p class="close">וככל שמחכים - ההצפה רק גדלה. מי שמחכה, נשאר עוד עסק בתחום. מי שזז עכשיו - ב-3.9, לפני שה-100 מקומות נגמרים - הופך לבחירה הברורה.</p>
+    </div>
+    <div class="xflow">
+      <div class="x"><div class="ic">✕</div>עוד תוכן</div>
+      <div class="x"><div class="ic">✕</div>עוד ממומן</div>
+      <div class="x"><div class="ic">✕</div>עוד עריכה</div>
+      <div class="arrow-row"><span class="arrow">←</span></div>
+      <div class="win"><div class="ic">✓</div>בידול אמיתי</div>
+    </div>
   </div>
-  <p class="close">וככל שמחכים - ההצפה רק גדלה. מי שמחכה, נשאר עוד עסק בתחום. מי שזז עכשיו - ב-3.9, לפני שה-100 מקומות נגמרים - הופך לבחירה הברורה.</p>
 </section>
 
 <section class="section-pad reveal in" style="background:var(--ivory);position:relative;">
@@ -2232,7 +2256,7 @@ fbq('track', 'PageView');
     <p class="proof-close-line">ארבע נשים. ארבעה תחומים שונים לגמרי. דבר אחד משותף - כולן עברו את אותו תהליך.</p>
     <div class="collage-label">ועוד עשרות מהמחזורים הקודמים</div>
     <div class="collage">
-      <div class="cph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="cph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="cph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="cph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="cph"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+      <div class="cph"><img src="images/client-liel.jpg" alt="" loading="lazy"></div><div class="cph"><img src="images/client-sarah-yitzhak.jpg" alt="" loading="lazy"></div><div class="cph"><img src="images/client-vered-adess.jpg" alt="" loading="lazy"></div>
     </div>
     <div style="text-align:center;">
       <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">אני רוצה להיות הבחירה הברורה</span><span class="btn-sub">197 ₪ · 100 מקומות בלבד</span></a>
