@@ -714,17 +714,33 @@ fbq('track', 'PageView');
   @media (max-width: 640px) { .mcard { padding: 2rem 1.5rem; } }
 
   /* ===== NEW section 6: bio photo-duo (real photos, mockup-short copy) ===== */
-  .bio-v2 { background: linear-gradient(180deg, var(--purple-pale) -40%, var(--white) 15%); padding: 4.5rem 1.6rem; text-align: center; }
-  .bio-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2rem; align-items: start; max-width: 900px; margin: 0 auto 1.6rem; text-align: right; }
-  .bio-grid-text p { max-width: none; margin-inline: 0; }
-  .bio-main-photo { display: block; width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 0; box-shadow: none; margin: 0; justify-self: stretch; }
-  .bio-gallery { display: flex; justify-content: center; gap: 1rem; max-width: 620px; margin: 2rem auto 0; flex-wrap: wrap; }
-  .bio-gallery img { width: 150px; height: 190px; object-fit: cover; object-position: center 15%; border-radius: 14px; box-shadow: 0 10px 22px rgba(123,55,153,0.2); }
-  @media (max-width: 720px) { .bio-grid { grid-template-columns: 1fr; text-align: center; } .bio-grid-text p { margin-inline: auto; max-width: 480px; } }
-  .bio-v2 p { max-width: 520px; margin-inline: auto; color: var(--ink); text-align: right; font-size: 0.95rem; overflow-wrap: break-word; }
-  .bio-v2 p.crisis { font-weight: 700; color: var(--sec-a); }
-  .bio-v2-pullquote { max-width: 520px; margin: 1.6rem auto; border-inline-end: 4px solid var(--gold-refined); padding-inline-end: 1.2rem; text-align: right; }
+  /* bio part 1: intro, full-bleed photo, unique deep gradient (not reused elsewhere) */
+  .bio-intro-section { position: relative; background: linear-gradient(135deg, var(--purple-deep) 0%, var(--sec-b) 55%, var(--purple-void) 100%); overflow: hidden; }
+  .bio-intro-grid { display: grid; grid-template-columns: 42% 1fr; align-items: stretch; max-width: 1100px; margin: 0 auto; min-height: 560px; }
+  .bio-intro-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .bio-intro-text { display: flex; flex-direction: column; justify-content: center; padding: 3rem 2.6rem; text-align: right; }
+  .bio-intro-text p { color: rgba(255,255,255,0.88); font-size: 0.98rem; margin: 0 0 1rem; max-width: 480px; margin-inline-start: auto; overflow-wrap: break-word; }
+  .bio-intro-text p:first-child { color: var(--white); font-size: 1.25rem; margin-bottom: 1.3rem; }
+  @media (max-width: 720px) {
+    .bio-intro-grid { grid-template-columns: 1fr; max-width: 100%; min-height: auto; }
+    .bio-intro-photo { height: 380px; }
+    .bio-intro-text { padding: 2.2rem 1.4rem; text-align: center; }
+    .bio-intro-text p { margin-inline: auto; max-width: 480px; }
+  }
+
+  /* bio part 2: story, alternating image/text rows, lighter bg for contrast against part 1 */
+  .bio-story-section { background: var(--ivory); padding: 4.5rem 1.6rem; }
+  .bio-story-row { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 2.5rem; align-items: center; max-width: 920px; margin: 0 auto 3rem; }
+  .bio-story-img { width: 100%; height: 100%; min-height: 280px; object-fit: cover; border-radius: 18px; box-shadow: 0 20px 40px rgba(83,30,98,0.18); }
+  .bio-story-text p { color: var(--ink); text-align: right; font-size: 0.98rem; overflow-wrap: break-word; margin: 0 0 1rem; }
+  .bio-story-text p.crisis { font-weight: 700; color: var(--sec-a); }
+  .bio-v2-pullquote { margin: 0 0 1.2rem; border-inline-end: 4px solid var(--gold-refined); padding-inline-end: 1.2rem; text-align: right; }
   .bio-v2-pullquote p { font-size: 1.05rem; font-weight: 700; color: var(--sec-a); margin: 0; }
+  @media (max-width: 720px) {
+    .bio-story-row { grid-template-columns: 1fr; gap: 1.4rem; margin-bottom: 2.2rem; }
+    .bio-story-img { order: -1; min-height: 220px; }
+    .bio-story-text p { text-align: center; margin-inline: auto; max-width: 480px; }
+  }
 
   /* ===== NEW section 7: who-for disqualify table ===== */
   /* rebuilt from Tamar's real live CSS (fetched directly, not estimated from screenshot) */
@@ -2122,7 +2138,7 @@ fbq('track', 'PageView');
     .pain { padding-top: 3rem; padding-bottom: 2.4rem; }
     .urgency { padding-top: 3rem; padding-bottom: 3rem; }
     .method { padding-top: 3rem; padding-bottom: 3rem; }
-    .bio-v2 { padding-top: 3rem; padding-bottom: 3rem; }
+    .bio-story-section { padding-top: 3rem; padding-bottom: 3rem; }
     .grt { padding-top: 3rem; padding-bottom: 3rem; }
     .closer-v2 { padding-top: 3rem; padding-bottom: 3rem; }
   }
@@ -2372,23 +2388,31 @@ fbq('track', 'PageView');
   </div>
 </section>
 
-<section class="bio-v2 reveal in" style="position:relative;" id="nav-bio">
-  <div class="bio-grid">
-    <div class="bio-grid-text">
-      <p style="font-weight:800;">אם עוד לא הכרנו - נעים מאוד, <span style="color:var(--sec-a);">מאיה קיסלב</span>.</p>
+<section class="bio-intro-section reveal in" id="nav-bio">
+  <div class="bio-intro-grid">
+    <img class="bio-intro-photo" src="images/maya-story-photo.png" alt="מאיה קיסלב" loading="lazy">
+    <div class="bio-intro-text">
+      <p style="font-weight:800;">אם עוד לא הכרנו - נעים מאוד, <span style="color:var(--gold-soft);">מאיה קיסלב</span>.</p>
       <p>השקעתי עד היום מעל 150,000 ₪ בלימודי שיווק, למדתי אצל מהמשווקים הגדולים בעולם ברוסיה ובארצות הברית, והוסמכתי כמשווקת מקצועית.<br>אבל הידע לבד לא בנה לי עסק.</p>
       <p><b>מה שבנה לי עסק היה היכולת לקחת שיווק, להבין אותו לעומק, ליישם אותו מהר - ולהפוך אותו לתוצאות.<br>בתוך 9 חודשים - מ-0 ל-100,000 ₪ בחודש.</b><br>לא אחרי עשר שנים, לא עם תקציבי פרסום מטורפים.</p>
     </div>
-    <img class="bio-main-photo" src="images/maya-story-photo.png" alt="מאיה קיסלב" loading="lazy">
   </div>
-  <p style="padding-top:1.6rem;">עבדתי עם מאות בעלי עסקים, וראיתי שוב ושוב איך עסק טוב יכול להישאר תקוע -<br>רק כי ברשת הוא לא מצליח להעביר למה לבחור דווקא בו.</p>
-  <p class="crisis">אבל את הדרך שלי התחלתי מעסק ביוטי שהיה תקוע שנה שלמה על 2,000 ₪ בחודש, ופחדתי ממצלמה.<br>עד שעברתי משבר אישי שגרם לי להבין שביוטי זה לא אני - וסגרתי עסק מצליח כדי ללכת אחרי הלב שלי לשיווק.</p>
-  <div class="bio-v2-pullquote"><p>וזו בדיוק הסיבה שהשיטה שלי לא נשארת בתיאוריה - היא נבנתה מתוך אלפי שעות של למידה, יישום, ותוצאות חריגות בשטח.</p></div>
-  <p>לא עוד הרצאה על בידול. לא עוד משפטים יפים על מותג.<br>אלא הדרך שבה הופכים עסק טוב לבחירה הברורה בתחום שלו.</p>
-  <div class="bio-gallery">
-    <img src="images/bio-2.jpg" alt="מאיה עם הבאנר של האקדמיה" loading="lazy">
-    <img src="images/bio-4.jpg" alt="מאיה בראיון מול קהל" loading="lazy">
-    <img src="images/bio-5.jpg" alt="מאיה מציגה בסמינר" loading="lazy">
+</section>
+
+<section class="bio-story-section reveal in">
+  <div class="bio-story-row">
+    <div class="bio-story-text">
+      <p>עבדתי עם מאות בעלי עסקים, וראיתי שוב ושוב איך עסק טוב יכול להישאר תקוע - רק כי ברשת הוא לא מצליח להעביר למה לבחור דווקא בו.</p>
+      <p class="crisis">אבל את הדרך שלי התחלתי מעסק ביוטי שהיה תקוע שנה שלמה על 2,000 ₪ בחודש, ופחדתי ממצלמה. עד שעברתי משבר אישי שגרם לי להבין שביוטי זה לא אני - וסגרתי עסק מצליח כדי ללכת אחרי הלב שלי לשיווק.</p>
+    </div>
+    <img class="bio-story-img" src="images/bio-2.jpg" alt="מאיה עם הבאנר של האקדמיה" loading="lazy">
+  </div>
+  <div class="bio-story-row reverse">
+    <img class="bio-story-img" src="images/bio-4.jpg" alt="מאיה בראיון מול קהל" loading="lazy">
+    <div class="bio-story-text">
+      <div class="bio-v2-pullquote"><p>וזו בדיוק הסיבה שהשיטה שלי לא נשארת בתיאוריה - היא נבנתה מתוך אלפי שעות של למידה, יישום, ותוצאות חריגות בשטח.</p></div>
+      <p>לא עוד הרצאה על בידול. לא עוד משפטים יפים על מותג.<br>אלא הדרך שבה הופכים עסק טוב לבחירה הברורה בתחום שלו.</p>
+    </div>
   </div>
   <div class="row" style="display:flex;justify-content:center;gap:0.5rem;flex-wrap:wrap;margin-top:1rem;"><span class="pill">150,000+ ₪ בלימודי שיווק</span><span class="pill">17 מחזורי ליווי</span><span class="pill">מאות בעלי עסקים</span></div>
 </section>
