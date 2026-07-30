@@ -656,7 +656,7 @@ fbq('track', 'PageView');
     text-decoration: underline; text-underline-offset: 3px; margin: 1.6rem auto 0; max-width: fit-content;
   }
   .lead-magnet-link:hover { color: var(--white); }
-  .pain-gapmeter { display: flex; flex-direction: column; gap: 1.5rem; }
+  .pain-gapmeter { display: flex; flex-direction: column; gap: 1.5rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.22); border-radius: 18px; padding: 1.8rem 1.7rem; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 16px 40px rgba(20,6,38,0.18); }
   .gm-row-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.45rem; }
   .gm-label { font-weight: 700; font-size: clamp(0.9rem, 0.85rem + 0.25vw, 1rem); color: rgba(255,255,255,0.85); }
   .gm-pct { font-weight: 800; font-size: clamp(1.05rem, 1rem + 0.25vw, 1.2rem); color: var(--white); }
@@ -690,7 +690,7 @@ fbq('track', 'PageView');
   .loop-back-label { font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.85rem); color: rgba(255,255,255,0.55); font-weight: 700; margin-top: -0.4rem; }
   .loop-wall { background: rgba(234,62,78,0.15); border: 1px solid rgba(234,62,78,0.45); color: var(--red-bright); font-weight: 800; font-size: clamp(0.9rem, 0.85rem + 0.2vw, 1rem); padding: 0.6rem 1.2rem; border-radius: 8px; margin-top: 0.3rem; }
   .loop-break-arrow { color: var(--gold-soft); font-size: 1.5rem; margin: 0.4rem 0; line-height: 1; }
-  .loop-win { background: var(--white); color: var(--sec-b); font-weight: 800; font-size: 1.05rem; padding: 0.9rem 1.7rem; border-radius: 999px; box-shadow: 0 10px 24px rgba(20,6,38,0.3); }
+  .loop-win { background: linear-gradient(131deg, var(--sec-a), var(--purple-deep) 68%); border: 1px solid rgba(240,214,163,0.4); color: var(--white); font-weight: 800; font-size: 1.05rem; padding: 0.9rem 1.7rem; border-radius: 999px; box-shadow: 0 10px 24px rgba(20,6,38,0.4); }
   @media (max-width: 860px) { .urgency-grid { grid-template-columns: 1fr; text-align: center; gap: 2.2rem; } }
   @media (max-width: 860px) { .urgency-grid { grid-template-columns: 1fr; text-align: center; gap: 1.8rem; } .urgency-text { text-align: right; } .xflow .arrow { transform: none; } }
 
@@ -702,19 +702,20 @@ fbq('track', 'PageView');
   .mcard:nth-child(1) { background: var(--white); border-inline-end: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .mcard:nth-child(2) { background: linear-gradient(160deg, var(--sec-a), var(--purple-deep)); }
   .mcard:nth-child(3) { background: linear-gradient(160deg, var(--purple-deep), var(--purple-black)); }
-  .mcard:nth-child(4) { background: var(--white); border-inline-start: 1px solid var(--line); border-top: 1px solid var(--line); }
+  .mcard:nth-child(4) { background: linear-gradient(155deg, var(--purple-black), #0f0818 130%); position: relative; }
+  .mcard:nth-child(4)::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px rgba(240,214,163,0.25); pointer-events: none; }
   .mcard-icon { display: block; margin-bottom: 0.9rem; }
-  .mcard:nth-child(1) .mcard-icon, .mcard:nth-child(4) .mcard-icon { color: var(--gold-refined); }
-  .mcard:nth-child(2) .mcard-icon, .mcard:nth-child(3) .mcard-icon { color: var(--gold-soft); }
+  .mcard:nth-child(1) .mcard-icon { color: var(--gold-refined); }
+  .mcard:nth-child(2) .mcard-icon, .mcard:nth-child(3) .mcard-icon, .mcard:nth-child(4) .mcard-icon { color: var(--gold-soft); }
   .mcard .n { font-weight: 800; font-size: 2.6rem; display: block; margin-bottom: 1rem; line-height: 1; }
-  .mcard:nth-child(1) .n, .mcard:nth-child(4) .n { color: var(--gold-refined); }
-  .mcard:nth-child(2) .n, .mcard:nth-child(3) .n { color: var(--gold-soft); }
+  .mcard:nth-child(1) .n { color: var(--gold-refined); }
+  .mcard:nth-child(2) .n, .mcard:nth-child(3) .n, .mcard:nth-child(4) .n { color: var(--gold-soft); }
   .mcard b { display: block; font-size: 1.15rem; margin-bottom: 0.7rem; line-height: 1.35; }
-  .mcard:nth-child(1) b, .mcard:nth-child(4) b { color: var(--ink); }
-  .mcard:nth-child(2) b, .mcard:nth-child(3) b { color: var(--white); }
+  .mcard:nth-child(1) b { color: var(--ink); }
+  .mcard:nth-child(2) b, .mcard:nth-child(3) b, .mcard:nth-child(4) b { color: var(--white); }
   .mcard span { display: block; font-size: 0.88rem; line-height: 1.6; }
-  .mcard:nth-child(1) span, .mcard:nth-child(4) span { color: var(--ink-dim); }
-  .mcard:nth-child(2) span, .mcard:nth-child(3) span { color: rgba(255,255,255,0.8); }
+  .mcard:nth-child(1) span { color: var(--ink-dim); }
+  .mcard:nth-child(2) span, .mcard:nth-child(3) span, .mcard:nth-child(4) span { color: rgba(255,255,255,0.8); }
   .method .center { text-align: center; margin-top: 3rem; padding: 0 1.4rem; }
   @media (max-width: 640px) { .mcard { padding: 2rem 1.5rem; } }
 
@@ -722,7 +723,14 @@ fbq('track', 'PageView');
   /* bio part 1: intro, full-bleed photo, unique deep gradient (not reused elsewhere) */
   .bio-intro-section { position: relative; background: linear-gradient(135deg, var(--purple-deep) 0%, var(--sec-b) 55%, var(--purple-void) 100%); overflow: hidden; }
   .bio-intro-grid { display: grid; grid-template-columns: 42% 1fr; align-items: stretch; max-width: 1100px; margin: 0 auto; min-height: 560px; }
+  .bio-intro-photo-wrap { position: relative; height: 100%; }
   .bio-intro-photo { width: 100%; height: 100%; object-fit: cover; object-position: center 12%; display: block; }
+  .bio-stat-tag {
+    position: absolute; bottom: 1.6rem; left: 50%; transform: translateX(-50%) rotate(-1.2deg); white-space: nowrap;
+    background: var(--white); color: var(--sec-b); font-weight: 800; font-size: 0.85rem; padding: 0.65rem 1.4rem;
+    border-radius: 8px; box-shadow: 0 10px 24px rgba(0,0,0,0.4);
+  }
+  @media (max-width: 480px) { .bio-stat-tag { font-size: 0.72rem; padding: 0.55rem 1rem; white-space: normal; text-align: center; max-width: 85%; } }
   .bio-intro-text { display: flex; flex-direction: column; justify-content: center; padding: 3rem 2.6rem; text-align: right; }
   .bio-intro-text p { color: rgba(255,255,255,0.88); font-size: 0.98rem; margin: 0 0 1rem; max-width: 480px; margin-inline-start: auto; overflow-wrap: break-word; }
   .bio-intro-text p:first-child { color: var(--white); font-size: 1.25rem; margin-bottom: 1.3rem; }
@@ -790,7 +798,7 @@ fbq('track', 'PageView');
   }
 
   /* ===== NEW section 8: guarantee with seals ===== */
-  .grt { background: linear-gradient(180deg, var(--white), var(--ivory)); padding: 4.5rem 1.6rem; text-align: center; }
+  .grt { background: linear-gradient(165deg, var(--white) 0%, var(--purple-pale) 55%, var(--ivory) 100%); padding: 4.5rem 1.6rem; text-align: center; }
   .grt .wordmark { display: inline-flex; flex-direction: column; align-items: center; gap: 0.15rem; margin-bottom: 1.6rem; }
   .grt .wordmark b { font-size: 1.05rem; letter-spacing: 0.08em; color: var(--sec-a); font-weight: 700; }
   .grt .wordmark span { font-size: 0.62rem; letter-spacing: 0.15em; color: var(--ink-dim); text-transform: uppercase; }
@@ -1426,6 +1434,10 @@ fbq('track', 'PageView');
   @media (prefers-reduced-motion: no-preference) { .quiz-answer-btn { transition: border-color 0.15s ease, background 0.15s ease; } }
   .quiz-answer-btn:hover { border-color: var(--sec-a); background: var(--purple-pale); }
   .quiz-result-text { font-size: 1.15rem; line-height: 1.7; color: var(--ink); margin-bottom: 1.6rem; }
+  .quiz-box.quiz-done { background: linear-gradient(131deg, var(--sec-a), var(--purple-deep) 68%); transition: background 0.4s ease; }
+  .quiz-box.quiz-done .quiz-progress-label { color: rgba(255,255,255,0.85); }
+  .quiz-box.quiz-done .quiz-result-text { color: rgba(255,255,255,0.92); }
+  .quiz-box.quiz-done .quiz-gauge-label { color: var(--white); }
   .quiz-gauge { position: relative; width: 160px; margin: 0 auto 1rem; }
   #quizGaugeFill { transition: stroke-dashoffset 1s cubic-bezier(0.22, 1, 0.36, 1); }
   .quiz-gauge-label {
@@ -1466,13 +1478,17 @@ fbq('track', 'PageView');
   }
   .faq-item summary {
     cursor: pointer; padding: 1.1rem 1.4rem; font-weight: 800; color: var(--white);
-    list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    list-style: none; display: flex; align-items: center; justify-content: flex-start; gap: 0.9rem;
   }
   .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before {
+    content: "?"; font-size: 0.95rem; color: var(--white); background: rgba(255,255,255,0.18); width: 1.5rem; height: 1.5rem;
+    border-radius: 6px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 800;
+  }
   .faq-item summary::after {
     content: "+"; font-size: 1.1rem; color: var(--sec-a); background: var(--white); width: 1.6rem; height: 1.6rem;
     border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2); margin-inline-start: auto;
   }
   .faq-item[open] summary::after { transform: rotate(45deg); }
   .faq-item-body { padding: 0 1.4rem 1.2rem; color: rgba(255,255,255,0.92); line-height: 1.6; }
@@ -1481,6 +1497,7 @@ fbq('track', 'PageView');
   }
   .faq-item.faq-no { background: rgba(176,106,124,0.14); border: 1px solid rgba(176,106,124,0.35); box-shadow: none; }
   .faq-item.faq-no summary { color: var(--sec-b); }
+  .faq-item.faq-no summary::before { background: var(--sec-b); color: var(--white); }
   .faq-item.faq-no summary::after { content: "❌"; background: none; font-size: 1rem; color: initial; box-shadow: none; }
   .faq-item.faq-no[open] summary::after { transform: none; }
   .faq-item.faq-no .faq-item-body { color: var(--ink); }
@@ -1585,6 +1602,8 @@ fbq('track', 'PageView');
   @media (prefers-reduced-motion: no-preference) {
     .ghost-btn { transition: transform 0.2s ease, background 0.2s ease; }
     .ghost-btn:hover { transform: translateY(-3px); background: rgba(255,255,255,0.16); }
+    .closer-tickets .gold-btn { animation: ticketHaloPulseGold 2.2s ease-in-out infinite; }
+    .closer-tickets .ghost-btn { animation: ticketHaloPulseWhite 2.6s ease-in-out infinite; }
   }
   @media (max-width: 480px) {
 
@@ -1927,14 +1946,16 @@ fbq('track', 'PageView');
     box-shadow: 0 10px 30px rgba(20,6,38,0.08);
   }
   .proof-big-case p { font-size: 1.05rem; line-height: 1.7; color: var(--ink); }
-  .proof-client-name { font-weight: 800; font-size: 1.45rem; color: var(--sec-a); display: block; margin-bottom: 0.5rem; }
+  .proof-client-name { font-weight: 800; font-size: 1.45rem; color: var(--sec-a); display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.5rem; }
+  .proof-client-name::before { content: "✓"; flex-shrink: 0; width: 1.5rem; height: 1.5rem; border-radius: 6px; background: var(--sec-a); color: var(--white); font-weight: 800; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; }
   .proof-stat { display: inline-block; font-weight: 800; font-size: 0.92rem; color: var(--sec-a); background: var(--purple-pale); padding: 0.3rem 0.8rem; border-radius: 999px; margin-bottom: 0.7rem; }
   .proof-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 980px; margin: 0 auto 2.5rem; }
   .proof-mini-card { background: var(--white); border-radius: var(--radius-card); padding: 1.6rem 1.3rem; text-align: center; box-shadow: 0 8px 24px rgba(20,6,38,0.06); }
   .proof-mini-card .phone-mock { margin: 0 auto 1rem; }
   .proof-big-case-phone { width: 160px; }
   .proof-mini-card p { font-size: 0.92rem; line-height: 1.6; color: var(--ink-dim); }
-  .proof-mini-card .proof-client-name { font-size: 1.2rem; margin-bottom: 0.4rem; }
+  .proof-mini-card .proof-client-name { font-size: 1.2rem; gap: 0.45rem; margin-bottom: 0.4rem; }
+  .proof-mini-card .proof-client-name::before { width: 1.25rem; height: 1.25rem; font-size: 0.72rem; }
   .proof-mini-card .proof-stat { font-size: 0.82rem; padding: 0.25rem 0.65rem; margin-bottom: 0.5rem; }
   @media (max-width: 860px) {
     .proof-big-case { flex-direction: column; text-align: center; }
@@ -2031,6 +2052,11 @@ fbq('track', 'PageView');
   .curio-section-v2 h2 { color: var(--white); font-size: clamp(1.55rem, 1.3rem + 1.1vw, 2rem); margin-bottom: 1.3rem; }
   .curio-section-v2 p { color: rgba(255,255,255,0.85); font-size: 1.04rem; line-height: 1.75; margin-bottom: 1rem; text-align: right; }
   .curio-section-v2 p.pop { font-weight: 800; font-size: 1.2rem; color: var(--gold-soft); margin: 1.6rem 0 0; text-align: right; }
+  .curio-section-v2 p.curio-punch {
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.18); border-radius: 14px;
+    padding: 1.1rem 1.4rem; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    font-size: 1.15rem; font-weight: 700; margin: 1.2rem 0; box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  }
   .curio-train-v2 {
     position: relative; overflow: hidden; direction: ltr; margin-top: 2.8rem; padding: 2.2rem 0;
     background: transparent;
@@ -2411,7 +2437,10 @@ fbq('track', 'PageView');
 
 <section class="bio-intro-section reveal in" id="nav-bio">
   <div class="bio-intro-grid">
-    <img class="bio-intro-photo" src="images/maya-story-photo.png" alt="מאיה קיסלב" loading="lazy">
+    <div class="bio-intro-photo-wrap">
+      <img class="bio-intro-photo" src="images/maya-story-photo.png" alt="מאיה קיסלב" loading="lazy">
+      <span class="bio-stat-tag">17 מחזורים · 100K ₪ מ-0 תוך 9 חודשים</span>
+    </div>
     <div class="bio-intro-text">
       <p style="font-weight:800;">אם עוד לא הכרנו - נעים מאוד, <span style="color:var(--gold-soft);white-space:nowrap;">מאיה קיסלב</span>.</p>
       <p>השקעתי עד היום מעל 150,000 ₪ בלימודי שיווק, למדתי אצל מהמשווקים הגדולים בעולם ברוסיה ובארצות הברית, והוסמכתי כמשווקת מקצועית.<br>אבל הידע לבד לא בנה לי עסק.</p>
@@ -2469,7 +2498,9 @@ fbq('track', 'PageView');
   <div class="wrap">
     <span class="curio-eyebrow">רגע לפני שממשיכים</span>
     <h2>אני רוצה להרוס לכם <span class="underline-gold" style="border-bottom-color:var(--red-strong);">משהו</span></h2>
-    <p>אחרי הסמינר הזה, כנראה שלא תוכלו יותר לגלול באינסטגרם כמו פעם. כי פתאום תבינו <span class="yellow-highlight">למה עצרתם דווקא על הסרטון הזה</span>, למה בחרתם דווקא בבעל העסק הזה, למה יש <span class="coral-underline">עמודים שאי אפשר לשכוח</span> - ולמה אחרים מרגישים בדיוק אותו הדבר.</p>
+    <p>אחרי הסמינר הזה, כנראה שלא תוכלו יותר לגלול באינסטגרם כמו פעם.</p>
+    <p class="curio-punch">כי פתאום תבינו <span class="yellow-highlight">למה עצרתם דווקא על הסרטון הזה</span>.</p>
+    <p>למה בחרתם דווקא בבעל העסק הזה, למה יש <span class="coral-underline">עמודים שאי אפשר לשכוח</span> - ולמה אחרים מרגישים בדיוק אותו הדבר.</p>
     <p class="pop">וזה בדיוק מה שנעשה במשך 5.5 שעות. לא נלמד להעתיק עסקים מצליחים - נלמד להבין למה הם מצליחים, כדי שתוכלו לבנות את זה בדרך שמתאימה רק לכם.</p>
   </div>
   <div class="photo-train-section curio-train-v2" aria-hidden="false">
@@ -2596,7 +2627,7 @@ fbq('track', 'PageView');
     <div class="countdown-box"><b id="cd2-secs">00</b><span>שנ'</span></div>
   </div>
   <p class="price-anchor">תחשבו כמה כבר עלה לכם לא להיות מבודלים - כסף שהלך על ממומן בלי בידול, שעות על עוד סרטונים שלא הביאו את הלקוחות שרציתם. 5.5 שעות שנותנות לזה תשובה אחת ולתמיד - ב-197₪.</p>
-  <div class="ticket-pair" style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem;margin-bottom:0.8rem;">
+  <div class="ticket-pair closer-tickets" style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem;margin-bottom:0.8rem;">
     <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">כרטיס יחיד</span><span class="btn-sub" style="color:var(--sec-a);">197 ₪</span></a>
     <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="ghost-btn two-line"><span class="btn-main">כרטיס זוגי</span><span class="btn-sub">297 ₪</span></a>
   </div>
@@ -3344,6 +3375,7 @@ fbq('track', 'PageView');
           var msg = score <= 1 ? messages.low : (score <= 2 ? messages.mid : messages.high);
           resultText.textContent = msg;
           result.hidden = false;
+          box.classList.add('quiz-done');
           gaugeLabel.textContent = score + '/4';
           if (gaugeFill) gaugeFill.style.strokeDashoffset = (220 - (220 * score / 4));
           if (window.burstConfettiAt) {
