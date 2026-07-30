@@ -618,8 +618,8 @@ fbq('track', 'PageView');
   /* ===== NEW section 1.5: quick proof strip (overlapping face circles + headline + pills) ===== */
   .strip { position: relative; background: var(--white); padding: 9rem 1.4rem 4rem; text-align: center; overflow: hidden; }
   .strip-bg { position: absolute; inset: 0; z-index: 0; }
-  .strip-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; opacity: 0.16; }
-  .strip-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.7), var(--white) 78%); }
+  .strip-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; opacity: 0.4; filter: grayscale(0.7) brightness(1.25) contrast(0.92); }
+  .strip-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.35), var(--white) 88%); }
   .strip > *:not(.strip-bg) { position: relative; z-index: 1; }
   .strip h2.sh { font-size: clamp(1.5rem, 1.25rem + 1vw, 2rem); max-width: 26ch; margin: 0 auto 1.5rem; font-weight: 800; color: var(--ink); line-height: 1.4; overflow-wrap: break-word; word-break: break-word; }
   .strip .row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
@@ -683,26 +683,6 @@ fbq('track', 'PageView');
     font-weight: 800; color: var(--gold-soft); margin: 1.4rem 0 0; text-align: right; box-shadow: 0 12px 30px rgba(0,0,0,0.25);
   }
   @media (max-width: 600px) { .urgency-mark { font-size: 13rem; } }
-
-  /* ===== NEW section: agenda + giant timer - the "impossible to miss" logistics moment ===== */
-  .agenda-v2 {
-    position: relative; overflow: hidden; text-align: center;
-    background: linear-gradient(160deg, var(--purple-void) 0%, var(--purple-deep) 60%, var(--sec-b) 130%);
-    padding: 4.5rem 1.6rem;
-  }
-  .agenda-v2 .wrap { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
-  .agenda-v2 h2 { color: var(--white); font-size: clamp(1.5rem, 1.25rem + 1.3vw, 2.1rem); margin-bottom: 2rem; max-width: 24ch; margin-inline: auto; }
-  .agenda-v2 .countdown-info-row { margin: 1.6rem 0 2.6rem; }
-  .agenda-timeline { text-align: right; margin: 0 0 2.4rem; position: relative; }
-  .agenda-timeline::before { content: ""; position: absolute; top: 0.4rem; bottom: 0.4rem; right: 2.55rem; width: 2px; background: rgba(255,255,255,0.15); }
-  .agenda-item { position: relative; display: flex; align-items: baseline; gap: 1.1rem; padding: 0.75rem 0; }
-  .agenda-time { flex-shrink: 0; width: 5.2rem; text-align: center; font-weight: 800; font-variant-numeric: tabular-nums; color: rgba(255,255,255,0.55); font-size: 0.92rem; position: relative; }
-  .agenda-time::after { content: ""; position: absolute; top: 50%; right: -0.6rem; transform: translateY(-50%); width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.35); }
-  .agenda-label { color: rgba(255,255,255,0.82); font-size: 0.98rem; }
-  .agenda-item.highlight .agenda-time { color: var(--gold-soft); }
-  .agenda-item.highlight .agenda-time::after { background: var(--gold-soft); width: 12px; height: 12px; box-shadow: 0 0 0 4px rgba(240,214,163,0.2); }
-  .agenda-item.highlight .agenda-label { color: var(--white); font-weight: 800; font-size: 1.05rem; }
-  @media (max-width: 480px) { .agenda-time { width: 4rem; font-size: 0.82rem; } .agenda-label { font-size: 0.9rem; } .agenda-item.highlight .agenda-label { font-size: 0.96rem; } }
 
   /* ===== NEW section 4: 4 stages ===== */
   .method { background: linear-gradient(180deg, var(--ivory), var(--purple-pale) 140%); padding: 4.5rem 0; }
@@ -2323,32 +2303,6 @@ fbq('track', 'PageView');
   <div class="center"><a href="#form" class="gold-btn-secondary">אני רוצה להיות הבחירה הברורה ←</a></div>
 </section>
 
-<section class="agenda-v2 reveal in">
-  <div class="wrap">
-    <span class="curio-eyebrow">התאריך כבר נקבע</span>
-    <h2>3.9.26 - יום אחד שהופך את כל מה שלמדתם עכשיו למציאות</h2>
-    <div class="countdown-grid">
-      <div class="countdown-box"><span class="countdown-box-num" id="cd3-days">00</span><span class="countdown-box-label">ימים</span></div>
-      <div class="countdown-box"><span class="countdown-box-num" id="cd3-hours">00</span><span class="countdown-box-label">שעות</span></div>
-      <div class="countdown-box"><span class="countdown-box-num" id="cd3-mins">00</span><span class="countdown-box-label">דק'</span></div>
-      <div class="countdown-box"><span class="countdown-box-num" id="cd3-secs">00</span><span class="countdown-box-label">שנ'</span></div>
-    </div>
-    <div class="countdown-info-row">
-      <span class="countdown-info-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="vertical-align:-3px;margin-inline-start:0.4rem;"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>3.9.26, יום חמישי</span>
-      <span class="countdown-info-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="vertical-align:-3px;margin-inline-start:0.4rem;"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>15:30-21:00</span>
-      <span class="countdown-info-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="vertical-align:-3px;margin-inline-start:0.4rem;"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.3"/></svg>לח"י 21, בני ברק</span>
-    </div>
-    <div class="agenda-timeline">
-      <div class="agenda-item"><span class="agenda-time">15:30</span><span class="agenda-label">התכנסות וכוס קפה</span></div>
-      <div class="agenda-item"><span class="agenda-time">15:45</span><span class="agenda-label">פתיחת דלתות</span></div>
-      <div class="agenda-item highlight"><span class="agenda-time">16:00</span><span class="agenda-label">הופכים לעסק שאי אפשר להתעלם ממנו</span></div>
-      <div class="agenda-item"><span class="agenda-time">17:40</span><span class="agenda-label">הפסקה, אוכל ומינגלינג</span></div>
-      <div class="agenda-item highlight"><span class="agenda-time">18:10</span><span class="agenda-label">הופכים תשומת לב למכירות</span></div>
-      <div class="agenda-item"><span class="agenda-time">21:00</span><span class="agenda-label">סיום</span></div>
-    </div>
-    <a href="#form" class="gold-btn">אני רוצה להיות שם ←</a>
-  </div>
-</section>
 
 <section class="pain reveal in" style="position:relative;">
   <div class="pain-grid">
@@ -2927,11 +2881,7 @@ fbq('track', 'PageView');
     var heroD = document.getElementById('hero-cd-days');
     var heroH = document.getElementById('hero-cd-hours');
     var heroM = document.getElementById('hero-cd-mins');
-    var el3D = document.getElementById('cd3-days');
-    var el3H = document.getElementById('cd3-hours');
-    var el3M = document.getElementById('cd3-mins');
-    var el3S = document.getElementById('cd3-secs');
-    if (!elD && !heroD && !el3D) return;
+    if (!elD && !heroD) return;
     var boxes = document.querySelectorAll('.countdown-box');
     var closerUrgency = document.getElementById('closerUrgency');
     function pad(n) { return String(n).padStart(2, '0'); }
@@ -2952,12 +2902,6 @@ fbq('track', 'PageView');
         heroD.textContent = pad(days);
         heroH.textContent = pad(hours);
         heroM.textContent = pad(mins);
-      }
-      if (el3D) {
-        el3D.textContent = pad(days);
-        el3H.textContent = pad(hours);
-        el3M.textContent = pad(mins);
-        el3S.textContent = pad(secs);
       }
       var isUrgent = diff > 0 && diff <= 48 * 3600000;
       boxes.forEach(function (b) { b.classList.toggle('is-urgent', isUrgent); });
