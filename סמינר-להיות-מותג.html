@@ -680,11 +680,11 @@ fbq('track', 'PageView');
   .loop-break-arrow { color: var(--gold-soft); font-size: 1.5rem; margin: 0.4rem 0; line-height: 1; }
   .loop-win { background: var(--white); color: var(--sec-b); font-weight: 800; font-size: 1.05rem; padding: 0.9rem 1.7rem; border-radius: 999px; box-shadow: 0 10px 24px rgba(20,6,38,0.3); }
   @media (max-width: 860px) { .urgency-grid { grid-template-columns: 1fr; text-align: center; gap: 2.2rem; } }
-  @media (max-width: 860px) { .urgency-grid { grid-template-columns: 1fr; text-align: center; gap: 1.8rem; } .xflow .arrow { transform: none; } }
+  @media (max-width: 860px) { .urgency-grid { grid-template-columns: 1fr; text-align: center; gap: 1.8rem; } .urgency-text { text-align: right; } .xflow .arrow { transform: none; } }
 
   /* ===== NEW section 4: 4 stages ===== */
   .method { background: linear-gradient(180deg, var(--white), var(--purple-pale) 140%); padding: 4.5rem 0; }
-  .method h2.sh { padding: 0 1.4rem; margin-bottom: 3.2rem; text-align: center; font-weight: 800; color: var(--ink); overflow-wrap: break-word; font-size: clamp(2rem, 1.6rem + 1.8vw, 2.9rem); max-width: 22ch; margin-inline: auto; }
+  .method h2.sh { padding: 0 1.4rem; margin-bottom: 3.2rem; text-align: center; font-weight: 800; color: var(--ink); overflow-wrap: break-word; font-size: clamp(1.55rem, 1.3rem + 1.1vw, 2rem); max-width: 22ch; margin-inline: auto; }
   .method .grid { display: grid; grid-template-columns: 1fr 1fr; max-width: 1100px; margin: 0 auto; border-radius: 22px; overflow: hidden; box-shadow: 0 20px 50px rgba(20,6,38,0.12); }
   .mcard { padding: 3rem 2.4rem; }
   .mcard:nth-child(1) { background: var(--white); border-inline-end: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -728,7 +728,7 @@ fbq('track', 'PageView');
   .dq > *:not(.dq-bg) { position: relative; z-index: 1; }
   .dq-kicker { text-align: center; max-width: 46ch; margin: 0 auto 1.8rem; color: rgba(255,255,255,0.92); font-size: 1.05rem; font-weight: 700; line-height: 1.6; }
   .dq .eyebrow { display: block; text-align: center; font-size: 1.15rem; font-weight: 600; color: rgba(255,255,255,0.85); margin-bottom: 0.5rem; }
-  .dq h2 { margin-bottom: 2.6rem; font-size: clamp(1.6rem, 1.4rem + 0.8vw, 2rem); font-weight: 800; color: var(--white); text-align: center; overflow-wrap: break-word; }
+  .dq h2 { margin-bottom: 2.6rem; font-size: clamp(1.55rem, 1.3rem + 1.1vw, 2rem); font-weight: 800; color: var(--white); text-align: center; overflow-wrap: break-word; }
   .dq-table { display: flex; align-items: stretch; max-width: 1180px; margin: 0 auto 2.8rem; overflow: visible; }
   .dq-col { flex: 1 1 0; padding: 2.6rem 2.4rem 3.2rem; position: relative; display: flex; flex-direction: column; min-width: 280px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.1); }
   .dq-col.lose { background: rgba(255,255,255,0.94); border-radius: 0 18px 18px 0; border-left-width: 0; border-color: var(--line); }
@@ -766,13 +766,13 @@ fbq('track', 'PageView');
   .grt .seals-row { display: flex; align-items: center; justify-content: center; gap: 0.4rem; margin: 1.4rem auto; flex-wrap: wrap; max-width: 640px; }
   .grt .seals-row svg { flex-shrink: 0; }
   .grt-copy { max-width: 420px; margin: 0 auto; }
-  .grt-copy h2 { font-size: clamp(1.6rem, 1.3rem + 1vw, 2.1rem); margin-bottom: 1.1rem; color: var(--ink); overflow-wrap: break-word; }
+  .grt-copy h2 { font-size: clamp(1.55rem, 1.3rem + 1.1vw, 2rem); margin-bottom: 1.1rem; color: var(--ink); overflow-wrap: break-word; }
   .grt-copy p { color: var(--ink); font-size: 0.95rem; }
   .grt-copy b { color: var(--sec-a); }
 
   /* ===== NEW section 10: closer with countdown boxes + ticket pair ===== */
   .closer-v2 { background: linear-gradient(180deg, rgba(83,30,98,0.94), rgba(123,55,153,0.88) 50%, rgba(36,9,63,0.96)); padding: 4.5rem 1.6rem; text-align: center; }
-  .closer-v2 h2 { color: var(--white); font-size: clamp(1.5rem, 1.2rem + 1.6vw, 2.1rem); max-width: 20ch; margin: 0 auto 2.2rem; overflow-wrap: break-word; line-height: 1.4; }
+  .closer-v2 h2 { color: var(--white); font-size: clamp(1.5rem, 1.2rem + 1.6vw, 2.1rem); max-width: 26ch; margin: 0 auto 2.2rem; overflow-wrap: break-word; line-height: 1.4; }
   .closer-v2 .scarcity { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(217,172,94,0.14); border: 1px solid rgba(217,172,94,0.4); color: var(--gold-soft); font-weight: 800; font-size: 0.8rem; padding: 0.4rem 1rem; border-radius: 999px; margin-bottom: 2rem; }
   .closer-v2 .cd-boxes { display: flex; justify-content: center; gap: 0.6rem; margin: 0 0 2.2rem; }
   .closer-v2 .cd-boxes div { background: var(--white); border-radius: 10px; padding: 0.5rem 0.7rem; text-align: center; min-width: 52px; }
@@ -1131,7 +1131,7 @@ fbq('track', 'PageView');
 
   /* ===== SECTION 3: closer-look — overlapping split ===== */
   .brand-head { text-align: center; max-width: 620px; margin: 0 auto 3rem; }
-  .brand-head h2 { font-size: clamp(1.8rem, 1.4rem + 1.8vw, 2.5rem); margin-bottom: 0.8rem; }
+  .brand-head h2 { font-size: clamp(1.75rem, 1.4rem + 1.6vw, 2.35rem); margin-bottom: 0.8rem; }
   .brand-head p { color: var(--ink-dim); font-size: 1.02rem; }
   .split-stack { position: relative; max-width: 880px; margin: 0 auto; padding: 1rem 0 2.4rem; }
   .split-col { border-radius: 26px; padding: 2.2rem 2.1rem; position: relative; }
@@ -1377,7 +1377,7 @@ fbq('track', 'PageView');
   .quiz-question { font-size: 1.2rem; font-weight: 800; color: var(--ink); margin-bottom: 1.6rem; min-height: 3rem; }
   .quiz-answers { display: flex; gap: 1rem; justify-content: center; }
   .quiz-answer-btn {
-    flex: 1; max-width: 160px; padding: 1rem; border-radius: 16px; border: 2px solid var(--purple-pale-2);
+    flex: 1; max-width: 160px; padding: 1rem; border-radius: 999px; border: 2px solid var(--purple-pale-2);
     background: var(--white); color: var(--ink); font-weight: 800; font-size: 1.05rem; cursor: pointer; font-family: inherit;
   }
   @media (prefers-reduced-motion: no-preference) { .quiz-answer-btn { transition: border-color 0.15s ease, background 0.15s ease; } }
@@ -1989,7 +1989,7 @@ fbq('track', 'PageView');
     background: linear-gradient(160deg, rgba(36,9,63,0.8), rgba(23,2,40,0.92));
   }
   .curio-card-inner { position: relative; z-index: 1; max-width: 620px; margin: 0 auto; text-align: center; }
-  .curio-card-inner h2 { color: var(--white); font-size: clamp(1.6rem, 1.25rem + 1.6vw, 2.3rem); margin-bottom: 1.3rem; }
+  .curio-card-inner h2 { color: var(--white); font-size: clamp(1.55rem, 1.3rem + 1.1vw, 2rem); margin-bottom: 1.3rem; }
   .curio-card-inner p { color: rgba(255,255,255,0.82); font-size: 1.04rem; line-height: 1.75; margin-bottom: 1rem; }
   .curio-card-inner p.pop { font-weight: 800; font-size: 1.2rem; color: var(--gold-soft); margin: 1.6rem 0 2.2rem; }
   .curio-card .photo-train-section { background: transparent; padding: 0; margin: 0.6rem -1.8rem 0; }
@@ -2309,7 +2309,7 @@ fbq('track', 'PageView');
 <section class="section-pad reveal in" style="background:var(--ivory);position:relative;">
   <div class="wrap">
     <div class="brand-head">
-      <h2 style="font-size:1.25rem;">אני יכולה להגיד לכם שהשיטה עובדת. אבל תוצאות מדברות הרבה יותר חזק ממני.</h2>
+      <h2 style="font-size:clamp(1.55rem, 1.3rem + 1.1vw, 2rem);">אני יכולה להגיד לכם שהשיטה עובדת. אבל תוצאות מדברות הרבה יותר חזק ממני.</h2>
     </div>
 
     <div class="proof-big-case">
