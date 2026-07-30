@@ -89,6 +89,8 @@ fbq('track', 'PageView');
     --red-wash: #e8a2ac;
     --white: #ffffff;
     --purple-deep: #24093f;
+    --purple-black: #170228;
+    --purple-void: #0a0414;
     --purple: #6b21c9;
     --purple-bright: #9450f5;
     --purple-pale: #f4eefc;
@@ -512,7 +514,7 @@ fbq('track', 'PageView');
     z-index: 6; pointer-events: none;
   }
   .circle-cut-white { background: var(--white); }
-  .circle-cut-dark { background: #0a0414; }
+  .circle-cut-dark { background: var(--purple-void); }
   .circle-cut-blur { z-index: 7; filter: blur(6px); }
   .wave-divider {
     position: absolute; bottom: -1px; left: 0; right: 0; height: 70px; z-index: 6; pointer-events: none; line-height: 0;
@@ -687,7 +689,7 @@ fbq('track', 'PageView');
   .mcard { padding: 3rem 2.4rem; }
   .mcard:nth-child(1) { background: var(--white); border-inline-end: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .mcard:nth-child(2) { background: linear-gradient(160deg, var(--sec-a), var(--purple-deep)); }
-  .mcard:nth-child(3) { background: linear-gradient(160deg, var(--purple-deep), #170228); }
+  .mcard:nth-child(3) { background: linear-gradient(160deg, var(--purple-deep), var(--purple-black)); }
   .mcard:nth-child(4) { background: var(--white); border-inline-start: 1px solid var(--line); border-top: 1px solid var(--line); }
   .mcard-icon { display: block; margin-bottom: 0.9rem; }
   .mcard:nth-child(1) .mcard-icon, .mcard:nth-child(4) .mcard-icon { color: var(--gold-refined); }
@@ -898,7 +900,7 @@ fbq('track', 'PageView');
     .hero-stage { min-height: clamp(900px, 96vh, 1040px); padding: 2.8rem 0 4.2rem; }
     .circle-cut { height: 100px; }
     .hero-text-col { width: 620px; max-width: 46vw; }
-    .hero-title { font-size: clamp(4rem, 4.4vw, 5.8rem); margin: 0 0 1.6rem; }
+    .hero-title { font-size: clamp(4rem, 4vw, 4.6rem); margin: 0 0 1.6rem; }
     .hero-sub { font-size: 1.4rem; margin-bottom: 1.5rem; }
     .hero-promise { font-size: 1.05rem; margin-bottom: 1.7rem; }
     .hero-seal { width: 150px; height: 150px; }
@@ -1750,7 +1752,7 @@ fbq('track', 'PageView');
 
   /* ===== dramatic dark section ===== */
   .drama-section {
-    position: relative; overflow: hidden; background: #0a0414; text-align: center; padding: 5.5rem 0;
+    position: relative; overflow: hidden; background: var(--purple-void); text-align: center; padding: 5.5rem 0;
   }
   .drama-section::before {
     content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
@@ -1977,7 +1979,7 @@ fbq('track', 'PageView');
   /* ===== curio dark card (davidvatine-style "highlighted square with special bg inside a section") ===== */
   .curio-card {
     position: relative; overflow: hidden; border-radius: 28px; max-width: 780px; margin: 0 auto;
-    background: linear-gradient(160deg, var(--purple-deep), #170228);
+    background: linear-gradient(160deg, var(--purple-deep), var(--purple-black));
     padding: 3rem 1.8rem 2.4rem; box-shadow: 0 30px 70px rgba(20,6,38,0.35);
   }
   .curio-card-bg { position: absolute; inset: 0; z-index: 0; }
@@ -2411,7 +2413,7 @@ fbq('track', 'PageView');
 <section class="section-pad reveal curio-section in">
   <div class="wrap">
     <div class="curio-card">
-      <div class="curio-card-bg" aria-hidden="true"><img src="images/gallery-8.jpg" alt=""></div>
+      <div class="curio-card-bg" aria-hidden="true"><img src="images/gallery-8.jpg" alt="" loading="lazy"></div>
       <div class="curio-card-inner">
         <h2>אני רוצה להרוס לכם משהו 😳</h2>
         <p>אחרי הסמינר הזה, כנראה שלא תוכלו יותר לגלול באינסטגרם כמו פעם. כי פתאום תבינו למה עצרתם דווקא על הסרטון הזה, למה בחרתם דווקא בבעל העסק הזה, למה יש עמודים שאי אפשר לשכוח - ולמה אחרים מרגישים בדיוק אותו הדבר.</p>
