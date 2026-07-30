@@ -621,7 +621,12 @@ fbq('track', 'PageView');
   .pill { background: var(--purple-pale); color: var(--sec-a); font-weight: 800; font-size: 0.82rem; padding: 0.5rem 1rem; border-radius: 999px; }
   .strip-stats-section { background: #f5f5f5; padding: 3rem 1.4rem; }
   .strip-stats { display: flex; justify-content: center; gap: 2.6rem; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; }
-  .strip-stat { text-align: center; }
+  .strip-stat { text-align: center; position: relative; }
+  .strip-stat:not(:first-child)::before {
+    content: ""; position: absolute; inset-inline-start: -1.3rem; top: 0.2rem; bottom: 0.2rem;
+    width: 1px; background: rgba(83,30,98,0.15);
+  }
+  @media (max-width: 640px) { .strip-stat:not(:first-child)::before { display: none; } }
   .strip-stat b { display: block; font-size: clamp(2.1rem, 1.6rem + 1.6vw, 3rem); font-weight: 900; color: var(--sec-a); line-height: 1; margin-bottom: 0.5rem; }
   .strip-stat span { display: block; font-size: clamp(0.82rem, 0.78rem + 0.2vw, 0.92rem); font-weight: 700; color: var(--ink-dim); max-width: 9rem; margin: 0 auto; }
 
