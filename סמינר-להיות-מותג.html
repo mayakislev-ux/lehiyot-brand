@@ -1993,33 +1993,36 @@ fbq('track', 'PageView');
 
   }
 
-  /* ===== curiosity hook ===== */
-  .curio-section { position: relative; overflow: hidden; background: linear-gradient(180deg, var(--ivory), var(--purple-pale-2) 130%); color: var(--ink); text-align: center; }
-  .curio-section::before {
-    content: "😳"; position: absolute; top: 50%; right: 50%; transform: translate(50%,-50%);
-    font-size: 22rem; opacity: 0.05; z-index: 0; line-height: 1; pointer-events: none; filter: grayscale(1);
+  /* ===== curiosity hook v2: full-bleed environment, not a floating card (per Maya's direct comparison to Badichi/Tamar) ===== */
+  .curio-section-v2 {
+    position: relative; overflow: hidden; text-align: center;
+    background: linear-gradient(140deg, var(--purple-deep) 0%, var(--purple-black) 55%, var(--red-deep) 175%);
+    padding: 4.5rem 1.6rem 0;
   }
-  .curio-section .wrap { position: relative; z-index: 1; }
-  @media (max-width: 600px) { .curio-section::before { font-size: 13rem; } .curio-section { padding-top: 2.8rem; } }
-
-  /* ===== curio dark card (davidvatine-style "highlighted square with special bg inside a section") ===== */
-  .curio-card {
-    position: relative; overflow: hidden; border-radius: 28px; max-width: 780px; margin: 0 auto;
-    background: linear-gradient(160deg, var(--purple-deep), var(--purple-black));
-    padding: 3rem 1.8rem 2.4rem; box-shadow: 0 30px 70px rgba(20,6,38,0.35);
+  .curio-hook-mark {
+    position: absolute; top: 46%; right: 50%; transform: translate(50%,-50%);
+    font-size: 30rem; font-weight: 900; line-height: 1; color: var(--gold-soft); opacity: 0.07;
+    pointer-events: none; z-index: 0; font-family: Georgia, "Times New Roman", serif;
   }
-  .curio-card-bg { position: absolute; inset: 0; z-index: 0; }
-  .curio-card-bg img { width: 100%; height: 100%; object-fit: cover; filter: blur(14px) brightness(0.55) saturate(1.1); transform: scale(1.15); }
-  .curio-card-bg::after {
-    content: ""; position: absolute; inset: 0;
-    background: linear-gradient(160deg, rgba(36,9,63,0.8), rgba(23,2,40,0.92));
+  .curio-section-v2 .wrap { position: relative; z-index: 1; max-width: 660px; margin: 0 auto; }
+  .curio-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.4rem; color: var(--gold-soft); font-weight: 800;
+    font-size: 0.8rem; letter-spacing: 0.03em; margin-bottom: 1rem;
   }
-  .curio-card-inner { position: relative; z-index: 1; max-width: 620px; margin: 0 auto; text-align: center; }
-  .curio-card-inner h2 { color: var(--white); font-size: clamp(1.55rem, 1.3rem + 1.1vw, 2rem); margin-bottom: 1.3rem; }
-  .curio-card-inner p { color: rgba(255,255,255,0.82); font-size: 1.04rem; line-height: 1.75; margin-bottom: 1rem; text-align: right; }
-  .curio-card-inner p.pop { font-weight: 800; font-size: 1.2rem; color: var(--gold-soft); margin: 1.6rem 0 2.2rem; text-align: right; }
-  .curio-card .photo-train-section { background: transparent; padding: 0; margin: 0.6rem -1.8rem 0; }
-  @media (max-width: 600px) { .curio-card { padding: 2.2rem 1.1rem 1.8rem; } .curio-card .photo-train-section { margin: 0 -1.1rem; } }
+  .curio-eyebrow::before { content: ""; width: 1.4rem; height: 2px; background: var(--gold-soft); display: inline-block; }
+  .curio-section-v2 h2 { color: var(--white); font-size: clamp(1.55rem, 1.3rem + 1.1vw, 2rem); margin-bottom: 1.3rem; }
+  .curio-section-v2 p { color: rgba(255,255,255,0.85); font-size: 1.04rem; line-height: 1.75; margin-bottom: 1rem; text-align: right; }
+  .curio-section-v2 p.pop { font-weight: 800; font-size: 1.2rem; color: var(--gold-soft); margin: 1.6rem 0 0; text-align: right; }
+  .curio-train-v2 {
+    position: relative; overflow: hidden; direction: ltr; margin-top: 2.8rem; padding: 2.2rem 0;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+  @media (max-width: 600px) {
+    .curio-hook-mark { font-size: 15rem; }
+    .curio-section-v2 { padding-top: 3rem; }
+    .curio-train-v2 { padding: 1.4rem 0; margin-top: 2rem; }
+  }
 
   /* ===== checklist ✔ ===== */
   .checklist { max-width: 680px; margin: 2rem auto 0; display: flex; flex-direction: column; gap: 0.9rem; }
@@ -2445,35 +2448,32 @@ fbq('track', 'PageView');
   <div class="ctawrap"><a href="#form" class="ghost-btn">אני רוצה להיות הבחירה הברורה ←</a></div>
 </section>
 
-<section class="section-pad reveal curio-section in">
+<section class="curio-section-v2 reveal in">
+  <div class="curio-hook-mark" aria-hidden="true">?</div>
   <div class="wrap">
-    <div class="curio-card">
-      <div class="curio-card-bg" aria-hidden="true"><img src="images/gallery-8.jpg" alt="" loading="lazy"></div>
-      <div class="curio-card-inner">
-        <h2>אני רוצה להרוס לכם משהו 😳</h2>
-        <p>אחרי הסמינר הזה, כנראה שלא תוכלו יותר לגלול באינסטגרם כמו פעם. כי פתאום תבינו <span class="yellow-highlight">למה עצרתם דווקא על הסרטון הזה</span>, למה בחרתם דווקא בבעל העסק הזה, למה יש <span class="coral-underline">עמודים שאי אפשר לשכוח</span> - ולמה אחרים מרגישים בדיוק אותו הדבר.</p>
-        <p class="pop">וזה בדיוק מה שנעשה במשך 5.5 שעות. לא נלמד להעתיק עסקים מצליחים - נלמד להבין למה הם מצליחים, כדי שתוכלו לבנות את זה בדרך שמתאימה רק לכם.</p>
-      </div>
-      <div class="photo-train-section" aria-hidden="false">
-        <div class="photo-train-track">
-            <div class="pt-item"><img src="images/gallery-1.jpg" alt="" loading="lazy"></div>
-            <div class="pt-item"><img src="images/gallery-2.jpg" alt="" loading="lazy"></div>
-            <div class="pt-item"><img src="images/gallery-3.jpg" alt="" loading="lazy"></div>
-            <div class="pt-item"><img src="images/gallery-4.jpg" alt="" loading="lazy"></div>
-            <div class="pt-item"><img src="images/gallery-5.jpg" alt="" loading="lazy"></div>
-            <div class="pt-item"><img src="images/gallery-6.jpg" alt="" loading="lazy"></div>
-            <div class="pt-item"><img src="images/gallery-7.jpg" alt="" loading="lazy"></div>
-            <div class="pt-item"><img src="images/gallery-8.jpg" alt="" loading="lazy"></div>
-            <div class="pt-item"><img src="images/gallery-1.jpg" alt="" loading="lazy"></div>
-            <div class="pt-item"><img src="images/gallery-2.jpg" alt="" loading="lazy"></div>
-            <div class="pt-item"><img src="images/gallery-3.jpg" alt="" loading="lazy"></div>
-            <div class="pt-item"><img src="images/gallery-4.jpg" alt="" loading="lazy"></div>
-            <div class="pt-item"><img src="images/gallery-5.jpg" alt="" loading="lazy"></div>
-            <div class="pt-item"><img src="images/gallery-6.jpg" alt="" loading="lazy"></div>
-            <div class="pt-item"><img src="images/gallery-7.jpg" alt="" loading="lazy"></div>
-            <div class="pt-item"><img src="images/gallery-8.jpg" alt="" loading="lazy"></div>
-        </div>
-      </div>
+    <span class="curio-eyebrow">רגע לפני שממשיכים</span>
+    <h2>אני רוצה להרוס לכם <span class="underline-gold" style="border-bottom-color:var(--red-strong);">משהו</span></h2>
+    <p>אחרי הסמינר הזה, כנראה שלא תוכלו יותר לגלול באינסטגרם כמו פעם. כי פתאום תבינו <span class="yellow-highlight">למה עצרתם דווקא על הסרטון הזה</span>, למה בחרתם דווקא בבעל העסק הזה, למה יש <span class="coral-underline">עמודים שאי אפשר לשכוח</span> - ולמה אחרים מרגישים בדיוק אותו הדבר.</p>
+    <p class="pop">וזה בדיוק מה שנעשה במשך 5.5 שעות. לא נלמד להעתיק עסקים מצליחים - נלמד להבין למה הם מצליחים, כדי שתוכלו לבנות את זה בדרך שמתאימה רק לכם.</p>
+  </div>
+  <div class="photo-train-section curio-train-v2" aria-hidden="false">
+    <div class="photo-train-track">
+        <div class="pt-item"><img src="images/gallery-1.jpg" alt="" loading="lazy"></div>
+        <div class="pt-item"><img src="images/gallery-2.jpg" alt="" loading="lazy"></div>
+        <div class="pt-item"><img src="images/gallery-3.jpg" alt="" loading="lazy"></div>
+        <div class="pt-item"><img src="images/gallery-4.jpg" alt="" loading="lazy"></div>
+        <div class="pt-item"><img src="images/gallery-5.jpg" alt="" loading="lazy"></div>
+        <div class="pt-item"><img src="images/gallery-6.jpg" alt="" loading="lazy"></div>
+        <div class="pt-item"><img src="images/gallery-7.jpg" alt="" loading="lazy"></div>
+        <div class="pt-item"><img src="images/gallery-8.jpg" alt="" loading="lazy"></div>
+        <div class="pt-item"><img src="images/gallery-1.jpg" alt="" loading="lazy"></div>
+        <div class="pt-item"><img src="images/gallery-2.jpg" alt="" loading="lazy"></div>
+        <div class="pt-item"><img src="images/gallery-3.jpg" alt="" loading="lazy"></div>
+        <div class="pt-item"><img src="images/gallery-4.jpg" alt="" loading="lazy"></div>
+        <div class="pt-item"><img src="images/gallery-5.jpg" alt="" loading="lazy"></div>
+        <div class="pt-item"><img src="images/gallery-6.jpg" alt="" loading="lazy"></div>
+        <div class="pt-item"><img src="images/gallery-7.jpg" alt="" loading="lazy"></div>
+        <div class="pt-item"><img src="images/gallery-8.jpg" alt="" loading="lazy"></div>
     </div>
   </div>
 </section>
