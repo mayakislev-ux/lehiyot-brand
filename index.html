@@ -561,8 +561,9 @@ fbq('track', 'PageView');
   .hero-guarantee-badge {
     display: inline-flex; align-items: center; gap: 0.5rem; background: none; border: none;
     color: var(--gold-soft); font-weight: 800; font-size: 0.92rem;
-    padding: 0; margin: 0 auto 1.4rem; max-width: 90%; text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+    padding: 0; margin: 0 auto 1.4rem; max-width: 98%; text-shadow: 0 2px 10px rgba(0,0,0,0.35);
   }
+  @media (max-width: 420px) { .hero-guarantee-badge { font-size: 0.82rem; } }
   .hero-guarantee-badge .ic { font-size: 1.1rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); }
   .hero-vsl-wrap { max-width: 520px; margin: 0 auto 0.5rem; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 44px rgba(0,0,0,0.35); }
   .hero-vsl-banner { background: var(--white); color: var(--sec-b); font-weight: 800; font-size: 0.95rem; text-align: center; padding: 0.65rem; }
@@ -619,16 +620,6 @@ fbq('track', 'PageView');
   .strip h2.sh { font-size: clamp(1.5rem, 1.25rem + 1vw, 2rem); max-width: 26ch; margin: 0 auto 1.5rem; font-weight: 800; color: var(--ink); line-height: 1.4; overflow-wrap: break-word; word-break: break-word; }
   .strip .row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
   .pill { background: var(--purple-pale); color: var(--sec-a); font-weight: 800; font-size: 0.82rem; padding: 0.5rem 1rem; border-radius: 999px; }
-  .strip-stats-section { background: #f5f5f5; padding: 3rem 1.4rem; }
-  .strip-stats { display: flex; justify-content: center; gap: 2.6rem; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; }
-  .strip-stat { text-align: center; position: relative; }
-  .strip-stat:not(:first-child)::before {
-    content: ""; position: absolute; inset-inline-start: -1.3rem; top: 0.2rem; bottom: 0.2rem;
-    width: 1px; background: rgba(83,30,98,0.15);
-  }
-  @media (max-width: 640px) { .strip-stat:not(:first-child)::before { display: none; } }
-  .strip-stat b { display: block; font-size: clamp(2.1rem, 1.6rem + 1.6vw, 3rem); font-weight: 900; color: var(--sec-a); line-height: 1; margin-bottom: 0.5rem; }
-  .strip-stat span { display: block; font-size: clamp(0.82rem, 0.78rem + 0.2vw, 0.92rem); font-weight: 700; color: var(--ink-dim); max-width: 9rem; margin: 0 auto; }
 
   /* real "highlighter marker" technique pulled from Tamar's live CSS, adapted to gold */
   .marker-gold { background-image: linear-gradient(0deg, var(--red-wash), var(--red-wash) 30%, transparent 30%, transparent); display: inline; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
@@ -667,32 +658,27 @@ fbq('track', 'PageView');
   .gm-gap-note { font-size: clamp(0.85rem, 0.8rem + 0.25vw, 0.95rem); color: var(--red-bright); font-weight: 700; text-align: center; margin-top: 0.4rem; }
   @media (max-width: 860px) { .pain-grid { grid-template-columns: 1fr; text-align: center; gap: 2.2rem; } .gm-row-top { flex-direction: row; } }
 
-  /* ===== NEW section 2.5: why now - broken-loop diagram, distinct language from section 2 ===== */
-  .urgency { position: relative; background: linear-gradient(120deg, var(--grad3-a), var(--grad3-b) 55%, var(--grad3-c)); padding: 4.5rem 1.6rem; overflow: hidden; }
-  .urgency::before {
-    content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='8' y='8' width='84' height='84' rx='24' fill='none' stroke='rgba(255,255,255,0.14)' stroke-width='3.2'/%3E%3Ccircle cx='50' cy='50' r='19' fill='none' stroke='rgba(255,255,255,0.14)' stroke-width='3.2'/%3E%3Ccircle cx='75' cy='25' r='4.5' fill='rgba(255,255,255,0.14)'/%3E%3C/svg%3E"), radial-gradient(circle at 85% 15%, rgba(240,214,163,0.12), transparent 45%);
-    background-repeat: no-repeat, no-repeat; background-position: 115% 130%, 0 0; background-size: 640px 640px, auto;
+  /* ===== section 2.5: why now - dramatic dark treatment, matching curio's visual language ===== */
+  .urgency-v2 {
+    position: relative; overflow: hidden; text-align: center;
+    background: linear-gradient(140deg, var(--purple-black) 0%, var(--purple-deep) 55%, var(--red-deep) 175%);
+    padding: 4.5rem 1.6rem;
   }
-  .urgency-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3.5rem; align-items: center; max-width: 980px; margin: 0 auto; text-align: right; position: relative; z-index: 1; }
-  .urgency-eyebrow { display: inline-block; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.02em; color: rgba(255,255,255,0.6); margin-bottom: 0.7rem; }
-  .urgency-text p { color: rgba(255,255,255,0.88); font-size: clamp(1.02rem, 0.96rem + 0.3vw, 1.15rem); line-height: 1.7; margin-bottom: 0.9rem; }
-  .urgency-big-headline { font-weight: 800; font-size: clamp(1.6rem, 1.2rem + 2vw, 2.4rem); color: var(--white); margin-bottom: 0.9rem; }
+  .urgency-mark {
+    position: absolute; top: 50%; right: 50%; transform: translate(50%,-50%);
+    font-size: 26rem; font-weight: 900; line-height: 1; color: var(--gold-soft); opacity: 0.07;
+    pointer-events: none; z-index: 0; font-family: Georgia, "Times New Roman", serif;
+  }
+  .urgency-v2 .wrap { position: relative; z-index: 1; max-width: 660px; margin: 0 auto; }
+  .urgency-v2 h2 { color: var(--white); font-size: clamp(1.6rem, 1.2rem + 2vw, 2.4rem); margin-bottom: 1.3rem; }
+  .urgency-v2 p { color: rgba(255,255,255,0.85); font-size: clamp(1.02rem, 0.96rem + 0.3vw, 1.15rem); line-height: 1.75; margin-bottom: 1rem; text-align: right; }
   .yellow-highlight { background-image: linear-gradient(0deg, rgba(240,214,163,0.55), rgba(240,214,163,0.55) 32%, transparent 32%); }
-  .urgency-text .close { font-weight: 800; color: var(--red-bright); font-size: clamp(1.02rem, 0.96rem + 0.3vw, 1.15rem); margin-top: 1rem; }
-  .loop-graphic { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
-  .loop-row { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
-  .loop-node { display: flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; padding: 0.6rem 0.9rem; font-size: clamp(0.82rem, 0.78rem + 0.2vw, 0.92rem); font-weight: 700; color: rgba(255,255,255,0.85); }
-  .loop-node-icon { flex-shrink: 0; opacity: 0.85; }
-  .loop-arrow-sm { color: rgba(255,255,255,0.4); font-size: 0.9rem; }
-  .loop-back { display: flex; flex-direction: column; align-items: center; margin: 0.1rem 0; }
-  .loop-back-arrow { width: 150px; height: 40px; }
-  .loop-back-label { font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.85rem); color: rgba(255,255,255,0.55); font-weight: 700; margin-top: -0.4rem; }
-  .loop-wall { background: rgba(234,62,78,0.15); border: 1px solid rgba(234,62,78,0.45); color: var(--red-bright); font-weight: 800; font-size: clamp(0.9rem, 0.85rem + 0.2vw, 1rem); padding: 0.6rem 1.2rem; border-radius: 8px; margin-top: 0.3rem; }
-  .loop-break-arrow { color: var(--gold-soft); font-size: 1.5rem; margin: 0.4rem 0; line-height: 1; }
-  .loop-win { background: linear-gradient(131deg, var(--sec-a), var(--purple-deep) 68%); border: 1px solid rgba(240,214,163,0.4); color: var(--white); font-weight: 800; font-size: 1.05rem; padding: 0.9rem 1.7rem; border-radius: 999px; box-shadow: 0 10px 24px rgba(20,6,38,0.4); }
-  @media (max-width: 860px) { .urgency-grid { grid-template-columns: 1fr; text-align: center; gap: 2.2rem; } }
-  @media (max-width: 860px) { .urgency-grid { grid-template-columns: 1fr; text-align: center; gap: 1.8rem; } .urgency-text { text-align: right; } .xflow .arrow { transform: none; } }
+  .urgency-v2 p.urgency-punch {
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.18); border-radius: 14px;
+    padding: 1.1rem 1.4rem; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    font-weight: 800; color: var(--gold-soft); margin: 1.4rem 0 0; text-align: right; box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  }
+  @media (max-width: 600px) { .urgency-mark { font-size: 13rem; } }
 
   /* ===== NEW section 4: 4 stages ===== */
   .method { background: linear-gradient(180deg, var(--white), var(--purple-pale) 140%); padding: 4.5rem 0; }
@@ -732,13 +718,13 @@ fbq('track', 'PageView');
   }
   @media (max-width: 480px) { .bio-stat-tag { font-size: 0.72rem; padding: 0.55rem 1rem; white-space: normal; text-align: center; max-width: 85%; } }
   .bio-intro-text { display: flex; flex-direction: column; justify-content: center; padding: 3rem 2.6rem; text-align: right; }
-  .bio-intro-text p { color: rgba(255,255,255,0.88); font-size: 0.98rem; margin: 0 0 1rem; max-width: 480px; margin-inline-start: auto; overflow-wrap: break-word; }
+  .bio-intro-text p { color: rgba(255,255,255,0.88); font-size: 0.98rem; margin: 0 0 1rem; width: 480px; max-width: 100%; margin-inline-start: auto; overflow-wrap: break-word; }
   .bio-intro-text p:first-child { color: var(--white); font-size: 1.25rem; margin-bottom: 1.3rem; }
   @media (max-width: 720px) {
     .bio-intro-grid { grid-template-columns: 1fr; max-width: 100%; min-height: auto; }
     .bio-intro-photo { height: 380px; }
     .bio-intro-text { padding: 2.2rem 1.4rem; text-align: center; }
-    .bio-intro-text p { margin-inline: auto; max-width: 480px; }
+    .bio-intro-text p { width: auto; margin-inline: auto; max-width: 480px; }
   }
 
   /* bio part 2: story, lighter bg for contrast against part 1, one combined layered photo collage (not two separate big rows) */
@@ -2184,7 +2170,7 @@ fbq('track', 'PageView');
     .hero-objections-v2 span { font-size: 0.85rem; }
     .strip { padding-top: 8.8rem; padding-bottom: 2.8rem; }
     .pain { padding-top: 3rem; padding-bottom: 2.4rem; }
-    .urgency { padding-top: 3rem; padding-bottom: 3rem; }
+    .urgency-v2 { padding-top: 3rem; padding-bottom: 3rem; }
     .method { padding-top: 3rem; padding-bottom: 3rem; }
     .bio-story-section { padding-top: 3rem; padding-bottom: 3rem; }
     .grt { padding-top: 3rem; padding-bottom: 3rem; }
@@ -2301,16 +2287,8 @@ fbq('track', 'PageView');
   <h2 class="sh">השיטה של מאיה קיסלב שכבר הפכה מאות בעלי עסקים ל<span class="marker-gold">בחירה הברורה</span> בתחום שלהם</h2>
 </section>
 
-<section class="strip-stats-section">
-  <div class="strip-stats">
-    <div class="strip-stat"><b>17</b><span>מחזורי ליווי</span></div>
-    <div class="strip-stat"><b>מאות</b><span>בעלי עסקים</span></div>
-    <div class="strip-stat"><b>100K ₪</b><span>הכנסה חודשית שבניתי מ-0 תוך 9 חודשים</span></div>
-  </div>
-</section>
-
 <section class="method reveal in" style="position:relative;" id="nav-diagnosis">
-  <h2 class="sh">5.5 השעות מתחלקות ל-4 תחנות - כל אחת נגמרת עם <span class="marker-gold">דבר אחד אמיתי ביד</span></h2>
+  <h2 class="sh">5 השעות מתחלקות ל-4 תחנות - כל אחת נגמרת עם <span class="marker-gold">דבר אחד אמיתי ביד</span></h2>
   <div class="grid">
     <div class="mcard"><svg class="mcard-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-5.5-5.5"/></svg><span class="n">01</span><b>מפצחים למה דווקא אתם</b><span>אתם יוצאים עם משפט ברור שמסביר למה לבחור דווקא בכם - בלי "שירות אישי", "מקצועיות" ו"יחס חם".</span></div>
     <div class="mcard"><svg class="mcard-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a5 5 0 0 1 5 5v2a5 5 0 0 1-2 4v2a3 3 0 0 1-6 0v-2a5 5 0 0 1-2-4V7a5 5 0 0 1 5-5z"/><path d="M9 21h6M12 17v4"/></svg><span class="n">02</span><b>מוציאים את מה שאי אפשר להעתיק</b><span>מזהים אילו דעות, סיפורים, תכונות וניסיון צריכים להיכנס לתוכן שלכם - כדי שאנשים יכירו אתכם, ולא רק את השירות שלכם.</span></div>
@@ -2344,35 +2322,15 @@ fbq('track', 'PageView');
   <a href="https://wa.me/972554353889?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%90%D7%AA%20%D7%94%D7%A1%D7%A8%D7%98%D7%95%D7%9F%20%D7%94%D7%97%D7%99%D7%A0%D7%9E%D7%99%20%D7%A2%D7%9C%2010%20%D7%94%D7%9E%D7%99%D7%AA%D7%95%D7%A1%D7%99%D7%9D%20%D7%91%D7%A9%D7%99%D7%95%D7%95%D7%A7%20%F0%9F%8E%81" target="_blank" rel="noopener noreferrer" class="lead-magnet-link">עדיין לא בטוחים? קבלו בחינם: 10 מיתוסים בשיווק שעוצרים אתכם 🎁</a>
 </section>
 
-<section class="urgency reveal in">
-  <div class="urgency-grid">
-    <div class="urgency-text">
-      <p class="urgency-eyebrow">המרוץ שלא נגמר</p>
-      <p class="urgency-big-headline">השיווק נהיה קשה יותר. נקודה.</p>
-      <p>יש יותר תוכן. יותר מתחרים. יותר מודעות. יותר בעלי עסקים שמעלים בדיוק את אותם סרטונים, אומרים בדיוק את אותם משפטים, ומבטיחים בדיוק את אותן הבטחות.</p>
-      <p>וזו לא הרגשה - זו המציאות שכל בעל עסק כבר מרגיש על הבשר שלו.</p>
-      <p>אז לא - הפתרון הוא לא <span class="coral-underline">להעלות עוד שלושה רילסים בשבוע</span>. הפתרון הוא לגרום לאנשים להבין <span class="yellow-highlight">למה אתם לא דומים לאף אחד אחר</span>.</p>
-      <p class="close">וככל שמחכים - ההצפה רק גדלה. מי שמחכה, נשאר עוד עסק בתחום. מי שזז עכשיו - ב-3.9, לפני שה-100 מקומות נגמרים - הופך לבחירה הברורה.</p>
-    </div>
-    <div class="loop-graphic">
-      <div class="loop-row">
-        <div class="loop-node"><svg class="loop-node-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M10 8l6 4-6 4z" fill="currentColor" stroke="none"/></svg>עוד תוכן</div>
-        <span class="loop-arrow-sm">←</span>
-        <div class="loop-node"><svg class="loop-node-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10v4a1 1 0 0 0 1 1h2l7 4V5L6 9H4a1 1 0 0 0-1 1z"/><path d="M15 9a3 3 0 0 1 0 6"/></svg>עוד ממומן</div>
-        <span class="loop-arrow-sm">←</span>
-        <div class="loop-node"><svg class="loop-node-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="7" cy="7" r="2.3"/><circle cx="7" cy="17" r="2.3"/><path d="M9 8.3L19 18M9 15.7L19 6"/></svg>עוד עריכה</div>
-      </div>
-      <div class="loop-back">
-        <svg class="loop-back-arrow" viewBox="0 0 200 60" fill="none" aria-hidden="true">
-          <path d="M180 8 C 140 54, 60 54, 20 8" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-dasharray="5 5"/>
-          <path d="M20 8 L 29 3 M20 8 L 25 17" stroke="rgba(255,255,255,0.4)" stroke-width="2" fill="none" stroke-linecap="round"/>
-        </svg>
-        <span class="loop-back-label">עדיין אין בידול</span>
-      </div>
-      <div class="loop-wall">הבעיה לא כאן</div>
-      <div class="loop-break-arrow">↓</div>
-      <div class="loop-win">בידול אמיתי</div>
-    </div>
+<section class="urgency-v2 reveal in">
+  <div class="urgency-mark" aria-hidden="true">∞</div>
+  <div class="wrap">
+    <span class="curio-eyebrow">המרוץ שלא נגמר</span>
+    <h2>השיווק נהיה קשה יותר. נקודה.</h2>
+    <p>יש יותר תוכן. יותר מתחרים. יותר מודעות. יותר בעלי עסקים שמעלים בדיוק את אותם סרטונים, אומרים בדיוק את אותם משפטים, ומבטיחים בדיוק את אותן הבטחות.</p>
+    <p>וזו לא הרגשה - זו המציאות שכל בעל עסק כבר מרגיש על הבשר שלו.</p>
+    <p>אז לא - הפתרון הוא לא <span class="coral-underline">להעלות עוד שלושה רילסים בשבוע</span>. הפתרון הוא לגרום לאנשים להבין <span class="yellow-highlight">למה אתם לא דומים לאף אחד אחר</span>.</p>
+    <p class="urgency-punch">וככל שמחכים - ההצפה רק גדלה. מי שמחכה, נשאר עוד עסק בתחום. מי שזז עכשיו - ב-3.9, לפני שה-100 מקומות נגמרים - הופך לבחירה הברורה.</p>
   </div>
 </section>
 
@@ -2427,7 +2385,7 @@ fbq('track', 'PageView');
     <p class="proof-close-line">ארבעה תחומים שונים לגמרי. דבר אחד משותף - כולם עברו את אותו תהליך.</p>
     <div class="collage-label">ועוד עשרות מהמחזורים הקודמים</div>
     <div class="collage">
-      <div class="cph"><img src="images/client-liel.jpg" alt="" loading="lazy"></div><div class="cph"><img src="images/client-sarah-yitzhak.jpg" alt="" loading="lazy"></div><div class="cph"><img src="images/client-talia.jpg" alt="" loading="lazy"></div><div class="cph"><img src="images/client-vered-adess.jpg" alt="" loading="lazy"></div><div class="cph"><img src="images/client-yarin.jpg" alt="" loading="lazy"></div>
+      <div class="cph"><img src="images/client-liel.jpg" alt="" loading="lazy"></div><div class="cph"><img src="images/client-sarah-yitzhak.jpg" alt="" loading="lazy"></div><div class="cph"><img src="images/client-talia.jpg" alt="" loading="lazy"></div><div class="cph"><img src="images/client-vered-adess.jpg" alt="" loading="lazy"></div>
     </div>
     <div style="text-align:center;">
       <a href="#form" class="gold-btn-secondary">אני רוצה להיות הבחירה הברורה ←</a>
@@ -2467,7 +2425,7 @@ fbq('track', 'PageView');
 
 <section class="dq reveal in">
   <div class="dq-bg" aria-hidden="true"><img src="images/gallery-1.jpg" alt="" loading="lazy"></div>
-  <p class="dq-kicker">זה לא כנס שיושבים בו ומקשיבים - זה יום עבודה. 5.5 שעות, תרגולים אמיתיים, פיצוחים בלייב על העסק שלכם.</p>
+  <p class="dq-kicker">זה לא כנס שיושבים בו ומקשיבים - זה יום עבודה. 5 שעות, תרגולים אמיתיים, פיצוחים בלייב על העסק שלכם.</p>
   <span class="eyebrow">ועדיין, חשוב לי שתדעו</span>
   <h2>שהסמינר <span class="underline-gold" style="color:var(--white);border-bottom-color:var(--red-strong);">לא מתאים לכולם</span>.</h2>
   <div class="dq-table">
@@ -2501,7 +2459,7 @@ fbq('track', 'PageView');
     <p>אחרי הסמינר הזה, כנראה שלא תוכלו יותר לגלול באינסטגרם כמו פעם.</p>
     <p class="curio-punch">כי פתאום תבינו <span class="yellow-highlight">למה עצרתם דווקא על הסרטון הזה</span>.</p>
     <p>למה בחרתם דווקא בבעל העסק הזה, למה יש <span class="coral-underline">עמודים שאי אפשר לשכוח</span> - ולמה אחרים מרגישים בדיוק אותו הדבר.</p>
-    <p class="pop">וזה בדיוק מה שנעשה במשך 5.5 שעות. לא נלמד להעתיק עסקים מצליחים - נלמד להבין למה הם מצליחים, כדי שתוכלו לבנות את זה בדרך שמתאימה רק לכם.</p>
+    <p class="pop">וזה בדיוק מה שנעשה במשך 5 שעות. לא נלמד להעתיק עסקים מצליחים - נלמד להבין למה הם מצליחים, כדי שתוכלו לבנות את זה בדרך שמתאימה רק לכם.</p>
   </div>
   <div class="photo-train-section curio-train-v2" aria-hidden="false">
     <div class="photo-train-track">
@@ -2626,7 +2584,7 @@ fbq('track', 'PageView');
     <div class="countdown-box"><b id="cd2-mins">00</b><span>דק'</span></div>
     <div class="countdown-box"><b id="cd2-secs">00</b><span>שנ'</span></div>
   </div>
-  <p class="price-anchor">תחשבו כמה כבר עלה לכם לא להיות מבודלים - כסף שהלך על ממומן בלי בידול, שעות על עוד סרטונים שלא הביאו את הלקוחות שרציתם. 5.5 שעות שנותנות לזה תשובה אחת ולתמיד - ב-197₪.</p>
+  <p class="price-anchor">תחשבו כמה כבר עלה לכם לא להיות מבודלים - כסף שהלך על ממומן בלי בידול, שעות על עוד סרטונים שלא הביאו את הלקוחות שרציתם. 5 שעות שנותנות לזה תשובה אחת ולתמיד - ב-197₪.</p>
   <div class="ticket-pair closer-tickets" style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem;margin-bottom:0.8rem;">
     <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">כרטיס יחיד</span><span class="btn-sub" style="color:var(--sec-a);">197 ₪</span></a>
     <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="ghost-btn two-line"><span class="btn-main">כרטיס זוגי</span><span class="btn-sub">297 ₪</span></a>
@@ -2647,7 +2605,7 @@ fbq('track', 'PageView');
     </details>
     <details class="faq-item">
       <summary>איפה זה בדיוק?</summary>
-      <div class="faq-item-body">לח"י 21, בני ברק. 3.9.26, יום חמישי, 5.5 שעות.</div>
+      <div class="faq-item-body">לח"י 21, בני ברק. 3.9.26, יום חמישי, 5 שעות.</div>
     </details>
     <details class="faq-item">
       <summary>אין לי חיים מעניינים, ואני לא בן אדם פרובוקטיבי - זה מתאים לי?</summary>
