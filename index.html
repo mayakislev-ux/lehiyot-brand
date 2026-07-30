@@ -1017,6 +1017,12 @@ fbq('track', 'PageView');
   /* masonry-ish rhythm — alternating heights read as a curated gallery instead of a uniform grid */
   .pt-item:nth-child(3n+2) { height: 220px; align-self: flex-start; margin-top: -20px; }
   .pt-item:nth-child(3n) { height: 288px; }
+  /* curio train sits on a full-bleed dark background, not white - the staggered
+     masonry heights left visible gaps showing background through, so this
+     instance uses a plain uniform-height train instead */
+  .curio-train-v2 .pt-item:nth-child(3n+2), .curio-train-v2 .pt-item:nth-child(3n) {
+    height: 260px; align-self: auto; margin-top: 0;
+  }
   .pt-item img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
   @media (hover: hover) { .pt-item:hover img { transform: scale(1.08); } }
   /* shift by exactly N-items*(width+gap) — NOT -50% of total track width, since with
@@ -1030,6 +1036,9 @@ fbq('track', 'PageView');
     .photo-train-section { padding: 1.4rem 0; }
     .photo-train-track { gap: 8px; animation-duration: 11s; --pt-shift: -1008px; }
     .pt-item { width: 118px; height: 148px; border-radius: 13px; }
+    .curio-train-v2 .pt-item:nth-child(3n+2), .curio-train-v2 .pt-item:nth-child(3n) {
+      height: 148px; align-self: auto; margin-top: 0;
+    }
   }
 
   .truth-section { position: relative; overflow: hidden; padding-bottom: 4rem; }
@@ -2398,7 +2407,7 @@ fbq('track', 'PageView');
   <div class="bio-intro-grid">
     <img class="bio-intro-photo" src="images/maya-story-photo.png" alt="מאיה קיסלב" loading="lazy">
     <div class="bio-intro-text">
-      <p style="font-weight:800;">אם עוד לא הכרנו - נעים מאוד, <span style="color:var(--gold-soft);">מאיה קיסלב</span>.</p>
+      <p style="font-weight:800;">אם עוד לא הכרנו - נעים מאוד, <span style="color:var(--gold-soft);white-space:nowrap;">מאיה קיסלב</span>.</p>
       <p>השקעתי עד היום מעל 150,000 ₪ בלימודי שיווק, למדתי אצל מהמשווקים הגדולים בעולם ברוסיה ובארצות הברית, והוסמכתי כמשווקת מקצועית.<br>אבל הידע לבד לא בנה לי עסק.</p>
       <p><b>מה שבנה לי עסק היה היכולת לקחת שיווק, להבין אותו לעומק, ליישם אותו מהר - ולהפוך אותו לתוצאות.<br>בתוך 9 חודשים - מ-0 ל-100,000 ₪ בחודש.</b><br>לא אחרי עשר שנים, לא עם תקציבי פרסום מטורפים.</p>
     </div>
