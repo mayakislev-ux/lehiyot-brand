@@ -551,9 +551,9 @@ fbq('track', 'PageView');
   .hero-title.v2 { color: var(--white); font-size: clamp(1.62rem, 1.15rem + 2.5vw, 2.85rem); line-height: 1.22; white-space: normal; overflow-wrap: break-word; word-break: break-word; max-width: 100%; }
   .hero-inner.v2, .hero-text-col.v2 { max-width: 100%; box-sizing: border-box; overflow-wrap: break-word; }
   .hero-stage.v2 { overflow: hidden; }
-  .hero-audience-strip { background: var(--white); color: var(--ink); max-width: 28rem; margin: -5.5rem auto 1.6rem; text-align: center; font-weight: 600; font-size: 0.82rem; line-height: 1.5; padding: 0.65rem 1.3rem; border-bottom-right-radius: 1.3rem; border-bottom-left-radius: 1.3rem; position: relative; z-index: 6; box-shadow: 0 4px 12px rgba(20,6,38,0.2); }
+  .hero-audience-strip { background: var(--white); color: var(--ink); width: fit-content; max-width: 24rem; margin: -5.5rem auto 1.6rem; text-align: center; font-weight: 600; font-size: 0.75rem; line-height: 1.5; padding: 0.55rem 1.1rem; border-bottom-right-radius: 1.1rem; border-bottom-left-radius: 1.1rem; position: relative; z-index: 6; box-shadow: 0 4px 12px rgba(20,6,38,0.2); }
   .hero-audience-strip strong { display: inline-block; font-weight: 800; color: var(--sec-a); }
-  @media (max-width: 480px) { .hero-audience-strip { max-width: 88%; font-size: 0.76rem; padding: 0.6rem 1rem; margin-top: -5.5rem; } }
+  @media (max-width: 480px) { .hero-audience-strip { max-width: 88%; font-size: 0.7rem; padding: 0.5rem 0.9rem; margin-top: -5.5rem; } }
   .hero-objections-v2 { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: center; column-gap: 1.1rem; row-gap: 0.4rem; margin: 1.2rem 0 1.6rem; }
   .hero-objections-v2 span { color: rgba(255,255,255,0.88); font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; }
   .hero-objections-v2 .x-ic { flex-shrink: 0; width: 1.1rem; height: 1.1rem; border-radius: 50%; background: var(--white); color: var(--red-strong); font-size: 0.65rem; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; }
@@ -2165,7 +2165,6 @@ fbq('track', 'PageView');
         <span><i class="x-ic">✕</i>בלי פרובוקציות.</span>
         <span><i class="x-ic">✕</i>גם אם אתם בטוחים שאין בכם משהו מיוחד.</span>
       </div>
-      <div class="hero-guarantee-badge"><span class="ic">🛡</span>100% החזר כספי אם לא תרגישו שקיבלתם ערך</div>
       <div class="hero-vsl-wrap">
         <div class="hero-vsl-banner">🔊 צפו בסרטון עכשיו! 🔊</div>
         <div class="vsl-wrap-outer" id="vslWrapOuter">
@@ -2201,6 +2200,7 @@ fbq('track', 'PageView');
           </div>
         </div>
       </div>
+      <div class="hero-guarantee-badge"><span class="ic">🛡</span>100% החזר כספי אם לא תרגישו שקיבלתם ערך</div>
       </div>
     </div>
   <a href="#" class="scroll-hint" id="scrollHint" aria-label="גללו למטה"></a>
