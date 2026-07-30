@@ -618,7 +618,7 @@ fbq('track', 'PageView');
   /* ===== NEW section 1.5: quick proof strip (overlapping face circles + headline + pills) ===== */
   .strip { position: relative; background: var(--white); padding: 9rem 1.4rem 4rem; text-align: center; overflow: hidden; }
   .strip-bg { position: absolute; inset: 0; z-index: 0; }
-  .strip-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; opacity: 0.4; filter: grayscale(0.7) brightness(1.25) contrast(0.92); }
+  .strip-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; opacity: 0.4; filter: grayscale(0.7) brightness(1.25) contrast(0.92); }
   .strip-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.35), var(--white) 88%); }
   .strip > *:not(.strip-bg) { position: relative; z-index: 1; }
   .strip h2.sh { font-size: clamp(1.5rem, 1.25rem + 1vw, 2rem); max-width: 26ch; margin: 0 auto 1.5rem; font-weight: 800; color: var(--ink); line-height: 1.4; overflow-wrap: break-word; word-break: break-word; }
