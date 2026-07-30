@@ -722,7 +722,7 @@ fbq('track', 'PageView');
 
   /* ===== NEW section 7: who-for disqualify table ===== */
   /* rebuilt from Tamar's real live CSS (fetched directly, not estimated from screenshot) */
-  .dq { position: relative; padding: 2.2rem 1.4rem 3rem; background: #1a0f2e; overflow: hidden; }
+  .dq { position: relative; padding: 2.8rem 1.4rem 3rem; background: #1a0f2e; overflow: hidden; }
   .dq-bg { position: absolute; inset: 0; z-index: 0; }
   .dq-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
   .dq-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,15,46,0.62), rgba(26,15,46,0.72) 60%, rgba(20,10,35,0.88)); }
@@ -1070,12 +1070,13 @@ fbq('track', 'PageView');
 
   .phone-play-btn {
     position: absolute; inset: 0; margin: auto; width: 42px; height: 42px; border-radius: 50%;
-    background: rgba(20,6,38,0.5); border: 2px solid rgba(255,255,255,0.85); color: var(--white);
+    background: rgba(255,255,255,0.22); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    border: 1.5px solid rgba(255,255,255,0.75); color: var(--white);
     font-size: 1rem; display: flex; align-items: center; justify-content: center; cursor: pointer;
     z-index: 3; padding: 0; padding-inline-start: 3px;
     animation: phonePlayPulse 2.2s ease-in-out infinite;
   }
-  .phone-play-btn:hover { background: rgba(20,6,38,0.7); }
+  .phone-play-btn:hover { background: rgba(255,255,255,0.34); }
   .phone-play-btn::after {
     content: "🔊"; position: absolute; bottom: -4px; left: -4px; width: 20px; height: 20px; border-radius: 50%;
     background: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 0.65rem;
@@ -1135,7 +1136,7 @@ fbq('track', 'PageView');
   .brand-head h2 { font-size: clamp(1.75rem, 1.4rem + 1.6vw, 2.35rem); margin-bottom: 0.8rem; }
   .brand-head p { color: var(--ink-dim); font-size: 1.02rem; }
   .split-stack { position: relative; max-width: 880px; margin: 0 auto; padding: 1rem 0 2.4rem; }
-  .split-col { border-radius: 26px; padding: 2.2rem 2.1rem; position: relative; }
+  .split-col { border-radius: 28px; padding: 2.2rem 2.1rem; position: relative; }
   .split-col.no {
     background: linear-gradient(160deg, rgba(255,255,255,0.98), rgba(255,255,255,0.9));
     backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
@@ -1975,7 +1976,7 @@ fbq('track', 'PageView');
     font-size: 22rem; opacity: 0.05; z-index: 0; line-height: 1; pointer-events: none; filter: grayscale(1);
   }
   .curio-section .wrap { position: relative; z-index: 1; }
-  @media (max-width: 600px) { .curio-section::before { font-size: 13rem; } .curio-section { padding-top: 2rem; } }
+  @media (max-width: 600px) { .curio-section::before { font-size: 13rem; } .curio-section { padding-top: 2.8rem; } }
 
   /* ===== curio dark card (davidvatine-style "highlighted square with special bg inside a section") ===== */
   .curio-card {
