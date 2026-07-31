@@ -4025,6 +4025,60 @@ fbq('track', 'PageView');
       floor.style.setProperty('--my', my + '%');
     }, { passive: true });
   })();
+
+  /* ===== real funnel tracking: scroll depth + section reached, sent to GA4 =====
+     lets Maya see in GA4 (Reports -> Engagement -> Events) how far people actually
+     get down the page and where they stop, not just "someone visited". */
+  (function () {
+    if (typeof gtag !== 'function') return;
+
+    var depthsFired = {};
+    [25, 50, 75, 90].forEach(function (d) { depthsFired[d] = false; });
+    function checkScrollDepth() {
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      if (max <= 0) return;
+      var pct = (h.scrollTop / max) * 100;
+      [25, 50, 75, 90].forEach(function (d) {
+        if (!depthsFired[d] && pct >= d) {
+          depthsFired[d] = true;
+          gtag('event', 'scroll_depth', { percent: d });
+        }
+      });
+    }
+    window.addEventListener('scroll', checkScrollDepth, { passive: true });
+    checkScrollDepth();
+
+    var sectionMap = [
+      ['#nav-hero', 'hero'],
+      ['#nav-diagnosis', 'method_4stations'],
+      ['.pain', 'pain'],
+      ['.urgency-v2', 'urgency'],
+      ['#nav-bio', 'bio'],
+      ['.dq', 'who_its_for'],
+      ['.curio-section-v2', 'curio'],
+      ['#nav-quiz', 'quiz'],
+      ['.grt', 'guarantee'],
+      ['#form', 'closer_purchase'],
+      ['.faq-section', 'faq']
+    ];
+    if ('IntersectionObserver' in window) {
+      var seen = {};
+      var sectionIo = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var name = entry.target.getAttribute('data-funnel-name');
+          if (seen[name]) return;
+          seen[name] = true;
+          gtag('event', 'section_reached', { section_name: name });
+        });
+      }, { threshold: 0.3 });
+      sectionMap.forEach(function (pair) {
+        var el = document.querySelector(pair[0]);
+        if (el) { el.setAttribute('data-funnel-name', pair[1]); sectionIo.observe(el); }
+      });
+    }
+  })();
 </script>
 
 
