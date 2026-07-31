@@ -2259,7 +2259,7 @@ fbq('track', 'PageView');
   <a href="#nav-diagnosis" data-target="nav-diagnosis"><span class="dot-label">פתיחה · עסק מול מותג</span></a>
   <a href="#nav-bio" data-target="nav-bio" class="phase-start"><span class="dot-label">אמצע-משחק · מי אני</span></a>
   <a href="#nav-slava" data-target="nav-slava"><span class="dot-label">אמצע-משחק · הסיפור של סלבה</span></a>
-  <a href="#nav-agenda" data-target="nav-agenda"><span class="dot-label">אמצע-משחק · מה מחכה לכם</span></a>
+  <a href="#nav-diagnosis" data-target="nav-diagnosis"><span class="dot-label">אמצע-משחק · מה מחכה לכם</span></a>
   <a href="#nav-quiz" data-target="nav-quiz" class="phase-start"><span class="dot-label">סיום · קוויז הבידול</span></a>
   <a href="#form" data-target="form"><span class="dot-label">סיום · הצטרפות</span></a>
 </nav>
@@ -2433,7 +2433,7 @@ fbq('track', 'PageView');
 </div>
 
 
-<section class="section-pad reveal in" style="background:var(--ivory);position:relative;">
+<section class="section-pad reveal in" id="nav-slava" style="background:var(--ivory);position:relative;">
   <div class="wrap">
     <div class="brand-head">
       <h2 style="font-size:clamp(1.55rem, 1.3rem + 1.1vw, 2rem);">אני יכולה להגיד לכם שהשיטה עובדת. אבל תוצאות מדברות הרבה יותר חזק ממני.</h2>
@@ -3149,7 +3149,7 @@ fbq('track', 'PageView');
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     var pieces = document.querySelectorAll('.ambient-piece');
     var startEl = document.getElementById('nav-diagnosis');
-    var endEl = document.getElementById('nav-agenda');
+    var endEl = document.getElementById('nav-bio');
     if (!pieces.length || !startEl || !endEl) return;
     var ticking = false;
     function update() {
