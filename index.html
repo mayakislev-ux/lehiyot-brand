@@ -705,7 +705,8 @@ fbq('track', 'PageView');
   @media (max-width: 600px) { .urgency-mark { font-size: 13rem; } }
 
   /* ===== NEW section 4: 4 stages ===== */
-  .method { background: linear-gradient(180deg, var(--purple-deep) 0%, var(--sec-a) 22%, var(--purple-deep) 48%, var(--purple-black) 75%, #0f0818 100%); padding: 4.5rem 0; }
+  .method { position: relative; background: linear-gradient(180deg, var(--purple-deep) 0%, var(--sec-a) 22%, var(--purple-deep) 48%, var(--purple-black) 75%, #0f0818 100%); padding: 4.5rem 0; overflow: hidden; }
+  .method::before { content: ""; position: absolute; z-index: -1; inset: 0; background: radial-gradient(ellipse 55% 45% at 85% 6%, rgba(255,255,255,0.25), transparent 62%); pointer-events: none; }
   .method h2.sh { padding: 0 1.4rem; margin-bottom: 3.2rem; text-align: center; font-weight: 800; color: var(--white); text-shadow: 0 2px 14px rgba(10,4,20,0.35); overflow-wrap: break-word; font-size: clamp(1.55rem, 1.3rem + 1.1vw, 2rem); max-width: 22ch; margin-inline: auto; }
   .method .grid { display: grid; grid-template-columns: 1fr 1fr; max-width: 1100px; margin: 0 auto; border-radius: 22px; overflow: hidden; box-shadow: 0 20px 50px rgba(20,6,38,0.12); }
   @media (min-width: 1300px) { .method .grid { max-width: 1400px; } }
@@ -826,14 +827,29 @@ fbq('track', 'PageView');
   .closer-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; opacity: 0.13; filter: grayscale(1) brightness(0.85) contrast(1.05); }
   .closer-bg::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, transparent 0%, rgba(36,9,63,0.55) 75%); }
   .closer-v2 > *:not(.closer-bg) { position: relative; z-index: 1; }
+  .closer-panel {
+    background: rgba(255,255,255,0.06); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.18); border-radius: 28px; padding: 3rem 2.4rem;
+    max-width: 800px; margin: 0 auto; box-shadow: 0 25px 60px rgba(10,4,20,0.35), inset 0 1px 0 rgba(255,255,255,0.1);
+  }
   .closer-v2 h2 { color: var(--white); font-size: clamp(1.5rem, 1.2rem + 1.6vw, 2.1rem); max-width: 26ch; margin: 0 auto 2.2rem; overflow-wrap: break-word; line-height: 1.4; }
   .closer-v2 .scarcity { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(217,172,94,0.14); border: 1px solid rgba(217,172,94,0.4); color: var(--gold-soft); font-weight: 800; font-size: 0.8rem; padding: 0.4rem 1rem; border-radius: 999px; margin-bottom: 2rem; }
-  .closer-v2 .cd-boxes { display: flex; justify-content: center; gap: 0.7rem; margin: 0 0 2.2rem; direction: ltr; }
-  .closer-v2 .cd-boxes div { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.32); border-radius: 12px; padding: 0.8rem 1rem; text-align: center; min-width: 72px; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
-  .closer-v2 .cd-boxes b { display: block; color: var(--white); font-size: 2rem; font-weight: 800; font-variant-numeric: tabular-nums; }
-  .closer-v2 .cd-boxes span { display: block; color: var(--gold-soft); font-size: 0.72rem; font-weight: 700; margin-top: 0.2rem; }
+  .closer-v2 .cd-boxes { display: flex; justify-content: center; gap: 0.8rem; margin: 0 0 2.2rem; direction: ltr; }
+  .closer-v2 .cd-boxes div { background: rgba(10,4,20,0.5); border: 1.5px solid rgba(255,255,255,0.3); border-radius: 14px; padding: 1.1rem 1.3rem; text-align: center; min-width: 84px; box-shadow: 0 10px 24px rgba(0,0,0,0.3); }
+  .closer-v2 .cd-boxes b { display: block; color: var(--white); font-size: 2.5rem; font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1; }
+  .closer-v2 .cd-boxes span { display: block; color: var(--gold-soft); font-size: 0.78rem; font-weight: 700; margin-top: 0.4rem; }
   .closer-v2 .price { color: rgba(255,255,255,0.7); font-size: 0.85rem; font-weight: 700; margin-top: 0.8rem; }
   .price-anchor { color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.6; max-width: 34ch; margin: 0 auto 1.6rem; }
+  .closer-tickets .gold-btn.two-line, .closer-tickets .ghost-btn.two-line { padding: 1.5rem 3.4rem 1.4rem; min-width: 230px; }
+  .closer-tickets .btn-main { font-size: 1.35rem; }
+  @media (max-width: 600px) {
+    .closer-panel { padding: 2.4rem 1.4rem; border-radius: 22px; }
+    .closer-v2 .cd-boxes { gap: 0.5rem; }
+    .closer-v2 .cd-boxes div { min-width: 68px; padding: 0.85rem 0.9rem; }
+    .closer-v2 .cd-boxes b { font-size: 2rem; }
+    .closer-tickets .gold-btn.two-line, .closer-tickets .ghost-btn.two-line { padding: 1.3rem 2.4rem 1.2rem; min-width: 0; width: 100%; }
+    .closer-tickets .btn-main { font-size: 1.2rem; }
+  }
 
   .hero-video-invite {
     display: inline-block; color: var(--gold-soft); font-weight: 700; font-size: 0.92rem;
@@ -2078,7 +2094,7 @@ fbq('track', 'PageView');
   }
   .curio-train-v2 {
     position: relative; overflow: hidden; direction: ltr; margin-top: 0; padding: 0.8rem 0;
-    background: transparent;
+    background: #0f0818;
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   }
@@ -2628,21 +2644,23 @@ fbq('track', 'PageView');
 
 <section class="closer-v2 reveal in spotlight-target" id="form" style="position:relative;">
   <div class="closer-bg" aria-hidden="true"><img src="images/closer-crowd.jpg" alt="" loading="lazy"></div>
-  <div class="scarcity">100 מקומות בלבד · קיבולת מלאה של האולם</div>
-  <h2>בעוד שנה מהיום - יהיו עסקים שהפכו ל<span class="underline-gold" style="color:var(--white);border-bottom-color:var(--red-strong);">בחירה הברורה</span>. ויהיו עסקים שעדיין נלחמים על שאריות.</h2>
-  <div class="cd-boxes">
-    <div class="countdown-box"><b id="cd2-days">00</b><span>ימים</span></div>
-    <div class="countdown-box"><b id="cd2-hours">00</b><span>שעות</span></div>
-    <div class="countdown-box"><b id="cd2-mins">00</b><span>דק'</span></div>
-    <div class="countdown-box"><b id="cd2-secs">00</b><span>שנ'</span></div>
+  <div class="closer-panel">
+    <div class="scarcity">100 מקומות בלבד · קיבולת מלאה של האולם</div>
+    <h2>בעוד שנה מהיום - יהיו עסקים שהפכו ל<span class="underline-gold" style="color:var(--white);border-bottom-color:var(--red-strong);">בחירה הברורה</span>. ויהיו עסקים שעדיין נלחמים על שאריות.</h2>
+    <div class="cd-boxes">
+      <div class="countdown-box"><b id="cd2-days">00</b><span>ימים</span></div>
+      <div class="countdown-box"><b id="cd2-hours">00</b><span>שעות</span></div>
+      <div class="countdown-box"><b id="cd2-mins">00</b><span>דק'</span></div>
+      <div class="countdown-box"><b id="cd2-secs">00</b><span>שנ'</span></div>
+    </div>
+    <p class="price-anchor">תחשבו כמה כבר עלה לכם לא להיות מבודלים - כסף שהלך על ממומן בלי בידול, שעות על עוד סרטונים שלא הביאו את הלקוחות שרציתם. 5 שעות שנותנות לזה תשובה אחת ולתמיד - ב-197₪.</p>
+    <div class="ticket-pair closer-tickets" style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem;margin-bottom:0.8rem;">
+      <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">כרטיס יחיד</span><span class="btn-sub" style="color:var(--sec-a);">197 ₪</span></a>
+      <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="ghost-btn two-line"><span class="btn-main">כרטיס זוגי</span><span class="btn-sub">297 ₪</span></a>
+    </div>
+    <div class="price">3.9.26 · לח"י 21, בני ברק</div>
+    <div class="price" style="margin-top:0.5rem;opacity:0.85;">🔒 תשלום מאובטח | תוך 2 דקות תקבלו מייל עם הכרטיס לסמינר ופרטי ההגעה</div>
   </div>
-  <p class="price-anchor">תחשבו כמה כבר עלה לכם לא להיות מבודלים - כסף שהלך על ממומן בלי בידול, שעות על עוד סרטונים שלא הביאו את הלקוחות שרציתם. 5 שעות שנותנות לזה תשובה אחת ולתמיד - ב-197₪.</p>
-  <div class="ticket-pair closer-tickets" style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem;margin-bottom:0.8rem;">
-    <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn two-line" data-fb-value="197"><span class="btn-main">כרטיס יחיד</span><span class="btn-sub" style="color:var(--sec-a);">197 ₪</span></a>
-    <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="ghost-btn two-line"><span class="btn-main">כרטיס זוגי</span><span class="btn-sub">297 ₪</span></a>
-  </div>
-  <div class="price">3.9.26 · לח"י 21, בני ברק</div>
-  <div class="price" style="margin-top:0.5rem;opacity:0.85;">🔒 תשלום מאובטח | תוך 2 דקות תקבלו מייל עם הכרטיס לסמינר ופרטי ההגעה</div>
 </section>
 
 <section class="section-pad reveal faq-section in">
