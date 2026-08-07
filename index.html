@@ -1992,7 +1992,7 @@ fbq('track', 'PageView');
   .proof-mini-card .proof-client-name::before { width: 1.25rem; height: 1.25rem; font-size: 0.72rem; }
   .proof-mini-card .proof-stat { font-size: 0.82rem; padding: 0.25rem 0.65rem; margin-bottom: 0.5rem; }
   @media (max-width: 860px) {
-    .proof-big-case { flex-direction: column; text-align: center; }
+    .proof-big-case { flex-direction: column; text-align: center; padding: 1.6rem 1.3rem; max-width: 340px; }
     .proof-grid-3 { grid-template-columns: 1fr; max-width: 340px; }
     .proof-mini-card p { font-size: 1.05rem; line-height: 1.7; }
     .proof-mini-card .proof-client-name { font-size: 1.45rem; gap: 0.55rem; margin-bottom: 0.5rem; }
@@ -2335,7 +2335,7 @@ fbq('track', 'PageView');
   .authority-photo { width: 100%; height: 640px; object-fit: cover; object-position: center 18%; display: block; border-radius: var(--radius-card); box-shadow: 0 18px 40px rgba(0,0,0,0.4); }
   .authority-stat-tag { position: absolute; bottom: 1.2rem; left: 50%; transform: translateX(-50%) rotate(-1.2deg); white-space: nowrap; background: var(--white); color: var(--sec-b); font-weight: 800; font-size: 0.85rem; padding: 0.65rem 1.4rem; border-radius: 8px; box-shadow: 0 10px 24px rgba(0,0,0,0.4); }
   .authority-text p { color: rgba(255,255,255,0.92); font-size: 1.02rem; line-height: 1.75; margin: 0 0 1rem; }
-  .authority-text p.lead { color: var(--white); font-size: 1.35rem; font-weight: 800; margin-bottom: 1.2rem; }
+  .authority-text p.lead { color: var(--white); font-size: 1.35rem; font-weight: 800; margin-bottom: 1.2rem; text-wrap: balance; }
 
   @media (max-width: 780px) {
     .authority-grid { grid-template-columns: 1fr; gap: 1.6rem; }
@@ -2360,7 +2360,7 @@ fbq('track', 'PageView');
 
   .authority-text-center { max-width: 640px; margin: 0 auto 2.2rem; text-align: center; }
   .authority-text-center p { color: rgba(255,255,255,0.92); font-size: 1.02rem; line-height: 1.75; margin: 0 0 1rem; }
-  .authority-text-center p.lead { color: var(--white); font-size: 1.3rem; font-weight: 800; }
+  .authority-text-center p.lead { color: var(--white); font-size: 1.3rem; font-weight: 800; text-wrap: balance; }
 
   .authority-divider-line { text-align: center; color: var(--gold-soft); font-size: 0.78rem; letter-spacing: 0.14em; margin: 0 0 1rem; opacity: 0.75; }
 
@@ -2474,14 +2474,6 @@ fbq('track', 'PageView');
       </div>
     </div>
 
-    <p class="proof-close-line">ארבעה תחומים שונים לגמרי. דבר אחד משותף - כולם עברו את אותו תהליך.</p>
-    <div class="collage-label">ועוד עשרות מהמחזורים הקודמים</div>
-    <div class="collage">
-      <div class="cph"><img src="images/client-liel.jpg" alt="" loading="lazy"></div><div class="cph"><img src="images/client-sarah-yitzhak.jpg" alt="" loading="lazy"></div><div class="cph"><img src="images/client-talia.jpg" alt="" loading="lazy"></div><div class="cph"><img src="images/client-vered-adess.jpg" alt="" loading="lazy"></div>
-    </div>
-    <div style="text-align:center;">
-      <a href="#form" class="gold-btn-secondary">אני רוצה להיות הבחירה הברורה ←</a>
-    </div>
   </div>
 </section>
 
@@ -2591,22 +2583,6 @@ fbq('track', 'PageView');
   </div>
 </div>
 
-
-<section class="bio-story-section reveal in">
-  <div class="bio-story-combo">
-    <div class="bio-collage">
-      <img class="bio-collage-img bio-collage-back" src="images/bio-4.jpg" alt="מאיה בראיון מול קהל" loading="lazy">
-      <img class="bio-collage-img bio-collage-front" src="images/bio-2.jpg" alt="מאיה עם הבאנר של האקדמיה" loading="lazy">
-    </div>
-    <div class="bio-story-text">
-      <p>עבדתי עם מאות בעלי עסקים, וראיתי שוב ושוב איך עסק טוב יכול להישאר תקוע - רק כי ברשת הוא לא מצליח להעביר למה לבחור דווקא בו.</p>
-      <p class="crisis">אבל את הדרך שלי התחלתי מעסק ביוטי שהיה תקוע שנה שלמה על 2,000 ₪ בחודש, ופחדתי ממצלמה. עד שעברתי משבר אישי שגרם לי להבין שביוטי זה לא אני - וסגרתי עסק מצליח כדי ללכת אחרי הלב שלי לשיווק.</p>
-      <div class="bio-v2-pullquote"><p>וזו בדיוק הסיבה שהשיטה שלי לא נשארת בתיאוריה - היא נבנתה מתוך אלפי שעות של למידה, יישום, ותוצאות חריגות בשטח.</p></div>
-      <p>לא עוד הרצאה על בידול. לא עוד משפטים יפים על מותג.<br>אלא הדרך שבה הופכים עסק טוב לבחירה הברורה בתחום שלו.</p>
-    </div>
-  </div>
-  <div class="row" style="display:flex;justify-content:center;gap:0.5rem;flex-wrap:wrap;margin-top:1rem;"><span class="pill">150,000+ ₪ בלימודי שיווק</span><span class="pill">17 מחזורי ליווי</span><span class="pill">מאות בעלי עסקים</span></div>
-</section>
 
 <section class="dq reveal in">
   <div class="dq-bg" aria-hidden="true"><img src="images/gallery-1.jpg" alt="" loading="lazy"></div>
