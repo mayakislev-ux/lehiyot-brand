@@ -2500,22 +2500,26 @@ fbq('track', 'PageView');
   }
 
   @media (max-width: 860px) {
-    .hero-v4-top { min-height: 100svh; }
     .hero-v4-top {
+      min-height: 0;
       background:
-        radial-gradient(ellipse 640px 600px at 50% 84%, rgba(157,78,221,0.30) 0%, rgba(123,44,191,0.19) 26%, rgba(90,24,154,0.10) 46%, rgba(90,24,154,0.04) 64%, transparent 80%),
-        radial-gradient(ellipse 800px 650px at 50% 90%, rgba(90,24,154,0.09) 0%, transparent 68%),
+        radial-gradient(ellipse 520px 480px at 40% 62%, rgba(157,78,221,0.30) 0%, rgba(123,44,191,0.19) 26%, rgba(90,24,154,0.10) 46%, rgba(90,24,154,0.04) 64%, transparent 80%),
+        radial-gradient(ellipse 650px 550px at 40% 68%, rgba(90,24,154,0.09) 0%, transparent 68%),
         linear-gradient(180deg, #16081F 0%, #0D0614 100%);
     }
-    .hero-v4-inner { min-height: 0; padding: 4.5rem 6vw 47vh; display: block; }
+    .hero-v4-inner { min-height: 0; padding: 4rem 20px 102vw; display: block; }
     .hero-composition { position: static; inset: auto; transform: none; }
-    .hero-photo-frame { position: absolute; left: 50%; bottom: 0; height: 44vh; width: fit-content; transform: translateX(-50%); margin: 0; justify-content: center; }
-    .hero-crowd { height: 7vh; min-height: 46px; }
+    .hero-photo-frame { position: absolute; left: 42%; bottom: 0; width: 60%; height: auto; transform: translateX(-50%); margin: 0; justify-content: center; }
+    .hero-photo-frame img { width: 100%; height: auto; }
+    .hero-crowd { height: 6vh; min-height: 40px; }
     .hero-v4-text { max-width: none; padding-top: 0; text-align: center; transform: none; }
-    .hero-v4-title .hv-l2a { font-size: clamp(1.4rem, 1.1rem + 2vw, 1.8rem); }
-    .hero-v4-title .hv-l2b { font-size: clamp(2rem, 1.3rem + 4vw, 2.7rem); }
-    .hero-v4-punch { font-size: clamp(1.25rem, 1rem + 1.8vw, 1.6rem); }
-    .hero-v4-cta { display: flex; justify-content: center; margin-inline: auto; }
+
+    .hero-v4-title .hv-l1 { font-size: clamp(18px, 4.5vw, 21px); margin-bottom: 15px; }
+    .hero-v4-title .hv-l2a { font-size: clamp(28px, 7vw, 33px); font-weight: 400; margin-bottom: 0; }
+    .hero-v4-title { margin-bottom: 24px; }
+    .hero-v4-title .hv-l2b { font-size: clamp(44px, 11vw, 50px); line-height: 1.02; margin-top: 11px; }
+    .hero-v4-punch { font-size: clamp(24px, 6.2vw, 29px); margin-bottom: 32px; }
+    .hero-v4-cta { width: calc(100% - 40px); max-width: 420px; min-height: 64px; padding: 1rem 1.2rem; font-size: 0.92rem; white-space: nowrap; display: flex; justify-content: center; margin-inline: auto; margin-bottom: 17px; }
     .hero-v4-fine { text-align: center; }
   }
   /* ===== punch-list round 3: global additions ===== */
