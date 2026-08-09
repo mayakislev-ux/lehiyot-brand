@@ -2444,7 +2444,16 @@ fbq('track', 'PageView');
   .story-ch4-v2 .final { font-size: 1.02rem; font-weight: 700; color: var(--sec-a); margin-bottom: 2rem; }
 
   /* ===== REBUILD: combined guarantee + tickets card ===== */
-  .offer-v2 { background: linear-gradient(180deg, var(--purple-deep) 0%, var(--sec-b) 100%); padding: 6rem 1.6rem; text-align: center; }
+  .offer-v2 { background: none; padding: 0; text-align: center; }
+  .offer-beat { padding: 4.2rem 1.6rem; }
+  .offer-beat-guarantee { background: var(--white); }
+  .offer-beat-guarantee h2 { color: var(--ink); }
+  .offer-beat-guarantee .grt-copy-v2 p { color: var(--ink-dim) !important; }
+  .offer-beat-guarantee .grt-copy-v2 .bold-line { color: var(--ink) !important; }
+  .offer-beat-cta { background: linear-gradient(180deg, var(--purple-deep) 0%, var(--sec-b) 100%); }
+  .offer-beat-logistics { background: var(--purple-pale); }
+  .offer-beat-kicker, .logistics-kicker { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; color: var(--gold-soft); margin: 0 0 1.6rem; }
+  .logistics-kicker { color: var(--sec-a); }
   .offer-v2 .wordmark b { font-size: 1rem; letter-spacing: 0.08em; color: var(--gold-soft); font-weight: 700; }
   .offer-v2 .wordmark span { display: block; font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 0.2rem; margin-bottom: 1.8rem; }
   .offer-v2 .seals-row { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1.4rem; }
@@ -3326,23 +3335,25 @@ fbq('track', 'PageView');
 </section>
 
 <section class="offer-v2 reveal in spotlight-target" id="form" style="position:relative;">
+
+  <div class="offer-beat offer-beat-guarantee">
   <div class="wrap">
     <div class="wordmark"><b>מאיה קיסלב</b><span>Brand Seminar · 3.9.26</span></div>
 
     <div class="seals-row">
       <svg width="80" height="94" viewBox="0 0 100 116">
-        <polygon points="50,2 58,16 74,10 76,27 93,29 88,45 100,57 86,66 90,83 73,82 68,98 53,90 39,99 32,83 15,86 17,69 2,60 12,46 5,30 22,26 22,9 39,17" fill="var(--gold-refined)"/>
-        <circle cx="50" cy="54" r="34" fill="var(--sec-a)" stroke="var(--gold-soft)" stroke-width="2"/>
+        <polygon points="50,2 58,16 74,10 76,27 93,29 88,45 100,57 86,66 90,83 73,82 68,98 53,90 39,99 32,83 15,86 17,69 2,60 12,46 5,30 22,26 22,9 39,17" fill="var(--gold-refined)"></polygon>
+        <circle cx="50" cy="54" r="34" fill="var(--sec-a)" stroke="var(--gold-soft)" stroke-width="2"></circle>
         <text x="50" y="49" text-anchor="middle" fill="var(--white)" font-size="13" font-weight="800">100%</text>
         <text x="50" y="63" text-anchor="middle" fill="var(--gold-soft)" font-size="6.5" font-weight="700">החזר כספי</text>
-        <polygon points="34,84 50,94 66,84 66,116 50,104 34,116" fill="var(--sec-b)"/>
+        <polygon points="34,84 50,94 66,84 66,116 50,104 34,116" fill="var(--sec-b)"></polygon>
       </svg>
       <svg width="80" height="94" viewBox="0 0 100 116">
-        <polygon points="50,2 58,16 74,10 76,27 93,29 88,45 100,57 86,66 90,83 73,82 68,98 53,90 39,99 32,83 15,86 17,69 2,60 12,46 5,30 22,26 22,9 39,17" fill="var(--gold-refined)"/>
-        <circle cx="50" cy="54" r="34" fill="var(--sec-a)" stroke="var(--gold-soft)" stroke-width="2"/>
+        <polygon points="50,2 58,16 74,10 76,27 93,29 88,45 100,57 86,66 90,83 73,82 68,98 53,90 39,99 32,83 15,86 17,69 2,60 12,46 5,30 22,26 22,9 39,17" fill="var(--gold-refined)"></polygon>
+        <circle cx="50" cy="54" r="34" fill="var(--sec-a)" stroke="var(--gold-soft)" stroke-width="2"></circle>
         <text x="50" y="49" text-anchor="middle" fill="var(--white)" font-size="12" font-weight="800">48H</text>
         <text x="50" y="63" text-anchor="middle" fill="var(--gold-soft)" font-size="6.5" font-weight="700">מובטח</text>
-        <polygon points="34,84 50,94 66,84 66,116 50,104 34,116" fill="var(--sec-b)"/>
+        <polygon points="34,84 50,94 66,84 66,116 50,104 34,116" fill="var(--sec-b)"></polygon>
       </svg>
     </div>
 
@@ -3356,7 +3367,12 @@ fbq('track', 'PageView');
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"></path></svg>SSL מוצפן</span>
       </div>
     </div>
+  </div>
+  </div>
 
+  <div class="offer-beat offer-beat-cta">
+  <div class="wrap">
+    <p class="offer-beat-kicker">ההזמנה שלכם</p>
     <div class="tickets-row-v2">
       <div class="ticket-card-v2">
         <div class="t-name">כרטיס יחיד</div>
@@ -3382,7 +3398,12 @@ fbq('track', 'PageView');
       <summary>מה קורה אחרי שאני משלמ/ת? ←</summary>
       <p>תוך 2 דקות תקבלו מייל עם אישור ההרשמה, כרטיס לסמינר ופרטי ההגעה המלאים. אם יש שאלות בדרך - אפשר לכתוב לנו בוואטסאפ בכל שלב.</p>
     </details>
+  </div>
+  </div>
 
+  <div class="offer-beat offer-beat-logistics">
+  <div class="wrap">
+    <p class="logistics-kicker">כרטיס הכניסה שלכם ל-3.9</p>
     <div class="logistics-card">
       <div class="logistics-group">
         <div class="logistics-head"><span class="logistics-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg></span>לו"ז היום</div>
@@ -3405,6 +3426,8 @@ fbq('track', 'PageView');
       </div>
     </div>
   </div>
+  </div>
+
 </section>
 
 <section class="section-pad reveal faq-section in">
