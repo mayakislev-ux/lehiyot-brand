@@ -2468,21 +2468,21 @@ fbq('track', 'PageView');
 
   .hero-v4-inner { position: relative; max-width: 1600px; margin: 0 auto; min-height: 96vh; padding: 0 4vw; }
 
-  .hero-photo-frame { position: absolute; z-index: 2; left: 8%; bottom: 0; height: 96%; display: flex; align-items: flex-end; opacity: 0; animation: heroPhotoIn 1.1s 0.3s cubic-bezier(.2,.7,.2,1) forwards; }
+  .hero-photo-frame { position: absolute; z-index: 2; left: 16%; bottom: 0; height: 85%; display: flex; align-items: flex-end; opacity: 0; animation: heroPhotoIn 1.1s 0.3s cubic-bezier(.2,.7,.2,1) forwards; }
   .hero-photo-frame img { height: 100%; width: auto; max-width: none; object-fit: contain; display: block; filter: drop-shadow(0 40px 60px rgba(0,0,0,0.5)); }
 
-  .hero-v4-text { position: relative; z-index: 3; max-width: 640px; padding-top: 12vh; text-align: right; }
+  .hero-v4-text { position: relative; z-index: 3; max-width: 660px; padding-top: 9vh; text-align: right; }
 
-  .hero-v4-kicker { font-size: 0.76rem; font-weight: 600; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); margin-bottom: 1.8rem; opacity: 0; animation: heroRise 0.9s 0.1s ease forwards; }
+  .hero-v4-title { margin: 0 0 0.8rem; text-wrap: balance; }
+  .hero-v4-title .hv-l1 { display: block; font-size: clamp(1.05rem, 0.9rem + 0.6vw, 1.4rem); font-weight: 300; color: rgba(255,255,255,0.6); margin-bottom: 1rem; opacity: 0; animation: heroRise 0.9s 0.1s ease forwards; }
+  .hero-v4-title .hv-l2a { display: block; font-size: clamp(1.9rem, 1.2rem + 2.4vw, 2.9rem); font-weight: 600; line-height: 1.2; color: rgba(255,255,255,0.82); opacity: 0; animation: heroRise 0.9s 0.25s ease forwards; }
+  .hero-v4-title .hv-l2b { display: block; font-size: clamp(2.7rem, 1.4rem + 4.4vw, 4.8rem); font-weight: 800; line-height: 1.14; color: var(--white); margin-top: 0.15rem; opacity: 0; animation: heroRise 0.9s 0.4s ease forwards; }
+  .hero-v4-title .hv-climax { position: relative; background-image: linear-gradient(var(--gold),var(--gold)); background-repeat: no-repeat; background-position: 0 100%; background-size: 100% 4px; padding-bottom: 0.06em; }
 
-  .hero-v4-title { margin: 0 0 1.3rem; text-wrap: balance; }
-  .hero-v4-title .hv-l1 { display: block; font-size: clamp(1rem, 0.85rem + 0.6vw, 1.35rem); font-weight: 300; color: rgba(255,255,255,0.55); margin-bottom: 0.7rem; opacity: 0; animation: heroRise 0.9s 0.2s ease forwards; }
-  .hero-v4-title .hv-l2 { display: block; font-size: clamp(2.2rem, 1.2rem + 3.6vw, 4rem); font-weight: 800; line-height: 1.18; color: var(--white); opacity: 0; animation: heroRise 0.9s 0.35s ease forwards; }
-
-  .hero-v4-punch { font-size: clamp(1.5rem, 1rem + 2vw, 2.5rem); font-weight: 800; color: var(--white); margin: 0 0 2.2rem; opacity: 0; animation: heroRise 0.9s 0.5s ease forwards; }
+  .hero-v4-punch { font-size: clamp(1.5rem, 1rem + 2vw, 2.5rem); font-weight: 800; color: var(--white); margin: 0 0 1.5rem; opacity: 0; animation: heroRise 0.9s 0.5s ease forwards; }
   .hero-v4-punch .hv-mark { background-image: linear-gradient(var(--gold),var(--gold)); background-repeat: no-repeat; background-position: 0 100%; background-size: 100% 3px; padding-bottom: 0.1em; }
 
-  .hero-v4-cta { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 1.05rem 2.4rem; background: var(--white); color: var(--purple-void); font-weight: 800; font-size: 1.05rem; text-decoration: none; border-radius: 2px; margin: 0 0 1.8rem; opacity: 0; animation: heroRise 0.9s 0.65s ease forwards; }
+  .hero-v4-cta { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 1.05rem 2.4rem; background: var(--white); color: var(--purple-void); font-weight: 800; font-size: 1.05rem; text-decoration: none; border-radius: 2px; margin: 0 0 1.3rem; opacity: 0; animation: heroRise 0.9s 0.65s ease forwards; }
 
   .hero-v4-fine { font-size: 0.82rem; color: rgba(255,255,255,0.4); opacity: 0; animation: heroRise 0.9s 0.8s ease forwards; }
   .hero-v4-fine .scarcity-dot { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--red-strong); margin-inline-end: 0.4rem; }
@@ -2490,7 +2490,7 @@ fbq('track', 'PageView');
   @keyframes heroRise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes heroPhotoIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
   @media (prefers-reduced-motion: reduce) {
-    .hero-v4-kicker, .hero-v4-title .hv-l1, .hero-v4-title .hv-l2, .hero-v4-punch, .hero-v4-cta, .hero-v4-fine, .hero-photo-frame { opacity: 1 !important; animation: none !important; }
+    .hero-v4-title .hv-l1, .hero-v4-title .hv-l2a, .hero-v4-title .hv-l2b, .hero-v4-punch, .hero-v4-cta, .hero-v4-fine, .hero-photo-frame { opacity: 1 !important; animation: none !important; }
   }
 
   @media (max-width: 860px) {
@@ -2498,8 +2498,8 @@ fbq('track', 'PageView');
     .hero-v4-inner { min-height: auto; padding: 0 6vw; display: flex; flex-direction: column; }
     .hero-photo-frame { position: relative; left: auto; bottom: auto; height: 60vh; margin: 0 auto 1.6rem; }
     .hero-v4-text { max-width: none; padding-top: 0; text-align: center; }
-    .hero-v4-kicker { justify-content: center; }
-    .hero-v4-title .hv-l2 { font-size: clamp(1.9rem, 1.2rem + 4vw, 2.6rem); }
+    .hero-v4-title .hv-l2a { font-size: clamp(1.5rem, 1.1rem + 2.4vw, 1.9rem); }
+    .hero-v4-title .hv-l2b { font-size: clamp(2.1rem, 1.3rem + 4.4vw, 2.9rem); }
     .hero-v4-punch { font-size: clamp(1.3rem, 1rem + 2vw, 1.7rem); }
     .hero-v4-cta { display: flex; justify-content: center; margin-inline: auto; }
     .hero-v4-fine { text-align: center; }
@@ -2729,14 +2729,14 @@ fbq('track', 'PageView');
     </div>
     <div class="hero-v4-text">
       <h1 class="hero-title v2" style="position:absolute;width:1px;height:1px;overflow:hidden;">להיות מותג - הסמינר הפרונטלי</h1>
-      <div class="hero-v4-kicker">להיות מותג — הסמינר הפרונטלי · 3.9.26 · בני ברק</div>
       <p class="hero-v4-title">
         <span class="hv-l1">יש שני סוגים של בעלי עסקים:</span>
-        <span class="hv-l2">אלה שנלחמים על כל לקוח,<br>ואלה שקובעים את כללי המשחק.</span>
+        <span class="hv-l2a">אלה שנלחמים על כל לקוח,</span>
+        <span class="hv-l2b">ואלה שקובעים את <span class="hv-climax">כללי המשחק</span>.</span>
       </p>
       <p class="hero-v4-punch">ב-3.9 העסק שלכם <span class="hv-mark">עובר צד</span>.</p>
       <a href="#form" class="hero-v4-cta"><span>אני רוצה להיות שם ב-3.9</span><span>←</span></a>
-      <p class="hero-v4-fine"><span class="scarcity-dot"></span>5 שעות פרונטליות · מ-197 ₪ · נשארו מקומות אחרונים</p>
+      <p class="hero-v4-fine"><span class="scarcity-dot"></span>3.9.26 · בני ברק · 5 שעות פרונטליות · מ-197 ₪ · נשארו מקומות אחרונים</p>
     </div>
   </div>
   <a href="#" class="scroll-hint" id="scrollHint" aria-label="גללו למטה"></a>
