@@ -2455,34 +2455,39 @@ fbq('track', 'PageView');
   @media (max-width: 560px) { .tickets-row-v2 { grid-template-columns: 1fr; max-width: 280px; } }
 
 
-  /* ===== HERO REBUILD v6: cinematic poster composition, real brand tokens only ===== */
-  .hero-v4 { background: var(--purple-void); padding: 0; }
-  .hero-v4-card-wrap { background: var(--purple-void); padding: 0; }
+  /* ===== HERO REBUILD v7: cinematic keynote-stage composition ===== */
+  .hero-v4 { background: #0D0614; padding: 0; }
+  .hero-v4-card-wrap { background: #0D0614; padding: 0; }
   .hero-v4-vsl-section { background: var(--white); padding: 2.8rem 1.6rem 2.6rem; }
 
   .hero-v4-top {
-    position: relative; overflow: visible; width: 100%; margin: 0; min-height: 96vh;
-    background: linear-gradient(135deg, var(--purple-deep) 0%, var(--sec-b) 55%, var(--purple-void) 100%);
+    position: relative; overflow: visible; width: 100%; margin: 0; min-height: 100svh;
+    background:
+      radial-gradient(ellipse 1000px 900px at 22% 34%, rgba(157,78,221,0.30) 0%, rgba(123,44,191,0.19) 26%, rgba(90,24,154,0.10) 46%, rgba(90,24,154,0.04) 64%, transparent 80%),
+      radial-gradient(ellipse 1500px 1100px at 52% 48%, rgba(90,24,154,0.09) 0%, transparent 68%),
+      linear-gradient(180deg, #16081F 0%, #0D0614 100%);
   }
   .hero-v4-logo { position: absolute; top: 1.4rem; right: 1.8rem; z-index: 4; color: var(--white); font-weight: 700; font-size: 0.92rem; opacity: 0.92; }
 
-  .hero-v4-inner { position: relative; max-width: 1600px; margin: 0 auto; min-height: 96vh; padding: 0 4vw; }
+  .hero-v4-inner { position: relative; max-width: 1600px; margin: 0 auto; min-height: 100svh; padding: 0 4vw; }
 
-  .hero-photo-frame { position: absolute; z-index: 2; left: 16%; bottom: 0; height: 85%; display: flex; align-items: flex-end; opacity: 0; animation: heroPhotoIn 1.1s 0.3s cubic-bezier(.2,.7,.2,1) forwards; }
-  .hero-photo-frame img { height: 100%; width: auto; max-width: none; object-fit: contain; display: block; filter: drop-shadow(0 40px 60px rgba(0,0,0,0.5)); }
+  .hero-photo-frame { position: absolute; z-index: 2; left: 13%; bottom: 0; height: 66%; display: flex; align-items: flex-end; opacity: 0; animation: heroPhotoIn 1.1s 0.3s cubic-bezier(.2,.7,.2,1) forwards; }
+  .hero-photo-frame img { height: 100%; width: auto; max-width: none; object-fit: contain; display: block; filter: drop-shadow(0 40px 60px rgba(0,0,0,0.55)); }
 
-  .hero-v4-text { position: relative; z-index: 3; max-width: 660px; padding-top: 9vh; text-align: right; }
+  .hero-crowd { position: absolute; z-index: 6; left: 0; right: 0; bottom: 0; width: 100%; height: 11vh; min-height: 70px; max-height: 130px; opacity: 0.5; pointer-events: none; }
+
+  .hero-v4-text { position: relative; z-index: 3; max-width: 660px; padding-top: 22vh; text-align: right; }
 
   .hero-v4-title { margin: 0 0 0.8rem; text-wrap: balance; }
   .hero-v4-title .hv-l1 { display: block; font-size: clamp(1.05rem, 0.9rem + 0.6vw, 1.4rem); font-weight: 300; color: rgba(255,255,255,0.6); margin-bottom: 1rem; opacity: 0; animation: heroRise 0.9s 0.1s ease forwards; }
-  .hero-v4-title .hv-l2a { display: block; font-size: clamp(1.9rem, 1.2rem + 2.4vw, 2.9rem); font-weight: 600; line-height: 1.2; color: rgba(255,255,255,0.82); opacity: 0; animation: heroRise 0.9s 0.25s ease forwards; }
-  .hero-v4-title .hv-l2b { display: block; font-size: clamp(2.7rem, 1.4rem + 4.4vw, 4.8rem); font-weight: 800; line-height: 1.14; color: var(--white); margin-top: 0.15rem; opacity: 0; animation: heroRise 0.9s 0.4s ease forwards; }
-  .hero-v4-title .hv-climax { position: relative; background-image: linear-gradient(var(--gold),var(--gold)); background-repeat: no-repeat; background-position: 0 100%; background-size: 100% 4px; padding-bottom: 0.06em; }
+  .hero-v4-title .hv-l2a { display: block; font-size: clamp(1.7rem, 1.1rem + 2.2vw, 2.6rem); font-weight: 400; line-height: 1.15; color: rgba(255,255,255,0.7); opacity: 0; animation: heroRise 0.9s 0.25s ease forwards; }
+  .hero-v4-title .hv-l2b { display: block; font-size: clamp(2.7rem, 1.4rem + 4.4vw, 4.8rem); font-weight: 800; line-height: 1.08; color: var(--white); margin-top: 0.2rem; opacity: 0; animation: heroRise 0.9s 0.4s ease forwards; }
+  .hero-v4-title .hv-climax { position: relative; background-image: linear-gradient(#D2B36C,#D2B36C); background-repeat: no-repeat; background-position: 0 100%; background-size: 100% 3px; padding-bottom: 0.06em; }
 
-  .hero-v4-punch { font-size: clamp(1.5rem, 1rem + 2vw, 2.5rem); font-weight: 800; color: var(--white); margin: 0 0 1.5rem; opacity: 0; animation: heroRise 0.9s 0.5s ease forwards; }
-  .hero-v4-punch .hv-mark { background-image: linear-gradient(var(--gold),var(--gold)); background-repeat: no-repeat; background-position: 0 100%; background-size: 100% 3px; padding-bottom: 0.1em; }
+  .hero-v4-punch { font-size: clamp(1.5rem, 1rem + 2vw, 2.5rem); font-weight: 800; color: var(--white); margin: 0 0 1.9rem; opacity: 0; animation: heroRise 0.9s 0.5s ease forwards; }
+  .hero-v4-punch .hv-mark { background-image: linear-gradient(#D2B36C,#D2B36C); background-repeat: no-repeat; background-position: 0 100%; background-size: 100% 3px; padding-bottom: 0.1em; }
 
-  .hero-v4-cta { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 1.05rem 2.4rem; background: var(--white); color: var(--purple-void); font-weight: 800; font-size: 1.05rem; text-decoration: none; border-radius: 2px; margin: 0 0 1.3rem; opacity: 0; animation: heroRise 0.9s 0.65s ease forwards; }
+  .hero-v4-cta { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 1.15rem 2.6rem; background: var(--white); color: var(--purple-void); font-weight: 800; font-size: 1.08rem; text-decoration: none; border-radius: 2px; margin: 0 0 1.3rem; opacity: 0; animation: heroRise 0.9s 0.65s ease forwards; }
 
   .hero-v4-fine { font-size: 0.82rem; color: rgba(255,255,255,0.4); opacity: 0; animation: heroRise 0.9s 0.8s ease forwards; }
   .hero-v4-fine .scarcity-dot { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--red-strong); margin-inline-end: 0.4rem; }
@@ -2494,13 +2499,14 @@ fbq('track', 'PageView');
   }
 
   @media (max-width: 860px) {
-    .hero-v4-top { min-height: auto; padding-top: 4.5rem; padding-bottom: 2.5rem; }
-    .hero-v4-inner { min-height: auto; padding: 0 6vw; display: flex; flex-direction: column; }
-    .hero-photo-frame { position: relative; left: auto; bottom: auto; height: 60vh; margin: 0 auto 1.6rem; }
+    .hero-v4-top { min-height: 100svh; }
+    .hero-v4-inner { min-height: 100svh; padding: 0 6vw; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 3rem; }
+    .hero-photo-frame { position: relative; left: auto; bottom: auto; height: 40vh; margin: 0 auto 1.8rem; justify-content: center; }
+    .hero-crowd { height: 7vh; min-height: 46px; }
     .hero-v4-text { max-width: none; padding-top: 0; text-align: center; }
-    .hero-v4-title .hv-l2a { font-size: clamp(1.5rem, 1.1rem + 2.4vw, 1.9rem); }
-    .hero-v4-title .hv-l2b { font-size: clamp(2.1rem, 1.3rem + 4.4vw, 2.9rem); }
-    .hero-v4-punch { font-size: clamp(1.3rem, 1rem + 2vw, 1.7rem); }
+    .hero-v4-title .hv-l2a { font-size: clamp(1.4rem, 1.1rem + 2vw, 1.8rem); }
+    .hero-v4-title .hv-l2b { font-size: clamp(2rem, 1.3rem + 4vw, 2.7rem); }
+    .hero-v4-punch { font-size: clamp(1.25rem, 1rem + 1.8vw, 1.6rem); }
     .hero-v4-cta { display: flex; justify-content: center; margin-inline: auto; }
     .hero-v4-fine { text-align: center; }
   }
@@ -2738,6 +2744,19 @@ fbq('track', 'PageView');
       <a href="#form" class="hero-v4-cta"><span>אני רוצה להיות שם ב-3.9</span><span>←</span></a>
       <p class="hero-v4-fine"><span class="scarcity-dot"></span>3.9.26 · בני ברק · 5 שעות פרונטליות · מ-197 ₪ · נשארו מקומות אחרונים</p>
     </div>
+    <svg class="hero-crowd" viewBox="0 0 1600 200" preserveAspectRatio="none" aria-hidden="true">
+      <defs><filter id="crowdBlur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="16"></feGaussianBlur></filter></defs>
+      <g filter="url(#crowdBlur)" fill="#050208">
+        <ellipse cx="60" cy="220" rx="90" ry="110"></ellipse>
+        <ellipse cx="230" cy="235" rx="105" ry="120"></ellipse>
+        <ellipse cx="420" cy="215" rx="85" ry="105"></ellipse>
+        <ellipse cx="640" cy="240" rx="110" ry="125"></ellipse>
+        <ellipse cx="860" cy="210" rx="90" ry="108"></ellipse>
+        <ellipse cx="1080" cy="235" rx="105" ry="120"></ellipse>
+        <ellipse cx="1300" cy="215" rx="90" ry="108"></ellipse>
+        <ellipse cx="1520" cy="230" rx="100" ry="115"></ellipse>
+      </g>
+    </svg>
   </div>
   <a href="#" class="scroll-hint" id="scrollHint" aria-label="גללו למטה"></a>
   </div>
