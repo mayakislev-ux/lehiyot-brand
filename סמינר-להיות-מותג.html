@@ -2351,14 +2351,14 @@ fbq('track', 'PageView');
   .cred-v2 > .wrap { position: relative; z-index: 1; }
   .cred-v2 > .wrap > h2 { text-align: center; color: var(--white); font-size: clamp(1.55rem, 1.25rem + 1.6vw, 2.3rem); max-width: 22ch; margin: 0 auto 3.6rem; text-wrap: balance; }
 
-  .cred-scene { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 0 1.6rem; }
+  .cred-scene { position: relative; z-index: 1; max-width: none; margin: 0 auto; padding: 0 clamp(1rem, 2.6vw, 3.2rem); }
   .cred-scene-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 0; grid-template-areas: "scale shoots" "income cert"; align-items: stretch; border-radius: 2rem; overflow: hidden; box-shadow: 0 44px 90px rgba(0,0,0,0.55); }
 
-  .cred-proof { display: flex; flex-direction: column; min-width: 0; border-radius: 0; padding: 2.5rem 2.2rem 2.2rem; background: linear-gradient(155deg, #1d0733 0%, #120220 100%); }
+  .cred-proof { display: flex; flex-direction: column; min-width: 0; border-radius: 0; padding: 2.5rem 2.2rem 2.2rem; background: linear-gradient(155deg, #1d0733 0%, #120220 100%); overflow: hidden; }
   .cred-proof.is-light { background: linear-gradient(155deg, var(--purple-pale) 0%, var(--purple-pale-2) 100%); }
   .cred-proof-head { text-align: center; margin-bottom: 1.8rem; }
-  .cred-proof-num { display: block; font-weight: 800; color: var(--white); line-height: 0.95; }
-  .cred-proof.is-light .cred-proof-num { color: var(--ink); }
+  .cred-proof-num { display: block; font-weight: 800; line-height: 0.95; background: linear-gradient(135deg, #ffffff 15%, #d9c3f9 100%); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: 0 10px 34px rgba(148,80,245,0.4); }
+  .cred-proof.is-light .cred-proof-num { background: linear-gradient(135deg, var(--purple) 10%, var(--sec-a) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: 0 8px 22px rgba(107,33,201,0.16); }
   .cred-proof-num.size-lg { font-size: clamp(3rem,2.3rem+3.2vw,4.6rem); }
   .cred-proof-num.size-md { font-size: clamp(2.1rem,1.7rem+1.8vw,2.9rem); }
   .cred-proof-num.size-sm { font-size: clamp(1.6rem,1.35rem+1.1vw,2.1rem); }
@@ -3064,8 +3064,9 @@ fbq('track', 'PageView');
   <div class="cred-v2-mark" aria-hidden="true">&#9819;</div>
   <div class="wrap">
     <h2>ואם אתם עדיין שואלים את עצמכם - למה דווקא ממני ללמוד שיווק?</h2>
+  </div>
 
-    <div class="cred-scene">
+  <div class="cred-scene">
       <div class="cred-scene-grid">
 
       <div class="cred-proof cred-zone-scale is-light">
@@ -3127,8 +3128,6 @@ fbq('track', 'PageView');
       </div>
 
       </div>
-    </div>
-
   </div>
 </section>
 
