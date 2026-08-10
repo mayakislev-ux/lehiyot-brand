@@ -2482,15 +2482,24 @@ fbq('track', 'PageView');
   .offer-v2 .grt-copy-v2 { max-width: 460px; margin: 0 auto 2.6rem; }
   .offer-v2 .grt-copy-v2 p { color: rgba(255,255,255,0.85); margin-bottom: 0.7rem; font-size: 1rem; }
   .offer-v2 .grt-copy-v2 .bold-line { font-weight: 800; color: var(--white); }
-  .tickets-row-v2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; max-width: 600px; margin: 0 auto; }
-  .ticket-card-v2 { background: var(--white); border-radius: var(--radius-card); padding: 1.8rem 1.2rem; position: relative; }
-  .ticket-card-v2.featured { border: 2px solid var(--gold); }
-  .ticket-card-v2 .badge { position: absolute; top: -0.75rem; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--purple-deep); font-size: 0.68rem; font-weight: 800; padding: 0.28rem 0.8rem; border-radius: 999px; white-space: nowrap; }
-  .ticket-card-v2 .t-name { font-size: 1.05rem; font-weight: 800; color: var(--ink); margin-bottom: 0.2rem; }
-  .ticket-card-v2 .t-price { font-size: 1.9rem; font-weight: 800; color: var(--sec-b); margin-bottom: 1rem; }
+  .tickets-row-v2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 600px; margin: 0 auto; align-items: end; }
+  .ticket-card-v2 { background: var(--white); border-radius: 0.9rem; position: relative; box-shadow: 0 18px 40px rgba(10,4,20,0.32); }
+  .ticket-card-v2.featured { border: 2px solid var(--gold); transform: translateY(-10px); box-shadow: 0 24px 50px rgba(169,127,54,0.28); z-index: 2; }
+  .ticket-card-v2 .badge { position: absolute; top: -0.75rem; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--purple-deep); font-size: 0.68rem; font-weight: 800; padding: 0.28rem 0.8rem; border-radius: 999px; white-space: nowrap; z-index: 3; }
+  .ticket-main { padding: 1.4rem 1.1rem 0.9rem; text-align: center; }
+  .ticket-event { font-size: 0.64rem; font-weight: 800; letter-spacing: 0.1em; color: var(--sec-a); text-transform: uppercase; }
+  .ticket-date { font-size: 0.72rem; color: var(--ink-dim); font-weight: 600; margin-top: 0.15rem; font-variant-numeric: tabular-nums; }
+  .ticket-card-v2 .t-name { font-size: 1.05rem; font-weight: 800; color: var(--ink); margin-top: 0.55rem; }
+  .ticket-divider { position: relative; height: 0; border-top: 2px dashed rgba(83,30,98,0.22); }
+  .ticket-divider::before, .ticket-divider::after { content: ""; position: absolute; top: -8px; width: 16px; height: 16px; border-radius: 50%; background: color-mix(in srgb, var(--purple-deep) 45%, var(--sec-b) 55%); }
+  .ticket-divider::before { right: -8px; }
+  .ticket-divider::after { left: -8px; }
+  .ticket-foot { padding: 1rem 1.1rem 1.4rem; text-align: center; }
+  .ticket-card-v2 .t-price { font-size: 1.9rem; font-weight: 800; color: var(--sec-b); margin-bottom: 0.9rem; }
   .ticket-card-v2 .t-price span { font-size: 0.95rem; font-weight: 700; color: var(--ink-dim); }
+  .ticket-serial { margin-top: 0.65rem; font-size: 0.58rem; letter-spacing: 0.07em; color: rgba(36,26,69,0.28); font-variant-numeric: tabular-nums; }
   .offer-v2 .event-meta-v2 { margin-top: 2rem; font-size: 0.98rem; color: rgba(255,255,255,0.75); }
-  @media (max-width: 560px) { .tickets-row-v2 { grid-template-columns: 1fr; max-width: 280px; } }
+  @media (max-width: 560px) { .tickets-row-v2 { grid-template-columns: 1fr; max-width: 280px; } .ticket-card-v2.featured { transform: none; } }
 
 
   /* ===== HERO REBUILD v7: cinematic keynote-stage composition ===== */
@@ -2643,10 +2652,15 @@ fbq('track', 'PageView');
 
   .roi-line { font-size: 0.92rem; color: var(--sec-a); font-weight: 700; margin-top: 0.6rem; }
 
-  .logistics-card { margin: 2rem auto 0; max-width: 460px; background: var(--white); border-radius: 1.4rem; padding: 2rem 1.8rem; box-shadow: 0 24px 60px rgba(20,6,38,0.35); text-align: right; }
+  .logistics-card { position: relative; margin: 2.8rem auto 0; max-width: 460px; background: var(--white); border-radius: 1.4rem; padding: 2rem 1.8rem; box-shadow: 0 24px 60px rgba(20,6,38,0.35); text-align: right; }
+  .logistics-perf { position: relative; height: 0; border-top: 2px dashed rgba(83,30,98,0.22); margin-bottom: 1.7rem; }
+  .logistics-perf::before, .logistics-perf::after { content: ""; position: absolute; top: -7px; width: 14px; height: 14px; border-radius: 50%; background: var(--purple-pale); }
+  .logistics-perf::before { right: -1.8rem; }
+  .logistics-perf::after { left: -1.8rem; }
+  .logistics-stamp { position: absolute; top: -0.9rem; right: 1.8rem; background: var(--white); border: 1px solid var(--gold); color: var(--sec-b); font-size: 0.72rem; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: 999px; letter-spacing: 0.03em; font-variant-numeric: tabular-nums; box-shadow: 0 6px 16px rgba(20,6,38,0.14); }
   .logistics-group { margin-bottom: 1.6rem; }
   .logistics-group:last-child { margin-bottom: 0; }
-  .logistics-head { display: flex; align-items: center; gap: 0.6rem; font-size: 1.02rem; font-weight: 800; color: var(--sec-b); margin-bottom: 0.9rem; padding-bottom: 0.7rem; border-bottom: 1.5px solid var(--purple-pale); }
+  .logistics-head { display: flex; align-items: center; gap: 0.6rem; font-size: 1.02rem; font-weight: 800; color: var(--sec-b); margin-bottom: 0.9rem; padding-bottom: 0.7rem; border-bottom: 1.5px dashed rgba(123,55,153,0.28); }
   .logistics-ic { flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--purple-pale); display: flex; align-items: center; justify-content: center; color: var(--sec-a); }
   .logistics-ic svg { width: 16px; height: 16px; }
   .logistics-text { font-size: 0.92rem; color: var(--ink-dim); line-height: 1.7; margin: 0; }
@@ -3354,15 +3368,31 @@ fbq('track', 'PageView');
     <p class="offer-beat-kicker">ההזמנה שלכם</p>
     <div class="tickets-row-v2">
       <div class="ticket-card-v2">
-        <div class="t-name">כרטיס יחיד</div>
-        <div class="t-price">197 <span>₪</span></div>
-        <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn" data-fb-value="197" style="display:block;">אני רוצה כרטיס ←</a>
+        <div class="ticket-main">
+          <div class="ticket-event">להיות מותג</div>
+          <div class="ticket-date">3.9.26 · בני ברק</div>
+          <div class="t-name">כרטיס יחיד</div>
+        </div>
+        <div class="ticket-divider"></div>
+        <div class="ticket-foot">
+          <div class="t-price">197 <span>₪</span></div>
+          <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn" data-fb-value="197" style="display:block;">אני רוצה כרטיס ←</a>
+          <div class="ticket-serial">LB-030926-01</div>
+        </div>
       </div>
       <div class="ticket-card-v2 featured">
         <div class="badge">הכי משתלם</div>
-        <div class="t-name">כרטיס זוגי<span class="save-badge">חוסכים 97 ₪</span></div>
-        <div class="t-price">297 <span>₪</span></div>
-        <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn" style="display:block;">אני רוצה כרטיס ←</a>
+        <div class="ticket-main">
+          <div class="ticket-event">להיות מותג</div>
+          <div class="ticket-date">3.9.26 · בני ברק</div>
+          <div class="t-name">כרטיס זוגי<span class="save-badge">חוסכים 97 ₪</span></div>
+        </div>
+        <div class="ticket-divider"></div>
+        <div class="ticket-foot">
+          <div class="t-price">297 <span>₪</span></div>
+          <a href="https://pay.grow.link/NjI0NTQ~bb5182b5f8a671aac77ab35ff1010709-MzcyNjE4Ng" target="_blank" rel="noopener noreferrer" class="gold-btn" style="display:block;">אני רוצה כרטיס ←</a>
+          <div class="ticket-serial">LB-030926-02</div>
+        </div>
       </div>
     </div>
 
@@ -3384,6 +3414,8 @@ fbq('track', 'PageView');
   <div class="wrap">
     <p class="logistics-kicker">כרטיס הכניסה שלכם ל-3.9</p>
     <div class="logistics-card">
+      <div class="logistics-stamp">3.9.26</div>
+      <div class="logistics-perf"></div>
       <div class="logistics-group">
         <div class="logistics-head"><span class="logistics-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg></span>לו"ז היום</div>
         <ul class="logistics-timeline">
