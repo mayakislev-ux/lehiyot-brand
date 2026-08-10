@@ -2582,10 +2582,23 @@ fbq('track', 'PageView');
   /* ===== REBUILD: combined guarantee + tickets card ===== */
   .offer-v2 { background: none; padding: 0; text-align: center; }
   .offer-beat { padding: 4.2rem 1.6rem; }
-  .offer-beat-guarantee { background: var(--white); }
-  .offer-beat-guarantee h2 { color: var(--ink); }
+  .offer-beat-guarantee { background: linear-gradient(165deg, var(--white) 0%, var(--purple-pale) 62%, var(--ivory) 100%); position: relative; overflow: hidden; padding: 3.4rem 1.6rem 3.8rem; }
+  .offer-beat-guarantee .grt-watermark { position: absolute; z-index: 0; top: 50%; left: 50%; width: 520px; height: 520px; transform: translate(-50%, -50%); opacity: 0.05; pointer-events: none; background-repeat: no-repeat; background-position: center; background-size: contain; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%236b21c9' d='M50 4 88 18v26c0 26-17 42-38 52C29 86 12 70 12 44V18Z'/%3E%3Cpath fill='none' stroke='%23fff' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' d='M32 50l13 13 24-26'/%3E%3C/svg%3E"); }
+  .offer-beat-guarantee .wrap { position: relative; z-index: 1; }
+  .offer-beat-guarantee .grt-frame { max-width: 580px; margin: 0 auto; padding: 2.8rem 2.2rem 2.4rem; border-radius: 1.8rem; background: rgba(255,255,255,0.6); border: 1px solid rgba(107,33,201,0.13); box-shadow: 0 34px 70px rgba(36,9,63,0.12); }
+  .offer-beat-guarantee h2 { color: var(--ink) !important; position: relative; padding-bottom: 1.1rem; margin-bottom: 1.7rem; }
+  .offer-beat-guarantee h2::after { content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 68px; height: 3px; border-radius: 2px; background: linear-gradient(90deg, transparent, var(--gold-refined), transparent); }
   .offer-beat-guarantee .grt-copy-v2 p { color: var(--ink-dim) !important; }
-  .offer-beat-guarantee .grt-copy-v2 .bold-line { color: var(--ink) !important; }
+  .offer-beat-guarantee .grt-copy-v2 p:first-child { font-size: 0.92rem; }
+  .offer-beat-guarantee .grt-copy-v2 .bold-line { color: var(--ink) !important; font-size: 1.14rem; font-weight: 800; letter-spacing: -0.005em; }
+  .offer-beat-guarantee .grt-copy-v2 .bold-line:last-of-type { position: relative; font-style: italic; padding: 0 1.9rem; margin-top: 0.3rem; }
+  .offer-beat-guarantee .grt-copy-v2 .bold-line:last-of-type::before,
+  .offer-beat-guarantee .grt-copy-v2 .bold-line:last-of-type::after { content: "\201D"; position: absolute; top: -0.6rem; font-family: Georgia, serif; font-size: 2.6rem; font-style: normal; font-weight: 700; color: var(--gold-refined); opacity: 0.55; }
+  .offer-beat-guarantee .grt-copy-v2 .bold-line:last-of-type::before { right: -0.3rem; }
+  .offer-beat-guarantee .grt-copy-v2 .bold-line:last-of-type::after { left: -0.3rem; transform: scaleX(-1); }
+  .offer-beat-guarantee .wordmark { margin-bottom: 1.8rem; }
+  .offer-beat-guarantee .wordmark b { font-size: 1.3rem; letter-spacing: 0.09em; color: var(--sec-a); font-family: var(--font-display); }
+  .offer-beat-guarantee .wordmark span { color: var(--ink-dim); font-size: 0.78rem; }
   .offer-beat-cta { background: linear-gradient(180deg, var(--purple-deep) 0%, var(--sec-b) 100%); }
   .offer-beat-logistics { background: var(--purple-pale); }
   .offer-beat-kicker, .logistics-kicker { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; color: var(--gold-soft); margin: 0 0 1.6rem; }
@@ -2744,6 +2757,28 @@ fbq('track', 'PageView');
   .grt-trust { display: flex; align-items: center; justify-content: center; gap: 1.2rem; margin-top: 1rem; flex-wrap: wrap; }
   .grt-trust span { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.8rem; color: var(--ink-dim); font-weight: 600; }
   .grt-trust svg { width: 15px; height: 15px; opacity: 0.7; }
+
+  .offer-beat-guarantee .seals-row { gap: 1.1rem; perspective: 900px; }
+  .offer-beat-guarantee .seal-connector { font-family: Georgia, serif; font-size: 1.6rem; font-style: italic; color: var(--gold-refined); opacity: 0.7; margin: 0 -0.1rem; }
+  .offer-beat-guarantee .seal-badge { transition: transform 0.45s ease; filter: drop-shadow(0 0 16px rgba(217,172,94,0.5)) drop-shadow(0 16px 26px rgba(36,9,63,0.32)); animation: sealLand 0.85s cubic-bezier(.22,1,.36,1) both; }
+  .offer-beat-guarantee .seal-badge:hover { transform: rotateY(20deg) scale(1.05); }
+  .offer-beat-guarantee .seals-row svg.seal-badge:first-child { animation-delay: 0.1s; }
+  .offer-beat-guarantee .seals-row svg.seal-badge:last-child { animation-delay: 0.32s; }
+  @keyframes sealLand { 0% { opacity: 0; transform: translateY(-46px) rotate(-16deg) scale(0.55); } 62% { opacity: 1; transform: translateY(6px) rotate(4deg) scale(1.06); } 100% { opacity: 1; transform: translateY(0) rotate(0deg) scale(1); } }
+
+  .offer-beat-guarantee .grt-trust span { padding: 0.5rem 1rem; border-radius: 999px; background: rgba(107,33,201,0.06); border: 1px solid rgba(107,33,201,0.15); font-size: 0.82rem; color: var(--ink); }
+  .offer-beat-guarantee .grt-trust svg { width: 18px; height: 18px; opacity: 1; color: var(--sec-a); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .offer-beat-guarantee .seal-badge { animation: none; opacity: 1; }
+  }
+
+  @media (max-width: 640px) {
+    .offer-beat-guarantee { padding: 2.6rem 1rem 3rem; }
+    .offer-beat-guarantee .grt-frame { padding: 2.1rem 1.3rem 1.9rem; border-radius: 1.4rem; }
+    .offer-beat-guarantee .grt-watermark { width: 360px; height: 360px; }
+    .offer-beat-guarantee .seal-badge { width: 86px; height: auto; }
+  }
 
   #backToHero { position: fixed; bottom: 5.2rem; left: 1.2rem; z-index: 40; width: 42px; height: 42px; border-radius: 50%; background: var(--card, #fff); border: 1px solid var(--line); box-shadow: 0 8px 20px rgba(20,6,38,0.18); display: flex; align-items: center; justify-content: center; text-decoration: none; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
   #backToHero.show { opacity: 1; pointer-events: auto; }
@@ -3520,23 +3555,68 @@ fbq('track', 'PageView');
 <section class="offer-v2 reveal in spotlight-target" id="form" style="position:relative;">
 
   <div class="offer-beat offer-beat-guarantee">
+  <div class="grt-watermark" aria-hidden="true"></div>
   <div class="wrap">
+    <div class="grt-frame">
     <div class="wordmark"><b>מאיה קיסלב</b><span>Brand Seminar · 3.9.26</span></div>
 
     <div class="seals-row">
-      <svg width="80" height="94" viewBox="0 0 100 116">
-        <polygon points="50,2 58,16 74,10 76,27 93,29 88,45 100,57 86,66 90,83 73,82 68,98 53,90 39,99 32,83 15,86 17,69 2,60 12,46 5,30 22,26 22,9 39,17" fill="var(--gold-refined)"></polygon>
-        <circle cx="50" cy="54" r="34" fill="var(--sec-a)" stroke="var(--gold-soft)" stroke-width="2"></circle>
+      <svg class="seal-badge" width="108" height="127" viewBox="0 0 100 116">
+        <defs>
+          <linearGradient id="goldMetal1" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#f6e3ba"/>
+            <stop offset="35%" stop-color="var(--gold-soft)"/>
+            <stop offset="55%" stop-color="var(--gold-refined)"/>
+            <stop offset="80%" stop-color="var(--gold-deep)"/>
+            <stop offset="100%" stop-color="var(--gold-refined)"/>
+          </linearGradient>
+          <radialGradient id="purpleDome1" cx="38%" cy="32%" r="70%">
+            <stop offset="0%" stop-color="var(--purple-bright)"/>
+            <stop offset="55%" stop-color="var(--sec-a)"/>
+            <stop offset="100%" stop-color="var(--sec-b)"/>
+          </radialGradient>
+          <linearGradient id="ribbon1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="var(--sec-a)"/>
+            <stop offset="100%" stop-color="var(--sec-b)"/>
+          </linearGradient>
+        </defs>
+        <polygon points="50,2 58,16 74,10 76,27 93,29 88,45 100,57 86,66 90,83 73,82 68,98 53,90 39,99 32,83 15,86 17,69 2,60 12,46 5,30 22,26 22,9 39,17" fill="url(#goldMetal1)"></polygon>
+        <polygon points="34,84 50,94 66,84 66,116 50,104 34,116" fill="url(#ribbon1)"></polygon>
+        <path d="M42,86 L50,94 L58,86 Z" fill="rgba(10,4,20,0.25)"></path>
+        <circle cx="50" cy="54" r="35" fill="rgba(10,4,20,0.25)"></circle>
+        <circle cx="50" cy="54" r="34" fill="url(#purpleDome1)" stroke="var(--gold-soft)" stroke-width="2"></circle>
+        <ellipse cx="39" cy="42" rx="16" ry="9" fill="rgba(255,255,255,0.22)"></ellipse>
         <text x="50" y="49" text-anchor="middle" fill="var(--white)" font-size="13" font-weight="800">100%</text>
         <text x="50" y="63" text-anchor="middle" fill="var(--gold-soft)" font-size="6.5" font-weight="700">החזר כספי</text>
-        <polygon points="34,84 50,94 66,84 66,116 50,104 34,116" fill="var(--sec-b)"></polygon>
       </svg>
-      <svg width="80" height="94" viewBox="0 0 100 116">
-        <polygon points="50,2 58,16 74,10 76,27 93,29 88,45 100,57 86,66 90,83 73,82 68,98 53,90 39,99 32,83 15,86 17,69 2,60 12,46 5,30 22,26 22,9 39,17" fill="var(--gold-refined)"></polygon>
-        <circle cx="50" cy="54" r="34" fill="var(--sec-a)" stroke="var(--gold-soft)" stroke-width="2"></circle>
+      <span class="seal-connector" aria-hidden="true">&amp;</span>
+      <svg class="seal-badge" width="108" height="127" viewBox="0 0 100 116">
+        <defs>
+          <linearGradient id="goldMetal2" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#f6e3ba"/>
+            <stop offset="35%" stop-color="var(--gold-soft)"/>
+            <stop offset="55%" stop-color="var(--gold-refined)"/>
+            <stop offset="80%" stop-color="var(--gold-deep)"/>
+            <stop offset="100%" stop-color="var(--gold-refined)"/>
+          </linearGradient>
+          <radialGradient id="purpleDome2" cx="38%" cy="32%" r="70%">
+            <stop offset="0%" stop-color="var(--purple-bright)"/>
+            <stop offset="55%" stop-color="var(--sec-a)"/>
+            <stop offset="100%" stop-color="var(--sec-b)"/>
+          </radialGradient>
+          <linearGradient id="ribbon2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="var(--sec-a)"/>
+            <stop offset="100%" stop-color="var(--sec-b)"/>
+          </linearGradient>
+        </defs>
+        <polygon points="50,2 58,16 74,10 76,27 93,29 88,45 100,57 86,66 90,83 73,82 68,98 53,90 39,99 32,83 15,86 17,69 2,60 12,46 5,30 22,26 22,9 39,17" fill="url(#goldMetal2)"></polygon>
+        <polygon points="34,84 50,94 66,84 66,116 50,104 34,116" fill="url(#ribbon2)"></polygon>
+        <path d="M42,86 L50,94 L58,86 Z" fill="rgba(10,4,20,0.25)"></path>
+        <circle cx="50" cy="54" r="35" fill="rgba(10,4,20,0.25)"></circle>
+        <circle cx="50" cy="54" r="34" fill="url(#purpleDome2)" stroke="var(--gold-soft)" stroke-width="2"></circle>
+        <ellipse cx="39" cy="42" rx="16" ry="9" fill="rgba(255,255,255,0.22)"></ellipse>
         <text x="50" y="49" text-anchor="middle" fill="var(--white)" font-size="12" font-weight="800">48H</text>
         <text x="50" y="63" text-anchor="middle" fill="var(--gold-soft)" font-size="6.5" font-weight="700">מובטח</text>
-        <polygon points="34,84 50,94 66,84 66,116 50,104 34,116" fill="var(--sec-b)"></polygon>
       </svg>
     </div>
 
@@ -3549,6 +3629,7 @@ fbq('track', 'PageView');
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 018 0v3"></path></svg>תשלום מאובטח</span>
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"></path></svg>SSL מוצפן</span>
       </div>
+    </div>
     </div>
   </div>
   </div>
