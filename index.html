@@ -4373,6 +4373,34 @@ fbq('track', 'PageView');
     });
   })();
 
+  /* pass Facebook click-id / browser-id through to the Grow checkout link,
+     so the purchase event on Grow's side can be matched back to the ad click. */
+  (function () {
+    function getParam(name) {
+      try {
+        var v = new URLSearchParams(window.location.search).get(name);
+        return v || null;
+      } catch (e) { return null; }
+    }
+    function getCookie(name) {
+      var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]+)'));
+      return m ? decodeURIComponent(m[1]) : null;
+    }
+    var fbclid = getParam('fbclid');
+    var fbc = getCookie('_fbc');
+    var fbp = getCookie('_fbp');
+    if (!fbclid && !fbc && !fbp) return;
+    document.querySelectorAll('a[href*="pay.grow.link"]').forEach(function (btn) {
+      try {
+        var url = new URL(btn.href);
+        if (fbclid) url.searchParams.set('fbclid', fbclid);
+        if (fbc) url.searchParams.set('fbc', fbc);
+        if (fbp) url.searchParams.set('fbp', fbp);
+        btn.href = url.toString();
+      } catch (e) {}
+    });
+  })();
+
   (function () {
     var banner = document.getElementById('cookieBanner');
     var acceptBtn = document.getElementById('cookieAcceptBtn');
