@@ -2129,6 +2129,17 @@ fbq('track', 'PageView');
 
   }
 
+  /* dq and curio-section-v2 are both near-black (#0a0414 / #050208) with no natural
+     contrast at their seam, so the "pattern interrupt" beat curio is supposed to land
+     as was invisible - a diagonal gold seam gives that moment a real, visible cut. */
+  .dq-curio-seam { position: relative; height: 2px; overflow: visible; z-index: 3; background: none; }
+  .dq-curio-seam span {
+    position: absolute; left: -6%; right: -6%; top: -4px; height: 6px;
+    background: linear-gradient(90deg, transparent 0%, var(--gold-soft) 18%, var(--gold) 50%, var(--gold-soft) 82%, transparent 100%);
+    transform: rotate(-2deg);
+    box-shadow: 0 0 28px 3px rgba(217,172,94,0.5), 0 0 6px rgba(217,172,94,0.85);
+  }
+
   /* ===== curiosity hook v2: full-bleed environment, not a floating card (per Maya's direct comparison to Badichi/Tamar) ===== */
   .curio-section-v2 {
     position: relative; overflow: hidden; text-align: center;
@@ -3515,6 +3526,8 @@ fbq('track', 'PageView');
   </div>
   <div class="ctawrap"><a href="#form" class="ghost-btn">כן, זה בדיוק בשבילי ←</a></div>
 </section>
+
+<div class="dq-curio-seam" aria-hidden="true"><span></span></div>
 
 <section class="curio-section-v2 reveal in">
   <div class="curio-hook-mark" aria-hidden="true">?</div>
