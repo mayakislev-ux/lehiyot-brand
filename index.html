@@ -354,7 +354,11 @@ fbq('track', 'PageView');
      grids) - unifies them toward the page's purple palette without the strong grading
      that would make faces/skin read wrong in the more trust-critical proof photos. */
   .duo-light { filter: sepia(0.12) hue-rotate(220deg) saturate(1.15) brightness(0.98) contrast(1.02); }
-  .mr-visual img, .czs-stage img, .czw-item img, .czi-single img { filter: sepia(0.12) hue-rotate(220deg) saturate(1.15) brightness(0.98) contrast(1.02); }
+  /* REVERTED 2026-08-12: applying this to real photos turned white/light backgrounds
+     (certificates, studio walls) visibly blue - hue-rotate on already-mixed real-world
+     colors doesn't behave like a tasteful duotone grade the way it does on a controlled
+     palette. Do not reapply without testing against the actual real photos first. */
+
 
   .grain-overlay {
     position: fixed; inset: 0; z-index: 9999; pointer-events: none;
