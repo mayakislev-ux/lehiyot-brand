@@ -2770,8 +2770,8 @@ fbq('track', 'PageView');
     animation: heroGlowDrift 24s ease-in-out infinite;
   }
   @keyframes heroGlowDrift {
-    0%, 100% { background-position: 0 0, 0 0, 0 0, 0 0, 0 0; }
-    50% { background-position: 12px -10px, -8px 6px, 10px 8px, 0 0, 0 0; }
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(8px, -6px); }
   }
   @media (prefers-reduced-motion: reduce) { .hero-v4-top { animation: none; } }
   .hero-v4-logo { position: absolute; top: 1.4rem; right: 1.8rem; z-index: 4; color: var(--white); font-weight: 700; font-size: 0.92rem; opacity: 0.92; }
@@ -2811,11 +2811,12 @@ fbq('track', 'PageView');
   @media (max-width: 860px) {
     .hero-v4-top {
       min-height: 0;
+      background: linear-gradient(180deg, #16081F 0%, #0D0614 100%);
+    }
+    .hero-v4-top::before {
       background:
         radial-gradient(ellipse 520px 480px at 40% 62%, rgba(157,78,221,0.30) 0%, rgba(123,44,191,0.19) 26%, rgba(90,24,154,0.10) 46%, rgba(90,24,154,0.04) 64%, transparent 80%),
-        radial-gradient(ellipse 650px 550px at 40% 68%, rgba(90,24,154,0.09) 0%, transparent 68%),
-        linear-gradient(180deg, #16081F 0%, #0D0614 100%);
-      background-size: auto; animation: heroGlowDrift 24s ease-in-out infinite;
+        radial-gradient(ellipse 650px 550px at 40% 68%, rgba(90,24,154,0.09) 0%, transparent 68%);
     }
     .hero-v4-inner { min-height: 0; padding: 4rem 20px 102vw; display: block; }
     .hero-composition { position: static; inset: auto; transform: none; }
