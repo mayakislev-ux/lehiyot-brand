@@ -4383,7 +4383,9 @@ fbq('track', 'PageView');
     // (not `transform`) specifically so it composes with the existing entrance keyframe
     // animation on this same element instead of fighting it for control of `transform`.
     var photo = document.querySelector('.hero-photo-frame');
-    if (!photo || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    // Desktop-only: on mobile the downward drift plus the photo's drop-shadow blur was
+    // bleeding into the "watch the short video" card sitting right below it in the hero.
+    if (!photo || window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.matchMedia('(hover: none)').matches) return;
     var ticking = false;
     function updateParallax() {
       var y = window.scrollY || window.pageYOffset;
