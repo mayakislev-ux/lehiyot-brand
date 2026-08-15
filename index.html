@@ -5592,16 +5592,23 @@ fbq('track', 'PageView');
     window.addEventListener('scroll', checkScrollDepth, { passive: true });
     checkScrollDepth();
 
+    /* NOTE: several old section classes below no longer exist as separate sections -
+       they were merged into others during earlier redesigns (urgency merged into
+       .why-now-v2, bio-intro/bio-story merged into the cred-v2/#nav-authority section,
+       .grt guarantee merged into the #form offer/closer section, and #nav-diagnosis
+       is now literally the same <section> element as .mech-v2). Mapped to their real
+       current home instead of a dead selector that would silently never fire. */
     var sectionMap = [
       ['#nav-hero', 'hero'],
-      ['#nav-diagnosis', 'method_4stations'],
-      ['.pain', 'pain'],
-      ['.urgency-v2', 'urgency'],
-      ['#nav-authority', 'bio'],
+      ['.hero-straddle-cta-wrap', 'straddle_cta'],
+      ['.mech-v2', 'mech_stations'],
+      ['.why-now-v2', 'pain'],
+      ['#nav-slava', 'proof_testimonials'],
+      ['#nav-authority', 'authority_cred'],
       ['.dq', 'who_its_for'],
       ['.curio-section-v2', 'curio'],
+      ['.st-story', 'vsl_story'],
       ['#nav-quiz', 'quiz'],
-      ['.grt', 'guarantee'],
       ['#form', 'closer_purchase'],
       ['.faq-section', 'faq']
     ];
@@ -5615,7 +5622,7 @@ fbq('track', 'PageView');
           seen[name] = true;
           gtag('event', 'section_reached', { section_name: name });
         });
-      }, { threshold: 0.3 });
+      }, { threshold: 0.05 });
       sectionMap.forEach(function (pair) {
         var el = document.querySelector(pair[0]);
         if (el) { el.setAttribute('data-funnel-name', pair[1]); sectionIo.observe(el); }
