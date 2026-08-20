@@ -5400,4 +5400,41 @@ window.addEventListener("load", function () {
   }
 
   window.onload = fillInputsFromSessionStorage;
-</script></body></html>
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('form[data-name="Webinar Contact Form"]').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var wrapper = form.closest('.w-form');
+      var doneBox = wrapper ? wrapper.querySelector('.w-form-done') : null;
+      var failBox = wrapper ? wrapper.querySelector('.w-form-fail') : null;
+      var submitBtn = form.querySelector('input[type="submit"]');
+      var name = form.querySelector('[name="Name"]');
+      var phone = form.querySelector('[name="Phone"]');
+      var email = form.querySelector('[name="Email"]');
+      if (submitBtn) submitBtn.value = 'רגע...';
+      fetch('https://us-central1-content-ideas-becd7.cloudfunctions.net/webinarRegistration', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name ? name.value : '',
+          phone: phone ? phone.value : '',
+          email: email ? email.value : '',
+        }),
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error('bad status');
+          form.style.display = 'none';
+          if (doneBox) doneBox.style.display = 'block';
+        })
+        .catch(function (err) {
+          console.error('webinar registration failed:', err);
+          if (submitBtn) submitBtn.value = 'אני רוצה להצטרף לזום בחינם!';
+          if (failBox) failBox.style.display = 'block';
+        });
+    });
+  });
+});
+</script>
+</body></html>
