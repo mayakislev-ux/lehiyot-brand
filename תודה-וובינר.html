@@ -330,18 +330,18 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 </script><style>
-  .a11y-float{position:fixed;bottom:1.5rem;left:1.5rem;z-index:9999;width:3.2rem;height:3.2rem;border-radius:50%;background:#111;color:#fff;border:none;font-size:1.5rem;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.35);}
+  .a11y-float{position:fixed;bottom:1.5rem;left:1.5rem;z-index:9999;width:3.2rem;height:3.2rem;border-radius:50%;background:#111;color:#fff;border:none;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;}
   #a11yPanel{position:fixed;bottom:5rem;left:1.5rem;z-index:9999;background:#fff;color:#111;border-radius:1rem;padding:1rem;width:16rem;box-shadow:0 12px 36px rgba(0,0,0,.3);display:none;font-family:Assistant,Tahoma,sans-serif;text-align:right;}
   #a11yPanel.open{display:block;}
   #a11yPanel button{display:block;width:100%;text-align:right;background:#f2f2f2;border:none;border-radius:.5rem;padding:.6rem .8rem;margin-bottom:.5rem;cursor:pointer;font-size:.95rem;font-family:inherit;}
   #a11yPanel button:hover{background:#e5e5e5;}
   body.a11y-big-text, body.a11y-big-text *{font-size:1.18em !important;}
-  body.a11y-contrast{filter:contrast(1.35) saturate(1.1);background:#000 !important;}
+  body.a11y-contrast{background:#000 !important;}
   body.a11y-contrast, body.a11y-contrast *{color:#fff !important;background-color:#000 !important;border-color:#fff !important;}
   body.a11y-underline a{text-decoration:underline !important;}
   body.a11y-reduce-motion *{animation:none !important;transition:none !important;}
 </style>
-<button class="a11y-float" id="a11yToggle" aria-label="נגישות" title="נגישות">♿</button>
+<button class="a11y-float" id="a11yToggle" aria-label="נגישות" title="נגישות"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 4a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm-1 3h4a1 1 0 0 1 0 2h-3.2l.4 2h2.8a1 1 0 0 1 .95.68l1.5 4.5a1 1 0 1 1-1.9.64L14.3 13h-2.53l1.9 6.32a1 1 0 1 1-1.92.56L9.2 13H8a1 1 0 0 1-.97-.76l-1-4A1 1 0 0 1 7 7h1.5l.94 3.76.16.24H10l-.9-4.5A1 1 0 0 1 11 5v2Z" fill="#fff"/><circle cx="16" cy="18" r="4" stroke="#fff" stroke-width="1.6" fill="none"/></svg></button>
 <div id="a11yPanel" role="dialog" aria-label="תפריט נגישות">
   <button id="a11yBigText">א+ הגדלת טקסט</button>
   <button id="a11yContrast">ניגודיות גבוהה - הפעלה</button>
