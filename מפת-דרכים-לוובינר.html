@@ -5403,6 +5403,18 @@ window.addEventListener("load", function () {
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.w-checkbox').forEach(function (label) {
+    var input = label.querySelector('input[type="checkbox"]');
+    var box = label.querySelector('.w-checkbox-input');
+    if (!input || !box) return;
+    label.addEventListener('click', function (e) {
+      if (e.target === input) return;
+      e.preventDefault();
+      input.checked = !input.checked;
+      box.classList.toggle('w--redirected-checked', input.checked);
+    });
+  });
+
   document.querySelectorAll('form[data-name="Webinar Contact Form"]').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
