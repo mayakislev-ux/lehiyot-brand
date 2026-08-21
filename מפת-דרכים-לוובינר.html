@@ -5500,11 +5500,24 @@ document.addEventListener('DOMContentLoaded', function () {
       })
         .then(function (res) {
           if (!res.ok) throw new Error('bad status');
-          if (window.fbq) { fbq('track', 'Lead', {}, { eventID: metaEventId }); } window.location.href = '/%D7%AA%D7%95%D7%93%D7%94-%D7%95%D7%95%D7%91%D7%99%D7%A0%D7%A8.html';
+          return res.json();
+        })
+        .then(function (data) {
+          // The server can answer with HTTP 200 and still mean "not registered"
+          // (e.g. { ok:false, full:true } once the session fills up) - res.ok alone
+          // would miss that and show a fake success. Checking data.ok here is what
+          // actually confirms a real registration happened.
+          if (!data || data.ok !== true) {
+            var err = new Error('registration rejected');
+            err.full = !!(data && data.full);
+            throw err;
+          }
+          if (window.fbq) { fbq('track', 'Lead', {}, { eventID: metaEventId }); }
+          window.location.href = '/%D7%AA%D7%95%D7%93%D7%94-%D7%95%D7%95%D7%91%D7%99%D7%A0%D7%A8.html';
         })
         .catch(function (err) {
           console.error('webinar registration failed:', err);
-          if (submitBtn) submitBtn.value = 'אני רוצה להצטרף לזום בחינם!';
+          if (submitBtn) submitBtn.value = err && err.full ? 'ההרשמה מלאה, תודה על העניין!' : 'אני רוצה להצטרף לזום בחינם!';
           if (failBox) failBox.style.display = 'block';
         });
     });
