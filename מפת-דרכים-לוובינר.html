@@ -5160,7 +5160,9 @@ p {
     }
 
     var targetDate = parseDate(targetDateStr);
-    var countDown = getNextValidDate(targetDate);
+    // הדרכה חד-פעמית - לא קוראים ל-getNextValidDate כאן, כדי שגם אם מישהו
+    // נכנס לדף אחרי שהתאריך האמיתי כבר עבר, הוא לא יראה תאריך שבועי מומצא.
+    var countDown = targetDate.getTime();
 
     // פונקציה להמרת היום בשבוע לעברית
     function getHebrewDayName(dayIndex) {
@@ -5178,8 +5180,13 @@ p {
         var seconds = Math.floor((distance % (minute)) / second);
 
         if (distance < 0) {
-            // כשמגיעים לתאריך, מעדכנים את היעד הבא
-            countDown = getNextValidDate(new Date(countDown));
+            // זו הדרכה חד-פעמית, לא שבועית - כשהתאריך עובר, הטיימר פשוט
+            // נעצר על אפסים ולא "קופץ" לתאריך שבוע קדימה שלא באמת קיים
+            // (התנהגות קודמת - תוקן 2026-08-21).
+            document.querySelectorAll(".seconds").forEach(function(el){el.textContent="00";});
+            document.querySelectorAll(".minutes").forEach(function(el){el.textContent="00";});
+            document.querySelectorAll(".hours").forEach(function(el){el.textContent="00";});
+            document.querySelectorAll(".days").forEach(function(el){el.textContent="00";});
             return;
         }
 
@@ -5575,4 +5582,10 @@ document.addEventListener('DOMContentLoaded', function(){
     bd.addEventListener('click', function(e){ if (e.target === bd) bd.classList.remove('open'); });
   });
 });
-</script></body></html>
+</script>
+<div style="text-align:center; padding:1.25rem 1rem; font-size:0.8rem; color:#8a7fa0; background:#170228;">
+  מאיה קיסלב - אקדמיית המהלך השיווקי. עוסק מורשה מס' 2113365150.
+  &nbsp;·&nbsp;
+  <a href="https://mayakislev.co.il/privacy-policy.html" target="_blank" rel="noopener" style="color:#c7b8ea;">מדיניות פרטיות</a>
+</div>
+</body></html>
