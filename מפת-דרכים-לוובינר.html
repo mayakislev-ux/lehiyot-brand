@@ -5168,7 +5168,7 @@ p {
         return days[dayIndex];
     }
 
-    var x = setInterval(function() {
+    function updateCountdownDisplay() {
         var now = new Date().getTime();
         var distance = countDown - now;
 
@@ -5215,8 +5215,21 @@ p {
         document.querySelectorAll(".time").forEach(function(el){el.textContent=endTime;});
         document.querySelectorAll(".date").forEach(function(el){el.textContent=endDateStr;});
         document.querySelectorAll(".day").forEach(function(el){el.textContent=endWeekday;});
+    }
 
-    }, second);
+    // הסקריפט הזה יושב בתחילת ה-body, לפני שאלמנטי העמוד (הטיימר, התאריך)
+    // בכלל קיימים ב-DOM - בלי זה, ה-setInterval הראשון היה מחכה שנייה שלמה
+    // לפני שיש מה לעדכן, ובינתיים מוצג "00:00:00:00" ריק ומבלבל.
+    // מריצים עדכון מיידי אחד ברגע שה-DOM מוכן, ורק אז מתחילים את הטיקים.
+    function startCountdown() {
+        updateCountdownDisplay();
+        setInterval(updateCountdownDisplay, second);
+    }
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", startCountdown);
+    } else {
+        startCountdown();
+    }
 </script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
