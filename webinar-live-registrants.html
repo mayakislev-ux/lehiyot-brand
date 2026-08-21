@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>נרשמים חיים - וובינר</title>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple-deep: #24093f;
+    --purple: #6b21c9;
+    --purple-pale: #f4eefc;
+    --ink: #2a1a45;
+    --ink-dim: #695e80;
+    --gold: #d9ac5e;
+    --green: #1f9d55;
+    --red: #c62838;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Assistant", "Segoe UI", sans-serif;
+    background: var(--purple-pale);
+    color: var(--ink);
+    margin: 0;
+    padding: 1.5rem;
+  }
+  header {
+    max-width: 900px;
+    margin: 0 auto 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  h1 { color: var(--purple-deep); font-size: 1.5rem; margin: 0; }
+  .status {
+    font-size: 0.9rem;
+    color: var(--ink-dim);
+  }
+  .status.live::before {
+    content: "●";
+    color: var(--green);
+    margin-left: 0.4rem;
+    animation: pulse 1.5s infinite;
+  }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .count-card {
+    max-width: 900px;
+    margin: 0 auto 1.25rem;
+    background: #fff;
+    border-radius: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 12px 30px rgba(20,6,38,.08);
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .stat { }
+  .stat .num { font-size: 2rem; font-weight: 800; color: var(--purple-deep); font-variant-numeric: tabular-nums; }
+  .stat .label { font-size: 0.85rem; color: var(--ink-dim); }
+  table {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(20,6,38,.08);
+  }
+  th, td {
+    padding: 0.7rem 1rem;
+    text-align: right;
+    font-size: 0.92rem;
+    border-bottom: 1px solid var(--purple-pale);
+  }
+  th {
+    background: var(--purple-deep);
+    color: #fff;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+  }
+  tr.new-row { animation: highlight 3s ease-out; }
+  @keyframes highlight { from { background: #fdf3d9; } to { background: transparent; } }
+  tr.opted-out { opacity: 0.5; }
+  .badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+  .badge.ok { background: #e4f7ea; color: var(--green); }
+  .badge.out { background: #fdeaec; color: var(--red); }
+  .table-wrap { max-width: 900px; margin: 0 auto; overflow-x: auto; }
+  .empty { text-align: center; color: var(--ink-dim); padding: 2rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>נרשמים חיים - וובינר 23.8</h1>
+  <div class="status live" id="status">מתעדכן...</div>
+</header>
+
+<div class="count-card">
+  <div class="stat"><div class="num" id="totalCount">-</div><div class="label">סה"כ נרשמים</div></div>
+  <div class="stat"><div class="num" id="activeCount">-</div><div class="label">פעילים (לא הוסרו)</div></div>
+  <div class="stat"><div class="num" id="lastMinuteCount">-</div><div class="label">ב-60 הדקות האחרונות</div></div>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>שם</th>
+        <th>טלפון</th>
+        <th>נרשם/ה</th>
+        <th>סטטוס</th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <div class="empty" id="emptyMsg" style="display:none">אין עדיין נרשמים</div>
+</div>
+
+<script>
+const ENDPOINT = "https://us-central1-content-ideas-becd7.cloudfunctions.net/webinarDebugAllRegistrants?key=maya-webinar-cleanup-2026";
+const REFRESH_MS = 8000;
+let knownIds = new Set();
+let firstLoad = true;
+
+function timeAgo(iso) {
+  if (!iso) return "-";
+  const d = new Date(iso);
+  const diffMs = Date.now() - d.getTime();
+  const mins = Math.floor(diffMs / 60000);
+  if (mins < 1) return "עכשיו";
+  if (mins < 60) return mins + " דק'";
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24) return hrs + " שע'";
+  return d.toLocaleDateString("he-IL") + " " + d.toLocaleTimeString("he-IL", {hour:"2-digit", minute:"2-digit"});
+}
+
+async function refresh() {
+  try {
+    const res = await fetch(ENDPOINT + "&_=" + Date.now());
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const data = await res.json();
+    const docs = (data.docs || []).slice().reverse(); // newest first
+
+    document.getElementById("totalCount").textContent = docs.length;
+    const activeDocs = docs.filter(d => !d.optedOut);
+    document.getElementById("activeCount").textContent = activeDocs.length;
+    const oneHourAgo = Date.now() - 60 * 60 * 1000;
+    const recentCount = docs.filter(d => d.registeredAt && new Date(d.registeredAt).getTime() > oneHourAgo).length;
+    document.getElementById("lastMinuteCount").textContent = recentCount;
+
+    const rowsEl = document.getElementById("rows");
+    rowsEl.innerHTML = "";
+    document.getElementById("emptyMsg").style.display = docs.length ? "none" : "block";
+
+    docs.forEach(d => {
+      const tr = document.createElement("tr");
+      if (d.optedOut) tr.className = "opted-out";
+      if (!firstLoad && !knownIds.has(d.id)) tr.classList.add("new-row");
+      knownIds.add(d.id);
+
+      const badge = d.optedOut
+        ? '<span class="badge out">הוסר/ה</span>'
+        : '<span class="badge ok">פעיל/ה</span>';
+
+      tr.innerHTML =
+        "<td>" + (d.name || "-") + "</td>" +
+        "<td>" + (d.phone || "-") + "</td>" +
+        "<td>" + timeAgo(d.registeredAt) + "</td>" +
+        "<td>" + badge + "</td>";
+      rowsEl.appendChild(tr);
+    });
+
+    firstLoad = false;
+    document.getElementById("status").textContent = "עודכן: " + new Date().toLocaleTimeString("he-IL");
+  } catch (err) {
+    document.getElementById("status").textContent = "שגיאה בעדכון - מנסה שוב...";
+    console.error(err);
+  }
+}
+
+refresh();
+setInterval(refresh, REFRESH_MS);
+</script>
+</body>
+</html>
