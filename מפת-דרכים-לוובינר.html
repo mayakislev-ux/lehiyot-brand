@@ -5450,6 +5450,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  function getCookie(cookieName) {
+    var match = document.cookie.match(new RegExp('(?:^|; )' + cookieName + '=([^;]*)'));
+    return match ? decodeURIComponent(match[1]) : '';
+  }
+
+  function generateEventId() {
+    if (window.crypto && window.crypto.randomUUID) return window.crypto.randomUUID();
+    return 'lead-' + Date.now() + '-' + Math.random().toString(36).slice(2);
+  }
+
   document.querySelectorAll('form[data-name="Webinar Contact Form"]').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -5463,6 +5473,10 @@ document.addEventListener('DOMContentLoaded', function () {
       var website = form.querySelector('[name="Website"]');
       var waConsent = form.querySelector('[name="WaConsent"]');
       var urlParams = new URLSearchParams(window.location.search);
+      // One event_id per real submit, sent to BOTH the server (for Meta Conversions API)
+      // and the browser pixel call below - same id in both is what lets Meta deduplicate
+      // them into a single Lead instead of double-counting.
+      var metaEventId = generateEventId();
       if (submitBtn) submitBtn.value = 'רגע...';
       fetch('https://us-central1-content-ideas-becd7.cloudfunctions.net/webinarRegistration', {
         method: 'POST',
@@ -5478,11 +5492,15 @@ document.addEventListener('DOMContentLoaded', function () {
           utm_campaign: urlParams.get('utm_campaign') || '',
           utm_content: urlParams.get('utm_content') || '',
           adset_name: urlParams.get('adset_name') || '',
+          event_id: metaEventId,
+          fbc: getCookie('_fbc'),
+          fbp: getCookie('_fbp'),
+          fbclid: urlParams.get('fbclid') || '',
         }),
       })
         .then(function (res) {
           if (!res.ok) throw new Error('bad status');
-          if (window.fbq) { fbq('track', 'Lead'); } window.location.href = '/%D7%AA%D7%95%D7%93%D7%94-%D7%95%D7%95%D7%91%D7%99%D7%A0%D7%A8.html';
+          if (window.fbq) { fbq('track', 'Lead', {}, { eventID: metaEventId }); } window.location.href = '/%D7%AA%D7%95%D7%93%D7%94-%D7%95%D7%95%D7%91%D7%99%D7%A0%D7%A8.html';
         })
         .catch(function (err) {
           console.error('webinar registration failed:', err);
