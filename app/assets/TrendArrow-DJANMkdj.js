@@ -1,0 +1,1 @@
+import{xt as e}from"./index-02tWGDkE.js";var t=e();function n({trend:e}){return e===`up`?(0,t.jsx)(`span`,{style:{color:`var(--success)`},children:`▲`}):e===`down`?(0,t.jsx)(`span`,{style:{color:`var(--danger)`},children:`▼`}):null}export{n as t};
