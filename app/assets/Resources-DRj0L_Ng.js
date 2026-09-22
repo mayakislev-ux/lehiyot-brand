@@ -1,0 +1,1 @@
+import{xt as e}from"./index-BpU1DCxk.js";var t=e();function n(){return(0,t.jsxs)(`div`,{className:`page-shell`,children:[(0,t.jsx)(`h1`,{style:{marginBottom:24},children:`משאבים`}),(0,t.jsx)(`div`,{className:`card`,children:(0,t.jsx)(`p`,{className:`muted`,children:`התכונה הזו עוד לא זמינה. בקרוב יופיעו כאן קבצים וחומרים שמאיה תשתף.`})})]})}export{n as default};

@@ -1,1 +1,0 @@
-import{bt as e}from"./index-CYP4aGw9.js";var t=e();function n(){return(0,t.jsxs)(`div`,{className:`page-shell`,children:[(0,t.jsx)(`h1`,{style:{marginBottom:24},children:`הצעות ופידבקים`}),(0,t.jsx)(`div`,{className:`card`,children:(0,t.jsx)(`p`,{className:`muted`,children:`התכונה הזו עוד לא זמינה. בקרוב תוכל/י לשלוח כאן הצעות ופידבק ישירות למאיה.`})})]})}export{n as default};
