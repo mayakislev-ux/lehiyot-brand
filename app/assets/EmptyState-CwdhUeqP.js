@@ -1,1 +1,0 @@
-import{bt as e}from"./index-DV-inA2T.js";var t=e();function n({icon:e,message:n}){return(0,t.jsxs)(`div`,{style:{textAlign:`center`,padding:`28px 16px`},children:[(0,t.jsx)(`div`,{style:{fontSize:32,marginBottom:8},"aria-hidden":`true`,children:e}),(0,t.jsx)(`p`,{className:`muted`,children:n})]})}export{n as t};
