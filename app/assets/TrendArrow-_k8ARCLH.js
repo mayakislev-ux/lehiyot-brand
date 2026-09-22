@@ -1,0 +1,1 @@
+import{bt as e}from"./index-CYP4aGw9.js";var t=e();function n({trend:e}){return e===`up`?(0,t.jsx)(`span`,{style:{color:`var(--success)`},children:`▲`}):e===`down`?(0,t.jsx)(`span`,{style:{color:`var(--danger)`},children:`▼`}):null}export{n as t};
