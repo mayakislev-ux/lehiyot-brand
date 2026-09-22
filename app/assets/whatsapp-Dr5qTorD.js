@@ -1,0 +1,1 @@
+function e(e){if(!e)return null;let t=e.replace(/\D/g,``);return t?`https://wa.me/${t.startsWith(`0`)?`972${t.slice(1)}`:t}`:null}function t(e){if(!e)return null;let t=e.replace(/[^\d+]/g,``);return t?`tel:${t}`:null}export{e as n,t};

@@ -1,0 +1,1 @@
+function e(e){return e&&typeof e.toDate==`function`?e.toDate():null}function t(e,t=new Date){if(!e)return`אין עדיין פעילות`;let n=t.getTime()-e.getTime(),r=Math.floor(n/(1e3*60*60*24));return r<=0?`היום`:r===1?`אתמול`:`לפני ${r} ימים`}export{e as n,t};
