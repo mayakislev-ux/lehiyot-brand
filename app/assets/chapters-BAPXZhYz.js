@@ -1,0 +1,1 @@
+function e(e=new Date){return new Intl.DateTimeFormat(`en-CA`,{timeZone:`Asia/Jerusalem`}).format(e)}function t(t,n=new Date){return e(n)>=t}export{t as n,e as t};
