@@ -845,6 +845,23 @@
   @media (max-width: 640px) {
     .sec { padding: 3rem 1.2rem; }
   }
+
+  /* 09/10/2026 (מאיה: "יש שם כתב שחור על רקע כהה לא רואים"): בבנייה מחדש
+     של השלבים השתמשתי במחלקות שנכתבו לאזור הנייר הלבן, ו-.intro-list li
+     קובעת צבע דיו כמעט שחור. בתוך פיל הטקסט חייב לירש את צבע הפיל עצמו,
+     כי לכל פיל צבע משלו (הצהוב למשל דווקא כן עם טקסט כהה). */
+  .pill .intro-list li { color: inherit; }
+  .pill .intro-callout {
+    color: inherit;
+    background: rgba(0,0,0,0.18);
+    border-radius: 10px;
+    padding: 0.7rem 0.9rem;
+    margin: 0.7rem 0 0.2rem;
+    font-weight: 600;
+    line-height: 1.55;
+  }
+  .pill .details-body a,
+  .pill .details-body a:hover { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 </style>
 <section class="sec sec-white sec-hero">
   <div class="page-inner">
