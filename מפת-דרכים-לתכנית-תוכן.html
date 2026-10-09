@@ -862,6 +862,38 @@
   }
   .pill .details-body a,
   .pill .details-body a:hover { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+  /* 09/10/2026, מתוך הביקורת: שבב זמן על כל שלב, והגדרות הקטגוריות */
+  .step-time { margin-inline-start: auto; margin-inline-end: 0.6rem; font-size: 0.72em;
+    font-weight: 700; opacity: 0.75; white-space: nowrap; }
+  .pill .cat-def { color: inherit; background: rgba(0,0,0,0.16); border-radius: 10px;
+    padding: 0.65rem 0.8rem; font-size: 0.95em; line-height: 1.5; }
+  .pill .cat-def em { font-style: normal; opacity: 0.82; }
+  .pill .cat-def a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+  /* הטבלה למילוי בתוך שלב 3 */
+  .pill .plan-box { margin-top: 0.9rem; padding: 0.85rem; border-radius: 12px;
+    background: rgba(0,0,0,0.16); color: inherit; }
+  .pill .plan-hint { font-size: 0.9em; opacity: 0.82; margin: 0 0 0.6rem; }
+  .plan-head, .plan-row { display: grid; grid-template-columns: 1.6rem 1fr 6.2rem;
+    gap: 0.4rem; align-items: center; }
+  .plan-head { font-size: 0.78em; font-weight: 700; opacity: 0.7; margin-bottom: 0.3rem; }
+  .plan-row { margin-bottom: 0.3rem; }
+  .plan-num { font-size: 0.8em; opacity: 0.65; font-variant-numeric: tabular-nums; }
+  .plan-idea, .plan-kind { width: 100%; min-width: 0; font: inherit; font-size: 0.92em;
+    padding: 0.42rem 0.55rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.92); color: #2e2b26; }
+  .plan-idea::placeholder { color: #9a9086; }
+  .plan-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;
+    margin-top: 0.7rem; }
+  .plan-btn { font: inherit; font-size: 0.85em; font-weight: 700; cursor: pointer;
+    padding: 0.42rem 0.8rem; border-radius: 99px; color: inherit;
+    background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.45); }
+  .plan-tally { font-size: 0.82em; opacity: 0.85; font-variant-numeric: tabular-nums; }
+  .plan-msg { margin: 0.5rem 0 0; font-size: 0.85em; opacity: 0.9; min-height: 1.2em; }
+  @media (max-width: 460px) {
+    .plan-head, .plan-row { grid-template-columns: 1.3rem 1fr 5.2rem; }
+  }
 </style>
 <section class="sec sec-white sec-hero">
   <div class="page-inner">
@@ -887,18 +919,18 @@
         <li>מבנה שמוביל למכירה</li>
       </ul>
       <p>בלי הדברים האלה, גם אם תעלו תוכן כל יום במשך שנה, העסק יכול להישאר בדיוק באותו מקום.</p>
-      <div class="intro-callout">הטעות של רוב בעלי העסקים היא שיש להם תוכנית תוכן, אבל אין להם אסטרטגיה.</div>
+      <div class="intro-callout">הטעות של רוב בעלי העסקים היא שיש להם תוכנית תוכן, אבל אין להם אסטרטגיה.</div><div class="intro-callout">ולפני שמתחילים: אל תחכו לתוכנית מושלמת. תוכנית תוכן ב-80% ביצוע שווה הרבה יותר מתוכנית מושלמת שלא יוצאת לפועל.</div>
     </div>
   </div>
 </section>
 
 <section class="sec sec-purple sec-steps">
   <div class="page-inner">
-    <div class="steps-kicker">לחצו על כל שלב לפרטים</div>
+    <div class="steps-kicker">לחצו על כל שלב לפרטים &middot; כל התהליך, כשעה וחצי, פעם בחודש</div>
 
   <div class="chain">
       <details class="pill shared">
-        <summary>שלב 0 — מגיעים עם מאגר מוכן<span class="chevron">⌄</span></summary>
+        <summary>שלב 0 — מגיעים עם מאגר מוכן<span class="step-time">לאורך החודש</span><span class="chevron">⌄</span></summary>
         <div class="details-body">
           <p>אל תחכו ליום שבו בונים את תוכנית התוכן כדי להתחיל לחפש רעיונות.</p>
       <p>לאורך החודש אספו במקום אחד:</p>
@@ -914,7 +946,7 @@
       </details>
       <div class="stem"></div>
       <details class="pill shared">
-        <summary>שלב 1 — קובעים כמה תכנים רוצים להעלות<span class="chevron">⌄</span></summary>
+        <summary>שלב 1 — קובעים כמה תכנים רוצים להעלות<span class="step-time">דקה</span><span class="chevron">⌄</span></summary>
         <div class="details-body">
           <p>קובעים יעד חודשי. ההמלצה: <strong>לפחות 16 תכנים בחודש.</strong></p>
       <p>לדוגמה: החלטתם על 16? עכשיו אנחנו יודעים שאנחנו צריכים לבחור 16 רעיונות סופיים לתוכנית.</p>
@@ -922,10 +954,10 @@
       </details>
       <div class="stem"></div>
       <details class="pill shared">
-        <summary>שלב 2 — בונים בנק רעיונות לחודש<span class="chevron">⌄</span></summary>
+        <summary>שלב 2 — בונים בנק רעיונות לחודש<span class="step-time">כ-40 דק’</span><span class="chevron">⌄</span></summary>
         <div class="details-body">
           <p>עוד לא בוחרים את ה-16 הסופיים.</p>
-      <p>מוציאים מהמאגר <strong>יותר רעיונות ממה שאנחנו צריכים</strong>, דרך 3 מקורות:</p>
+      <p>מוציאים מהרשימה שאספתן <strong>יותר רעיונות ממה שאנחנו צריכים</strong>, כדי שיהיה ממה לבחור. <strong>ל-16 תכנים סופיים, אספו 24 עד 30 רעיונות.</strong> הגעתן ל-30? עוצרות, גם אם יש עוד.</p><p><strong>תמהיל המקורות</strong> (איך משיגים את הרעיונות, לא איזה סוג תוכן הם):</p>
       <p><strong>שכפול, כ-50%</strong><br>סרטונים של אחרים שאתם משכפלים את המנגנון שלהם, וגם תכנים <strong>שלכם</strong> שכבר עבדו ואתם יוצרים להם וריאציה חדשה.</p>
       <p><strong>שכפול הפוך, כ-15%</strong><br>יש לכם רעיון משלכם, ואז מוצאים לו רפרנס מתאים. מומלץ להשתמש בשיטה הזאת פחות, כי היא דורשת יותר עבודה.</p>
       <p><strong>תוכן מ-0, כ-35%</strong><br>לא חייב להיות תוכן מורכב ומתוסרט. עדיף לחפש קודם תוכן שקל ליצור:</p>
@@ -941,11 +973,11 @@
       </details>
       <div class="stem"></div>
       <details class="pill shared">
-        <summary>שלב 3 — עכשיו בונים את התוכנית הסופית<span class="chevron">⌄</span></summary>
+        <summary>שלב 3 — עכשיו בונים את התוכנית הסופית<span class="step-time">כ-20 דק’</span><span class="chevron">⌄</span></summary>
         <div class="details-body">
           <p>רק עכשיו בוחרים מתוך בנק הרעיונות את התכנים שבאמת ייכנסו לחודש.</p>
-      <p>שומרים בערך על: <strong>50% ערך | 30% אישי | 20% מכירתי</strong></p>
-      <p>לדוגמה, מתוך 16 תכנים: <strong>8 ערך | 5 אישי | 3 מכירתי</strong></p>
+      <p><strong>חלוקת סוגי התוכן</strong> (מה התוכן עושה, לא איך השגתן אותו):</p><p>שומרים בערך על: <strong>50% ערך | 30% אישי | 20% מכירתי</strong></p>
+      <p>לדוגמה, מתוך 16 תכנים: <strong>8 ערך | 5 אישי | 3 מכירתי</strong></p><div class="check-list"><div class="cat-def"><strong>ערך</strong> — בונה סמכות מקצועית. בעיות של הקהל, ביקורת, ניפוץ מיתוסים, שאלות נפוצות, שריפת גשרים, טעויות נפוצות, טיפים, אג’נדות עסקיות. <em>לא כל תוכן מקצועי הוא ערך: אם אין בו משהו שאפשר לקחת, זה לא ערך.</em></div><div class="cat-def"><strong>אישי</strong> — יוצר אמון וחיבור. הדרך והסיפור שלכם, הערכים והאג’נדות, אתגרים שעברתם, תובנות מהיום-יום, "יום בחיי", זוגיות ומשפחה. <em>קשה לכן למצוא? התשובה המלאה עם תשע נקודות התחלה <a href="#faq-personal">בשאלות הנפוצות למטה</a>.</em></div><div class="cat-def"><strong>מכירתי</strong> — מגדיל מכירות, תמיד עם קריאה ברורה לפעולה. הצגת המוצר או השירות, סיפורי הצלחה, עדויות, הוכחת תוצאה. <em>זאת הקטגוריה שתמיד נשארת ריקה. גם "מה בדיוק כלול אצלי" נחשב.</em></div></div>
 
       <div class="calc-box">
         <div class="calc-title">מחשבון חלוקת תכנים</div>
@@ -958,11 +990,25 @@
         </div>
         <div class="calc-asterisk">* לא חייבים להגיע לחלוקה מדויקת. המטרה היא לשמור על איזון.</div>
       </div>
+
+      <div class="plan-box">
+        <div class="calc-title">התוכנית שלכן</div>
+        <p class="plan-hint">אפשר לבנות אותה כאן. מה שתכתבו נשמר במכשיר שלכן, אפשר לסגור ולחזור.</p>
+        <div class="plan-head"><span>#</span><span>הרעיון</span><span>סוג</span></div>
+        <div id="plan-rows"></div>
+        <div class="plan-actions">
+          <button type="button" class="plan-btn" onclick="mkPlanAdd()">הוספת שורה</button>
+          <button type="button" class="plan-btn" onclick="mkPlanCopy()">להעתיק כטבלה</button>
+          <span class="plan-tally" id="plan-tally"></span>
+        </div>
+        <p class="plan-msg" id="plan-msg" role="status"></p>
+      </div>
+      </div>
         </div>
       </details>
       <div class="stem"></div>
       <details class="pill shared">
-        <summary>שלב 4 — בדיקה אחרונה: חסר לנו משהו חשוב?<span class="chevron">⌄</span></summary>
+        <summary>שלב 4 — בדיקה אחרונה: חסר לנו משהו חשוב?<span class="step-time">כ-10 דק’</span><span class="chevron">⌄</span></summary>
         <div class="details-body">
           <p>לפני שסוגרים את התוכנית, עוברים עליה פעם אחת ובודקים שיש בה גיוון מתוך התכנים החשובים:</p>
       <div class="check-list">
@@ -974,14 +1020,14 @@
         <label class="check-item"><input type="checkbox"><span>בעיות, תסכולים ושאלות נפוצות של הקהל</span></label>
         <label class="check-item"><input type="checkbox"><span>תוכן על סלבס / אקטואליה בהקשר לתחום</span></label>
       </div>
-      <p><strong>לא חייבים לסמן וי על הכול.</strong></p>
+      <p><strong>לא חייבים לסמן וי על הכול.</strong></p><p><a href="#" onclick="mkOpenModal('persuasion-modal'); return false;">ואם רוצות להעמיק: שלושת שלבי השכנוע בתוכן ←</a></p>
       <p>אם זיהיתם חוסר משמעותי, לא בונים מחדש את התוכנית. פשוט <strong>מחליפים רעיון אחד או שניים</strong>.</p>
       <div class="intro-callout">וזהו. התוכנית מוכנה.</div>
         </div>
       </details>
       <div class="stem"></div>
       <details class="pill shared">
-        <summary>שלב 5 — משאירים מקום לספונטניות<span class="chevron">⌄</span></summary>
+        <summary>שלב 5 — משאירים מקום לספונטניות<span class="step-time">לקריאה</span><span class="chevron">⌄</span></summary>
         <div class="details-body">
           <p>התוכנית היא הבסיס שלכם, אבל לא חייבים להיצמד אליה ב-100%.</p>
       <p>במהלך החודש אפשר להוסיף או להחליף תוכן בעקבות:</p>
@@ -998,7 +1044,7 @@
       </details>
       <div class="stem"></div>
       <details class="pill go">
-        <summary>שלב 6 — מנתחים ומשכפלים<span class="chevron">⌄</span></summary>
+        <summary>שלב 6 — מנתחים ומשכפלים<span class="step-time">סוף החודש</span><span class="chevron">⌄</span></summary>
         <div class="details-body">
           <p>בסוף החודש עוצרים ובודקים מה עבד.</p>
       <p>תכנים שעבדו טוב, <strong>משכפלים בחודש הבא.</strong> אפשר לשכפל את הרעיון, ההוק, המבנה, הפורמט או ליצור חלק נוסף.</p>
@@ -1034,7 +1080,7 @@
           <p>אז לא בכוח... לרוב אחרי שמיישמים תכנית תוכן של חודש 1 כבר אפשר למצוא בעמוד פורמט תוכן שעבד ולשכפל אותו. לעומת זאת סדרה זה לרוב משהו שקורה לכם בחיים או בעסק, ופשוט לתעד ולשתף.</p>
         </div>
       </details>
-      <details class="faq-card">
+      <details id="faq-personal" class="faq-card">
         <summary><span class="faq-icon">+</span><span class="faq-q">קשה לי למצוא תוכן אישי, מה לעשות?</span></summary>
         <div class="faq-a">
           <p>תוכן אישי אפשר למצוא מהמון מקורות שונים. תתחילו מטבלת הפרסונה השיווקית שמילאתם - שם יש המון תכנים אישיים שקשורים גם בעקיפין לעסק, וזה בסדר גמור, כולל אג'נדות אישיות שלכם.</p>
@@ -1113,6 +1159,121 @@
       document.getElementById(id).textContent = Math.round(n * pcts[i]);
     });
   }
+
+  /* 09/10/2026, מתוך הביקורת: "אין לאן לכתוב את התוכנית". המדריך נגמר ב"התוכנית
+     מוכנה" ולא היה בו שום מקום לבנות אותה, ולכן הצעד הראשון אחרי הקריאה היה
+     "תבני לעצמך כלי". עכשיו בונים כאן, והכתיבה נשמרת במכשיר.
+
+     כל קריאה וכתיבה לאחסון עטופה, כי בגלישה פרטית הגישה לאחסון זורקת שגיאה
+     והדף היה נשבר על זה. */
+  var MK_PLAN_KEY = 'mk-content-plan-v1';
+  var MK_KINDS = ['ערך', 'אישי', 'מכירתי'];
+
+  function mkPlanLoad() {
+    try {
+      var raw = localStorage.getItem(MK_PLAN_KEY);
+      var arr = raw ? JSON.parse(raw) : null;
+      return Array.isArray(arr) ? arr : null;
+    } catch (e) { return null; }
+  }
+  function mkPlanSave(rows) {
+    try { localStorage.setItem(MK_PLAN_KEY, JSON.stringify(rows)); } catch (e) { /* בלי שמירה, הדף עדיין עובד */ }
+  }
+  function mkPlanRead() {
+    var out = [];
+    document.querySelectorAll('#plan-rows .plan-row').forEach(function (row) {
+      out.push({
+        idea: row.querySelector('.plan-idea').value,
+        kind: row.querySelector('.plan-kind').value
+      });
+    });
+    return out;
+  }
+  function mkPlanTally() {
+    var rows = mkPlanRead();
+    var counts = { 'ערך': 0, 'אישי': 0, 'מכירתי': 0 };
+    var filled = 0;
+    rows.forEach(function (r) {
+      if (!r.idea.trim()) return;
+      filled += 1;
+      if (counts[r.kind] !== undefined) counts[r.kind] += 1;
+    });
+    var el = document.getElementById('plan-tally');
+    if (!el) return;
+    el.textContent = filled === 0
+      ? ''
+      : filled + ' תכנים · ' + counts['ערך'] + ' ערך · ' + counts['אישי'] + ' אישי · ' + counts['מכירתי'] + ' מכירתי';
+  }
+  function mkPlanChanged() {
+    mkPlanSave(mkPlanRead());
+    mkPlanTally();
+  }
+  function mkPlanRow(n, data) {
+    var row = document.createElement('div');
+    row.className = 'plan-row';
+    var num = document.createElement('span');
+    num.className = 'plan-num';
+    num.textContent = n;
+    var idea = document.createElement('input');
+    idea.type = 'text';
+    idea.className = 'plan-idea';
+    idea.placeholder = 'הרעיון';
+    idea.value = (data && data.idea) || '';
+    idea.addEventListener('input', mkPlanChanged);
+    var kind = document.createElement('select');
+    kind.className = 'plan-kind';
+    MK_KINDS.forEach(function (k) {
+      var o = document.createElement('option');
+      o.value = k; o.textContent = k;
+      kind.appendChild(o);
+    });
+    kind.value = (data && data.kind) || 'ערך';
+    kind.addEventListener('change', mkPlanChanged);
+    row.appendChild(num); row.appendChild(idea); row.appendChild(kind);
+    return row;
+  }
+  function mkPlanRender(rows) {
+    var host = document.getElementById('plan-rows');
+    if (!host) return;
+    host.innerHTML = '';
+    rows.forEach(function (r, i) { host.appendChild(mkPlanRow(i + 1, r)); });
+    mkPlanTally();
+  }
+  function mkPlanAdd() {
+    var rows = mkPlanRead();
+    rows.push({ idea: '', kind: 'ערך' });
+    mkPlanRender(rows);
+    mkPlanSave(rows);
+    var all = document.querySelectorAll('#plan-rows .plan-idea');
+    if (all.length) all[all.length - 1].focus();
+  }
+  function mkPlanCopy() {
+    var rows = mkPlanRead().filter(function (r) { return r.idea.trim(); });
+    var msg = document.getElementById('plan-msg');
+    if (!rows.length) { if (msg) msg.textContent = 'עוד לא כתבתן כלום בטבלה.'; return; }
+    var nl = String.fromCharCode(10);
+    var text = rows.map(function (r, i) {
+      return (i + 1) + String.fromCharCode(9) + r.idea.trim() + String.fromCharCode(9) + r.kind;
+    }).join(nl);
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        if (msg) msg.textContent = 'הועתק. אפשר להדביק ישר לקובץ שלכן.';
+      }).catch(function () {
+        if (msg) msg.textContent = 'ההעתקה לא עבדה בדפדפן הזה. אפשר לסמן את הטקסט ולהעתיק ידנית.';
+      });
+    } else if (msg) {
+      msg.textContent = 'ההעתקה לא נתמכת בדפדפן הזה.';
+    }
+  }
+  /* נפתח עם 16 שורות, כי זאת ההמלצה, ועם מה שכבר נשמר אם יש */
+  (function mkPlanInit() {
+    var saved = mkPlanLoad();
+    if (saved && saved.length) { mkPlanRender(saved); return; }
+    var rows = [];
+    for (var i = 0; i < 16; i += 1) rows.push({ idea: '', kind: 'ערך' });
+    mkPlanRender(rows);
+  })();
+
   function mkOpenModal(id) {
     var el = document.getElementById(id);
     if (el) { el.classList.add('open'); document.body.style.overflow = 'hidden'; }
