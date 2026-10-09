@@ -342,6 +342,60 @@
   .path-b .details-body a { color: #6b4e00; }
   .path-b .details-body a:hover { color: #3d2c00; }
 
+  /* 09/10/2026 (מאיה: "צריך לדייק כי זה בשיטה הישנה, היום בעיקר אנחנו
+     עובדים בשיטת השכפול"): שלוש הדרכים לכתיבת תסריט. בלי grid ובלי
+     עמודות, כי לדף הזה אין dir="rtl" וכל פריסה לוגית היתה מניחה
+     שמאל-לימין ומעיפה את המספור לצד הלא נכון. */
+  details.pill .details-body .ways {
+    margin-top: 1rem;
+  }
+
+  details.pill .details-body .way {
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(217,178,92,0.26);
+    background: rgba(255,255,255,0.05);
+  }
+
+  details.pill .details-body .way + .way { margin-top: 0.7rem; }
+
+  /* השכפול הוא הדרך המרכזית, ולכן הוא גם נראה ככה ולא כאחד משלושה שווים */
+  details.pill .details-body .way.way-main {
+    border-color: rgba(217,178,92,0.65);
+    background: rgba(217,178,92,0.1);
+  }
+
+  details.pill .details-body .way .way-name {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: var(--gold-soft);
+    margin: 0 0 0.35rem;
+  }
+
+  details.pill .details-body .way .way-tag {
+    display: inline-block;
+    margin-inline-start: 0.45rem;
+    padding: 0.08rem 0.5rem 0.14rem;
+    border-radius: 999px;
+    background: var(--gold);
+    color: #2b2408;
+    font-family: var(--font-body);
+    font-size: 0.74rem;
+    font-weight: 700;
+    vertical-align: middle;
+  }
+
+  details.pill .details-body .way p { margin: 0; }
+  details.pill .details-body .way p + p { margin-top: 0.4rem; }
+
+  details.pill .details-body .way .way-when {
+    display: block;
+    color: var(--ink-dim);
+    font-size: 0.92rem;
+  }
+
+  details.pill .details-body .way .way-when strong { color: var(--gold-soft); }
+
   .intro-recording {
     max-width: 560px;
     margin: 0 auto 2.75rem;
@@ -675,7 +729,32 @@
       <div class="details-body">
         <p>לא כל תוכן צריך תסריט! אני חוזרת שוב - לא כל תוכן צריך תסריט!</p>
         <p>יש המון תכנים שנולדים מרגע חי, מתכנים ספונטניים שבהם פשוט פותחים מצלמה ומדברים, או מפורמטים מסוימים כמו תוכן ויזואלי קצר שלא צריך תסריט.</p>
-        <p>במידת הצורך, כמובן כותבים תסריט לפי ההנחיות: <a href="https://docs.google.com/document/d/1Ejx_60ZHhhiA5VXWLboqyoZeaax5O61h05nO6QKfdc8/edit?tab=t.0" target="_blank" rel="noopener">הנחיות לכתיבת תסריט ↗</a></p>
+        <p><strong>וכשכן צריך תסריט - לא מתחילים מדף לבן.</strong> היום רוב התוכן שלנו נבנה בשיטת השכפול, ולכן כתיבה מאפס היא האפשרות השלישית ולא הראשונה. אלה שלוש הדרכים, לפי הסדר שבו כדאי לנסות אותן:</p>
+
+        <div class="ways">
+
+          <div class="way way-main">
+            <p class="way-name">1. שכפול רגיל<span class="way-tag">הדרך המרכזית</span></p>
+            <p>מצאתם סרטון שעבד ברשת, ואתם משכפלים את המנגנון שלו: קודם את ההוק, אחר כך את פורמט ההנגשה, ואת התסריט שלכם מלבישים על אותו מבנה ואותו אורך.</p>
+            <p class="way-when">מכאן הגעתם אם בחרתם במסלול <strong>שכפול תוכן</strong>.</p>
+            <p><a href="https://docs.google.com/document/d/16E3UA0ukElNLcxHT_5C84XrWUZJ3iN0AVPD4BiNphx8/edit?usp=sharing" target="_blank" rel="noopener">שיטת השכפול תוכן - המדריך המלא ↗</a><br><span class="way-when">כולל מדריך מוקלט, וחמישה סרטונים שלי ושל לקוחות שנבנו בשיטה הזאת.</span></p>
+          </div>
+
+          <div class="way">
+            <p class="way-name">2. שכפול הפוך</p>
+            <p>הרעיון הוא שלכם, ורק אחר כך אתם מחפשים לו רפרנס שעבד ולוקחים ממנו את המבנה. דורש יותר עבודה משכפול רגיל, כי צריך למצוא רפרנס שמתאים לרעיון ולא להיפך.</p>
+            <p class="way-when">מכאן הגעתם אם בחרתם במסלול <strong>רעיון מ-0</strong> ואתם רוצים בכל זאת להישען על משהו שהוכיח את עצמו.</p>
+            <p><a href="https://docs.google.com/document/d/16E3UA0ukElNLcxHT_5C84XrWUZJ3iN0AVPD4BiNphx8/edit?usp=sharing" target="_blank" rel="noopener">שיטת השכפול תוכן - המדריך המלא ↗</a><br><a href="https://docs.google.com/document/d/1Iucc4ZXqx7HEhnFZJkg4xNTN19O1rAaeTN6DsRpuC24/edit?usp=sharing" target="_blank" rel="noopener">חוברת למציאת זוויות הנגשה לרעיונות ↗</a></p>
+          </div>
+
+          <div class="way">
+            <p class="way-name">3. כתיבה מאפס</p>
+            <p>בלי רפרנס בכלל. הדרך שדורשת את ההבנה השיווקית הגבוהה ביותר, ולכן היא האחרונה ברשימה ולא הראשונה. שמרו אותה לרעיונות שאין להם שום מקבילה ברשת, או לתכנים שאתם כבר יודעים לכתוב טוב.</p>
+            <p class="way-when">מכאן הגעתם אם בחרתם במסלול <strong>רעיון מ-0</strong>, או אם החלטתם להמיר קטע מצולם לפורמט אחר.</p>
+            <p><a href="https://docs.google.com/document/d/1Ejx_60ZHhhiA5VXWLboqyoZeaax5O61h05nO6QKfdc8/edit?tab=t.0" target="_blank" rel="noopener">הנחיות לכתיבת תסריט ↗</a></p>
+          </div>
+
+        </div>
       </div>
     </details>
     <div class="stem"></div>
