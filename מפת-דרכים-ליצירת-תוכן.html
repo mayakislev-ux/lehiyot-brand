@@ -525,8 +525,11 @@
 
   /* ===================================================================
      26/10/2026 (מאיה): "לא בא לי ששום קישור ייפתח חיצוני אלא הכל
-     בפופאפ מסודר". המדריך חי בתוך העמוד, ולא שולח אותן לגוגל דוקס
-     ומשם לחיפוש חזרה. אותם טוקנים של המפה, כדי שזה ירגיש אותו עולם.
+     בפופאפ מסודר", ואחר כך "הכל עמוס ולא ברור".
+
+     המדריך בנוי כמו המפה עצמה: רשימה קצרה של שלבים סגורים, שנפתחים
+     אחד-אחד. שתי לשוניות, כי שכפול רגיל ושכפול הפוך הם שני מסלולים
+     ואף אחת לא צריכה את שניהם באותו רגע.
      =================================================================== */
   .guide-open-btn {
     display: inline-block;
@@ -551,7 +554,7 @@
     align-items: center;
     justify-content: center;
     padding: 1rem;
-    background: rgba(8, 4, 18, 0.82);
+    background: rgba(8, 4, 18, 0.86);
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
   }
@@ -560,75 +563,169 @@
 
   .guide-modal__box {
     position: relative;
-    width: min(760px, 100%);
+    display: flex;
+    flex-direction: column;
+    width: min(640px, 100%);
     max-height: 88vh;
     max-height: 88svh;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    background: linear-gradient(160deg, #241539, #160c26);
+    background: #1b1030;
     border: 1px solid var(--line);
     border-radius: 18px;
-    padding: 1.6rem 1.5rem 2rem;
     text-align: right;
-    box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+
+  /* הכותרת והלשוניות נשארות במקום, והתוכן בלבד גולל */
+  .guide-head {
+    padding: 1.3rem 1.4rem 0.9rem;
+    border-bottom: 1px solid rgba(217,178,92,0.22);
+    background: linear-gradient(160deg, #2a1842, #1b1030);
+  }
+  .guide-head h2 {
+    font-family: var(--font-display);
+    color: var(--gold);
+    font-size: 1.4rem;
+    margin: 0 0 0.3rem;
+    padding-inline-end: 2.4rem;
+  }
+  .guide-head p {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--ink-dim);
   }
 
   .guide-modal__close {
-    position: sticky;
-    top: 0;
-    float: left;
+    position: absolute;
+    top: 0.9rem;
+    inset-inline-start: 0.9rem;
     font: inherit;
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     line-height: 1;
     color: var(--ink-dim);
-    background: rgba(0,0,0,0.35);
+    background: rgba(0,0,0,0.4);
     border: 1px solid var(--line);
     border-radius: 999px;
-    width: 2.2rem;
-    height: 2.2rem;
+    width: 2.1rem;
+    height: 2.1rem;
     cursor: pointer;
+    z-index: 2;
   }
   .guide-modal__close:hover { color: var(--ink); }
 
-  .guide-modal__box h2 {
-    font-family: var(--font-display);
-    color: var(--gold);
-    font-size: 1.6rem;
-    margin: 0 0 0.4rem;
+  .guide-tabs {
+    display: flex;
+    gap: 0.4rem;
+    padding: 0.8rem 1.4rem 0;
+    background: #1b1030;
+    border-bottom: 1px solid rgba(217,178,92,0.22);
   }
-  .guide-modal__box h3 {
-    font-family: var(--font-display);
-    color: var(--gold-soft);
-    font-size: 1.15rem;
-    margin: 1.6rem 0 0.5rem;
-    padding-top: 1.1rem;
-    border-top: 1px solid rgba(217,178,92,0.22);
+  .guide-tab {
+    flex: 1;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--ink-dim);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 0.55rem 0.3rem 0.7rem;
+    cursor: pointer;
   }
-  .guide-modal__box h4 {
+  .guide-tab[aria-selected="true"] { color: var(--gold); border-bottom-color: var(--gold); }
+  .guide-tab:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+
+  .guide-body {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 1rem 1.4rem 1.6rem;
+  }
+  .guide-panel[hidden] { display: none; }
+
+  /* שלב = שורה סגורה עם מספר. זה מה שהופך 20 פסקאות לרשימה קצרה. */
+  .guide-step {
+    border: 1px solid rgba(217,178,92,0.22);
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+    background: rgba(255,255,255,0.03);
+  }
+  .guide-step > summary {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    list-style: none;
+    cursor: pointer;
+    padding: 0.7rem 0.85rem;
+    font-weight: 700;
+    font-size: 0.97rem;
     color: var(--ink);
-    font-size: 1rem;
-    margin: 1rem 0 0.35rem;
   }
-  .guide-modal__box p,
-  .guide-modal__box li { font-size: 0.97rem; line-height: 1.7; color: var(--ink); }
-  .guide-modal__box p { margin: 0 0 0.7rem; }
-  .guide-modal__box ol,
-  .guide-modal__box ul { margin: 0 0 0.9rem; padding-inline-start: 1.3rem; }
-  .guide-modal__box li { margin-bottom: 0.3rem; }
-  .guide-modal__box .say {
-    background: rgba(217,178,92,0.12);
+  .guide-step > summary::-webkit-details-marker { display: none; }
+  .guide-step[open] > summary { color: var(--gold-soft); }
+  .guide-step__num {
+    flex: none;
+    width: 1.7rem;
+    height: 1.7rem;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    background: rgba(217,178,92,0.16);
+    color: var(--gold);
+    font-size: 0.82rem;
+    font-weight: 800;
+  }
+  .guide-step__chev { margin-inline-start: auto; color: var(--gold); transition: transform .2s; }
+  .guide-step[open] .guide-step__chev { transform: rotate(180deg); }
+
+  .guide-step__body {
+    padding: 0 0.85rem 0.9rem 0.85rem;
+    border-top: 1px solid rgba(217,178,92,0.14);
+    padding-top: 0.8rem;
+  }
+  .guide-step__body p { margin: 0 0 0.6rem; font-size: 0.93rem; line-height: 1.65; color: var(--ink); }
+  .guide-step__body p:last-child { margin-bottom: 0; }
+  .guide-step__body ol,
+  .guide-step__body ul { margin: 0 0 0.6rem; padding-inline-start: 1.2rem; }
+  .guide-step__body li { font-size: 0.93rem; line-height: 1.6; margin-bottom: 0.25rem; }
+
+  /* מה שאומרים ל-ChatGPT מילה במילה. זה החלק שמעתיקים, ולכן הוא בולט. */
+  .guide-say {
+    background: rgba(217,178,92,0.13);
     border-inline-start: 3px solid var(--gold);
     border-radius: 10px;
-    padding: 0.7rem 0.9rem;
-    margin: 0 0 0.8rem;
+    padding: 0.6rem 0.8rem;
+    margin: 0 0 0.6rem;
     font-weight: 600;
+    color: var(--gold-soft);
   }
-  .guide-modal__box .lede { color: var(--ink-dim); margin-bottom: 1.1rem; }
+  .guide-note { color: var(--ink-dim); font-size: 0.86rem; margin: 0.9rem 0 0.2rem; }
+
+  /* צ'קליסט: סימון, לא עוד רשימה */
+  .guide-check {
+    margin-top: 0.9rem;
+    border: 1px solid rgba(62,203,117,0.35);
+    border-radius: 12px;
+    background: rgba(62,203,117,0.07);
+  }
+  .guide-check > summary { color: var(--go); }
+  .guide-check .guide-step__num { background: rgba(62,203,117,0.18); color: var(--go); }
+  .guide-check .guide-step__chev { color: var(--go); }
+  .guide-check ul { list-style: none; padding-inline-start: 0; }
+  .guide-check li { padding-inline-start: 1.5rem; position: relative; }
+  .guide-check li::before {
+    content: "☐";
+    position: absolute;
+    inset-inline-start: 0;
+    color: var(--go);
+  }
 
   @media (max-width: 560px) {
-    .guide-modal { padding: 0.5rem; }
-    .guide-modal__box { padding: 1.2rem 1.05rem 1.6rem; border-radius: 14px; }
-    .guide-modal__box h2 { font-size: 1.35rem; }
+    .guide-modal { padding: 0.4rem; }
+    .guide-modal__box { border-radius: 14px; max-height: 94svh; }
+    .guide-head, .guide-tabs, .guide-body { padding-inline: 0.9rem; }
+    .guide-head h2 { font-size: 1.2rem; }
+    .guide-tab { font-size: 0.8rem; }
   }
 </style>
 
@@ -927,153 +1024,125 @@
   <div class="guide-modal__box">
     <button type="button" class="guide-modal__close" data-guide-close aria-label="סגירה">×</button>
 
-<h2 id="guide-duplication-title">שיטת השכפול - הסיסטם המלא</h2>
-<p class="lede">המטרה של שיטת השכפול היא לקחת סרטון שכבר עבד, לשכפל את המנגנון שלו ולהכניס לתוכו את הרעיון, התחום וקהל היעד שלנו. במקום לשבור את הראש בכל פעם מחדש על רעיון, מבנה ודרך ביצוע, אנחנו נעזרים במשהו שכבר הוכיח את עצמו. בתחילת הדרך חשוב להיצמד כמה שיותר לרפרנס, כדי לפתח הבנה שיווקית ומיומנות.</p>
+    <div class="guide-head">
+      <h2 id="guide-duplication-title">שיטת השכפול</h2>
+      <p>לוקחים סרטון שכבר עבד, משכפלים את המנגנון שלו, ומכניסים לתוכו את הרעיון והקהל שלנו. בתחילת הדרך נצמדים לרפרנס כמה שיותר.</p>
+    </div>
 
-<h3>קודם כל: שני סוגים של שכפול</h3>
-<h4>1. שכפול רגיל - רפרנס ← רעיון</h4>
-<p>קודם מוצאים רפרנס שאהבנו, ורק אחר כך משכפלים את הרעיון שלו לעולם שלנו. זה הסוג שמומלץ להתחיל ממנו, כי הוא פשוט יותר.</p>
-<h4>2. שכפול הפוך - רעיון ← רפרנס</h4>
-<p>קודם יש לנו רעיון שאנחנו רוצות לדבר עליו, ואז מחפשות רפרנס שהמנגנון שלו יכול להתאים לו. השכפול עצמו דומה מאוד בשתי השיטות. ההבדל העיקרי הוא מאיפה מתחילים.</p>
+    <div class="guide-tabs" role="tablist">
+      <button type="button" class="guide-tab" role="tab" aria-selected="true" data-panel="gp-reg">שכפול רגיל</button>
+      <button type="button" class="guide-tab" role="tab" aria-selected="false" data-panel="gp-rev">שכפול הפוך</button>
+      <button type="button" class="guide-tab" role="tab" aria-selected="false" data-panel="gp-last">לפני שמצלמים</button>
+    </div>
 
-<h3>חלק א׳ - שכפול רגיל</h3>
-<h4>שלב 1 - מוצאים רפרנס</h4>
-<p>נכנסים ל"המוח השיווקי" ← מאגר ההשראה, או גוללים ברשתות. בתור התחלה מומלץ לחפש רפרנסים מהתחום שלנו או מתחומים קרובים. למשל אם התחום הוא עיצוב גבות: גבות ← ריסים ← שיער ← תחומי ביוטי נוספים. בהמשך, כששולטים בשיטה, אפשר לשכפל גם מתחומים רחוקים.</p>
-<p><strong>לא כל רפרנס מתאים לנו.</strong> לפני שבוחרים סרטון, בודקים אם באמת יש לנו דרך לשכפל אותו. אם הסרטון מבוסס על תלמידה בגיל צעיר מאוד, נצטרך דוגמה מקבילה משלנו. אם אין - לא חייבים את הרפרנס הזה, ממשיכים לחפש. לא מנסים בכוח להתאים כל רפרנס לעסק שלנו.</p>
+    <div class="guide-body">
+      <div class="guide-panel" id="gp-reg" role="tabpanel">
+        <p class="guide-note">רפרנס ← רעיון. מוצאים רפרנס שאהבנו, ורק אחר כך משכפלים אותו לעולם שלנו. זה הסוג שמומלץ להתחיל ממנו.</p>
+      <details class="guide-step">
+        <summary><span class="guide-step__num">1</span>מוצאים רפרנס<span class="guide-step__chev">⌄</span></summary>
+        <div class="guide-step__body"><p>נכנסים ל"המוח השיווקי" ← מאגר ההשראה, או גוללים ברשתות.</p><p>בתור התחלה מחפשים מהתחום שלנו או מתחומים קרובים. למשל בעיצוב גבות: גבות ← ריסים ← שיער ← ביוטי בכלל. בהמשך, כששולטים בשיטה, אפשר גם מרחוק.</p><p class="guide-note">לא כל רפרנס מתאים לנו</p><p>אם הסרטון מבוסס על תלמידה בגיל צעיר מאוד, נצטרך דוגמה מקבילה משלנו. אין? לא חייבות את הרפרנס הזה. ממשיכות לחפש, ולא מנסות בכוח להתאים כל רפרנס לעסק שלנו.</p></div>
+      </details>
+      <details class="guide-step">
+        <summary><span class="guide-step__num">2</span>מורידים ומתמללים<span class="guide-step__chev">⌄</span></summary>
+        <div class="guide-step__body"><p>מורידות את הסרטון, מעלות ל-Gemini, ומבקשות:</p><p class="guide-say">"תתמלל לי מדויק, בלי לפספס שום דבר, בשפת המקור."</p><p>אם הסרטון בשפה אחרת, מתרגמות אחר כך.</p><p class="guide-note">התמלולים שבמאגר נועדו להבין במהירות על מה הסרטון, ולא להסתמך עליהם כתמלול מדויק.</p></div>
+      </details>
+      <details class="guide-step">
+        <summary><span class="guide-step__num">3</span>מבינים מה קורה ברפרנס<span class="guide-step__chev">⌄</span></summary>
+        <div class="guide-step__body"><p>לפני שרצות ל-ChatGPT, מפעילות היגיון: <strong>מה בעצם קורה בסרטון הזה?</strong></p><p>למשל: פותחת בנושא שמעצבן אותה ← נותנת דוגמה אישית ← מסבירה את העמדה שלה.</p><p>אם ברפרנס יש דוגמה אישית, נרצה רעיון שגם לנו יש לגביו דוגמה אישית. אם אין דרך לשכפל חלק מרכזי מהמנגנון, אולי זה פשוט לא הרפרנס הנכון.</p></div>
+      </details>
+      <details class="guide-step">
+        <summary><span class="guide-step__num">4</span>משכפלים קודם את הרעיון<span class="guide-step__chev">⌄</span></summary>
+        <div class="guide-step__body"><p>לא מתחילות משכפול כל התסריט. קודם לוקחות את משפט הפתיחה של הרפרנס וממירות אותו לעולם שלנו.</p><p class="guide-say">"התחום שלי זה ________, והקהל יעד שלי זה ________."</p><p>ואז מדביקות את הרעיון מהסרטון וכותבות:</p><p class="guide-say">"זה הרעיון שלי לסרטון. אני רוצה שתיתן לי עוד 30 רעיונות ממש חזקים, בדיוק באותו המבנה, אותו מנגנון 1:1, אותו אורך, רק רלוונטי לקהל היעד שלי."</p></div>
+      </details>
+      <details class="guide-step">
+        <summary><span class="guide-step__num">5</span>בוחרים את הרעיון הנכון<span class="guide-step__chev">⌄</span></summary>
+        <div class="guide-step__body"><p>לא בוחרות רעיון רק כי הוא נשמע טוב. שתי שאלות:</p><ol><li><strong>האם הוא באמת רלוונטי לקהל שאני רוצה למשוך?</strong> אם הקהל הוא שכירות ששוקלות להיכנס לביוטי, ורעיון מדבר למעצבות שכבר בתחום, הוא פחות מתאים.</li><li><strong>האם אוכל לשכפל גם את ההמשך?</strong> יש ברפרנס דוגמה אישית? צריכה להיות לי. יש סיפור? צריך להיות לי סיפור מתאים.</li></ol><p><strong>שיווק זה היגיון. לא משכפלים על עיוור.</strong></p></div>
+      </details>
+      <details class="guide-step">
+        <summary><span class="guide-step__num">6</span>מוסיפים את המידע האישי שלנו<span class="guide-step__chev">⌄</span></summary>
+        <div class="guide-step__body"><p>לפני שמבקשות לשכפל את כל התסריט, עוצרות ושואלות: <strong>איזה מידע הוא לא יכול לדעת לבד?</strong></p><p>למשל: "בגיל 21 נכנסתי לתחום כשהיו לי שתי ידיים שמאליות, ובכל זאת הצלחתי עם המון נשמה, רצון ותרגול."</p><p>לא מצפות מ-ChatGPT לדעת לבד את הדוגמאות, הסיפורים והחוויות שלנו.</p></div>
+      </details>
+      <details class="guide-step">
+        <summary><span class="guide-step__num">7</span>משכפלים את התסריט המלא<span class="guide-step__chev">⌄</span></summary>
+        <div class="guide-step__body"><p>מעתיקות את כל התסריט המקורי וכותבות:</p><p class="guide-say">"זה התסריט המקורי שאני רוצה שתשכפל לי אותו באותו מבנה, אותו אורך, אותו מנגנון 1:1, רק עם הרעיון והדגשים שלי. בול. תעשה שכפול מדויק באותו מבנה ובאותו האורך."</p><p>אחר כך "זה הרעיון שלי:" והרעיון שנבחר, ואחריו כל מה שצריך להיכנס: דוגמה אישית, סיפור, דעה.</p><p class="guide-note">אפשר להוסיף: "אם יהיה לך חסר מידע, תגיד לי."</p></div>
+      </details>
+      <details class="guide-step">
+        <summary><span class="guide-step__num">8</span>לא מקבלים אוטומטית את התוצאה<span class="guide-step__chev">⌄</span></summary>
+        <div class="guide-step__body"><p>זה שלב קריטי. ChatGPT יכול לכתוב עברית לא טבעית, לפספס את המבנה, לשנות טון, להפוך סרטון פרובוקטיבי לעדין, ולכתוב משפטים שלא היינו אומרות בחיים.</p><p>קוראות ובודקות מול הרפרנס. אם העברית לא טובה: <em>"שים לב, העברית לא נשמעת כמו שבאמת מדברים בעברית."</em> אם המבנה התרחק: <em>"שכפול מבנה לא מדויק."</em></p><p><strong>תמיד מקריאות את התסריט בקול.</strong> יש משפטים שעל הנייר נראים בסדר, וברגע שמקריאים מבינים שאף בן אדם לא מדבר ככה.</p></div>
+      </details>
+      <details class="guide-step">
+        <summary><span class="guide-step__num">9</span>בודקים את הביצוע והעריכה<span class="guide-step__chev">⌄</span></summary>
+        <div class="guide-step__body"><p>חוזרות לרפרנס ושואלות: <strong>איך הסרטון עצמו הונגש?</strong></p><p>אם רואים בו תהליך עיצוב גבות עם זוויות טובות ו-Voice Over, נעדיף לשכפל גם את פורמט ההנגשה. לא הופכות אוטומטית לדיבור למצלמה רק כי זה נוח לנו.</p><p>יכול להיות שמה שגרם לסרטון לעבוד הוא לא רק התסריט, אלא גם הדרך שבה הוא הונגש.</p></div>
+      </details>
+      <details class="guide-step guide-check">
+        <summary><span class="guide-step__num">✓</span>צ׳קליסט - שכפול רגיל<span class="guide-step__chev">⌄</span></summary>
+        <div class="guide-step__body"><ul><li>מוצאים רפרנס מתאים</li><li>מורידים ומתמללים אותו</li><li>מבינים את המנגנון שלו</li><li>לוקחים את משפט הפתיחה או הרעיון</li><li>מבקשים 30 רעיונות באותו מבנה לקהל שלנו</li><li>בוחרים רעיון שמתאים לקהל ושאפשר להשלים איתו את המנגנון</li><li>מוסיפים דוגמאות, סיפורים ומידע שהוא לא יכול לדעת</li><li>נותנים את כל התסריט המקורי + הרעיון + הדגשים</li><li>עוברים על התוצאה ומתקנים</li><li>מקריאים בקול</li><li>משכפלים גם את פורמט ההנגשה והביצוע</li><li>מצלמים</li></ul></div>
+      </details>
+      </div>
 
-<h4>שלב 2 - מורידים ומתמללים</h4>
-<ol>
-<li>מורידים את הסרטון.</li>
-<li>מעלים אותו ל-Gemini.</li>
-<li>מבקשים:</li>
-</ol>
-<p class="say">"תתמלל לי מדויק, בלי לפספס שום דבר, בשפת המקור."</p>
-<p>אם הסרטון בשפה אחרת, מתרגמים אותו אחר כך. שימו לב: כל עוד קיימת נורת האזהרה באפליקציה, התמלולים שבמאגר נועדו לעזור להבין במהירות על מה הסרטון, אבל לא מסתמכים עליהם כתמלול מדויק.</p>
+      <div class="guide-panel" id="gp-rev" role="tabpanel" hidden>
+        <p class="guide-note">רעיון ← רפרנס. יש לנו רעיון, ואז מחפשים רפרנס שהמנגנון שלו מתאים לו. דורש יותר עבודה.</p>
+      <details class="guide-step">
+        <summary><span class="guide-step__num">1</span>מתחילים מרעיון שלנו<span class="guide-step__chev">⌄</span></summary>
+        <div class="guide-step__body"><p>קודם כל יש משהו שאנחנו רוצות להגיד. למשל: לשרוף את הגשר שרק מאימוני כוח אפשר להשיג גוף חטוב.</p><p>עכשיו צריך למצוא מנגנון שכבר עבד ושאפשר להלביש עליו את הרעיון.</p></div>
+      </details>
+      <details class="guide-step">
+        <summary><span class="guide-step__num">2</span>נותנים לרעיון כותרת רחבה<span class="guide-step__chev">⌄</span></summary>
+        <div class="guide-step__body"><p>זו אחת הנקודות החשובות. <strong>לא מחפשות בטיקטוק את הרעיון הספציפי מילה במילה.</strong></p><p>אם נחפש "רק מאימוני כוח אפשר להשיג גוף חטוב ולא מפילאטיס", יהיה קשה מאוד למצוא רפרנס. במקום זה שואלות: <strong>תחת איזו כותרת גדולה הרעיון שלי נמצא?</strong></p><ul><li>טעות נפוצה בכושר</li><li>מיתוס נפוץ בכושר</li><li>אמונה מגבילה בכושר</li></ul><p>ואם רוצות לספר על תקופה קשה בצבא, לא מחפשות "סיפור אישי על התקופה הקשה שהייתה לי בצבא" אלא פשוט <strong>"סיפור אישי"</strong>.</p></div>
+      </details>
+      <details class="guide-step">
+        <summary><span class="guide-step__num">3</span>מחפשים רפרנס<span class="guide-step__chev">⌄</span></summary>
+        <div class="guide-step__body"><p>מחפשות את הכותרת הרחבה בטיקטוק, אינסטגרם או מאגר ההשראה. מומלץ בעברית, באנגלית, ברוסית ובכל שפה שאפשר לעבוד איתה.</p><p>הרפרנס לא חייב להיות מאותו תחום: אם הרעיון הוא לנפץ מיתוס על פילאטיס, סרטון של תזונאית שמנפצת מיתוס על מאכלים "לא בריאים" - הנושא שונה, <strong>אבל המנגנון מתאים</strong>.</p></div>
+      </details>
+      <details class="guide-step">
+        <summary><span class="guide-step__num">4</span>משכפלים קודם את ההוק<span class="guide-step__chev">⌄</span></summary>
+        <div class="guide-step__body"><p>גם כאן לא משכפלות ישר את כל התסריט. קודם ההוק.</p><p><strong>הוק לא תמיד שווה לשורה הראשונה.</strong> אם שלוש השורות הראשונות יוצרות יחד את הפתיחה ומסבירות את המנגנון, לוקחות את שלושתן.</p><p>המטרה היא לתת לו מספיק קונטקסט כדי שיבין מה הוא משכפל.</p></div>
+      </details>
+      <details class="guide-step">
+        <summary><span class="guide-step__num">5</span>נותנים לו את ההוק והרעיון<span class="guide-step__chev">⌄</span></summary>
+        <div class="guide-step__body"><p>כותבות מה התחום, מדביקות את ההוק המקורי, כותבות מה הרעיון, ומבקשות:</p><p class="guide-say">"תשכפל לי בול את המנגנון אחד לאחד, אותו אורך, אותו מבנה, רק בהתאם לרעיון שלי, שזה: ________. ותיתן לי 20 כיוונים."</p><p>שלושת הדברים שחשוב להדגיש: <strong>המנגנון אחד לאחד, אותו אורך, אותו מבנה</strong>.</p></div>
+      </details>
+      <details class="guide-step">
+        <summary><span class="guide-step__num">6</span>כותבים "מגילת אסתר"<span class="guide-step__chev">⌄</span></summary>
+        <div class="guide-step__body"><p>עדיין לא נותנות לו לכתוב לבד. קודם יושבות וכותבות בעצמן את כל מה שיש לנו להגיד. לא צריך לנסח יפה ולא לבנות תסריט.</p><ul><li>מה אני חושבת על הנושא? ולמה?</li><li>מה אני רוצה להסביר?</li><li>איזה ניסיון יש לי?</li><li>איזו דוגמה יש לי?</li><li>מה חשוב לי שהקהל יבין?</li></ul><p>המטרה היא שהוא לא יכניס לנו מילים לפה. אנחנו מביאות את התוכן והדעה, והוא מלביש אותם על המבנה של הרפרנס.</p></div>
+      </details>
+      <details class="guide-step">
+        <summary><span class="guide-step__num">7</span>משכפלים את התסריט<span class="guide-step__chev">⌄</span></summary>
+        <div class="guide-step__body"><p>עכשיו יש לנו שלושה דברים: התסריט המקורי, ההוק המשוכפל, ומגילת אסתר. נותנות לו את שלושתם:</p><p class="guide-say">"אני רוצה שתיקח את ההוק שלי לתוך התסריט המקורי, ותשתיל לתוך זה את הדעה שלי, אבל שיהיה משוכפל אחד לאחד, אותו אורך, אותו מבנה."</p><p>ומצרפות כל אחד מהשלושה בנפרד ומסומן.</p></div>
+      </details>
+      <details class="guide-step">
+        <summary><span class="guide-step__num">8</span>בודקים ומתקנים<span class="guide-step__chev">⌄</span></summary>
+        <div class="guide-step__body"><p>גם כאן לא הולכות על עיוור אחריו:</p><ul><li>האם השכפול באמת מדויק?</li><li>האם נשמר אותו מבנה והאורך דומה?</li><li>האם הוא הכניס את הדעה שלי, ולא המציא אחרת?</li><li>האם העברית נשמעת טבעית?</li><li>האם יש משפטים שלא הייתי אומרת?</li></ul><p>מתקנות עד שזה מרגיש נכון, ולבסוף <strong>מקריאות בקול</strong>.</p></div>
+      </details>
+      <details class="guide-step">
+        <summary><span class="guide-step__num">9</span>משכפלים גם את ההנגשה<span class="guide-step__chev">⌄</span></summary>
+        <div class="guide-step__body"><p>חוזרות לסרטון המקורי: <strong>איך הרעיון הונגש ויזואלית?</strong></p><p>אם ברפרנס מציגים מאכל שנתפס כבריא מול "לא בריא", ואנחנו משכפלות לפילאטיס: אימון כוח מול פילאטיס, תרגיל כוח מול תרגיל מקביל, אימון "מחטב" מול "סתם מתיחות".</p><p>כלומר לא משכפלות רק את המילים, אלא גם את איך הרעיון הוצג לצופה.</p></div>
+      </details>
+      <details class="guide-step guide-check">
+        <summary><span class="guide-step__num">✓</span>צ׳קליסט - שכפול הפוך<span class="guide-step__chev">⌄</span></summary>
+        <div class="guide-step__body"><ul><li>יש לי רעיון שאני רוצה לדבר עליו</li><li>אני נותנת לו כותרת רחבה או זווית הנגשה</li><li>מחפשת רפרנסים לפי הכותרת הרחבה, לא לפי הרעיון המדויק</li><li>מוצאת רפרנס שהמנגנון שלו מתאים</li><li>לוקחת את ההוק, משפט אחד או כמה</li><li>נותנת לו את ההוק + התחום + הרעיון</li><li>מבקשת: מנגנון אחד לאחד, אותו אורך, אותו מבנה, ו-20 כיוונים</li><li>בוחרת את ההוק שהכי מתאים</li><li>כותבת מגילת אסתר, כמה שיותר ספציפי, עם סיפור או דוגמאות</li><li>נותנת לו את התסריט המקורי + ההוק + מגילת אסתר</li><li>מבקשת שישתיל את הדעה שלי בשכפול אחד לאחד</li><li>עוברת, מתקנת ומקריאה בקול</li><li>משכפלת גם את ההנגשה והביצוע</li><li>מצלמים</li></ul></div>
+      </details>
+      </div>
 
-<h4>שלב 3 - מבינים מה קורה ברפרנס</h4>
-<p>לפני שרצים ל-ChatGPT, מפעילים היגיון ושואלים: מה בעצם קורה בסרטון הזה? למשל: מישהי פותחת בנושא שמעצבן אותה ← נותנת דוגמה אישית ← מסבירה את העמדה שלה. אם ברפרנס יש דוגמה אישית, נרצה רעיון שגם לנו יש לגביו דוגמה אישית. אם אין לנו דרך לשכפל חלק מרכזי מהמנגנון, יכול להיות שזה פשוט לא הרפרנס הנכון.</p>
-
-<h4>שלב 4 - משכפלים קודם את הרעיון</h4>
-<p>לא מתחילים ישר משכפול כל התסריט. קודם לוקחים את משפט הפתיחה או הרעיון של הרפרנס וממירים אותו לעולם שלנו. מה כותבים ל-ChatGPT:</p>
-<p class="say">"התחום שלי זה ________, והקהל יעד שלי זה ________."</p>
-<p>ואז מדביקים את הרעיון מהסרטון וכותבים:</p>
-<p class="say">"זה הרעיון שלי לסרטון. אני רוצה שתיתן לי עוד 30 רעיונות ממש חזקים, בדיוק באותו המבנה, אותו מנגנון 1:1, אותו אורך, רק רלוונטי לקהל היעד שלי."</p>
-<p>המטרה היא לקבל הרבה כיוונים ששומרים על אותו מבנה, אבל ממירים אותו לעולם שלנו.</p>
-
-<h4>שלב 5 - בוחרים את הרעיון הנכון</h4>
-<p>לא בוחרים רעיון רק כי הוא "נשמע טוב". עוברים על הכיוונים ובודקים: האם הרעיון באמת רלוונטי לקהל היעד שאנחנו רוצות למשוך? אם הקהל הוא שכירות ששוקלות להיכנס לביוטי, ורעיון מסוים מדבר בעיקר למעצבות גבות שכבר בתחום - הוא פחות מתאים, גם אם הוא טוב בפני עצמו.</p>
-<p>ובנוסף: האם אנחנו יכולות לשכפל גם את ההמשך? אם ברפרנס יש דוגמה אישית, מחפשות רעיון שיש לנו לגביו דוגמה אישית. אם יש סיפור, צריך להיות לנו סיפור מתאים. <strong>שיווק זה היגיון. לא משכפלים על עיוור.</strong></p>
-
-<h4>שלב 6 - מוסיפים את המידע האישי שלנו</h4>
-<p>לפני שמבקשים לשכפל את כל התסריט, עוצרים ושואלים: איזה מידע הוא לא יכול לדעת לבד? אם ברפרנס יש סיפור אישי ואנחנו רוצות סיפור משלנו, צריך לתת לו אותו. למשל: "בגיל 21 נכנסתי לתחום כשהיו לי שתי ידיים שמאליות, ובכל זאת הצלחתי עם המון נשמה, רצון ותרגול." לא מצפות מ-ChatGPT לדעת לבד את הדוגמאות, הסיפורים והחוויות שלנו.</p>
-
-<h4>שלב 7 - משכפלים את התסריט המלא</h4>
-<p>עכשיו מעתיקים ל-ChatGPT את כל התסריט המקורי וכותבים:</p>
-<p class="say">"זה התסריט המקורי שאני רוצה שתשכפל לי אותו באותו מבנה, אותו אורך, אותו מנגנון 1:1, רק עם הרעיון והדגשים שלי. בול. תעשה שכפול מדויק באותו מבנה ובאותו האורך."</p>
-<p>אחר כך מוסיפים "זה הרעיון שלי:" ומדביקים את הרעיון שנבחר, ואחריו את כל המידע שצריך להיכנס לתסריט: דוגמה אישית, סיפור, דעה או כל פרט רלוונטי. אפשר להוסיף: "אם יהיה לך חסר מידע, תגיד לי."</p>
-
-<h4>שלב 8 - לא מקבלים אוטומטית את התוצאה</h4>
-<p>זה שלב קריטי. ChatGPT יכול לכתוב עברית שלא נשמעת טבעית, לפספס את המבנה, לשנות את הטון, להפוך סרטון פרובוקטיבי לעדין, ולכתוב משפטים שלא היינו אומרות בחיים.</p>
-<p>לכן קוראים את התסריט ובודקים אותו מול הרפרנס. אם העברית לא טובה: "שים לב, העברית לא נשמעת כמו שבאמת מדברים בעברית." אם המבנה התרחק: "שכפול מבנה לא מדויק." וממשיכים לדייק עד שהתוצאה טובה.</p>
-<p><strong>תמיד מקריאים את התסריט בקול.</strong> יש משפטים שעל הנייר נראים בסדר, אבל ברגע שמקריאים אותם מבינים שאף בן אדם לא מדבר ככה.</p>
-
-<h4>שלב 9 - בודקים את הביצוע והעריכה</h4>
-<p>אחרי שיש תסריט מוגמר, חוזרים לרפרנס ושואלים: איך הסרטון עצמו הונגש? אם רואים בו תהליך עיצוב גבות עם זוויות צילום טובות ו-Voice Over, נעדיף לשכפל גם את פורמט ההנגשה הזה. לא הופכות אוטומטית לדיבור למצלמה רק כי זה נוח לנו. יכול להיות שמה שגרם לסרטון לעבוד הוא לא רק התסריט, אלא גם הדרך שבה הוא הונגש.</p>
-
-<h3>צ׳קליסט - שכפול רגיל</h3>
-<ol>
-<li>מוצאים רפרנס מתאים.</li>
-<li>מורידים ומתמללים אותו.</li>
-<li>מבינים את המנגנון שלו.</li>
-<li>לוקחים את משפט הפתיחה או הרעיון.</li>
-<li>מבקשים מ-ChatGPT 30 רעיונות באותו מבנה לקהל שלנו.</li>
-<li>בוחרים רעיון שבאמת מתאים לקהל ושאפשר להשלים איתו את המנגנון.</li>
-<li>מוסיפים דוגמאות, סיפורים ומידע אישי שהוא לא יכול לדעת.</li>
-<li>נותנים את כל התסריט המקורי + הרעיון + הדגשים, ומבקשים שכפול באותו מבנה ובאותו אורך.</li>
-<li>עוברים על התוצאה ומתקנים.</li>
-<li>מקריאים בקול.</li>
-<li>חוזרים לרפרנס ומשכפלים ככל האפשר גם את פורמט ההנגשה והביצוע.</li>
-<li>מצלמים.</li>
-</ol>
-
-<h3>חלק ב׳ - שכפול הפוך</h3>
-<p>כמעט אותו תהליך, רק מהכיוון ההפוך. במקום "מצאתי רפרנס, עכשיו אמצא רעיון", מתחילים מ"יש לי רעיון, עכשיו אני צריכה למצוא רפרנס שמתאים לו".</p>
-
-<h4>שלב 1 - מתחילים מרעיון שלנו</h4>
-<p>קודם כל יש משהו שאנחנו רוצות להגיד. למשל: לשרוף את הגשר שרק מאימוני כוח אפשר להשיג גוף חטוב. עכשיו צריך למצוא מנגנון שכבר עבד ושאפשר להלביש עליו את הרעיון.</p>
-
-<h4>שלב 2 - נותנים לרעיון כותרת רחבה</h4>
-<p>זו אחת הנקודות החשובות בשכפול הפוך. <strong>לא מחפשות בטיקטוק את הרעיון הספציפי מילה במילה.</strong> אם נחפש "רק מאימוני כוח אפשר להשיג גוף חטוב ולא מפילאטיס", יהיה קשה מאוד למצוא רפרנס.</p>
-<p>במקום זה שואלות: תחת איזו כותרת גדולה הרעיון שלי נמצא? בדוגמה הזאת: טעות נפוצה בכושר / מיתוס נפוץ בכושר / אמונה מגבילה בכושר. ואם רוצות לספר על תקופה קשה בצבא, לא מחפשות "סיפור אישי על התקופה הקשה שהייתה לי בצבא" אלא פשוט <strong>"סיפור אישי"</strong>. המטרה היא להרחיב את החיפוש כדי למצוא מנגנון מתאים, ולא סרטון שמדבר בדיוק על אותו דבר.</p>
-
-<h4>שלב 3 - מחפשים רפרנס</h4>
-<p>מחפשות את הכותרת הרחבה בטיקטוק, אינסטגרם או מאגר ההשראה. מומלץ לחפש בעברית, באנגלית, ברוסית ובכל שפה שאפשר לעבוד איתה. גוללות עד שמוצאות סרטון שהמנגנון שלו יכול להתלבש על הרעיון. הרפרנס לא חייב להיות מאותו תחום: אם הרעיון הוא לנפץ מיתוס על פילאטיס, סרטון של תזונאית שמנפצת מיתוס על מאכלים "לא בריאים" - הנושא שונה, אבל המנגנון מתאים.</p>
-
-<h4>שלב 4 - משכפלים קודם את ההוק</h4>
-<p>גם כאן לא משכפלות ישר את כל התסריט. קודם לוקחות את ההוק. <strong>הוק לא תמיד שווה לשורה הראשונה.</strong> לפעמים משפט אחד לא מספיק כדי להבין את הקונטקסט, ואם שלוש השורות הראשונות יוצרות יחד את הפתיחה ומסבירות את המנגנון - לוקחות את שלושתן. המטרה היא לתת ל-ChatGPT מספיק קונטקסט כדי שיבין מה הוא משכפל.</p>
-
-<h4>שלב 5 - נותנים לו את ההוק והרעיון</h4>
-<p>כותבות מה התחום שלנו, מדביקות את ההוק המקורי, כותבות מה הרעיון שלנו, ומבקשות:</p>
-<p class="say">"תשכפל לי בול את המנגנון אחד לאחד, אותו אורך, אותו מבנה, רק בהתאם לרעיון שלי, שזה: ________. ותיתן לי 20 כיוונים."</p>
-<p>שלושת הדברים שחשוב להדגיש: המנגנון אחד לאחד, אותו אורך, אותו מבנה. ואז עוברות על הכיוונים ובוחרות את ההוק שהכי מתאים.</p>
-
-<h4>שלב 6 - כותבים "מגילת אסתר"</h4>
-<p>עדיין לא נותנות לו לכתוב לבד את כל התסריט. קודם יושבות וכותבות בעצמן את כל מה שיש לנו להגיד על הנושא. לא צריך לנסח יפה ולא צריך לבנות תסריט, פשוט לכתוב את כל מה שיש בראש: מה אנחנו חושבות על הנושא? למה? מה רוצות להסביר? איזה ניסיון יש לנו? איזו דוגמה? מה חשוב שהקהל יבין?</p>
-<p>המטרה היא ש-ChatGPT לא יכניס לנו מילים לפה. אנחנו מביאות את התוכן והדעה, והוא עוזר להלביש אותם בתוך המבנה של הרפרנס.</p>
-
-<h4>שלב 7 - משכפלים את התסריט</h4>
-<p>עכשיו יש לנו שלושה דברים: התסריט המקורי, ההוק המשוכפל שלנו, ומגילת אסתר. נותנות לו את שלושתם ואומרות:</p>
-<p class="say">"אני רוצה שתיקח את ההוק שלי לתוך התסריט המקורי, ותשתיל לתוך זה את הדעה שלי, אבל שיהיה משוכפל אחד לאחד, אותו אורך, אותו מבנה."</p>
-<p>ומצרפות כל אחד מהשלושה בנפרד ומסומן: התסריט המקורי, ההוק שלי, וכל מה שאני רוצה להגיד.</p>
-
-<h4>שלב 8 - בודקים ומתקנים</h4>
-<p>גם כאן לא הולכות על עיוור אחריו. בודקות: האם השכפול באמת מדויק? האם נשמר אותו מבנה? האם האורך דומה? האם הוא הכניס את הדעה שלנו ולא המציא דעה אחרת? האם העברית נשמעת טבעית? האם יש משפטים שלא היינו אומרות? מתקנות עד שהתסריט מרגיש נכון, ולבסוף מקריאות בקול.</p>
-
-<h4>שלב 9 - משכפלים גם את ההנגשה</h4>
-<p>חוזרות לסרטון המקורי ושואלות: איך הרעיון הונגש ויזואלית? אם ברפרנס מציגים מאכל שנתפס כבריא מול מאכל שנתפס כ"לא בריא", ואנחנו משכפלות לפילאטיס, אפשר להציג אימון כוח מול פילאטיס, תרגיל כוח מול תרגיל מקביל, אימון שנתפס כ"מחטב" מול אימון שנתפס כ"סתם מתיחות". כלומר לא משכפלות רק את המילים, אלא גם את איך הרעיון הוצג לצופה.</p>
-
-<h3>צ׳קליסט - שכפול הפוך</h3>
-<ol>
-<li>יש לי רעיון שאני רוצה לדבר עליו.</li>
-<li>אני נותנת לרעיון כותרת רחבה או זווית הנגשה.</li>
-<li>אני מחפשת רפרנסים לפי הכותרת הרחבה, ולא לפי הרעיון המדויק שלי.</li>
-<li>אני מוצאת רפרנס שהמנגנון שלו מתאים לרעיון.</li>
-<li>אני לוקחת את ההוק - משפט אחד או כמה, לפי הצורך.</li>
-<li>אני נותנת ל-ChatGPT את ההוק + התחום שלי + הרעיון שלי.</li>
-<li>אני מבקשת: המנגנון אחד לאחד, אותו אורך, אותו מבנה, ו-20 כיוונים.</li>
-<li>אני בוחרת את ההוק שהכי מתאים.</li>
-<li>אני כותבת "מגילת אסתר" עם כל מה שיש לי להגיד, כמה שיותר ספציפי, עם סיפור או דוגמאות.</li>
-<li>אני נותנת לו את התסריט המקורי + ההוק שלי + מגילת אסתר.</li>
-<li>אני מבקשת שישתיל את הדעה שלי בתוך התסריט המקורי בשכפול אחד לאחד, אותו אורך ואותו מבנה.</li>
-<li>אני עוברת על התוצאה, מתקנת ומקריאה בקול.</li>
-<li>אני חוזרת לרפרנס ומשכפלת ככל האפשר גם את ההנגשה והביצוע.</li>
-<li>מצלמים.</li>
-</ol>
-
-<h3>רגע לפני שמצלמים - בדיקה אחרונה</h3>
-<ul>
-<li>הרפרנס באמת מתאים לרעיון שלי.</li>
-<li>אני מבינה מה המנגנון של הסרטון, ולא משכפלת על עיוור.</li>
-<li>ההוק שלי משכפל את אותו מנגנון.</li>
-<li>התסריט שלי בנוי באותו מבנה ובאורך דומה.</li>
-<li>הכנסתי את הדעה, הדוגמאות והסיפורים שלי.</li>
-<li>ChatGPT לא המציא לי מידע ולא הכניס לי מילים לפה.</li>
-<li>העברית נשמעת כמו עברית שבאמת מדברים.</li>
-<li>הקראתי את התסריט בקול.</li>
-<li>בדקתי איך הרפרנס הונגש ויזואלית.</li>
-<li>אני יודעת איך אני הולכת לצלם ולערוך אותו.</li>
-</ul>
-
-<h3>הדבר הכי חשוב לזכור</h3>
-<p><strong>ChatGPT הוא כלי שעוזר לנו בשכפול. הוא לא מחליף את ההיגיון שלנו.</strong> לא מעתיקות אוטומטית כל דבר שהוא מוציא. מסתכלות על הרפרנס, מסתכלות על התוצאה ושואלות: האם זה באמת אותו מנגנון? האם זה באמת מתאים לקהל שלי? האם זה נשמע כמוני? האם זה הגיוני?</p>
-<p>כרגע המטרה היא ללמוד את הטכניקה ולפתח הבנה שיווקית חזקה, ולכן בתחילת הדרך נצמדות יותר לרפרנסים - בטקסט, במבנה, באורך וגם בביצוע. ככל שהמיומנות וההבנה יתחזקו, אפשר יהיה להיות גמישות יותר, לשחק עם המבנים ולהביא יותר יצירתיות לתוכן.</p>
+      <div class="guide-panel" id="gp-last" role="tabpanel" hidden>
+        <p class="guide-note">שתי הדרכים נגמרות כאן.</p>
+      <details class="guide-step guide-check">
+        <summary><span class="guide-step__num">✓</span>רגע לפני שמצלמים<span class="guide-step__chev">⌄</span></summary>
+        <div class="guide-step__body"><ul><li>הרפרנס באמת מתאים לרעיון שלי</li><li>אני מבינה מה המנגנון, ולא משכפלת על עיוור</li><li>ההוק שלי משכפל את אותו מנגנון</li><li>התסריט בנוי באותו מבנה ובאורך דומה</li><li>הכנסתי את הדעה, הדוגמאות והסיפורים שלי</li><li>ChatGPT לא המציא מידע ולא הכניס לי מילים לפה</li><li>העברית נשמעת כמו עברית שבאמת מדברים</li><li>הקראתי את התסריט בקול</li><li>בדקתי איך הרפרנס הונגש ויזואלית</li><li>אני יודעת איך אני הולכת לצלם ולערוך</li></ul></div>
+      </details>
+      <details class="guide-step">
+        <summary><span class="guide-step__num">!</span>הדבר הכי חשוב לזכור<span class="guide-step__chev">⌄</span></summary>
+        <div class="guide-step__body"><p><strong>ChatGPT הוא כלי שעוזר לנו בשכפול. הוא לא מחליף את ההיגיון שלנו.</strong></p><p>לא מעתיקות אוטומטית כל דבר שהוא מוציא. מסתכלות על הרפרנס, על התוצאה, ושואלות: האם זה באמת אותו מנגנון? האם זה מתאים לקהל שלי? האם זה נשמע כמוני? האם זה הגיוני?</p><p>בתחילת הדרך נצמדות יותר לרפרנס, בטקסט, במבנה, באורך ובביצוע. ככל שהמיומנות תתחזק אפשר להיות גמישות יותר ולהביא יותר יצירתיות.</p></div>
+      </details>
+      </div>
+    </div>
   </div>
 </div>
 
   <script>
-    /* 26/10/2026 (מאיה): "הכל בפופאפ מסודר". סגירה בלחיצה על הרקע,
-       ב-Escape ובכפתור, והגלילה של הדף ננעלת כל עוד הוא פתוח - אחרת
-       בטלפון גוללים את העמוד שמאחורי הפופאפ במקום את התוכן שבו. */
+    /* 26/10/2026: פופאפ המדריך. סגירה בכפתור, ברקע וב-Escape, נעילת
+       גלילת הדף, ולשוניות - כי שכפול רגיל והפוך הם שני מסלולים ואף
+       אחת לא צריכה את שניהם באותו רגע. */
     (function () {
       var openBtns = document.querySelectorAll('[data-guide]');
       if (!openBtns.length) return;
@@ -1084,10 +1153,6 @@
         document.body.style.overflow = '';
         if (lastFocus) { lastFocus.focus(); lastFocus = null; }
       }
-      function closeAny() {
-        var open = document.querySelector('.guide-modal:not([hidden])');
-        if (open) close(open);
-      }
 
       openBtns.forEach(function (btn) {
         btn.addEventListener('click', function () {
@@ -1096,7 +1161,8 @@
           lastFocus = btn;
           modal.hidden = false;
           document.body.style.overflow = 'hidden';
-          modal.querySelector('.guide-modal__box').scrollTop = 0;
+          var body = modal.querySelector('.guide-body');
+          if (body) body.scrollTop = 0;
           var closeBtn = modal.querySelector('[data-guide-close]');
           if (closeBtn) closeBtn.focus();
         });
@@ -1108,10 +1174,28 @@
         });
         var closeBtn = modal.querySelector('[data-guide-close]');
         if (closeBtn) closeBtn.addEventListener('click', function () { close(modal); });
+
+        var tabs = modal.querySelectorAll('.guide-tab');
+        tabs.forEach(function (tab) {
+          tab.addEventListener('click', function () {
+            tabs.forEach(function (t) {
+              var panel = modal.querySelector('#' + t.getAttribute('data-panel'));
+              var on = t === tab;
+              t.setAttribute('aria-selected', on ? 'true' : 'false');
+              if (panel) panel.hidden = !on;
+            });
+            /* שלב פתוח מלשונית קודמת לא נשאר פתוח מתחת לחדשה */
+            modal.querySelectorAll('.guide-step[open]').forEach(function (d) { d.open = false; });
+            var body = modal.querySelector('.guide-body');
+            if (body) body.scrollTop = 0;
+          });
+        });
       });
 
       document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeAny();
+        if (e.key !== 'Escape') return;
+        var open = document.querySelector('.guide-modal:not([hidden])');
+        if (open) close(open);
       });
     }());
   </script>
