@@ -627,6 +627,16 @@
     position: relative;
   }
   .check-item input:hover, .check-item-inline input:hover { border-color: var(--gold); }
+  /* 02/11/2026 (מאיה: "תוסיפי לסעיף ה-1 בהדגשה אולי צהובה אחרת של צ'קליסט").
+     שאלות על התוכנית כולה, ולא עוד סוג תוכן, ולכן הן נראות אחרת מהשאר. */
+  .check-item--key {
+    background: rgba(236, 207, 143, 0.14);
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    padding: 0.6rem 0.75rem;
+    color: var(--gold-soft);
+    font-weight: 700;
+  }
   .check-item input:checked, .check-item-inline input:checked {
     background: var(--gold);
     border-color: var(--gold);
@@ -979,6 +989,7 @@
         <div class="details-body">
           <p>לפני שסוגרים את התוכנית, עוברים עליה פעם אחת ובודקים שיש בה גיוון מתוך התכנים החשובים:</p>
       <div class="check-list">
+        <label class="check-item check-item--key"><input type="checkbox"><span>האם 80% מהתכנית מכוונת לקהל היעד העיקרי?</span></label>
         <label class="check-item"><input type="checkbox"><span>תוכן שלכם בזמן אמת, בלייב, בזמן נתינת השירות</span></label>
         <label class="check-item"><input type="checkbox"><span>ניפוץ אמונות מגבילות / פחדים / מיתוסים</span></label>
         <label class="check-item"><input type="checkbox"><span>שריפת גשרים לפתרונות אחרים</span></label>
@@ -987,6 +998,7 @@
         <label class="check-item"><input type="checkbox"><span>תוכן אישי / אג'נדות אישיות / מי אתם מעבר לעסק</span></label>
         <label class="check-item"><input type="checkbox"><span>בעיות, כאבים, תסכולים ושאלות נפוצות של הקהל</span></label>
         <label class="check-item"><input type="checkbox"><span>תוכן על סלבס / אקטואליה בהקשר לתחום</span></label>
+        <label class="check-item check-item--key"><input type="checkbox"><span>האם יש פורמט תוכן חוזר?</span></label>
       </div>
       <p><strong>לא חייבים וי על הכול.</strong> <a href="#" onclick="mkOpenModal('persuasion-modal'); return false;">ולהעמקה: שלושת שלבי השכנוע ←</a></p>
       <p>זיהיתם חוסר משמעותי? לא בונים מחדש, <strong>מחליפים רעיון אחד או שניים</strong>.</p>
