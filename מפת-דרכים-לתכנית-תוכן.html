@@ -941,10 +941,34 @@
         </div>
       </details>
       <div class="stem"></div>
+      <!-- 08/11/2026 (מאיה: "צריך להחליף בין שלב 2 ל-3 לפי ההיגיון"): החלוקה לסוגי תוכן עלתה לפני בנק הרעיונות,
+         כדי שאוספים לפיה ולא מגלים בבחירה שאין אף רעיון מכירתי. הבחירה הסופית נשארה אחרי הבנק. -->
       <details class="pill shared">
-        <summary>שלב 2 — בונים בנק רעיונות לחודש<span class="step-time">כ-40 דק’</span><span class="chevron">⌄</span></summary>
+        <summary>שלב 2 — מחלקים לפי סוגי תוכן<span class="step-time">כ-5 דק’</span><span class="chevron">⌄</span></summary>
+        <div class="details-body">
+          <p>לפני שאוספים רעיונות, יודעים כמה צריך מכל סוג.</p>
+      <p><strong>חלוקת סוגי התוכן</strong> (מה התוכן עושה, לא איך השגתם אותו):</p><p>שומרים בערך על: <strong>50% ערך | 30% אישי | 20% מכירתי</strong></p>
+      <p>לדוגמה, מתוך 16 תכנים: <strong>8 ערך | 5 אישי | 3 מכירתי</strong></p><div class="check-list"><div class="cat-def"><strong>ערך</strong> — בונה סמכות. בעיות הקהל, ניפוץ מיתוסים, ביקורת, שריפת גשרים, טעויות נפוצות, שאלות נפוצות, אג’נדות עסקיות. <em>אם אין בו משהו שאפשר לקחת, זה לא ערך.</em></div><div class="cat-def"><strong>אישי</strong> — יוצר אמון וחיבור. הדרך והסיפור שלכם, הערכים, אתגרים שעברתם, תובנות מהיום-יום, זוגיות ומשפחה. <em>קשה למצוא? <a href="#faq-personal">תשע נקודות התחלה כאן</a>.</em></div><div class="cat-def"><strong>מכירתי</strong> — מגדיל מכירות, תמיד עם קריאה לפעולה. המוצר או השירות, סיפורי הצלחה, עדויות, הוכחת תוצאה. <em>הקטגוריה שתמיד נשארת ריקה. גם "מה כלול אצלי" נחשב.</em></div></div>
+
+      <div class="calc-box">
+        <div class="calc-title">מחשבון חלוקת תכנים</div>
+        <label class="calc-label" for="calc-total">כמה תכנים בסה"כ בתוכנית שלכם?</label>
+        <input id="calc-total" class="calc-input" type="number" min="0" step="1" placeholder="לדוגמה: 16" oninput="mkContentCalc(this.value)">
+        <div class="calc-results" id="calc-results">
+          <div class="calc-row"><span class="calc-dot" style="background:var(--gold)"></span><span>תוכן בעל ערך (50%)</span><strong id="calc-value">-</strong></div>
+          <div class="calc-row"><span class="calc-dot" style="background:var(--path-a)"></span><span>תוכן אישי (30%)</span><strong id="calc-personal">-</strong></div>
+          <div class="calc-row"><span class="calc-dot" style="background:var(--path-c)"></span><span>תוכן מכירתי (20%)</span><strong id="calc-sales">-</strong></div>
+        </div>
+        <div class="calc-asterisk">* לא חייבים להגיע לחלוקה מדויקת. המטרה היא לשמור על איזון.</div>
+      </div>
+        </div>
+      </details>
+      <div class="stem"></div>
+      <details class="pill shared">
+        <summary>שלב 3 — בונים בנק רעיונות לחודש<span class="step-time">כ-40 דק’</span><span class="chevron">⌄</span></summary>
         <div class="details-body">
           <p>עוד לא בוחרים את ה-16 הסופיים.</p>
+      <p>אוספים לפי החלוקה משלב 2, כדי שבבנק יהיו רעיונות מכל סוג, <strong>גם מכירתי</strong>.</p>
       <p>אוספים יותר ממה שצריך, כדי שיהיה ממה לבחור. <strong>ל-16 תכנים, 24 עד 30 רעיונות.</strong> הגעתם ל-30? עוצרים.</p><p><strong>תמהיל המקורות</strong>, כלומר איך משיגים אותם:</p>
       <p><strong>שכפול, כ-30%</strong><br>מנגנון של סרטון מצליח של מישהו אחר, או וריאציה חדשה לתוכן <strong>שלכם</strong> שכבר עבד.</p>
       <p><strong>תוכן מ-0 ובלייב, כ-70%</strong></p>
@@ -962,30 +986,15 @@
       </details>
       <div class="stem"></div>
       <details class="pill shared">
-        <summary>שלב 3 — עכשיו בונים את התוכנית הסופית<span class="step-time">כ-20 דק’</span><span class="chevron">⌄</span></summary>
+        <summary>שלב 4 — עכשיו בונים את התוכנית הסופית<span class="step-time">כ-15 דק’</span><span class="chevron">⌄</span></summary>
         <div class="details-body">
-          <p>רק עכשיו בוחרים מתוך בנק הרעיונות את התכנים שבאמת ייכנסו לחודש.</p>
-      <p><strong>חלוקת סוגי התוכן</strong> (מה התוכן עושה, לא איך השגתן אותו):</p><p>שומרים בערך על: <strong>50% ערך | 30% אישי | 20% מכירתי</strong></p>
-      <p>לדוגמה, מתוך 16 תכנים: <strong>8 ערך | 5 אישי | 3 מכירתי</strong></p><div class="check-list"><div class="cat-def"><strong>ערך</strong> — בונה סמכות. בעיות הקהל, ניפוץ מיתוסים, ביקורת, שריפת גשרים, טעויות נפוצות, שאלות נפוצות, אג’נדות עסקיות. <em>אם אין בו משהו שאפשר לקחת, זה לא ערך.</em></div><div class="cat-def"><strong>אישי</strong> — יוצר אמון וחיבור. הדרך והסיפור שלכם, הערכים, אתגרים שעברתם, תובנות מהיום-יום, זוגיות ומשפחה. <em>קשה למצוא? <a href="#faq-personal">תשע נקודות התחלה כאן</a>.</em></div><div class="cat-def"><strong>מכירתי</strong> — מגדיל מכירות, תמיד עם קריאה לפעולה. המוצר או השירות, סיפורי הצלחה, עדויות, הוכחת תוצאה. <em>הקטגוריה שתמיד נשארת ריקה. גם "מה כלול אצלי" נחשב.</em></div></div>
-
-      <div class="calc-box">
-        <div class="calc-title">מחשבון חלוקת תכנים</div>
-        <label class="calc-label" for="calc-total">כמה תכנים בסה"כ בתוכנית שלכם?</label>
-        <input id="calc-total" class="calc-input" type="number" min="0" step="1" placeholder="לדוגמה: 16" oninput="mkContentCalc(this.value)">
-        <div class="calc-results" id="calc-results">
-          <div class="calc-row"><span class="calc-dot" style="background:var(--gold)"></span><span>תוכן בעל ערך (50%)</span><strong id="calc-value">-</strong></div>
-          <div class="calc-row"><span class="calc-dot" style="background:var(--path-a)"></span><span>תוכן אישי (30%)</span><strong id="calc-personal">-</strong></div>
-          <div class="calc-row"><span class="calc-dot" style="background:var(--path-c)"></span><span>תוכן מכירתי (20%)</span><strong id="calc-sales">-</strong></div>
-        </div>
-        <div class="calc-asterisk">* לא חייבים להגיע לחלוקה מדויקת. המטרה היא לשמור על איזון.</div>
-      </div>
-
-
+          <p>רק עכשיו בוחרים מתוך בנק הרעיונות את התכנים שבאמת ייכנסו לחודש, לפי החלוקה משלב 2.</p>
+      <p>לדוגמה, מתוך 16 תכנים: <strong>8 ערך | 5 אישי | 3 מכירתי</strong></p>
         </div>
       </details>
       <div class="stem"></div>
       <details class="pill shared">
-        <summary>שלב 4 — בדיקה אחרונה: חסר לנו משהו חשוב?<span class="step-time">כ-10 דק’</span><span class="chevron">⌄</span></summary>
+        <summary>שלב 5 — בדיקה אחרונה: חסר לנו משהו חשוב?<span class="step-time">כ-10 דק’</span><span class="chevron">⌄</span></summary>
         <div class="details-body">
           <p>לפני שסוגרים את התוכנית, עוברים עליה פעם אחת ובודקים שיש בה גיוון מתוך התכנים החשובים:</p>
       <div class="check-list">
@@ -1007,7 +1016,7 @@
       </details>
       <div class="stem"></div>
       <details class="pill shared">
-        <summary>שלב 5 — משאירים מקום לספונטניות<span class="step-time">לקריאה</span><span class="chevron">⌄</span></summary>
+        <summary>שלב 6 — משאירים מקום לספונטניות<span class="step-time">לקריאה</span><span class="chevron">⌄</span></summary>
         <div class="details-body">
           <p>התוכנית היא הבסיס שלכם, אבל לא חייבים להיצמד אליה ב-100%.</p>
       <p>במהלך החודש אפשר להוסיף או להחליף תוכן בעקבות:</p>
@@ -1024,7 +1033,7 @@
       </details>
       <div class="stem"></div>
       <details class="pill go">
-        <summary>שלב 6 — מנתחים ומשכפלים<span class="step-time">סוף החודש</span><span class="chevron">⌄</span></summary>
+        <summary>שלב 7 — מנתחים ומשכפלים<span class="step-time">סוף החודש</span><span class="chevron">⌄</span></summary>
         <div class="details-body">
           <p>בסוף החודש עוצרים ובודקים מה עבד.</p>
       <p>תכנים שעבדו טוב, <strong>משכפלים בחודש הבא.</strong> אפשר לשכפל את הרעיון, ההוק, המבנה, הפורמט או ליצור חלק נוסף.</p>
